@@ -16,8 +16,8 @@ npm run build    # type-check + production build
 
 | File | Role |
 | --- | --- |
-| `src/data/bodyParts.ts` | Placeholder body made of primitives. Meshes are named `lats_L`, `abs_C`, etc., one part per muscle per side |
-| `src/data/muscles.ts` | The 28 muscles, the 9 drill-down `GROUPS`, and `muscleFromMeshName()` (mesh name -> muscle id) |
+| `src/data/bodyParts.ts` | Placeholder body made of primitives. Meshes are named `obliques_L`, `abs_C`, etc., one part per muscle per side |
+| `src/data/muscles.ts` | The muscles, their fixed ID map codes (`MUSCLE_CODES`), the drill-down `GROUPS`, and `muscleFromMeshName()` (mesh name -> muscle id) |
 | `src/data/exercises.ts` | Mock exercises, each with a `muscles` map of muscle -> intensity (0-1). Replace with an API call later |
 | `src/idMap.ts` | GLB muscle ID map: lookup by UV, texel position bake, fill / assign, undo, PNG load/save |
 | `src/lasso.ts` | Lasso drawing and picking the visible texels inside it |
@@ -39,21 +39,16 @@ Click behaviour worth knowing:
 
 ## Muscles
 
-Named the way lifters split them, not full anatomy. Small or deep muscles are folded into a neighbour (rhomboids into mid/lower traps, brachioradialis into the forearm extensors, hip abductors into glute med/min); neck, rotator cuff, tibialis and the like aren't tracked.
-
 | Group | Parts |
 | --- | --- |
-| Chest | upper, mid & lower |
-| Shoulders | front, side, rear delts |
-| Traps | upper, mid & lower |
-| Triceps | long head, lateral & medial heads |
-| Biceps | biceps brachii, brachialis |
-| Forearms | flexors, extensors |
-| Quads | rectus femoris, outer, inner |
-| Glutes | max, med & min |
-| Calves | gastrocnemius, soleus |
+| Shoulders | anterior, lateral, posterior deltoid |
+| Triceps | long, lateral, medial head |
+| Chest | clavicular head, sternal head, serratus anterior |
+| Core | abs, obliques |
+| Back | upper, middle, lower trapezius; infraspinatus & teres minor; latissimus dorsi & teres major |
+| Bicep, Forearm, Quadriceps, Adductors, Abductors, Hamstring, Calves, Glutes | WIP: one whole-area muscle each, no parts yet |
 
-Single muscles: lats, abs, obliques, lower back, hamstrings, adductors, hip flexors, serratus.
+WIP areas work like any single muscle (tag, select, heatmap) until they're split; see the comment at the top of `muscles.ts` for how to split one without losing its tags. Exercise data still names their old muscles (`PendingMuscle` in `exercises.ts`); those values are ignored for now, and exercises with no other primary muscle (squats, rows, calf raises...) are left out until the groups get parts. Saved plans keep them; they reappear once they load again.
 
 ## Muscle intensities
 
@@ -61,11 +56,11 @@ Every exercise lists all the muscles it works, each with an intensity from just 
 
 ```ts
 ex('Barbell Bench Press', 'Barbell', I, {
-  pec_lower: 1,
-  pec_upper: 0.6,
+  pec_sternal: 1,
+  pec_clavicular: 0.6,
   triceps_lateral: 0.5,
   triceps_long: 0.3,
-  delt_front: 0.5,
+  delt_anterior: 0.5,
 })
 ```
 
@@ -109,13 +104,13 @@ Anything that resolves to neither behaves like skin: it blocks the raycast and t
 
 Click **Tag** (visible while the GLB is on), pick a muscle, then use a tool:
 
-- **Lasso** (default): draw a loop round an area; every texel of the model that's inside it *and visible from the camera* is tagged (`src/lasso.ts`). Each texel's model-space position is baked once by rendering the mesh flattened into UV space; on release, positions are projected to the screen, tested against the loop (rasterised to a mask) and against a depth pass from the current camera, so the far side of the body or a muscle behind an arm isn't tagged. While lassoing, orbit with right-drag or two fingers and pan with Ctrl/Cmd + left-drag (pan is only enabled in lasso mode; leaving it recentres the view). Scrolling zooms toward the cursor, down to 0.4 units from the body (2.5 for the placeholder). **Reset** in the view controls restores the starting camera at any time.
+- **Lasso** (default): draw a loop round an area; every texel of the model that's inside it *and visible from the camera* is tagged (`src/lasso.ts`). Each texel's model-space position is baked once by rendering the mesh flattened into UV space; on release, positions are projected to the screen, tested against the loop (rasterised to a mask) and against a depth pass from the current camera, so the far side of the body or a muscle behind an arm isn't tagged. While lassoing, orbit with right-drag or two fingers and pan with Ctrl/Cmd + left-drag (pan works with every tag tool but only in tag mode; leaving it recentres the view). In tag mode scrolling zooms toward the cursor, down to 0.4 units from the body (2.5 for the placeholder). **Reset** in the view controls restores the starting camera at any time.
 - **Fill**: tap a colour patch; flood-fills texels of similar colour (within **Tolerance**), stopping `FILL_REACH` (12% of the model's height, in 3D) from the tapped point, since UV islands from distant body parts can sit next to each other in the texture.
 - **Erase**: a lasso that untags.
 
 Right-click (without dragging) picks the muscle already tagged there. **Undo** (or Ctrl/Cmd+Z) keeps the last 20 steps. Gutter texels bordering a tagged area are tagged with it, so nearest sampling at island edges doesn't show seams.
 
-Work in progress autosaves to `localStorage` (and wins over the file). **Download PNG** and save it as `public/models/body-ids.png` so other browsers and phones get it. The muscle code is in the red channel; green/blue are just for viewing. Codes are positions in `MUSCLE_IDS`, so reordering that list scrambles saved maps (append instead; drafts from the old 42-muscle list are translated on load, see `V1_MUSCLES`), and the PNG must match the texture's size (re-exporting the model with a new texture layout means re-tagging).
+Work in progress autosaves to `localStorage` (and wins over the file). **Download PNG** saves `body-ids-<muscle_id>.png`, named after the muscle last tagged so a series of saves is easy to tell apart; save the one to ship as `public/models/body-ids.png` so other browsers and phones get it. Each PNG holds every tag so far, not just that muscle. **Download all** saves `body-ids.png` (every tag, ready to ship) plus a `mask-<muscle_id>.png` per tagged muscle holding only that muscle; the browser may ask once to allow multiple downloads. The muscle code is in the red channel; green/blue are just for viewing. Codes are fixed per muscle (`MUSCLE_CODES`), so muscles can be added, renamed or removed without scrambling saved maps. A removed muscle's code goes in `RETIRED_CODES`: its texels stay in the map, untagged, until a new part reuses the code (only reuse one for the same area). Drafts from the original 42-muscle list are translated on load (`V1_CODES`). The PNG must match the texture's size (re-exporting the model with a new texture layout means re-tagging).
 
 ## Next
 

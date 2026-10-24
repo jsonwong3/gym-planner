@@ -20,6 +20,15 @@ const BY_REGION = MUSCLE_IDS.reduce<Array<{ region: Region; muscles: MuscleId[] 
   return acc
 }, [])
 
+function save(blob: Blob, filename: string) {
+  const url = URL.createObjectURL(blob)
+  const a = document.createElement('a')
+  a.href = url
+  a.download = filename
+  a.click()
+  URL.revokeObjectURL(url)
+}
+
 /**
  * Tools for painting the GLB's muscle ID map: pick a muscle, tap its colour
  * patches on the model. The result is downloaded as a PNG and dropped into
@@ -62,12 +71,19 @@ export default function TagPanel() {
 
   const download = async () => {
     if (!idMap) return
-    const url = URL.createObjectURL(await idMap.toPng())
-    const a = document.createElement('a')
-    a.href = url
-    a.download = 'body-ids.png'
-    a.click()
-    URL.revokeObjectURL(url)
+    // Named after the muscle just tagged, so a series of saves is easy to tell apart.
+    save(await idMap.toPng(), `body-ids-${idMap.lastTagged ?? tagMuscle}.png`)
+  }
+
+  /** The combined map, ready to ship, plus each tagged muscle's mask on its own. */
+  const downloadAll = async () => {
+    if (!idMap || !counts) return
+    save(await idMap.toPng(), 'body-ids.png')
+    for (const m of MUSCLE_IDS.filter((m) => counts[codeOf(m)] > 0)) {
+      // Chrome drops downloads fired back to back, so space them out.
+      await new Promise((r) => setTimeout(r, 250))
+      save(await idMap.toPng(m), `mask-${m}.png`)
+    }
   }
 
   return (
@@ -139,10 +155,21 @@ export default function TagPanel() {
           Download PNG
         </button>
       </div>
+      <div className="tag-row">
+        <button
+          className="tag-btn"
+          disabled={!tagged}
+          onClick={downloadAll}
+          title="body-ids.png (every tag, ready for public/models) plus a mask-<muscle>.png per tagged muscle"
+        >
+          Download all
+        </button>
+      </div>
 
       <p className="tag-help">
         Lasso tags only what's visible inside the loop. Right-drag rotates, Ctrl-drag moves, scroll zooms (two fingers on
-        touch). Work is kept in this browser; to ship it, save the PNG as <code>public/models/body-ids.png</code>.
+        touch). Work is kept in this browser. Downloads are named after the muscle you last tagged; to ship one, save
+        it as <code>public/models/body-ids.png</code>.
       </p>
     </div>
   )

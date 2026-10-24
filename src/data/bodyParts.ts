@@ -28,61 +28,49 @@ const sphere = (radius: number): Shape => ({ kind: 'sphere', radius })
 const capsule = (radius: number, length: number): Shape => ({ kind: 'capsule', radius, length })
 
 /**
- * One part per muscle (per side), so mesh names stay unique. Muscles that
- * absorb smaller ones (mid/lower traps take in the rhomboids, forearm
- * extensors the brachioradialis) are sized to cover both areas.
+ * One part per muscle (per side), so mesh names stay unique. Areas that are
+ * still WIP (back, forearm, legs...) are one rough shape for the whole area.
  */
 const PARTS: Part[] = [
-  // Chest
-  { muscle: 'pec_upper', shape: sphere(0.1), position: [0.14, 1.29, 0.12], scale: [1.3, 0.5, 0.5], mirror: true },
-  { muscle: 'pec_lower', shape: sphere(0.13), position: [0.14, 1.15, 0.135], scale: [1.15, 0.7, 0.5], mirror: true },
-  { muscle: 'serratus', shape: sphere(0.07), position: [0.27, 1.02, 0.05], scale: [0.6, 1.3, 0.8], mirror: true },
+  // Chest: clavicular head on top, sternal head below it, serratus anterior on the side of the ribs
+  { muscle: 'pec_clavicular', shape: sphere(0.1), position: [0.14, 1.29, 0.12], scale: [1.3, 0.5, 0.5], mirror: true },
+  { muscle: 'pec_sternal', shape: sphere(0.13), position: [0.14, 1.15, 0.135], scale: [1.15, 0.7, 0.5], mirror: true },
+  { muscle: 'serratus_anterior', shape: sphere(0.07), position: [0.27, 1.02, 0.05], scale: [0.6, 1.3, 0.8], mirror: true },
 
   // Shoulders: three delt heads around one centre
-  { muscle: 'delt_front', shape: sphere(0.075), position: [0.375, 1.28, 0.06], scale: [0.95, 1.4, 0.85], mirror: true },
-  { muscle: 'delt_side', shape: sphere(0.072), position: [0.43, 1.285, 0], scale: [0.8, 1.4, 0.95], mirror: true },
-  { muscle: 'delt_rear', shape: sphere(0.075), position: [0.375, 1.28, -0.06], scale: [0.95, 1.4, 0.85], mirror: true },
+  { muscle: 'delt_anterior', shape: sphere(0.075), position: [0.375, 1.28, 0.06], scale: [0.95, 1.4, 0.85], mirror: true },
+  { muscle: 'delt_lateral', shape: sphere(0.072), position: [0.43, 1.285, 0], scale: [0.8, 1.4, 0.95], mirror: true },
+  { muscle: 'delt_posterior', shape: sphere(0.075), position: [0.375, 1.28, -0.06], scale: [0.95, 1.4, 0.85], mirror: true },
 
-  // Back
+  // Triceps: long head on the inner back of the arm, lateral head on the outer, medial head low, above the elbow
+  { muscle: 'triceps_long', shape: capsule(0.045, 0.26), position: [0.425, 1.02, -0.055], mirror: true },
+  { muscle: 'triceps_lateral', shape: capsule(0.042, 0.18), position: [0.485, 1.06, -0.04], mirror: true },
+  { muscle: 'triceps_medial', shape: sphere(0.04), position: [0.465, 0.86, -0.05], scale: [1, 1.4, 0.8], mirror: true },
+
+  // Back: traps from the neck down to mid-back, infraspinatus over the shoulder blade, lats wrapping the sides
   { muscle: 'traps_upper', shape: sphere(0.1), position: [0.14, 1.42, -0.055], scale: [1.5, 0.65, 0.75], rotation: [0, 0, -0.35], mirror: true },
-  { muscle: 'traps_mid', shape: sphere(0.1), position: [0, 1.16, -0.14], scale: [1.6, 2.1, 0.45] },
+  { muscle: 'traps_middle', shape: sphere(0.1), position: [0, 1.28, -0.13], scale: [1.6, 0.55, 0.45] },
+  { muscle: 'traps_lower', shape: sphere(0.09), position: [0, 1.04, -0.15], scale: [0.75, 1.55, 0.4] },
+  { muscle: 'infraspinatus', shape: sphere(0.07), position: [0.215, 1.17, -0.105], scale: [1, 0.95, 0.5], mirror: true },
   { muscle: 'lats', shape: sphere(0.15), position: [0.21, 0.92, -0.11], scale: [0.8, 1.3, 0.45], rotation: [0, 0, -0.15], mirror: true },
-  { muscle: 'lower_back', shape: capsule(0.045, 0.36), position: [0.055, 0.74, -0.15], mirror: true },
-
-  // Upper arms. The triceps long head sits on the inner back of the arm, the lateral head on the outer.
-  { muscle: 'biceps_brachii', shape: capsule(0.062, 0.22), position: [0.45, 1.0, 0.04], mirror: true },
-  { muscle: 'brachialis', shape: capsule(0.04, 0.1), position: [0.5, 0.87, 0.005], mirror: true },
-  { muscle: 'triceps_long', shape: capsule(0.045, 0.26), position: [0.425, 1.0, -0.055], mirror: true },
-  { muscle: 'triceps_lateral', shape: capsule(0.042, 0.2), position: [0.485, 1.03, -0.04], mirror: true },
-
-  // Forearms (palms face forward, +Z)
-  { muscle: 'forearm_flexors', shape: capsule(0.036, 0.2), position: [0.46, 0.6, 0.035], mirror: true },
-  { muscle: 'forearm_extensors', shape: capsule(0.038, 0.22), position: [0.49, 0.62, -0.025], mirror: true },
 
   // Core
   { muscle: 'abs', shape: sphere(0.13), position: [0, 0.86, 0.14], scale: [1, 1.9, 0.45] },
   { muscle: 'obliques', shape: sphere(0.09), position: [0.23, 0.84, 0.1], scale: [0.8, 1.9, 0.5], mirror: true },
 
-  // Hips
-  { muscle: 'glute_max', shape: sphere(0.14), position: [0.13, 0.32, -0.12], scale: [1, 1, 0.9], mirror: true },
-  { muscle: 'glute_med', shape: sphere(0.08), position: [0.24, 0.44, -0.04], scale: [0.6, 1, 1], mirror: true },
-  { muscle: 'hip_flexors', shape: sphere(0.06), position: [0.13, 0.3, 0.13], scale: [1, 1.4, 0.6], rotation: [0, 0, 0.4], mirror: true },
-
-  // Thighs. Rectus femoris runs down the middle of the front, the outer quad (vastus lateralis)
-  // along the side, the inner quad (vastus medialis) is the teardrop above the knee.
-  { muscle: 'quads_rectus', shape: capsule(0.05, 0.48), position: [0.16, -0.17, 0.1], mirror: true },
-  { muscle: 'quads_outer', shape: capsule(0.06, 0.44), position: [0.215, -0.22, 0.045], mirror: true },
-  { muscle: 'quads_inner', shape: sphere(0.06), position: [0.11, -0.5, 0.075], scale: [0.9, 1.6, 0.8], mirror: true },
-  { muscle: 'hamstrings', shape: capsule(0.095, 0.5), position: [0.16, -0.22, -0.05], mirror: true },
+  // WIP whole areas
+  { muscle: 'bicep', shape: capsule(0.062, 0.22), position: [0.45, 1.0, 0.04], mirror: true },
+  { muscle: 'forearm', shape: capsule(0.048, 0.24), position: [0.47, 0.62, 0], mirror: true },
+  { muscle: 'glutes', shape: sphere(0.14), position: [0.13, 0.32, -0.12], scale: [1, 1, 0.9], mirror: true },
+  { muscle: 'abductors', shape: sphere(0.08), position: [0.24, 0.44, -0.02], scale: [0.6, 1, 1], mirror: true },
+  { muscle: 'quadriceps', shape: capsule(0.095, 0.5), position: [0.17, -0.2, 0.05], mirror: true },
   { muscle: 'adductors', shape: capsule(0.05, 0.32), position: [0.06, -0.08, 0.005], rotation: [0, 0, 0.15], mirror: true },
-
-  // Calves
-  { muscle: 'gastrocnemius', shape: sphere(0.08), position: [0.15, -0.98, -0.06], scale: [1, 1.6, 0.8], mirror: true },
-  { muscle: 'soleus', shape: capsule(0.062, 0.2), position: [0.15, -1.17, -0.04], mirror: true },
+  { muscle: 'hamstring', shape: capsule(0.095, 0.5), position: [0.16, -0.22, -0.05], mirror: true },
+  { muscle: 'calves', shape: sphere(0.08), position: [0.15, -1.02, -0.05], scale: [1, 2.2, 0.85], mirror: true },
 ]
 
 export interface MusclePartInstance {
-  /** Mesh name, e.g. `lats_L`. Same convention as a real GLB. */
+  /** Mesh name, e.g. `obliques_L`. Same convention as a real GLB. */
   name: string
   muscle: MuscleId
   shape: Shape

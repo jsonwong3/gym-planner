@@ -20,6 +20,11 @@ export interface Day {
 }
 
 export type Tab = 'exercises' | 'plan' | 'heatmap'
+
+/** Desktop sidebar widths (px). CSS also caps it so the model keeps some room on narrow windows. */
+export const SIDEBAR_DEFAULT = 400
+export const SIDEBAR_MIN = 360
+export const SIDEBAR_MAX = 760
 export type TagTool = 'lasso' | 'fill' | 'erase'
 
 interface State {
@@ -28,6 +33,10 @@ interface State {
   /** Groups the user has drilled into (right-click), so their parts show separately. Not persisted. */
   expanded: GroupId[]
   tab: Tab
+  /** Sidebar folded away to a thin rail (desktop) or just its tab bar (phone). Not persisted. */
+  sidebarCollapsed: boolean
+  /** Sidebar width in px on desktop, set by dragging its edge. Not persisted. */
+  sidebarWidth: number
   autoRotate: boolean
   /** Which body to draw: the built-in primitives or `public/models/body.glb`. Not persisted. */
   model: 'placeholder' | 'glb'
@@ -57,7 +66,11 @@ interface State {
   drillDown: (muscle: MuscleId) => void
   /** Merges every split group back together. */
   resetDrillDown: () => void
+  /** Also unfolds the sidebar, so picking a tab always shows it. */
   setTab: (tab: Tab) => void
+  toggleSidebar: () => void
+  /** Clamped to SIDEBAR_MIN..SIDEBAR_MAX. */
+  setSidebarWidth: (px: number) => void
   toggleAutoRotate: () => void
   toggleModel: () => void
   toggleTagging: () => void
@@ -138,10 +151,12 @@ export const useStore = create<State>()(
       hovered: null,
       expanded: [],
       tab: 'exercises',
+      sidebarCollapsed: false,
+      sidebarWidth: SIDEBAR_DEFAULT,
       autoRotate: false,
       model: 'glb',
       tagging: false,
-      tagMuscle: 'pec_lower',
+      tagMuscle: 'pec_sternal',
       tagTool: 'lasso',
       tagTolerance: 24,
       idMapRevision: 0,
@@ -169,7 +184,9 @@ export const useStore = create<State>()(
           return { expanded, selected: remap(s.selected, expanded, muscle), hovered: displayTarget(muscle, expanded) }
         }),
       resetDrillDown: () => set((s) => ({ expanded: [], selected: remap(s.selected, []), hovered: null })),
-      setTab: (tab) => set({ tab }),
+      setTab: (tab) => set({ tab, sidebarCollapsed: false }),
+      toggleSidebar: () => set((s) => ({ sidebarCollapsed: !s.sidebarCollapsed })),
+      setSidebarWidth: (px) => set({ sidebarWidth: Math.round(Math.max(SIDEBAR_MIN, Math.min(SIDEBAR_MAX, px))) }),
       toggleAutoRotate: () => set((s) => ({ autoRotate: !s.autoRotate })),
       // Tagging only makes sense on the GLB, so leaving it ends tag mode too.
       toggleModel: () => set((s) => ({ model: s.model === 'glb' ? 'placeholder' : 'glb', hovered: null, tagging: false })),

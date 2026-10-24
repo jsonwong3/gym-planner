@@ -9,7 +9,7 @@ import type { MusclePartInstance, Shape } from '../data/bodyParts'
 import { MUSCLE_IDS, TARGETS, displayTarget, groupOf, isGroup, muscleFromMeshName } from '../data/muscles'
 import type { MuscleId, Target } from '../data/muscles'
 import { UNTRAINED, formatSets, heatColor, levelOf } from '../heat'
-import { getIdMap, makeTagSource, swatch } from '../idMap'
+import { MAX_CODE, codeOf, getIdMap, makeTagSource, swatch } from '../idMap'
 import type { IdMap, TagSource } from '../idMap'
 import { attachLasso, texelsInLasso } from '../lasso'
 import { useStore } from '../store'
@@ -179,7 +179,7 @@ interface IdUniforms {
  * map at the fragment's UV, so highlighting and the heatmap work on one mesh.
  */
 function patchMaterial(material: THREE.MeshStandardMaterial, uniforms: IdUniforms) {
-  const n = MUSCLE_IDS.length + 1
+  const n = MAX_CODE + 1
   // Tripo's metalness map reads as full metal, which renders black without an environment map.
   material.metalness = 0
   material.onBeforeCompile = (shader) => {
@@ -247,8 +247,8 @@ function GLBBody() {
     () => ({
       uIdMap: { value: idMap.texture },
       // Explicit zeros: a bare Vector4() has w = 1, which would paint everything black.
-      uTint: { value: Array.from({ length: MUSCLE_IDS.length + 1 }, () => new Vector4(0, 0, 0, 0)) },
-      uGlow: { value: Array.from({ length: MUSCLE_IDS.length + 1 }, () => new Color(0, 0, 0)) },
+      uTint: { value: Array.from({ length: MAX_CODE + 1 }, () => new Vector4(0, 0, 0, 0)) },
+      uGlow: { value: Array.from({ length: MAX_CODE + 1 }, () => new Color(0, 0, 0)) },
     }),
     [idMap],
   )
@@ -258,11 +258,12 @@ function GLBBody() {
 
   // Same colours as the placeholder's `look()`; untouched muscles keep the model's texture.
   useEffect(() => {
-    MUSCLE_IDS.forEach((muscle, i) => {
-      const tint = uniforms.uTint.value[i + 1]
-      const glow = uniforms.uGlow.value[i + 1]
+    MUSCLE_IDS.forEach((muscle) => {
+      const code = codeOf(muscle)
+      const tint = uniforms.uTint.value[code]
+      const glow = uniforms.uGlow.value[code]
       if (tagging) {
-        const c = new Color().setRGB(...(swatch(i + 1).map((x) => x / 255) as [number, number, number]), SRGBColorSpace)
+        const c = new Color().setRGB(...(swatch(code).map((x) => x / 255) as [number, number, number]), SRGBColorSpace)
         const active = muscle === tagMuscle
         tint.set(c.r, c.g, c.b, active ? 0.9 : 0.6)
         glow.copy(c).multiplyScalar(active ? 0.4 : 0)
@@ -292,8 +293,9 @@ function GLBBody() {
 
   const controls = useThree((s) => s.controls) as unknown as ControlsLike | null
 
-  // Ctrl/Cmd + left-drag pans while lassoing. OrbitControls pans when a modifier
-  // is held on a button bound to ROTATE, so bind left to ROTATE for just that
+  // Ctrl/Cmd + left-drag pans in tag mode. OrbitControls pans when a modifier
+  // is held on a button bound to ROTATE, which left already is for the fill
+  // tool. The lasso leaves left unbound, so bind it to ROTATE for just that
   // press; this capture listener runs before OrbitControls' own.
   useEffect(() => {
     if (!lassoOn || !controls) return
@@ -303,15 +305,19 @@ function GLBBody() {
       controls.mouseButtons = { ...controls.mouseButtons, LEFT: e.ctrlKey || e.metaKey ? MOUSE.ROTATE : undefined }
     }
     el.addEventListener('pointerdown', down, { capture: true })
+    return () => el.removeEventListener('pointerdown', down, { capture: true })
+  }, [lassoOn, controls, gl])
+
+  // Pan only exists in tag mode; recentre on leaving so the normal view isn't stuck off to one side.
+  useEffect(() => {
+    if (!tagging || !controls) return
     return () => {
-      el.removeEventListener('pointerdown', down, { capture: true })
-      // Pan only exists while lassoing; recentre so the normal view isn't stuck off to one side.
       const offset = new Vector3(...ORBIT_TARGET).sub(controls.target)
       controls.target.add(offset)
       camera.position.add(offset)
       controls.update()
     }
-  }, [lassoOn, controls, gl, camera])
+  }, [tagging, controls, camera])
 
   useEffect(() => {
     if (!lassoOn) return
@@ -485,7 +491,7 @@ function Hud() {
         {tagging
           ? lassoOn
             ? 'Draw round an area to tag it · right-drag to rotate · Ctrl-drag to move · Ctrl+Z to undo'
-            : 'Tap a colour patch to tag it · drag to rotate · right-click to pick a muscle'
+            : 'Tap a colour patch to tag it · drag to rotate · Ctrl-drag to move · right-click to pick a muscle'
           : heatmapOn
           ? 'Colour = weighted sets · tap a muscle for the breakdown'
           : 'Drag to rotate · scroll to zoom · tap a muscle · right-click for detail'}
@@ -546,6 +552,8 @@ export default function BodyViewer() {
   const glb = useStore((s) => s.model === 'glb')
   const tagging = useStore((s) => s.tagging)
   const lassoOn = useStore((s) => s.tagging && s.tagTool !== 'fill' && s.model === 'glb')
+  /** Tag mode only (always on the GLB): pan and zoom-to-cursor help reach small muscles. */
+  const tagView = tagging && glb
 
   return (
     // Right-click drills into muscles, so the browser menu would only get in the way.
@@ -571,10 +579,10 @@ export default function BodyViewer() {
         <CameraRig />
         <OrbitControls
           makeDefault
-          enablePan={lassoOn}
+          enablePan={tagView}
           // Close enough to lasso small muscles; zooming toward the cursor (tag mode) gets you to them.
           minDistance={glb ? 0.4 : 2.5}
-          zoomToCursor={lassoOn}
+          zoomToCursor={tagView}
           maxDistance={8}
           target={ORBIT_TARGET}
           autoRotate={autoRotate}

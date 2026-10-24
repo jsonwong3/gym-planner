@@ -13,17 +13,17 @@ import {
   WebGLRenderTarget,
 } from 'three'
 import type { BufferGeometry, WebGLRenderer } from 'three'
-import { MUSCLE_IDS } from './data/muscles'
+import { MUSCLE_CODES, MUSCLE_IDS, RETIRED_CODES } from './data/muscles'
 import type { MuscleId } from './data/muscles'
 
 /**
  * Muscle ID map for the GLB, so one un-split mesh can still tell muscles
  * apart: one byte per texel of the model's base-colour texture, 0 = not a
- * muscle, n = MUSCLE_IDS[n - 1]. Taps look up the hit UV in it and the
+ * muscle, otherwise a MUSCLE_CODES value. Taps look up the hit UV in it and the
  * shader in BodyViewer tints by it.
  *
  * Saved as a PNG (code in the red channel) at `public/models/body-ids.png`.
- * Codes are positions in MUSCLE_IDS, so reordering that list scrambles saved maps.
+ * Codes are fixed per muscle, so the muscle list can change without scrambling saved maps.
  */
 export const ID_MAP_URL = '/models/body-ids.png'
 /** Work in progress, so a refresh mid-tagging loses nothing. Wins over the saved PNG. */
@@ -32,61 +32,62 @@ const UNDO_LIMIT = 20
 
 /**
  * Drafts saved before the muscles were regrouped used the old 42-muscle list's
- * codes. This translates them (index = old code - 1); split muscles land on
- * one part to be re-tagged, and muscles that no longer exist become untagged.
+ * codes. This translates them (index = old code - 1) into the codes that list
+ * became (MUSCLE_CODES / RETIRED_CODES; names below are what each code was
+ * then). Split muscles land on one part to be re-tagged; 0 = untagged.
  */
 const V1_DRAFT_KEY = 'muscle-explorer:id-map-draft'
-const V1_MUSCLES: Array<MuscleId | null> = [
-  null, // sternocleidomastoid
-  null, // splenius
-  'delt_front',
-  'delt_side',
-  'delt_rear',
-  'traps_upper', // supraspinatus
-  'triceps_lateral', // triceps: re-tag the long head
-  'biceps_brachii',
-  'brachialis',
-  'forearm_extensors', // brachioradialis
-  'forearm_flexors',
-  'forearm_extensors',
-  'forearm_flexors', // pronators
-  'forearm_extensors', // supinators
-  'lats',
-  'traps_upper',
-  'traps_mid',
-  'traps_mid',
-  'traps_upper', // levator scapulae
-  'traps_mid', // rhomboids
-  null, // infraspinatus
-  null, // subscapularis
-  'pec_lower',
-  'pec_upper',
-  'pec_lower', // pec minor
-  'serratus',
-  'abs',
-  'abs', // transverse abdominis
-  'obliques',
-  'lower_back', // quadratus lumborum
-  'lower_back',
-  'glute_max',
-  'glute_med', // hip abductors
-  'hip_flexors',
-  'glute_max', // deep rotators
-  'quads_outer', // quadriceps: re-tag rectus femoris and the inner quad
-  'hamstrings',
-  'adductors',
-  'gastrocnemius',
-  'soleus',
-  null, // tibialis anterior
-  null, // popliteus
+const V1_CODES = [
+  0, // sternocleidomastoid
+  0, // splenius
+  4, // delt_front
+  5, // delt_side
+  6, // delt_rear
+  7, // supraspinatus -> traps_upper
+  12, // triceps -> triceps_lateral (re-tag the other heads)
+  13, // biceps -> bicep
+  13, // brachialis -> bicep
+  16, // brachioradialis -> forearm_extensors
+  15, // forearm_flexors
+  16, // forearm_extensors
+  15, // pronators -> forearm_flexors
+  16, // supinators -> forearm_extensors
+  32, // lats
+  7, // traps_upper
+  8, // traps_middle
+  38, // traps_lower
+  7, // levator scapulae -> traps_upper
+  8, // rhomboids -> traps_middle
+  39, // infraspinatus
+  0, // subscapularis
+  2, // pec_lower
+  1, // pec_upper
+  2, // pec minor -> pec_lower
+  3, // serratus
+  17, // abs
+  17, // transverse abdominis -> abs
+  18, // obliques
+  10, // quadratus lumborum -> lower_back
+  10, // lower_back
+  19, // glute_max
+  20, // hip abductors -> glute_med
+  21, // hip_flexors
+  19, // deep rotators -> glute_max
+  23, // quadriceps -> quads_outer
+  25, // hamstrings
+  26, // adductors
+  27, // gastrocnemius
+  28, // soleus
+  0, // tibialis anterior
+  0, // popliteus
 ]
-const fromV1 = (code: number) => {
-  const muscle = V1_MUSCLES[code - 1]
-  return muscle ? codeOf(muscle) : 0
-}
+const fromV1 = (code: number) => V1_CODES[code - 1] ?? 0
 
-export const codeOf = (muscle: MuscleId) => MUSCLE_IDS.indexOf(muscle) + 1
-export const muscleOfCode = (code: number): MuscleId | null => MUSCLE_IDS[code - 1] ?? null
+export const codeOf = (muscle: MuscleId) => MUSCLE_CODES[muscle]
+const MUSCLE_BY_CODE = new Map(MUSCLE_IDS.map((m) => [MUSCLE_CODES[m], m]))
+export const muscleOfCode = (code: number): MuscleId | null => MUSCLE_BY_CODE.get(code) ?? null
+/** Highest code in use or retired; anything above it in a loaded map is treated as untagged. */
+export const MAX_CODE = Math.max(...Object.values(MUSCLE_CODES), ...Object.keys(RETIRED_CODES).map(Number))
 
 /** A distinct colour per muscle code (golden-angle hues), 0-255 RGB. Used in tag mode and the PNG. */
 export function swatch(code: number): [number, number, number] {
@@ -126,6 +127,8 @@ export class IdMap {
   readonly ids: Uint8Array
   /** Sampled by the GLB's shader; nearest filtering so codes never blend. */
   readonly texture: DataTexture
+  /** Last muscle a fill or lasso tagged (erasing doesn't count), so downloads can be named after it. */
+  lastTagged: MuscleId | null = null
   private undoStack: Uint8Array[] = []
   private saveTimer = 0
 
@@ -168,6 +171,7 @@ export class IdMap {
     const [sx, sy, sz] = positions ? [positions[seed * 4], positions[seed * 4 + 1], positions[seed * 4 + 2]] : [0, 0, 0]
     const checkReach = !!positions && positions[seed * 4 + 3] > 0
     const reach2 = reach * reach
+    this.lastTagged = muscle
     this.flood(seed, codeOf(muscle), (i) => {
       const dr = pixels[i * 4] - r
       const dg = pixels[i * 4 + 1] - g
@@ -194,6 +198,7 @@ export class IdMap {
     if (!selected.includes(1)) return false
     this.snapshot()
     const code = muscle ? codeOf(muscle) : 0
+    if (muscle) this.lastTagged = muscle
     const { width, height, ids } = this
     for (let i = 0; i < selected.length; i++) {
       if (!selected[i]) continue
@@ -231,22 +236,26 @@ export class IdMap {
     this.changed()
   }
 
-  /** Pixel count per muscle code, index 0 = untagged. */
+  /** Pixel count per muscle code (retired ones included), index 0 = untagged. */
   counts(): Uint32Array {
-    const counts = new Uint32Array(MUSCLE_IDS.length + 1)
+    const counts = new Uint32Array(MAX_CODE + 1)
     for (const c of this.ids) counts[c]++
     return counts
   }
 
-  /** Red = muscle code (what's read back); green/blue from `swatch()` so the file is viewable. */
-  toPng(): Promise<Blob> {
+  /**
+   * Red = muscle code (what's read back); green/blue from `swatch()` so the file is viewable.
+   * With `only`, every other muscle is left out, giving that muscle's mask on its own.
+   */
+  toPng(only?: MuscleId): Promise<Blob> {
+    const keep = only ? codeOf(only) : null
     const canvas = document.createElement('canvas')
     canvas.width = this.width
     canvas.height = this.height
     const ctx = canvas.getContext('2d')!
     const img = ctx.createImageData(this.width, this.height)
     for (let i = 0; i < this.ids.length; i++) {
-      const code = this.ids[i]
+      const code = keep === null || this.ids[i] === keep ? this.ids[i] : 0
       const [, g, b] = code ? swatch(code) : [0, 0, 0]
       img.data.set([code, g, b, 255], i * 4)
     }
@@ -392,7 +401,7 @@ async function decode(
   const ids = new Uint8Array(width * height)
   for (let i = 0; i < ids.length; i++) {
     const code = translate ? translate(rgba[i * 4]) : rgba[i * 4]
-    ids[i] = code <= MUSCLE_IDS.length ? code : 0
+    ids[i] = code <= MAX_CODE ? code : 0
   }
   return ids
 }

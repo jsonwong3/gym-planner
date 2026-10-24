@@ -1,56 +1,62 @@
 /**
- * Muscle list, as a lifter would name things rather than full anatomy: big
- * muscles split into the parts that train differently (upper vs. mid/lower
- * chest, three delt heads...), small or deep muscles folded into their
- * neighbours (rhomboids into mid/lower traps, brachioradialis into the forearm
- * extensors, hip abductors into glute med/min).
+ * Muscle list, grouped the way the app drills down (see GROUPS). Areas that
+ * aren't split into parts yet (WIP) are one muscle covering the whole area, so
+ * they can still be tagged and selected.
  *
- * Codes in the GLB's ID map are positions in this list (src/idMap.ts), so
- * append rather than reorder once a map has been tagged.
+ * Splitting a WIP area later: add a GROUPS entry with the parts (the group id
+ * can't equal a muscle id, so rename or remove the whole-area muscle), and give
+ * its code to the part covering most of the area, or retire it. Tags live by
+ * code, so the area already tagged carries over to that part.
  */
 export const MUSCLE_IDS = [
-  // Chest
-  'pec_upper',
-  'pec_lower',
-  'serratus',
   // Shoulders
-  'delt_front',
-  'delt_side',
-  'delt_rear',
-  // Back
-  'traps_upper',
-  'traps_mid',
-  'lats',
-  'lower_back',
-  // Upper arms
+  'delt_anterior',
+  'delt_lateral',
+  'delt_posterior',
+  // Triceps
   'triceps_long',
   'triceps_lateral',
-  'biceps_brachii',
-  'brachialis',
-  // Forearms
-  'forearm_flexors',
-  'forearm_extensors',
+  'triceps_medial',
+  // Chest
+  'pec_clavicular',
+  'pec_sternal',
+  'serratus_anterior',
   // Core
   'abs',
   'obliques',
-  // Hips
-  'glute_max',
-  'glute_med',
-  'hip_flexors',
-  // Thighs
-  'quads_rectus',
-  'quads_outer',
-  'quads_inner',
-  'hamstrings',
+  // Back
+  'traps_upper',
+  'traps_middle',
+  'traps_lower',
+  'infraspinatus',
+  'lats',
+  // WIP: whole areas, not split into parts yet
+  'bicep',
+  'forearm',
+  'quadriceps',
   'adductors',
-  // Calves
-  'gastrocnemius',
-  'soleus',
+  'abductors',
+  'hamstring',
+  'calves',
+  'glutes',
 ] as const
 
 export type MuscleId = (typeof MUSCLE_IDS)[number]
 
-export type Region = 'Chest' | 'Shoulders' | 'Back' | 'Upper arms' | 'Forearms' | 'Core' | 'Hips' | 'Thighs' | 'Calves'
+export type Region =
+  | 'Shoulders'
+  | 'Triceps'
+  | 'Bicep'
+  | 'Chest'
+  | 'Core'
+  | 'Back'
+  | 'Forearm'
+  | 'Quadriceps'
+  | 'Adductors'
+  | 'Abductors'
+  | 'Hamstring'
+  | 'Calves'
+  | 'Glutes'
 
 export interface Muscle {
   id: MuscleId
@@ -61,42 +67,99 @@ export interface Muscle {
 const m = (id: MuscleId, label: string, region: Region): Muscle => ({ id, label, region })
 
 export const MUSCLES: Record<MuscleId, Muscle> = {
-  pec_upper: m('pec_upper', 'Upper chest', 'Chest'),
-  pec_lower: m('pec_lower', 'Mid & lower chest', 'Chest'),
-  serratus: m('serratus', 'Serratus', 'Chest'),
+  delt_anterior: m('delt_anterior', 'Anterior Deltoid', 'Shoulders'),
+  delt_lateral: m('delt_lateral', 'Lateral Deltoid', 'Shoulders'),
+  delt_posterior: m('delt_posterior', 'Posterior Deltoid', 'Shoulders'),
 
-  delt_front: m('delt_front', 'Front delts', 'Shoulders'),
-  delt_side: m('delt_side', 'Side delts', 'Shoulders'),
-  delt_rear: m('delt_rear', 'Rear delts', 'Shoulders'),
+  triceps_long: m('triceps_long', 'Triceps Long Head', 'Triceps'),
+  triceps_lateral: m('triceps_lateral', 'Triceps Lateral Head', 'Triceps'),
+  triceps_medial: m('triceps_medial', 'Triceps Medial Head', 'Triceps'),
 
-  traps_upper: m('traps_upper', 'Upper traps', 'Back'),
-  traps_mid: m('traps_mid', 'Mid & lower traps', 'Back'),
-  lats: m('lats', 'Lats', 'Back'),
-  lower_back: m('lower_back', 'Lower back', 'Back'),
-
-  triceps_long: m('triceps_long', 'Triceps long head', 'Upper arms'),
-  triceps_lateral: m('triceps_lateral', 'Triceps lateral & medial', 'Upper arms'),
-  biceps_brachii: m('biceps_brachii', 'Biceps brachii', 'Upper arms'),
-  brachialis: m('brachialis', 'Brachialis', 'Upper arms'),
-
-  forearm_flexors: m('forearm_flexors', 'Forearm flexors', 'Forearms'),
-  forearm_extensors: m('forearm_extensors', 'Forearm extensors', 'Forearms'),
+  pec_clavicular: m('pec_clavicular', 'Clavicular Head', 'Chest'),
+  pec_sternal: m('pec_sternal', 'Sternal Head', 'Chest'),
+  serratus_anterior: m('serratus_anterior', 'Serratus Anterior', 'Chest'),
 
   abs: m('abs', 'Abs', 'Core'),
   obliques: m('obliques', 'Obliques', 'Core'),
 
-  glute_max: m('glute_max', 'Glute max', 'Hips'),
-  glute_med: m('glute_med', 'Glute med & min', 'Hips'),
-  hip_flexors: m('hip_flexors', 'Hip flexors', 'Hips'),
+  traps_upper: m('traps_upper', 'Upper Trapezius', 'Back'),
+  traps_middle: m('traps_middle', 'Middle Trapezius', 'Back'),
+  traps_lower: m('traps_lower', 'Lower Trapezius', 'Back'),
+  infraspinatus: m('infraspinatus', 'Infraspinatus & Teres Minor', 'Back'),
+  lats: m('lats', 'Latissimus Dorsi & Teres Major', 'Back'),
 
-  quads_rectus: m('quads_rectus', 'Rectus femoris', 'Thighs'),
-  quads_outer: m('quads_outer', 'Outer quads', 'Thighs'),
-  quads_inner: m('quads_inner', 'Inner quads', 'Thighs'),
-  hamstrings: m('hamstrings', 'Hamstrings', 'Thighs'),
-  adductors: m('adductors', 'Adductors', 'Thighs'),
+  bicep: m('bicep', 'Bicep', 'Bicep'),
+  forearm: m('forearm', 'Forearm', 'Forearm'),
+  quadriceps: m('quadriceps', 'Quadriceps', 'Quadriceps'),
+  adductors: m('adductors', 'Adductors', 'Adductors'),
+  abductors: m('abductors', 'Abductors', 'Abductors'),
+  hamstring: m('hamstring', 'Hamstring', 'Hamstring'),
+  calves: m('calves', 'Calves', 'Calves'),
+  glutes: m('glutes', 'Glutes', 'Glutes'),
+}
 
-  gastrocnemius: m('gastrocnemius', 'Gastrocnemius', 'Calves'),
-  soleus: m('soleus', 'Soleus', 'Calves'),
+/**
+ * The byte each muscle is stored as in the GLB's ID map (src/idMap.ts).
+ * Fixed numbers rather than list positions, so the list can change without
+ * scrambling tagged maps. A new muscle takes the next unused number; reuse a
+ * RETIRED_CODES number only for a part covering the same area, so its old
+ * tags come back.
+ */
+export const MUSCLE_CODES: Record<MuscleId, number> = {
+  pec_clavicular: 1,
+  pec_sternal: 2,
+  serratus_anterior: 3,
+  delt_anterior: 4,
+  delt_lateral: 5,
+  delt_posterior: 6,
+  triceps_long: 11,
+  triceps_lateral: 12,
+  traps_upper: 7,
+  traps_middle: 8,
+  bicep: 13,
+  abs: 17,
+  obliques: 18,
+  hamstring: 25,
+  adductors: 26,
+  triceps_medial: 29,
+  // The whole back before it was split; lats cover most of it.
+  lats: 32,
+  forearm: 33,
+  quadriceps: 34,
+  abductors: 35,
+  calves: 36,
+  glutes: 37,
+  traps_lower: 38,
+  infraspinatus: 39,
+}
+
+/**
+ * Codes of muscles from the previous list that have no part yet. Tags with
+ * these codes stay in saved maps (they show as untagged) until a part reuses
+ * the code.
+ */
+export const RETIRED_CODES: Record<number, string> = {
+  9: 'lats (28-muscle list)',
+  10: 'lower_back',
+  14: 'brachialis',
+  15: 'forearm_flexors',
+  16: 'forearm_extensors',
+  19: 'glute_max',
+  20: 'glute_med',
+  21: 'hip_flexors',
+  22: 'quads_rectus',
+  23: 'quads_outer',
+  24: 'quads_inner',
+  27: 'gastrocnemius',
+  28: 'soleus',
+  30: 'biceps_short',
+  31: 'pec_abdominal',
+}
+
+{
+  const all = [...Object.values(MUSCLE_CODES), ...Object.keys(RETIRED_CODES).map(Number)]
+  const dupe = all.find((c, i) => all.indexOf(c) !== i)
+  if (dupe !== undefined) throw new Error(`ID map code ${dupe} is used twice`)
 }
 
 /**
@@ -105,15 +168,15 @@ export const MUSCLES: Record<MuscleId, Muscle> = {
  * the parts; a group's intensity is its strongest part's.
  */
 export const GROUPS = {
-  chest: { label: 'Chest', region: 'Chest', muscles: ['pec_upper', 'pec_lower'] },
-  shoulders: { label: 'Shoulders', region: 'Shoulders', muscles: ['delt_front', 'delt_side', 'delt_rear'] },
-  traps: { label: 'Traps', region: 'Back', muscles: ['traps_upper', 'traps_mid'] },
-  triceps: { label: 'Triceps', region: 'Upper arms', muscles: ['triceps_long', 'triceps_lateral'] },
-  biceps: { label: 'Biceps', region: 'Upper arms', muscles: ['biceps_brachii', 'brachialis'] },
-  forearms: { label: 'Forearms', region: 'Forearms', muscles: ['forearm_flexors', 'forearm_extensors'] },
-  quads: { label: 'Quads', region: 'Thighs', muscles: ['quads_rectus', 'quads_outer', 'quads_inner'] },
-  glutes: { label: 'Glutes', region: 'Hips', muscles: ['glute_max', 'glute_med'] },
-  calves: { label: 'Calves', region: 'Calves', muscles: ['gastrocnemius', 'soleus'] },
+  shoulders: { label: 'Shoulders', region: 'Shoulders', muscles: ['delt_anterior', 'delt_lateral', 'delt_posterior'] },
+  triceps: { label: 'Triceps', region: 'Triceps', muscles: ['triceps_long', 'triceps_lateral', 'triceps_medial'] },
+  chest: { label: 'Chest', region: 'Chest', muscles: ['pec_clavicular', 'pec_sternal', 'serratus_anterior'] },
+  core: { label: 'Core', region: 'Core', muscles: ['abs', 'obliques'] },
+  back: {
+    label: 'Back',
+    region: 'Back',
+    muscles: ['traps_upper', 'traps_middle', 'traps_lower', 'infraspinatus', 'lats'],
+  },
 } as const satisfies Record<string, { label: string; region: Region; muscles: readonly MuscleId[] }>
 
 export type GroupId = keyof typeof GROUPS
@@ -154,8 +217,8 @@ export function visibleTargets(expanded: readonly GroupId[]): Target[] {
 
 /**
  * Maps a mesh name to a muscle id. Works for the placeholder body and for a
- * real GLB as long as meshes are named like `lats_L`, `lats_R`,
- * `abs_C` (or just `lats`). When you swap in a real anatomy
+ * real GLB as long as meshes are named like `obliques_L`, `obliques_R`,
+ * `abs_C` (or just `obliques`). When you swap in a real anatomy
  * model, this mapping is the one place to translate its mesh names into your
  * muscle groups.
  */
