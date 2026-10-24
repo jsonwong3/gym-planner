@@ -1,0 +1,38 @@
+# CLAUDE.md
+
+Frontend-only prototype: rotate a 3D body, tap a muscle, browse exercises, build a multi-day plan, view a heatmap of trained muscles. See [README.md](README.md) for the file-by-file map, intensity scale, heatmap formula and GLB swap guide; don't duplicate it here, and keep it current when behaviour changes.
+
+## Commands
+
+```bash
+npm run dev      # Vite dev server, http://localhost:5173
+npm run build    # tsc --noEmit && vite build — the only correctness check
+```
+
+There are no tests, linter or formatter. Verify changes with `npm run build`.
+
+## Stack
+
+Vite + React 19 + TypeScript (strict), three.js via `@react-three/fiber` + `drei`, Zustand (`persist` to `localStorage`). Plain CSS in `src/styles.css`, no UI library. No backend; exercises are mock data in `src/data/exercises.ts`.
+
+## Architecture rules
+
+- **`src/heat.ts` stays pure**: no React, no store access. Components get heat through `useHeat()`.
+- **All app state lives in `src/store.ts`**. Only `days` is persisted (`partialize`). If you change the shape of `Day` / `PlanItem`, bump `version` and extend `migrate` so existing users' plans survive.
+- **Exercise `muscles` map is the source of truth**; `primary` / `secondary` are derived in `ex()` (threshold `PRIMARY_MIN = 0.6`). Intensities must be in (0, 1] and each exercise needs at least one primary muscle, or the module throws at load.
+- **Exercise ids are slugs of their names.** Renaming an exercise changes its id and orphans it in saved plans (`computeHeat` silently skips unknown ids).
+- **Mesh name → muscle** goes only through `muscleFromMeshName()` (`<muscle_id>_L|_R|_C`). Left/right meshes share one muscle id.
+- Muscles are lifter-style groups and parts (28 entries, listed in the README). Adding a muscle: append it to `MUSCLE_IDS` (ID map codes are positions in that list, so don't reorder), add it to `MUSCLES` in `src/data/muscles.ts`, then give it parts in `src/data/bodyParts.ts`. Records keyed by `MuscleId` are exhaustive, so `tsc` will point out what's missing.
+- **Muscle vs. group vs. target**: `GROUPS` (chest, shoulders, traps, triceps, biceps, forearms, quads, glutes, calves) bundle parts for drill-down. Group ids share a namespace with muscle ids, so they must differ (`biceps` group vs. `biceps_brachii`). `hovered` / `selected` / heat use `Target` (muscle or group); exercise data only ever names muscles. Map a mesh's muscle to what it currently shows as with `displayTarget(muscle, expanded)`. A group's intensity is the max of its parts (`intensityOf`), never the sum.
+- Body coords (`bodyParts.ts`): +Y up, +Z front, mirrored parts are defined on +X (the `_L` side).
+
+## Gotchas
+
+- Don't use `crypto.randomUUID` — the app is often opened over plain http on a LAN IP for phone testing (not a secure context). Use the existing `newId()`.
+- Clicks vs. orbit drags are distinguished with R3F's `e.delta`; skin meshes are part of the raycast on purpose so you can't click through the torso.
+- `select()` keeps the user on the heatmap tab if they're there (shows the breakdown); elsewhere it switches to exercises.
+- UI must work on touch / phone widths.
+
+## Style
+
+2-space indent, no semicolons, single quotes, trailing commas. Short JSDoc on non-obvious fields and functions; comments explain *why*. British spelling in prose/comments (colour, stabiliser).
