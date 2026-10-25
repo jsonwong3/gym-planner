@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from 'react'
 import { MUSCLES, MUSCLE_IDS } from '../data/muscles'
 import type { MuscleId, Region } from '../data/muscles'
-import { codeOf, currentIdMap, swatch } from '../idMap'
+import { codeOf, currentIdMap, currentTagSource, swatch } from '../idMap'
 import { useStore } from '../store'
 import type { TagTool } from '../store'
 
@@ -43,6 +43,7 @@ export default function TagPanel() {
   const setTagTool = useStore((s) => s.setTagTool)
   const setTagTolerance = useStore((s) => s.setTagTolerance)
   const bumpIdMap = useStore((s) => s.bumpIdMap)
+  const notify = useStore((s) => s.notify)
   const idMap = currentIdMap()
 
   // The map mutates in place; `revision` is what says it changed.
@@ -73,6 +74,20 @@ export default function TagPanel() {
     if (!idMap) return
     // Named after the muscle just tagged, so a series of saves is easy to tell apart.
     save(await idMap.toPng(), `body-ids-${idMap.lastTagged ?? tagMuscle}.png`)
+  }
+
+  const cleanUp = () => {
+    const source = currentTagSource()
+    if (!idMap || !source) return
+    const result = idMap.cleanUp(source)
+    bumpIdMap()
+    if (!result) return notify('Nothing to clean up')
+    const parts = [
+      result.holes && `filled ${result.holes} hole px`,
+      result.gaps && `closed ${result.gaps} gap px`,
+      result.specks && `removed ${result.specks} speck px`,
+    ].filter(Boolean)
+    notify(`Cleaned up: ${parts.join(', ')} · Undo to revert`)
   }
 
   /** The combined map, ready to ship, plus each tagged muscle's mask on its own. */
@@ -156,6 +171,14 @@ export default function TagPanel() {
         </button>
       </div>
       <div className="tag-row">
+        <button
+          className="tag-btn"
+          disabled={!tagged}
+          onClick={cleanUp}
+          title="Fill small holes, close thin gaps between muscles and remove stray specks. One undo step."
+        >
+          Clean up
+        </button>
         <button
           className="tag-btn"
           disabled={!tagged}

@@ -1,8 +1,12 @@
 import { useEffect, useState } from 'react'
 import { EXERCISES_BY_ID } from '../data/exercises'
-import { isTitleTaken, nextDayTitle, useStore } from '../store'
+import { clamp, isTitleTaken, nextDayTitle, useStore } from '../store'
+import { Stepper, WeightInput } from './Steppers'
 
-/** "Add to which day?" dialog. Opens when the user taps + Add on an exercise. */
+/**
+ * "Add to which day?" dialog. Opens when the user taps + Add on an exercise;
+ * sets and reps start at the defaults from settings, weight starts blank.
+ */
 export default function DayPicker() {
   const picker = useStore((s) => s.picker)
   const days = useStore((s) => s.days)
@@ -10,6 +14,11 @@ export default function DayPicker() {
   const addToDay = useStore((s) => s.addToDay)
   const addToNewDay = useStore((s) => s.addToNewDay)
   const [title, setTitle] = useState('')
+  const defaultSets = useStore((s) => s.defaultSets)
+  const defaultReps = useStore((s) => s.defaultReps)
+  const [sets, setSets] = useState(defaultSets)
+  const [reps, setReps] = useState(defaultReps)
+  const [weight, setWeight] = useState<number | null>(null)
 
   const open = picker !== null
 
@@ -17,6 +26,9 @@ export default function DayPicker() {
   useEffect(() => {
     if (!open) return
     setTitle('')
+    setSets(useStore.getState().defaultSets)
+    setReps(useStore.getState().defaultReps)
+    setWeight(null)
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') close()
     }
@@ -32,7 +44,7 @@ export default function DayPicker() {
   return (
     <div className="overlay" onClick={close}>
       <div
-        className="sheet"
+        className="sheet add-sheet"
         role="dialog"
         aria-modal="true"
         aria-labelledby="picker-title"
@@ -40,6 +52,12 @@ export default function DayPicker() {
       >
         <h2 id="picker-title">Add to which day?</h2>
         <p className="muted sheet-sub">{exercise.name}</p>
+
+        <div className="plan-controls add-values">
+          <Stepper label="Sets" value={sets} onChange={(n) => setSets(clamp(n))} />
+          <Stepper label="Reps" value={reps} onChange={(n) => setReps(clamp(n))} />
+          <WeightInput kg={weight} onChange={setWeight} live />
+        </div>
 
         {days.length > 0 && (
           <ul className="list day-options">
@@ -50,7 +68,7 @@ export default function DayPicker() {
                   <button
                     className="day-option"
                     disabled={has}
-                    onClick={() => addToDay(d.id, exercise.id)}
+                    onClick={() => addToDay(d.id, exercise.id, { sets, reps, weight })}
                   >
                     <span className="day-option-text">
                       <strong>{d.title}</strong>
@@ -70,7 +88,7 @@ export default function DayPicker() {
           className="new-day"
           onSubmit={(e) => {
             e.preventDefault()
-            if (!taken) addToNewDay(exercise.id, title)
+            if (!taken) addToNewDay(exercise.id, title, { sets, reps, weight })
           }}
         >
           <label htmlFor="new-day-title">

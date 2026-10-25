@@ -7,13 +7,17 @@ import type { Day } from './store'
  * Heatmap maths. Pure functions, no React or store access, so it is easy to
  * test and to move to the server later.
  *
- * Each muscle's load is "effective sets":  sum over planned exercises of
- *   sets x intensity(exercise, muscle)
- * so 4 sets of bench press = 4 for chest, 2 for triceps, 1.6 for shoulders.
- * Reps are ignored on purpose; set count is the usual proxy for volume.
+ * The all-days scope leaves out inactive days (`Day.active`).
  *
- * Groups (e.g. the whole deltoid) are computed the same way using the
- * group's intensity (its strongest part), not the sum of its parts.
+ * Each muscle's load is "effective sets":  sum over planned exercises of
+ *   sets x share(exercise, muscle)
+ * Shares add up to 1, so each set is split between the muscles it works:
+ * 4 sets of bench press = 2 for the sternal pec, 0.6 for the clavicular pec,
+ * 0.6 for front delts... Reps are ignored on purpose; set count is the usual
+ * proxy for volume.
+ *
+ * Groups (e.g. the whole deltoid) add up their parts' shares, so the same
+ * bench press counts 2.6 for "Chest".
  */
 
 /** Scope is either every day in the plan, or a single day's id. */
@@ -60,7 +64,8 @@ function emptyRecord<T>(make: () => T): Record<Target, T> {
 
 export function computeHeat(days: Day[], scope: HeatScope): HeatResult {
   const match = scope === ALL_DAYS ? undefined : days.find((d) => d.id === scope)
-  const included = match ? [match] : days
+  // All days means the active ones; a day still being worked out only shows when picked on its own.
+  const included = match ? [match] : days.filter((d) => d.active)
   const fullAt = match ? FULL_HEAT_SETS.day : FULL_HEAT_SETS.all
 
   const load = emptyRecord(() => 0)

@@ -4,7 +4,7 @@ import type { Exercise } from '../data/exercises'
 import { MUSCLES, musclesOf } from '../data/muscles'
 import type { MuscleId, Target } from '../data/muscles'
 
-/** Every muscle an exercise works with its intensity. Stronger = more opaque. */
+/** Every muscle an exercise works with its share of the work. Bigger share = more opaque. */
 export default function MuscleTags({
   exercise,
   highlight,
@@ -14,14 +14,17 @@ export default function MuscleTags({
   highlight?: Target | null
 }) {
   const highlighted: readonly MuscleId[] = highlight ? musclesOf(highlight) : []
+  const entries = muscleEntries(exercise)
+  // Shares add up to 1, so scale opacity to the biggest one or most tags would be faint.
+  const top = entries[0]?.[1] ?? 1
   return (
     <div className="mtags">
-      {muscleEntries(exercise).map(([m, v]) => (
+      {entries.map(([m, v]) => (
         <span
           key={m}
           className={`mtag ${highlighted.includes(m) ? 'hl' : ''}`}
-          style={{ '--i': v } as CSSProperties}
-          title={`${MUSCLES[m].label}: ${Math.round(v * 100)}% intensity`}
+          style={{ '--i': v / top } as CSSProperties}
+          title={`${MUSCLES[m].label}: ${Math.round(v * 100)}% of the work`}
         >
           {MUSCLES[m].label} {Math.round(v * 100)}%
         </span>

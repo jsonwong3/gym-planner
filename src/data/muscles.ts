@@ -30,13 +30,18 @@ export const MUSCLE_IDS = [
   'traps_lower',
   'infraspinatus',
   'lats',
+  'erector_spinae',
+  // Forearm
+  'brachioradialis',
+  'forearm_extensors',
+  'forearm_flexors',
   // WIP: whole areas, not split into parts yet
+  'neck',
   'bicep',
-  'forearm',
   'quadriceps',
   'adductors',
   'abductors',
-  'hamstring',
+  'hamstrings',
   'calves',
   'glutes',
 ] as const
@@ -44,6 +49,7 @@ export const MUSCLE_IDS = [
 export type MuscleId = (typeof MUSCLE_IDS)[number]
 
 export type Region =
+  | 'Neck'
   | 'Shoulders'
   | 'Triceps'
   | 'Bicep'
@@ -54,7 +60,7 @@ export type Region =
   | 'Quadriceps'
   | 'Adductors'
   | 'Abductors'
-  | 'Hamstring'
+  | 'Hamstrings'
   | 'Calves'
   | 'Glutes'
 
@@ -87,13 +93,18 @@ export const MUSCLES: Record<MuscleId, Muscle> = {
   traps_lower: m('traps_lower', 'Lower Trapezius', 'Back'),
   infraspinatus: m('infraspinatus', 'Infraspinatus & Teres Minor', 'Back'),
   lats: m('lats', 'Latissimus Dorsi & Teres Major', 'Back'),
+  erector_spinae: m('erector_spinae', 'Erector Spinae', 'Back'),
 
+  brachioradialis: m('brachioradialis', 'Brachioradialis', 'Forearm'),
+  forearm_extensors: m('forearm_extensors', 'Forearm Extensors', 'Forearm'),
+  forearm_flexors: m('forearm_flexors', 'Forearm Flexors', 'Forearm'),
+
+  neck: m('neck', 'Neck', 'Neck'),
   bicep: m('bicep', 'Bicep', 'Bicep'),
-  forearm: m('forearm', 'Forearm', 'Forearm'),
   quadriceps: m('quadriceps', 'Quadriceps', 'Quadriceps'),
   adductors: m('adductors', 'Adductors', 'Adductors'),
   abductors: m('abductors', 'Abductors', 'Abductors'),
-  hamstring: m('hamstring', 'Hamstring', 'Hamstring'),
+  hamstrings: m('hamstrings', 'Hamstrings', 'Hamstrings'),
   calves: m('calves', 'Calves', 'Calves'),
   glutes: m('glutes', 'Glutes', 'Glutes'),
 }
@@ -119,18 +130,24 @@ export const MUSCLE_CODES: Record<MuscleId, number> = {
   bicep: 13,
   abs: 17,
   obliques: 18,
-  hamstring: 25,
+  hamstrings: 25,
   adductors: 26,
   triceps_medial: 29,
   // The whole back before it was split; lats cover most of it.
   lats: 32,
-  forearm: 33,
+  // The whole forearm before it was split; the flexors cover most of the tagged area's inside.
+  forearm_flexors: 33,
   quadriceps: 34,
   abductors: 35,
   calves: 36,
   glutes: 37,
   traps_lower: 38,
   infraspinatus: 39,
+  forearm_extensors: 16,
+  brachioradialis: 40,
+  // Was `lower_back` in the 28-muscle list: same area, so its old tags come back.
+  erector_spinae: 10,
+  neck: 41,
 }
 
 /**
@@ -140,10 +157,8 @@ export const MUSCLE_CODES: Record<MuscleId, number> = {
  */
 export const RETIRED_CODES: Record<number, string> = {
   9: 'lats (28-muscle list)',
-  10: 'lower_back',
   14: 'brachialis',
-  15: 'forearm_flexors',
-  16: 'forearm_extensors',
+  15: 'forearm_flexors (28-muscle list)',
   19: 'glute_max',
   20: 'glute_med',
   21: 'hip_flexors',
@@ -175,7 +190,12 @@ export const GROUPS = {
   back: {
     label: 'Back',
     region: 'Back',
-    muscles: ['traps_upper', 'traps_middle', 'traps_lower', 'infraspinatus', 'lats'],
+    muscles: ['traps_upper', 'traps_middle', 'traps_lower', 'infraspinatus', 'lats', 'erector_spinae'],
+  },
+  forearm: {
+    label: 'Forearm',
+    region: 'Forearm',
+    muscles: ['brachioradialis', 'forearm_extensors', 'forearm_flexors'],
   },
 } as const satisfies Record<string, { label: string; region: Region; muscles: readonly MuscleId[] }>
 
@@ -216,11 +236,10 @@ export function visibleTargets(expanded: readonly GroupId[]): Target[] {
 }
 
 /**
- * Maps a mesh name to a muscle id. Works for the placeholder body and for a
- * real GLB as long as meshes are named like `obliques_L`, `obliques_R`,
- * `abs_C` (or just `obliques`). When you swap in a real anatomy
- * model, this mapping is the one place to translate its mesh names into your
- * muscle groups.
+ * Maps a mesh name to a muscle id, for a GLB split into one mesh per muscle
+ * (named like `obliques_L`, `obliques_R`, `abs_C`, or just `obliques`). The
+ * current model is a single mesh and uses the ID map instead; this is the one
+ * place to translate a split model's mesh names into muscle ids.
  */
 export function muscleFromMeshName(name: string): MuscleId | null {
   const base = name.replace(/_(L|R|C)$/, '')

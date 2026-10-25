@@ -1,417 +1,164 @@
-import { MUSCLE_IDS, musclesOf } from './muscles'
+import csv from '../../muscle_list.csv?raw'
+import { ALL_TARGETS, MUSCLE_IDS, TARGETS, groupOf, musclesOf } from './muscles'
 import type { MuscleId, Target } from './muscles'
 
-export type Equipment = 'Bodyweight' | 'Dumbbell' | 'Barbell' | 'Machine'
-export type Level = 'Beginner' | 'Intermediate' | 'Advanced'
-
 /**
- * How much of an exercise's work a muscle does, from just above 0 up to 1.
+ * Each muscle's share of an exercise's work. Shares are above 0 and add up
+ * to 1, so a set is split between the muscles it works (bench press: half to
+ * the sternal pec, the rest to the clavicular pec, front delts and triceps).
  * Muscles an exercise doesn't train are simply left out.
- *
- *   1.0       prime mover (bench press -> sternal pec)
- *   0.7-0.9   co-prime mover (chin-up -> biceps, chest dip -> lateral triceps)
- *   0.4-0.6   strong synergist (bench press -> triceps)
- *   0.2-0.3   stabiliser / assists (push-up -> abs)
- *
- * These are rough, relative numbers (not EMG data). Tune freely. The heatmap
- * multiplies them by the planned sets, so they only need to be sensible
- * relative to each other.
  */
 export type MuscleIntensities = Partial<Record<MuscleId, number>>
 
-/** At or above this an exercise counts as "primary" for the muscle. */
-export const PRIMARY_MIN = 0.6
-
 export interface Exercise {
+  /** `exercise_id` from the CSV, so renaming an exercise keeps it in saved plans. */
   id: string
   name: string
-  equipment: Equipment
-  level: Level
-  /** Source of truth: every muscle the exercise works, with its 0-1 intensity. */
+  /** The one muscle or group whose list this exercise appears in (`target_group`), whatever else it works. */
+  group: Target
+  /** Every muscle the exercise works with its share of the work. */
   muscles: MuscleIntensities
-  /** Derived from `muscles` (>= PRIMARY_MIN), strongest first. */
+  /** The target part (`target_part`). */
   primary: MuscleId[]
-  /** Derived from `muscles` (< PRIMARY_MIN), strongest first. */
+  /** The secondary parts, biggest share first. */
   secondary: MuscleId[]
 }
 
-/**
- * Muscles from the previous list in areas that are still WIP (back, forearm,
- * legs...: one whole-area muscle each, no parts yet). Exercise data keeps them
- * so nothing is lost; they're ignored until replaced with real muscles. Delete
- * each one here once it is.
- */
-type PendingMuscle =
-  | 'traps_mid'
-  | 'lower_back'
-  | 'forearm_flexors'
-  | 'forearm_extensors'
-  | 'glute_max'
-  | 'glute_med'
-  | 'hip_flexors'
-  | 'quads_rectus'
-  | 'quads_outer'
-  | 'quads_inner'
-  | 'hamstrings'
-  | 'gastrocnemius'
-  | 'soleus'
+/** Lower-case letters and digits only, minus a trailing "s", so "Tricep" finds "Triceps". */
+const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, '').replace(/s$/, '')
 
-const isMuscle = (m: string): m is MuscleId => (MUSCLE_IDS as readonly string[]).includes(m)
+const byName = <T extends Target>(ids: readonly T[]): Map<string, T> =>
+  new Map(ids.flatMap((id) => [[norm(id), id] as [string, T], [norm(TARGETS[id].label), id] as [string, T]]))
 
-const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
+const MUSCLE_BY_NAME = byName(MUSCLE_IDS)
+const TARGET_BY_NAME = byName(ALL_TARGETS)
 
-/** Null while an exercise has no primary muscle outside the WIP groups, so it's left out for now. */
-const ex = (
-  name: string,
-  equipment: Equipment,
-  level: Level,
-  data: Partial<Record<MuscleId | PendingMuscle, number>>,
-): Exercise | null => {
-  const all = Object.entries(data) as Array<[string, number]>
-  for (const [m, v] of all) {
-    if (!(v > 0 && v <= 1)) throw new Error(`${name}: intensity for "${m}" must be in (0, 1], got ${v}`)
+/** Splits CSV text into rows of fields. Handles quoted fields ("a, b" and "" for a quote). */
+function parseCsv(text: string): string[][] {
+  const rows: string[][] = []
+  let row: string[] = []
+  let field = ''
+  let quoted = false
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i]
+    if (quoted) {
+      if (c === '"' && text[i + 1] === '"') field += text[++i]
+      else if (c === '"') quoted = false
+      else field += c
+    } else if (c === '"') quoted = true
+    else if (c === ',') {
+      row.push(field)
+      field = ''
+    } else if (c === '\n' || c === '\r') {
+      if (c === '\r' && text[i + 1] === '\n') i++
+      row.push(field)
+      rows.push(row)
+      row = []
+      field = ''
+    } else field += c
   }
-  const entries = all.filter((e): e is [MuscleId, number] => isMuscle(e[0])).sort((a, b) => b[1] - a[1])
-  const muscles: MuscleIntensities = Object.fromEntries(entries)
-  const primary = entries.filter(([, v]) => v >= PRIMARY_MIN).map(([m]) => m)
-  if (primary.length === 0) {
-    if (entries.length < all.length) return null
-    throw new Error(`${name}: needs at least one muscle >= ${PRIMARY_MIN}`)
-  }
-  const secondary = entries.filter(([, v]) => v < PRIMARY_MIN).map(([m]) => m)
-  return { id: slug(name), name, equipment, level, muscles, primary, secondary }
+  if (field || row.length) rows.push([...row, field])
+  return rows
 }
 
-const B = 'Beginner'
-const I = 'Intermediate'
-const A = 'Advanced'
+/** Shares must add up to 1, give or take rounding. */
+const SUM_TOLERANCE = 0.001
 
-// Mock data. In the real app this comes from your API / database
-// (exercises + exercise_muscles join table with an `intensity` column).
-// Exercises that only train WIP groups come out null and are dropped for now.
-export const EXERCISES: Exercise[] = [
-  // Chest
-  ex('Push-Up', 'Bodyweight', B, {
-    pec_sternal: 1,
-    pec_clavicular: 0.6,
-    triceps_lateral: 0.5,
-    triceps_long: 0.3,
-    delt_anterior: 0.5,
-    serratus_anterior: 0.3,
-    abs: 0.25,
-  }),
-  ex('Barbell Bench Press', 'Barbell', I, {
-    pec_sternal: 1,
-    pec_clavicular: 0.6,
-    triceps_lateral: 0.5,
-    triceps_long: 0.3,
-    delt_anterior: 0.5,
-  }),
-  ex('Incline Dumbbell Press', 'Dumbbell', I, {
-    pec_clavicular: 1,
-    delt_anterior: 0.6,
-    pec_sternal: 0.5,
-    triceps_lateral: 0.4,
-    triceps_long: 0.25,
-  }),
-  ex('Dumbbell Fly', 'Dumbbell', I, { pec_sternal: 1, pec_clavicular: 0.6, delt_anterior: 0.3, bicep: 0.2 }),
-  ex('Cable Crossover', 'Machine', I, { pec_sternal: 1, pec_clavicular: 0.5, delt_anterior: 0.3 }),
-  ex('Chest Dip', 'Bodyweight', A, {
-    pec_sternal: 0.9,
-    triceps_lateral: 0.8,
-    triceps_long: 0.5,
-    delt_anterior: 0.5,
-    traps_mid: 0.3,
-    lats: 0.3,
-  }),
-  ex('Dumbbell Pullover', 'Dumbbell', I, { pec_sternal: 0.8, lats: 0.7, triceps_long: 0.4, serratus_anterior: 0.3 }),
-  // Scapular depression: lower traps pull the shoulder blades down, lats and lower pecs help.
-  ex('Dip Shrug', 'Bodyweight', I, { traps_mid: 0.8, lats: 0.5, pec_sternal: 0.4 }),
-  ex('Scapular Push-Up', 'Bodyweight', B, { serratus_anterior: 1, abs: 0.3 }),
+/**
+ * Reads `muscle_list.csv`, the source of truth for exercises. Rows without a
+ * name or a target part are still being filled in and are skipped; anything
+ * else that's wrong throws, so a typo shows up straight away.
+ */
+function loadExercises(text: string): Exercise[] {
+  const [header, ...rows] = parseCsv(text)
+  const col = (name: string) => {
+    const i = header.indexOf(name)
+    if (i < 0) throw new Error(`muscle_list.csv: missing column "${name}"`)
+    return i
+  }
+  const idCol = col('exercise_id')
+  const nameCol = col('exercise_name')
+  const groupCol = col('target_group')
+  const partCols: Array<[number, number]> = [[col('target_part'), col('target_part_weight')]]
+  for (let n = 0; header.includes(`secondary_part_${n}`); n++) {
+    partCols.push([col(`secondary_part_${n}`), col(`secondary_part_weight_${n}`)])
+  }
 
-  // Shoulders
-  ex('Overhead Press', 'Barbell', I, {
-    delt_anterior: 1,
-    delt_lateral: 0.6,
-    triceps_lateral: 0.5,
-    triceps_long: 0.4,
-    pec_clavicular: 0.4,
-    traps_upper: 0.4,
-    serratus_anterior: 0.4,
-    abs: 0.25,
-  }),
-  ex('Lateral Raise', 'Dumbbell', B, { delt_lateral: 1, delt_anterior: 0.3, traps_upper: 0.3, serratus_anterior: 0.3 }),
-  ex('Arnold Press', 'Dumbbell', I, {
-    delt_anterior: 1,
-    delt_lateral: 0.7,
-    triceps_lateral: 0.4,
-    triceps_long: 0.3,
-    pec_clavicular: 0.3,
-  }),
-  ex('Front Raise', 'Dumbbell', B, { delt_anterior: 1, pec_clavicular: 0.5, delt_lateral: 0.3, serratus_anterior: 0.3 }),
-  ex('Face Pull', 'Machine', B, { delt_posterior: 1, traps_mid: 0.7 }),
-  ex('Reverse Fly', 'Dumbbell', B, { delt_posterior: 1, traps_mid: 0.6 }),
-  ex('Pike Push-Up', 'Bodyweight', I, {
-    delt_anterior: 1,
-    triceps_lateral: 0.5,
-    triceps_long: 0.4,
-    pec_clavicular: 0.4,
-    delt_lateral: 0.4,
-    serratus_anterior: 0.3,
-  }),
-  ex('Full Can Raise', 'Dumbbell', B, { delt_lateral: 0.8, delt_anterior: 0.7, traps_upper: 0.3, serratus_anterior: 0.3 }),
-  // Mostly rotator cuff, which isn't modelled; the rear delt is the main visible muscle.
-  ex('Cable External Rotation', 'Machine', B, { delt_posterior: 0.7, traps_mid: 0.3 }),
+  const seen = new Set<string>()
+  const exercises: Exercise[] = []
+  for (const row of rows) {
+    const cell = (i: number) => (row[i] ?? '').trim()
+    const id = cell(idCol)
+    const name = cell(nameCol)
+    if (!name || !cell(partCols[0][0])) continue
+    const where = `muscle_list.csv, ${name} (id ${id})`
+    if (!id) throw new Error(`${where}: missing exercise_id`)
+    if (seen.has(id)) throw new Error(`${where}: exercise_id is used twice`)
+    seen.add(id)
 
-  // Biceps / upper arm
-  ex('Barbell Curl', 'Barbell', B, {
-    bicep: 1,
-    forearm_extensors: 0.5,
-    forearm_flexors: 0.3,
-  }),
-  ex('Hammer Curl', 'Dumbbell', B, { forearm_extensors: 1, bicep: 0.9 }),
-  ex('Incline Dumbbell Curl', 'Dumbbell', I, { bicep: 1, forearm_extensors: 0.3 }),
-  ex('Cable Curl', 'Machine', B, { bicep: 1, forearm_extensors: 0.3 }),
-  ex('Chin-Up', 'Bodyweight', I, {
-    lats: 1,
-    bicep: 0.8,
-    traps_mid: 0.5,
-    pec_sternal: 0.3,
-    forearm_flexors: 0.3,
-    triceps_long: 0.2,
-  }),
+    const group = TARGET_BY_NAME.get(norm(cell(groupCol)))
+    if (!group) throw new Error(`${where}: unknown target_group "${cell(groupCol)}"`)
 
-  // Triceps. Arms overhead stretch the long head; arms at the sides favour the lateral/medial heads.
-  ex('Close-Grip Bench Press', 'Barbell', I, {
-    triceps_lateral: 1,
-    triceps_long: 0.7,
-    pec_sternal: 0.5,
-    pec_clavicular: 0.4,
-    delt_anterior: 0.4,
-  }),
-  ex('Triceps Pushdown', 'Machine', B, { triceps_lateral: 1, triceps_long: 0.6 }),
-  ex('Overhead Triceps Extension', 'Dumbbell', B, { triceps_long: 1, triceps_lateral: 0.6 }),
-  ex('Bench Dip', 'Bodyweight', B, {
-    triceps_lateral: 1,
-    triceps_long: 0.6,
-    delt_anterior: 0.5,
-    pec_sternal: 0.4,
-    traps_mid: 0.2,
-  }),
-  ex('Skull Crusher', 'Barbell', I, { triceps_long: 1, triceps_lateral: 0.8 }),
+    const parts: Array<[MuscleId, number]> = []
+    for (const [partCol, weightCol] of partCols) {
+      const label = cell(partCol)
+      if (!label) continue
+      const muscle = MUSCLE_BY_NAME.get(norm(label))
+      if (!muscle) throw new Error(`${where}: unknown muscle "${label}"`)
+      const weight = Number(cell(weightCol))
+      if (!(weight > 0 && weight <= 1)) throw new Error(`${where}: weight for "${label}" must be in (0, 1]`)
+      if (parts.some(([m]) => m === muscle)) throw new Error(`${where}: "${label}" is listed twice`)
+      parts.push([muscle, weight])
+    }
+    const total = parts.reduce((sum, [, w]) => sum + w, 0)
+    if (Math.abs(total - 1) > SUM_TOLERANCE) throw new Error(`${where}: weights add up to ${total}, not 1`)
 
-  // Forearms (brachioradialis counts as an extensor)
-  ex('Wrist Curl', 'Dumbbell', B, { forearm_flexors: 1 }),
-  ex('Reverse Wrist Curl', 'Dumbbell', B, { forearm_extensors: 1 }),
-  ex('Reverse Curl', 'Barbell', B, { forearm_extensors: 1, bicep: 0.8 }),
-  ex('Wrist Pronation', 'Dumbbell', B, { forearm_flexors: 0.8, forearm_extensors: 0.3 }),
-  ex('Wrist Supination', 'Dumbbell', B, { forearm_extensors: 0.8, bicep: 0.4 }),
-  ex("Farmer's Carry", 'Dumbbell', B, {
-    forearm_flexors: 1,
-    traps_upper: 0.7,
-    lower_back: 0.5,
-    obliques: 0.4,
-    abs: 0.4,
-  }),
+    const [[target], ...rest] = parts
+    rest.sort((a, b) => b[1] - a[1])
+    exercises.push({
+      id,
+      name,
+      group,
+      muscles: Object.fromEntries(parts),
+      primary: [target],
+      secondary: rest.map(([m]) => m),
+    })
+  }
+  return exercises
+}
 
-  // Abs / core
-  ex('Plank', 'Bodyweight', B, { abs: 1, obliques: 0.5, delt_anterior: 0.3, serratus_anterior: 0.3, glute_max: 0.3 }),
-  ex('Bicycle Crunch', 'Bodyweight', B, { abs: 1, obliques: 0.8, hip_flexors: 0.5, quads_rectus: 0.3 }),
-  ex('Cable Crunch', 'Machine', I, { abs: 1, obliques: 0.4 }),
-  ex('Hanging Leg Raise', 'Bodyweight', A, {
-    hip_flexors: 1,
-    abs: 0.8,
-    quads_rectus: 0.5,
-    obliques: 0.5,
-    forearm_flexors: 0.4,
-    lats: 0.2,
-  }),
-  ex('Lying Leg Raise', 'Bodyweight', B, { hip_flexors: 1, abs: 0.6, quads_rectus: 0.4, obliques: 0.3 }),
-  ex('Ab Wheel Rollout', 'Bodyweight', A, { abs: 1, obliques: 0.5, lats: 0.4, hip_flexors: 0.4, delt_anterior: 0.3 }),
-  ex('Dead Bug', 'Bodyweight', B, { abs: 1, hip_flexors: 0.4, obliques: 0.4 }),
-
-  // Obliques / lateral core
-  ex('Russian Twist', 'Bodyweight', B, { obliques: 1, abs: 0.5, hip_flexors: 0.4 }),
-  ex('Side Plank', 'Bodyweight', B, { obliques: 1, lower_back: 0.7, glute_med: 0.6, abs: 0.5, delt_lateral: 0.3 }),
-  ex('Cable Woodchop', 'Machine', I, { obliques: 1, abs: 0.5, delt_anterior: 0.3 }),
-  ex('Dumbbell Side Bend', 'Dumbbell', B, { obliques: 1, lower_back: 0.7 }),
-  ex('Suitcase Carry', 'Dumbbell', I, {
-    lower_back: 1,
-    obliques: 0.8,
-    forearm_flexors: 0.6,
-    traps_upper: 0.5,
-    abs: 0.4,
-  }),
-
-  // Traps
-  ex('Barbell Shrug', 'Barbell', B, { traps_upper: 1, forearm_flexors: 0.4 }),
-  ex('Dumbbell Shrug', 'Dumbbell', B, { traps_upper: 1, forearm_flexors: 0.4 }),
-  ex('Prone Y Raise', 'Dumbbell', B, { traps_mid: 1, delt_posterior: 0.5, serratus_anterior: 0.3 }),
-  ex('Rack Pull', 'Barbell', I, {
-    traps_upper: 0.8,
-    lower_back: 0.8,
-    glute_max: 0.6,
-    hamstrings: 0.5,
-    forearm_flexors: 0.5,
-    quads_outer: 0.3,
-    quads_inner: 0.2,
-  }),
-
-  // Lats / mid back
-  ex('Pull-Up', 'Bodyweight', I, {
-    lats: 1,
-    bicep: 0.5,
-    traps_mid: 0.5,
-    pec_sternal: 0.3,
-    forearm_flexors: 0.3,
-  }),
-  ex('Lat Pulldown', 'Machine', B, { lats: 1, bicep: 0.5, traps_mid: 0.5, pec_sternal: 0.3 }),
-  ex('Bent-Over Row', 'Barbell', I, {
-    lats: 0.9,
-    traps_mid: 0.8,
-    delt_posterior: 0.6,
-    bicep: 0.5,
-    lower_back: 0.5,
-    hamstrings: 0.3,
-  }),
-  ex('One-Arm Dumbbell Row', 'Dumbbell', B, {
-    lats: 1,
-    traps_mid: 0.7,
-    delt_posterior: 0.5,
-    bicep: 0.5,
-  }),
-  ex('Seated Cable Row', 'Machine', B, {
-    traps_mid: 0.9,
-    lats: 0.8,
-    delt_posterior: 0.5,
-    bicep: 0.5,
-    lower_back: 0.3,
-  }),
-
-  // Lower back
-  ex('Back Extension', 'Bodyweight', B, { lower_back: 1, glute_max: 0.6, hamstrings: 0.5 }),
-  ex('Good Morning', 'Barbell', I, { lower_back: 0.9, hamstrings: 0.9, glute_max: 0.6, adductors: 0.3 }),
-  ex('Deadlift', 'Barbell', I, {
-    glute_max: 1,
-    hamstrings: 0.8,
-    lower_back: 0.8,
-    quads_outer: 0.6,
-    quads_inner: 0.5,
-    adductors: 0.5,
-    forearm_flexors: 0.5,
-    traps_upper: 0.4,
-    lats: 0.3,
-    soleus: 0.3,
-    quads_rectus: 0.2,
-  }),
-  ex('Superman', 'Bodyweight', B, { lower_back: 1, glute_max: 0.5, hamstrings: 0.3 }),
-
-  // Glutes / hips
-  ex('Hip Thrust', 'Barbell', I, {
-    glute_max: 1,
-    hamstrings: 0.5,
-    glute_med: 0.4,
-    adductors: 0.3,
-    quads_outer: 0.3,
-  }),
-  ex('Glute Bridge', 'Bodyweight', B, { glute_max: 1, hamstrings: 0.5, glute_med: 0.3 }),
-  ex('Cable Kickback', 'Machine', B, { glute_max: 1, hamstrings: 0.4, glute_med: 0.3 }),
-  ex('Bulgarian Split Squat', 'Dumbbell', I, {
-    quads_outer: 0.9,
-    quads_inner: 0.9,
-    glute_max: 0.8,
-    adductors: 0.5,
-    quads_rectus: 0.4,
-    glute_med: 0.4,
-    hamstrings: 0.3,
-    soleus: 0.3,
-  }),
-  ex('Hip Abduction Machine', 'Machine', B, { glute_med: 1, glute_max: 0.3 }),
-  ex('Side-Lying Leg Raise', 'Bodyweight', B, { glute_med: 1 }),
-  ex('Clamshell', 'Bodyweight', B, { glute_med: 1, glute_max: 0.5 }),
-  ex('Seated Hip External Rotation', 'Machine', I, { glute_max: 0.8, glute_med: 0.6 }),
-  ex('Hip Adduction Machine', 'Machine', B, { adductors: 1, hip_flexors: 0.3 }),
-  ex('Copenhagen Plank', 'Bodyweight', A, { adductors: 1, obliques: 0.6, lower_back: 0.4, abs: 0.3 }),
-
-  // Quads
-  ex('Back Squat', 'Barbell', I, {
-    quads_outer: 1,
-    quads_inner: 0.9,
-    glute_max: 0.8,
-    adductors: 0.6,
-    lower_back: 0.5,
-    quads_rectus: 0.4,
-    hamstrings: 0.3,
-    soleus: 0.3,
-    abs: 0.2,
-  }),
-  ex('Goblet Squat', 'Dumbbell', B, {
-    quads_inner: 1,
-    quads_outer: 0.9,
-    glute_max: 0.6,
-    adductors: 0.5,
-    quads_rectus: 0.4,
-    abs: 0.3,
-    lower_back: 0.3,
-  }),
-  ex('Leg Press', 'Machine', B, {
-    quads_outer: 1,
-    quads_inner: 0.9,
-    glute_max: 0.6,
-    adductors: 0.5,
-    quads_rectus: 0.4,
-    soleus: 0.3,
-  }),
-  ex('Walking Lunge', 'Dumbbell', I, {
-    quads_outer: 0.9,
-    quads_inner: 0.9,
-    glute_max: 0.8,
-    adductors: 0.5,
-    quads_rectus: 0.4,
-    glute_med: 0.3,
-    hamstrings: 0.3,
-    soleus: 0.3,
-  }),
-  // Rectus femoris also crosses the hip, so it works hardest with the hip already flexed, as here.
-  ex('Leg Extension', 'Machine', B, { quads_rectus: 1, quads_outer: 0.9, quads_inner: 0.8 }),
-
-  // Hamstrings
-  ex('Romanian Deadlift', 'Barbell', I, {
-    hamstrings: 1,
-    glute_max: 0.8,
-    lower_back: 0.5,
-    adductors: 0.5,
-    forearm_flexors: 0.3,
-  }),
-  ex('Lying Leg Curl', 'Machine', B, { hamstrings: 1, gastrocnemius: 0.4 }),
-  ex('Seated Leg Curl', 'Machine', B, { hamstrings: 1, gastrocnemius: 0.3, adductors: 0.2 }),
-  ex('Nordic Curl', 'Bodyweight', A, { hamstrings: 1, gastrocnemius: 0.4, glute_max: 0.3 }),
-
-  // Calves
-  ex('Standing Calf Raise', 'Machine', B, { gastrocnemius: 1, soleus: 0.7 }),
-  ex('Seated Calf Raise', 'Machine', B, { soleus: 1, gastrocnemius: 0.3 }),
-  ex('Single-Leg Calf Raise', 'Bodyweight', B, { gastrocnemius: 1, soleus: 0.7 }),
-].filter((e) => e !== null)
+export const EXERCISES: Exercise[] = loadExercises(csv)
 
 export const EXERCISES_BY_ID: Record<string, Exercise> = Object.fromEntries(
   EXERCISES.map((e) => [e.id, e]),
 )
 
-/** All muscles an exercise works as [muscle, intensity], strongest first. */
+/** All muscles an exercise works as [muscle, share], biggest first. */
 export function muscleEntries(exercise: Exercise): Array<[MuscleId, number]> {
   return (Object.entries(exercise.muscles) as Array<[MuscleId, number]>).sort((a, b) => b[1] - a[1])
 }
 
-/** How hard an exercise works a muscle or group (a group counts its strongest part), 0 if not at all. */
+/** An exercise's share of work on a muscle or group (a group adds up its parts), 0 if none. */
 export function intensityOf(exercise: Exercise, target: Target): number {
-  return Math.max(0, ...musclesOf(target).map((m) => exercise.muscles[m] ?? 0))
+  return musclesOf(target).reduce((sum, m) => sum + (exercise.muscles[m] ?? 0), 0)
 }
 
+/** Whether an exercise is listed under `target`: its own group, or a part of that group. */
+const listedUnder = (exercise: Exercise, target: Target) =>
+  exercise.group === target || (target in exercise.muscles && groupOf(target as MuscleId) === exercise.group)
+
+/**
+ * Exercises listed under a muscle or group. Every exercise in a group is
+ * primary for it; for a part, primary means the part is the target and
+ * secondary that it's one of the other parts worked.
+ */
 export function exercisesForTarget(target: Target) {
-  const weight = (e: Exercise) => intensityOf(e, target)
-  const strongestFirst = (a: Exercise, b: Exercise) => weight(b) - weight(a)
+  const listed = EXERCISES.filter((e) => listedUnder(e, target))
+  const isPrimary = (e: Exercise) => e.group === target || e.primary.includes(target as MuscleId)
+  const share = (e: Exercise) => intensityOf(e, target)
+  const biggestFirst = (a: Exercise, b: Exercise) => share(b) - share(a)
   return {
-    primary: EXERCISES.filter((e) => weight(e) >= PRIMARY_MIN).sort(strongestFirst),
-    secondary: EXERCISES.filter((e) => weight(e) > 0 && weight(e) < PRIMARY_MIN).sort(strongestFirst),
+    primary: listed.filter(isPrimary).sort(biggestFirst),
+    secondary: listed.filter((e) => !isPrimary(e)).sort(biggestFirst),
   }
 }

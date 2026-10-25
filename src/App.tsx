@@ -4,6 +4,7 @@ import DayPicker from './components/DayPicker'
 import ExercisePanel from './components/ExercisePanel'
 import HeatmapPanel from './components/HeatmapPanel'
 import PlanPanel from './components/PlanPanel'
+import Settings from './components/Settings'
 import Toast from './components/Toast'
 import { SIDEBAR_DEFAULT, SIDEBAR_MAX, SIDEBAR_MIN, useStore } from './store'
 import type { Tab } from './store'
@@ -75,12 +76,25 @@ export default function App() {
   const width = useStore((s) => s.sidebarWidth)
   const toggleSidebar = useStore((s) => s.toggleSidebar)
   const planCount = useStore((s) => s.days.reduce((n, d) => n + d.items.length, 0))
+  const openSettings = useStore((s) => s.setSettingsOpen)
 
   return (
     <div className="app">
       <header className="topbar">
         <span className="logo">◐</span>
         <h1>Muscle Explorer</h1>
+        <button className="topbar-btn" onClick={() => openSettings(true)} aria-label="Settings" title="Settings">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden>
+            <path
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinejoin="round"
+              d="M10.3 3.3h3.4l.5 2.5 1.6.9 2.4-.8 1.7 2.9-1.9 1.7v1.9l1.9 1.7-1.7 2.9-2.4-.8-1.6.9-.5 2.5h-3.4l-.5-2.5-1.6-.9-2.4.8-1.7-2.9 1.9-1.7v-1.9L4 8.8l1.7-2.9 2.4.8 1.6-.9z"
+            />
+            <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" strokeWidth="1.8" />
+          </svg>
+        </button>
       </header>
 
       <main
@@ -121,6 +135,7 @@ export default function App() {
       </main>
 
       <DayPicker />
+      <Settings />
       <Toast />
     </div>
   )

@@ -16,14 +16,16 @@ export default function Toast() {
   return (
     <div className="toast" role="status">
       <span>{toast.message}</span>
-      <button
-        onClick={() => {
-          setTab('plan')
-          dismiss()
-        }}
-      >
-        View plan
-      </button>
+      {toast.viewPlan && (
+        <button
+          onClick={() => {
+            setTab('plan')
+            dismiss()
+          }}
+        >
+          View plan
+        </button>
+      )}
     </div>
   )
 }

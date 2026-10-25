@@ -1,14 +1,14 @@
-import { useState } from 'react'
 import { exercisesForTarget } from '../data/exercises'
-import type { Equipment, Exercise } from '../data/exercises'
+import type { Exercise } from '../data/exercises'
 import { MUSCLES, TARGETS, groupOf, isGroup, musclesOf } from '../data/muscles'
 import type { MuscleId, Target } from '../data/muscles'
+import { useMemo } from 'react'
+import { searchExercises } from '../search'
 import { useStore } from '../store'
 import MuscleTags from './MuscleTags'
 
-const EQUIPMENT: Array<Equipment | 'All'> = ['All', 'Bodyweight', 'Dumbbell', 'Barbell', 'Machine']
-
-function ExerciseRow({ exercise, muscle }: { exercise: Exercise; muscle: Target }) {
+/** `muscle` is highlighted in the exercise's muscle tags (none in search results). */
+function ExerciseRow({ exercise, muscle }: { exercise: Exercise; muscle: Target | null }) {
   const openPicker = useStore((s) => s.openPicker)
   // Titles of the days this exercise is already in (a string, so the selector stays stable).
   const inDays = useStore((s) =>
@@ -21,9 +21,6 @@ function ExerciseRow({ exercise, muscle }: { exercise: Exercise; muscle: Target 
     <li className="row">
       <div className="row-main">
         <div className="row-name">{exercise.name}</div>
-        <div className="row-meta">
-          {exercise.equipment} · {exercise.level}
-        </div>
         <MuscleTags exercise={exercise} highlight={muscle} />
         {inDays && <div className="row-in">✓ {inDays}</div>}
       </div>
@@ -82,50 +79,98 @@ function Breakdown({ target, onDrill }: { target: Target; onDrill: (part: Muscle
   )
 }
 
+/** Fuzzy search over every exercise (src/search.ts). Esc clears it. */
+function SearchBox() {
+  const query = useStore((s) => s.exerciseQuery)
+  const setQuery = useStore((s) => s.setExerciseQuery)
+  return (
+    <div className="search">
+      <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden>
+        <circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" strokeWidth="2" />
+        <path d="M16 16l4.5 4.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+      </svg>
+      <input
+        type="search"
+        value={query}
+        placeholder="Search exercises"
+        aria-label="Search exercises"
+        onChange={(e) => setQuery(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === 'Escape') setQuery('')
+        }}
+      />
+      {query && (
+        <button className="search-clear" onClick={() => setQuery('')} aria-label="Clear search">
+          ✕
+        </button>
+      )}
+    </div>
+  )
+}
+
+function SearchResults({ query }: { query: string }) {
+  const results = useMemo(() => searchExercises(query), [query])
+  return (
+    <div className="scroll">
+      {results.length === 0 ? (
+        <p className="muted pad">No exercises match "{query.trim()}".</p>
+      ) : (
+        <section>
+          <h3 className="section-title">
+            Results <span>{results.length}</span>
+          </h3>
+          <ul className="list">
+            {results.map((e) => (
+              <ExerciseRow key={e.id} exercise={e} muscle={null} />
+            ))}
+          </ul>
+        </section>
+      )}
+    </div>
+  )
+}
+
 export default function ExercisePanel() {
   const selected = useStore((s) => s.selected)
   const drillDown = useStore((s) => s.drillDown)
-  const [equipment, setEquipment] = useState<Equipment | 'All'>('All')
+  const query = useStore((s) => s.exerciseQuery)
+
+  if (query.trim()) {
+    return (
+      <div className="panel-body">
+        <SearchBox />
+        <SearchResults query={query} />
+      </div>
+    )
+  }
 
   if (!selected) {
     return (
-      <div className="empty">
-        <div className="empty-icon">☝︎</div>
-        <p>Tap a muscle on the model to see exercises that train it.</p>
+      <div className="panel-body">
+        <SearchBox />
+        <div className="empty">
+          <div className="empty-icon">☝︎</div>
+          <p>Tap a muscle on the model to see exercises that train it, or search above.</p>
+        </div>
       </div>
     )
   }
 
   const { primary, secondary } = exercisesForTarget(selected)
-  const filter = (list: Exercise[]) =>
-    equipment === 'All' ? list : list.filter((e) => e.equipment === equipment)
-  const p = filter(primary)
-  const s = filter(secondary)
 
   return (
     <div className="panel-body">
+      <SearchBox />
       <div className="panel-head">
         <h2>{TARGETS[selected].label}</h2>
         <span className="muted">{TARGETS[selected].region}</span>
       </div>
       <Breakdown target={selected} onDrill={drillDown} />
 
-      <div className="chips" role="group" aria-label="Filter by equipment">
-        {EQUIPMENT.map((eq) => (
-          <button
-            key={eq}
-            className={`chip ${equipment === eq ? 'active' : ''}`}
-            onClick={() => setEquipment(eq)}
-          >
-            {eq}
-          </button>
-        ))}
-      </div>
-
       <div className="scroll">
-        <Section title="Primary" items={p} muscle={selected} />
-        <Section title="Also works this muscle" items={s} muscle={selected} />
-        {p.length + s.length === 0 && <p className="muted pad">No exercises match this filter.</p>}
+        <Section title="Primary" items={primary} muscle={selected} />
+        <Section title="Also works this muscle" items={secondary} muscle={selected} />
+        {primary.length + secondary.length === 0 && <p className="muted pad">No exercises for this muscle yet.</p>}
       </div>
     </div>
   )

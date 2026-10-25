@@ -11,7 +11,7 @@ import {
   untrainedMuscles,
 } from '../heat'
 import { useHeat } from '../useHeat'
-import { useStore } from '../store'
+import { splitGroups, useStore } from '../store'
 
 export default function HeatmapPanel() {
   const days = useStore((s) => s.days)
@@ -19,7 +19,7 @@ export default function HeatmapPanel() {
   const select = useStore((s) => s.select)
   const setScope = useStore((s) => s.setHeatScope)
   const setTab = useStore((s) => s.setTab)
-  const expanded = useStore((s) => s.expanded)
+  const expanded = useStore(splitGroups)
   const heat = useHeat()
 
   // Tapping a muscle on the model should bring its row into view.
@@ -43,7 +43,7 @@ export default function HeatmapPanel() {
   const ranked = rankedMuscles(heat, shown)
   const untrained = untrainedMuscles(heat, shown)
   const dayIndex = days.findIndex((d) => d.id === heat.scope)
-  const scopeLabel = dayIndex >= 0 ? days[dayIndex].title || `Day ${dayIndex + 1}` : 'any day'
+  const scopeLabel = dayIndex >= 0 ? days[dayIndex].title || `Day ${dayIndex + 1}` : 'any active day'
 
   return (
     <div className="panel-body">
@@ -65,8 +65,9 @@ export default function HeatmapPanel() {
           {days.map((d, i) => (
             <button
               key={d.id}
-              className={`chip ${heat.scope === d.id ? 'active' : ''}`}
+              className={`chip ${heat.scope === d.id ? 'active' : ''} ${d.active ? '' : 'draft'}`}
               onClick={() => setScope(d.id)}
+              title={d.active ? undefined : 'Draft: not counted in All days'}
             >
               {d.title || `Day ${i + 1}`}
             </button>

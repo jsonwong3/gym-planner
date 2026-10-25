@@ -1,28 +1,37 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import { EXERCISES_BY_ID } from './data/exercises'
-import { displayTarget, groupOf, isGroup, musclesOf } from './data/muscles'
+import { GROUP_IDS, displayTarget, groupOf, isGroup, musclesOf } from './data/muscles'
 import type { GroupId, MuscleId, Target } from './data/muscles'
 import { ALL_DAYS } from './heat'
 import type { HeatScope } from './heat'
+import { MAX_KG } from './units'
+import type { Unit } from './units'
 
 export interface PlanItem {
   exerciseId: string
   sets: number
   reps: number
+  /** Weight per set in kg, shown in the user's unit; null until they set one (or for bodyweight work). */
+  weight: number | null
 }
 
-/** A day is its own mini-plan. For now the only editable config is the title. */
+/** A day is its own mini-plan, with a title and whether it counts yet. */
 export interface Day {
   id: string
   title: string
   items: PlanItem[]
+  /** Unticked while the user is still working a day out: it stays editable but is left out of the all-days heatmap. */
+  active: boolean
 }
+
+/** What the add dialog sets on a new plan item. */
+export type ItemValues = Partial<Pick<PlanItem, 'sets' | 'reps' | 'weight'>>
 
 export type Tab = 'exercises' | 'plan' | 'heatmap'
 
 /** Desktop sidebar widths (px). CSS also caps it so the model keeps some room on narrow windows. */
-export const SIDEBAR_DEFAULT = 400
+export const SIDEBAR_DEFAULT = 560
 export const SIDEBAR_MIN = 360
 export const SIDEBAR_MAX = 760
 export type TagTool = 'lasso' | 'fill' | 'erase'
@@ -38,8 +47,6 @@ interface State {
   /** Sidebar width in px on desktop, set by dragging its edge. Not persisted. */
   sidebarWidth: number
   autoRotate: boolean
-  /** Which body to draw: the built-in primitives or `public/models/body.glb`. Not persisted. */
-  model: 'placeholder' | 'glb'
   /** Tag mode: taps paint the GLB's muscle ID map (src/idMap.ts) instead of selecting. Not persisted. */
   tagging: boolean
   /** Muscle that tag-mode taps assign. */
@@ -56,13 +63,24 @@ interface State {
   days: Day[]
   /** Heatmap scope: ALL_DAYS, or the id of a single day. */
   heatScope: HeatScope
+  /** Day clicked on the plan tab: the model colours what it works. Not persisted. */
+  planFocus: string | null
   /** Set while the "add to which day?" picker is open. */
   picker: { exerciseId: string } | null
-  toast: { message: string; nonce: number } | null
+  /** `viewPlan` adds a "View plan" button (after adding an exercise). */
+  toast: { message: string; nonce: number; viewPlan?: boolean } | null
+  /** Unit weights are shown and entered in (stored in kg regardless). Persisted. */
+  unit: Unit
+  /** Sets and reps the "add to day" dialog starts at. Persisted. */
+  defaultSets: number
+  defaultReps: number
+  settingsOpen: boolean
+  /** Exercises tab search box; non-empty shows search results instead of the selected muscle's list. Not persisted. */
+  exerciseQuery: string
 
   select: (id: Target | null) => void
   hover: (id: Target | null) => void
-  /** Splits the muscle's group into its parts, or merges it back if already split. */
+  /** Splits the muscle's group into its parts, or merges it back if already split. No-op on the heatmap, which always shows parts. */
   drillDown: (muscle: MuscleId) => void
   /** Merges every split group back together. */
   resetDrillDown: () => void
@@ -72,7 +90,6 @@ interface State {
   /** Clamped to SIDEBAR_MIN..SIDEBAR_MAX. */
   setSidebarWidth: (px: number) => void
   toggleAutoRotate: () => void
-  toggleModel: () => void
   toggleTagging: () => void
   setTagMuscle: (muscle: MuscleId) => void
   setTagTool: (tool: TagTool) => void
@@ -83,25 +100,39 @@ interface State {
   resetView: () => void
 
   setHeatScope: (scope: HeatScope) => void
+  /** Highlights a day's muscles on the model, or clears it if that day is already highlighted. */
+  focusDay: (dayId: string) => void
   /** Jump to the heatmap tab, optionally for one day. */
   showHeatmap: (scope?: HeatScope) => void
 
   openPicker: (exerciseId: string) => void
   closePicker: () => void
+  /** Shows a short message in the toast. */
+  notify: (message: string) => void
   dismissToast: () => void
+  setUnit: (unit: Unit) => void
+  /** Clamped like plan items (1-99). */
+  setDefaults: (patch: Partial<Pick<State, 'defaultSets' | 'defaultReps'>>) => void
+  /** Opens or closes the settings dialog (the cog in the top bar). */
+  setSettingsOpen: (open: boolean) => void
+  setExerciseQuery: (query: string) => void
 
   /** Creates an empty day and returns its id. Blank title falls back to the next free "Day N". */
   addDay: (title?: string) => string
   /** Ignored if the title is blank or another day already has it. */
   renameDay: (dayId: string, title: string) => void
   removeDay: (dayId: string) => void
-  addToDay: (dayId: string, exerciseId: string) => void
-  addToNewDay: (exerciseId: string, title?: string) => void
+  /** Moves a day to `index` in the list (clamped). */
+  moveDay: (dayId: string, index: number) => void
+  setDayActive: (dayId: string, active: boolean) => void
+  /** `values` come from the add dialog; anything missing falls back to the defaults (weight: none). */
+  addToDay: (dayId: string, exerciseId: string, values?: ItemValues) => void
+  addToNewDay: (exerciseId: string, title?: string, values?: ItemValues) => void
   removeFromDay: (dayId: string, exerciseId: string) => void
   updateItem: (
     dayId: string,
     exerciseId: string,
-    patch: Partial<Pick<PlanItem, 'sets' | 'reps'>>,
+    patch: Partial<Pick<PlanItem, 'sets' | 'reps' | 'weight'>>,
   ) => void
   clearAll: () => void
 }
@@ -109,20 +140,41 @@ interface State {
 // Not crypto.randomUUID: that needs a secure context, and this app is often
 // opened over plain http on a LAN IP when testing on a phone.
 const newId = () => Math.random().toString(36).slice(2, 10) + Date.now().toString(36)
-const clamp = (n: number) => Math.max(1, Math.min(99, Math.round(n) || 1))
+/** Sets and reps: whole numbers, 1-99. */
+export const clamp = (n: number) => Math.max(1, Math.min(99, Math.round(n) || 1))
+/** Kg, kept to 0.01 kg (finer than any unit shows); blank, zero or nonsense clears it. */
+const clampWeight = (kg: number | null) =>
+  kg !== null && Number.isFinite(kg) && kg > 0 ? Math.round(Math.min(MAX_KG, kg) * 100) / 100 : null
 
 /**
  * Keeps a selected target valid after the drill-down changes: a split group
  * becomes `part` (the muscle the user right-clicked) or its first part, and a
  * part of a merged group becomes the group.
  */
-function remap(target: Target | null, expanded: GroupId[], part?: MuscleId): Target | null {
+function remap(target: Target | null, expanded: readonly GroupId[], part?: MuscleId): Target | null {
   if (!target) return null
   if (!isGroup(target)) return displayTarget(target, expanded)
   if (!expanded.includes(target)) return target
   const parts = musclesOf(target)
   return part && parts.includes(part) ? part : parts[0]
 }
+
+/**
+ * Groups currently showing as their parts: every group on the heatmap (load
+ * is per part, so the parts are what's worth comparing), otherwise the ones
+ * the user drilled into. Pass to `displayTarget` / `visibleTargets`.
+ */
+export const splitGroups = (s: Pick<State, 'tab' | 'expanded'>): readonly GroupId[] =>
+  s.tab === 'heatmap' ? GROUP_IDS : s.expanded
+
+/**
+ * Whether the model shows heat colours: on the heatmap tab, or on the plan tab
+ * while a day is highlighted (`planFocus`). `useHeat` picks the matching scope.
+ */
+export const showsHeat = (s: Pick<State, 'tab' | 'planFocus'>) => s.tab === 'heatmap' || (s.tab === 'plan' && !!s.planFocus)
+
+/** The heatmap only shows parts, so a selected group has nothing to point at there. */
+const partOnly = (target: Target | null) => (target && isGroup(target) ? null : target)
 
 // Day titles are unique, ignoring case and surrounding spaces ("Push" = " push").
 const titleKey = (title: string) => title.trim().toLowerCase()
@@ -154,7 +206,6 @@ export const useStore = create<State>()(
       sidebarCollapsed: false,
       sidebarWidth: SIDEBAR_DEFAULT,
       autoRotate: false,
-      model: 'glb',
       tagging: false,
       tagMuscle: 'pec_sternal',
       tagTool: 'lasso',
@@ -164,32 +215,45 @@ export const useStore = create<State>()(
 
       days: [],
       heatScope: ALL_DAYS,
+      planFocus: null,
       picker: null,
       toast: null,
+      unit: 'kg',
+      defaultSets: 4,
+      defaultReps: 10,
+      settingsOpen: false,
+      exerciseQuery: '',
 
-      // Picking a muscle shows its exercises, except while looking at the
-      // heatmap, where it should stay put and show that muscle's breakdown.
+      // Picking a muscle shows its exercises (so it also clears any search), except while looking at
+      // the heatmap, where it should stay put and show that muscle's breakdown.
       select: (id) =>
         set((s) =>
-          id ? { selected: id, tab: s.tab === 'heatmap' ? 'heatmap' : 'exercises' } : { selected: null },
+          id
+            ? { selected: id, tab: s.tab === 'heatmap' ? 'heatmap' : 'exercises', exerciseQuery: '' }
+            : { selected: null },
         ),
       hover: (id) => set({ hovered: id }),
       drillDown: (muscle) =>
         set((s) => {
           const group = groupOf(muscle)
-          if (!group) return {}
+          if (!group || s.tab === 'heatmap') return {}
           const expanded = s.expanded.includes(group)
             ? s.expanded.filter((g) => g !== group)
             : [...s.expanded, group]
           return { expanded, selected: remap(s.selected, expanded, muscle), hovered: displayTarget(muscle, expanded) }
         }),
       resetDrillDown: () => set((s) => ({ expanded: [], selected: remap(s.selected, []), hovered: null })),
-      setTab: (tab) => set({ tab, sidebarCollapsed: false }),
+      setTab: (tab) =>
+        set((s) => {
+          if (tab === 'heatmap') return { tab, sidebarCollapsed: false, selected: partOnly(s.selected) }
+          // Leaving the heatmap with a part selected keeps it, drilling into its group so the model shows it too.
+          const group = s.tab === 'heatmap' && s.selected && !isGroup(s.selected) ? groupOf(s.selected) : null
+          const expanded = group && !s.expanded.includes(group) ? [...s.expanded, group] : s.expanded
+          return { tab, sidebarCollapsed: false, expanded, selected: remap(s.selected, expanded) }
+        }),
       toggleSidebar: () => set((s) => ({ sidebarCollapsed: !s.sidebarCollapsed })),
       setSidebarWidth: (px) => set({ sidebarWidth: Math.round(Math.max(SIDEBAR_MIN, Math.min(SIDEBAR_MAX, px))) }),
       toggleAutoRotate: () => set((s) => ({ autoRotate: !s.autoRotate })),
-      // Tagging only makes sense on the GLB, so leaving it ends tag mode too.
-      toggleModel: () => set((s) => ({ model: s.model === 'glb' ? 'placeholder' : 'glb', hovered: null, tagging: false })),
       toggleTagging: () => set((s) => ({ tagging: !s.tagging, hovered: null })),
       // Picking a muscle means you're about to tag it, so leave the eraser.
       setTagMuscle: (muscle) => set((s) => ({ tagMuscle: muscle, tagTool: s.tagTool === 'erase' ? 'lasso' : s.tagTool })),
@@ -201,18 +265,34 @@ export const useStore = create<State>()(
       resetView: () => set((s) => ({ autoRotate: false, view: { azimuth: 0, reset: true, nonce: s.view.nonce + 1 } })),
 
       setHeatScope: (scope) => set({ heatScope: scope }),
-      showHeatmap: (scope = ALL_DAYS) => set({ heatScope: scope, tab: 'heatmap' }),
+      focusDay: (dayId) => set((s) => ({ planFocus: s.planFocus === dayId ? null : dayId })),
+      showHeatmap: (scope = ALL_DAYS) =>
+        set((s) => ({ heatScope: scope, tab: 'heatmap', selected: partOnly(s.selected) })),
 
       openPicker: (exerciseId) => set({ picker: { exerciseId } }),
       closePicker: () => set({ picker: null }),
+      notify: (message) => set((s) => ({ toast: { message, nonce: (s.toast?.nonce ?? 0) + 1 } })),
       dismissToast: () => set({ toast: null }),
+      setUnit: (unit) => set({ unit }),
+      setDefaults: (patch) =>
+        set({
+          ...(patch.defaultSets !== undefined ? { defaultSets: clamp(patch.defaultSets) } : {}),
+          ...(patch.defaultReps !== undefined ? { defaultReps: clamp(patch.defaultReps) } : {}),
+        }),
+      setSettingsOpen: (open) => set({ settingsOpen: open }),
+      setExerciseQuery: (query) => set({ exerciseQuery: query }),
 
       addDay: (title) => {
         const id = newId()
         set((s) => ({
           days: [
             ...s.days,
-            { id, title: title?.trim() ? uniqueTitle(s.days, title.trim()) : nextDayTitle(s.days), items: [] },
+            {
+              id,
+              title: title?.trim() ? uniqueTitle(s.days, title.trim()) : nextDayTitle(s.days),
+              items: [],
+              active: true,
+            },
           ],
         }))
         return id
@@ -227,9 +307,21 @@ export const useStore = create<State>()(
         set((s) => ({
           days: s.days.filter((d) => d.id !== dayId),
           heatScope: s.heatScope === dayId ? ALL_DAYS : s.heatScope,
+          planFocus: s.planFocus === dayId ? null : s.planFocus,
         })),
+      moveDay: (dayId, index) =>
+        set((s) => {
+          const from = s.days.findIndex((d) => d.id === dayId)
+          const to = Math.max(0, Math.min(s.days.length - 1, index))
+          if (from < 0 || from === to) return {}
+          const days = [...s.days]
+          days.splice(to, 0, ...days.splice(from, 1))
+          return { days }
+        }),
+      setDayActive: (dayId, active) =>
+        set((s) => ({ days: s.days.map((d) => (d.id === dayId ? { ...d, active } : d)) })),
 
-      addToDay: (dayId, exerciseId) => {
+      addToDay: (dayId, exerciseId, values = {}) => {
         const day = get().days.find((d) => d.id === dayId)
         if (!day) return
         if (day.items.some((i) => i.exerciseId === exerciseId)) {
@@ -237,17 +329,23 @@ export const useStore = create<State>()(
           return
         }
         const name = EXERCISES_BY_ID[exerciseId]?.name ?? 'Exercise'
-        set((s) => ({
-          days: s.days.map((d) =>
-            d.id === dayId ? { ...d, items: [...d.items, { exerciseId, sets: 3, reps: 10 }] } : d,
-          ),
-          picker: null,
-          toast: { message: `Added ${name} to ${day.title}`, nonce: (s.toast?.nonce ?? 0) + 1 },
-        }))
+        set((s) => {
+          const item: PlanItem = {
+            exerciseId,
+            sets: clamp(values.sets ?? s.defaultSets),
+            reps: clamp(values.reps ?? s.defaultReps),
+            weight: clampWeight(values.weight ?? null),
+          }
+          return {
+            days: s.days.map((d) => (d.id === dayId ? { ...d, items: [...d.items, item] } : d)),
+            picker: null,
+            toast: { message: `Added ${name} to ${day.title}`, nonce: (s.toast?.nonce ?? 0) + 1, viewPlan: true },
+          }
+        })
       },
-      addToNewDay: (exerciseId, title) => {
+      addToNewDay: (exerciseId, title, values) => {
         const dayId = get().addDay(title)
-        get().addToDay(dayId, exerciseId)
+        get().addToDay(dayId, exerciseId, values)
       },
 
       removeFromDay: (dayId, exerciseId) =>
@@ -270,29 +368,46 @@ export const useStore = create<State>()(
                           ...i,
                           ...(patch.sets !== undefined ? { sets: clamp(patch.sets) } : {}),
                           ...(patch.reps !== undefined ? { reps: clamp(patch.reps) } : {}),
+                          ...(patch.weight !== undefined ? { weight: clampWeight(patch.weight) } : {}),
                         },
                   ),
                 },
           ),
         })),
-      clearAll: () => set({ days: [], heatScope: ALL_DAYS }),
+      clearAll: () => set({ days: [], heatScope: ALL_DAYS, planFocus: null }),
     }),
     {
       name: 'muscle-explorer-plan',
-      version: 2,
-      partialize: (s) => ({ days: s.days }),
+      version: 6,
+      partialize: (s) => ({ days: s.days, unit: s.unit, defaultSets: s.defaultSets, defaultReps: s.defaultReps }),
       migrate: (persisted, version) => {
-        const old = persisted as { plan?: PlanItem[]; days?: Day[] } | undefined
+        const old = persisted as
+          | { plan?: PlanItem[]; days?: Day[]; unit?: Unit; defaultSets?: number; defaultReps?: number }
+          | undefined
         // v0 stored one flat `plan` array. Keep it by moving it into "Day 1".
         let days: Day[] =
           version < 1 && old?.plan?.length
-            ? [{ id: newId(), title: 'Day 1', items: old.plan }]
+            ? [{ id: newId(), title: 'Day 1', items: old.plan, active: true }]
             : (old?.days ?? [])
         // v2 regrouped the muscles and dropped the exercises left without one (neck, tibialis...).
         if (version < 2) {
           days = days.map((d) => ({ ...d, items: d.items.filter((i) => i.exerciseId in EXERCISES_BY_ID) }))
         }
-        return { days } as unknown as State
+        // v3 added `active`; existing days were all in use.
+        if (version < 3) days = days.map((d) => ({ ...d, active: d.active ?? true }))
+        // v4 added a weight per exercise (unset) and the unit setting.
+        if (version < 4) days = days.map((d) => ({ ...d, items: d.items.map((i) => ({ ...i, weight: i.weight ?? null })) }))
+        // v5 added default sets/reps for the add dialog.
+        // v6 replaced the exercise list with muscle_list.csv (numeric ids); old exercises are gone.
+        if (version < 6) {
+          days = days.map((d) => ({ ...d, items: d.items.filter((i) => i.exerciseId in EXERCISES_BY_ID) }))
+        }
+        return {
+          days,
+          unit: old?.unit ?? 'kg',
+          defaultSets: old?.defaultSets ?? 4,
+          defaultReps: old?.defaultReps ?? 10,
+        } as unknown as State
       },
     },
   ),
