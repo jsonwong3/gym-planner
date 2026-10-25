@@ -100,7 +100,15 @@ A set counts in full for the exercise's target part; the weights only set how mu
 
 ## Real anatomy model (GLB)
 
-`public/models/gray-body.glb` (the same mesh and UVs as the original coloured `body.glb`, with a grey 256px texture) is the body, loaded by `GLBBody` in `BodyViewer.tsx`. It's scaled to a fixed height with its feet on a fixed floor (`BODY_HEIGHT`, `BODY_FEET_Y`) so the camera framing fits, and wrapped in drei's `<Bvh>` so raycasting a ~2M-triangle mesh on every pointer move stays smooth. Metalness is forced to 0 because Tripo's metalness map renders black without an environment map.
+`public/models/gray-body.glb` (the same mesh and UVs as the original coloured Tripo export, with a grey 256px texture) is the body, loaded by `GLBBody` in `BodyViewer.tsx`. It's scaled to a fixed height with its feet on a fixed floor (`BODY_HEIGHT`, `BODY_FEET_Y`) so the camera framing fits, and wrapped in drei's `<Bvh>` so raycasting a ~2M-triangle mesh on every pointer move stays smooth. Metalness is forced to 0 because Tripo's metalness map renders black without an environment map.
+
+The shipped GLB is meshopt-compressed (~11 MB instead of ~59 MB; drei's `useGLTF` decodes it with no extra setup or network fetch). The uncompressed original is kept as `models-src/gray-body.source.glb`; edit that one, then regenerate with:
+
+```bash
+npx @gltf-transform/cli meshopt models-src/gray-body.source.glb public/models/gray-body.glb --quantize-texcoord 16
+```
+
+Use `meshopt` rather than `optimize`: `optimize` also simplifies and welds the mesh, and may re-encode textures (KTX2 can't be drawn to a canvas, which tag mode needs). `--quantize-texcoord 16` keeps UVs well under a texel of the 1024px ID map; the default 12 bits is a quarter-texel. Avoid Draco: drei fetches its decoder from a CDN, which breaks offline use. `models-src/` also holds tag-mode outputs (`mask-*.png`, per-muscle `body-ids-*.png`) that the app doesn't load; only files in `public/` are shipped.
 
 A tap or hover is resolved to a muscle in this order:
 
