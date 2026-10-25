@@ -38,7 +38,7 @@ npm run build    # type-check + production build
 
 Click behaviour worth knowing:
 - Left and right meshes share a muscle id, so tapping either side highlights both.
-- Muscles split into parts start as one group: hovering any delt says "Shoulders". See [Muscles](#muscles) for the list. Right-click drills into the parts (right-click a part to merge it back); **↺ Regroup** merges everything. On touch, the exercise panel offers the same through "Parts" chips and an "← All ..." link. Exercise data always uses the parts; a group's share is the sum of its parts'.
+- Muscles split into parts start as one group: hovering any delt says "Shoulders". See [Muscles](#muscles) for the list. Right-click drills into the parts (right-click a part to merge it back); **↺ Regroup** merges everything. On touch, the exercise panel offers the same through "Parts" chips and an "← All ..." link. Exercise data always uses the parts; in the heatmap a group counts its best part.
 - Taps are told apart from orbit drags using R3F's `e.delta`.
 - The sidebar folds away with the chevron in its tab bar (to a thin rail on desktop, to just the tab bar on phones; tapping a tab reopens it). On desktop, drag its left edge to resize it (360-760px, default 560, wide enough for sets, reps and weight on one line; arrow keys work when the edge is focused, double-click resets). Neither is persisted.
 - The model is one mesh, so the raycast stops at the first surface hit: untagged areas act as skin, and you can't click through the torso to a back muscle.
@@ -85,14 +85,15 @@ Selecting a group lists every exercise whose `target_group` is that group. After
 Open the **Heatmap** tab (or tap **Heatmap** on a day in the plan). The body is recoloured from the plan:
 
 ```
-muscle load (effective sets) = sum of  sets x share
+muscle load (effective sets) = sum of  sets x credit
+credit = 1 for the target part, else min(0.5, weight / target part's weight)
 ```
 
-Each set is split between the muscles it works: 4 sets of bench press = 2 for the sternal pec, 0.6 for the clavicular pec, 0.6 for front delts, 0.8 for the triceps. A group adds up its parts, so the same 4 sets count as 2.6 for "Chest". Reps are ignored; set count is the usual proxy for volume.
+A set counts in full for the exercise's target part; the weights only set how much the other parts get, relative to the target, capped at half a set (research counts indirect work as about half, Pelland et al. 2025). 4 sets of bench press = 4 for the sternal pec, 1.2 for the clavicular pec and front delts, 0.8 for the lateral triceps. A group counts its best part, so the same 4 sets count as 4 for "Chest", not 4 + 1.2. Reps are ignored: hard sets of roughly 6-30 reps build about the same muscle, and set count is what the research measures.
 
 - **Scope:** all days, or a single day (chips at the top of the tab). "All days" counts only days ticked **Active** in the plan; unticked (draft) days are dashed and only show when picked on their own.
-- **From the plan:** click a day's card on the My plan tab to colour what that day works on the model (same scale, one-day scope, groups shown as groups); click it again to clear. Drag a day by its ⠿ handle (or focus it and use the arrow keys) to reorder.
-- **Colour scale:** load is divided by `FULL_HEAT_SETS` (10 for one day, 20 for all days, in `src/heat.ts`) and capped at 1. Purple -> crimson -> orange -> yellow. Grey means untrained.
+- **From the plan:** click a day's card on the My plan tab to colour what that day works on the model (same scale, one-day scope, groups shown as groups); click it again to clear. Drag a day by its ⠿ handle (or focus it and use the arrow keys) to reorder; the card follows the pointer and the other days dim while you drag. ▾ next to the handle collapses a day to its header (remembered). Exercises within a day reorder with the ▲/▼ buttons on each row.
+- **Colour scale:** load is divided by `FULL_HEAT_SETS` (8 for one day, 16 for all days, in `src/heat.ts`) and capped at 1. All days is treated as a week: 12-20 sets per muscle per week is the usual recommendation, and one session stops adding much past about 11. Purple -> crimson -> orange -> yellow. Grey means untrained.
 - **Parts, not groups:** the heatmap always shows every group split into its parts (on the model and in the list), so you can see e.g. front vs. rear delts; drill-down is off there. Opening the heatmap with a whole group selected clears the selection; leaving it with a part selected drills into that part's group so it stays selected.
 - **Breakdown:** tap a muscle (on the model or in the list) to see which exercises contribute and how much.
 

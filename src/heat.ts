@@ -1,4 +1,4 @@
-import { EXERCISES_BY_ID, intensityOf } from './data/exercises'
+import { EXERCISES_BY_ID, creditOf } from './data/exercises'
 import { ALL_TARGETS } from './data/muscles'
 import type { Target } from './data/muscles'
 import type { Day } from './store'
@@ -10,14 +10,16 @@ import type { Day } from './store'
  * The all-days scope leaves out inactive days (`Day.active`).
  *
  * Each muscle's load is "effective sets":  sum over planned exercises of
- *   sets x share(exercise, muscle)
- * Shares add up to 1, so each set is split between the muscles it works:
- * 4 sets of bench press = 2 for the sternal pec, 0.6 for the clavicular pec,
- * 0.6 for front delts... Reps are ignored on purpose; set count is the usual
- * proxy for volume.
+ *   sets x credit(exercise, muscle)
+ * A set counts in full for the exercise's target part; other parts get their
+ * weight relative to the target's, at most SECONDARY_CAP. So 4 sets of bench
+ * press = 4 for the sternal pec, 1.2 for the clavicular pec and front delts,
+ * 0.8 for the lateral triceps... Reps are ignored on purpose: hard sets of
+ * roughly 6-30 reps build about the same muscle, and set count is what the
+ * research measures.
  *
- * Groups (e.g. the whole deltoid) add up their parts' shares, so the same
- * bench press counts 2.6 for "Chest".
+ * Groups (e.g. the whole deltoid) take their best part, so the same bench
+ * press counts 4 for "Chest", not 4 + 1.2.
  */
 
 /** Scope is either every day in the plan, or a single day's id. */
@@ -25,10 +27,12 @@ export type HeatScope = string
 export const ALL_DAYS: HeatScope = 'all'
 
 /**
- * Effective sets that count as "full heat" (top of the colour scale).
- * Roughly: a solid single session vs. a solid week. Tune to taste.
+ * Effective sets that count as "full heat" (top of the colour scale). All days
+ * is treated as a week: 12-20 sets per muscle per week is the usual
+ * recommendation, so 16 is mid-range. One session stops adding much past
+ * about 11 sets, so a day is full at 8. Tune to taste.
  */
-export const FULL_HEAT_SETS = { day: 10, all: 20 }
+export const FULL_HEAT_SETS = { day: 8, all: 16 }
 
 /** Anything trained shows at least this much colour, so it never looks untrained. */
 const MIN_VISIBLE = 0.08
@@ -38,6 +42,7 @@ export interface Contribution {
   dayId: string
   dayTitle: string
   sets: number
+  /** How much of each set counts for this muscle or group (`creditOf`). */
   intensity: number
   /** sets x intensity */
   effective: number
@@ -80,7 +85,7 @@ export function computeHeat(days: Day[], scope: HeatScope): HeatResult {
       exerciseCount += 1
       setCount += item.sets
       for (const target of ALL_TARGETS) {
-        const intensity = intensityOf(exercise, target)
+        const intensity = creditOf(exercise, target)
         if (intensity === 0) continue
         const effective = item.sets * intensity
         load[target] += effective

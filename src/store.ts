@@ -23,6 +23,8 @@ export interface Day {
   items: PlanItem[]
   /** Unticked while the user is still working a day out: it stays editable but is left out of the all-days heatmap. */
   active: boolean
+  /** Folded down to its header in the plan tab. */
+  collapsed: boolean
 }
 
 /** What the add dialog sets on a new plan item. */
@@ -125,10 +127,13 @@ interface State {
   /** Moves a day to `index` in the list (clamped). */
   moveDay: (dayId: string, index: number) => void
   setDayActive: (dayId: string, active: boolean) => void
+  setDayCollapsed: (dayId: string, collapsed: boolean) => void
   /** `values` come from the add dialog; anything missing falls back to the defaults (weight: none). */
   addToDay: (dayId: string, exerciseId: string, values?: ItemValues) => void
   addToNewDay: (exerciseId: string, title?: string, values?: ItemValues) => void
   removeFromDay: (dayId: string, exerciseId: string) => void
+  /** Moves an exercise to `index` within its day (clamped). */
+  moveItem: (dayId: string, exerciseId: string, index: number) => void
   updateItem: (
     dayId: string,
     exerciseId: string,
@@ -292,6 +297,7 @@ export const useStore = create<State>()(
               title: title?.trim() ? uniqueTitle(s.days, title.trim()) : nextDayTitle(s.days),
               items: [],
               active: true,
+              collapsed: false,
             },
           ],
         }))
@@ -320,6 +326,8 @@ export const useStore = create<State>()(
         }),
       setDayActive: (dayId, active) =>
         set((s) => ({ days: s.days.map((d) => (d.id === dayId ? { ...d, active } : d)) })),
+      setDayCollapsed: (dayId, collapsed) =>
+        set((s) => ({ days: s.days.map((d) => (d.id === dayId ? { ...d, collapsed } : d)) })),
 
       addToDay: (dayId, exerciseId, values = {}) => {
         const day = get().days.find((d) => d.id === dayId)
@@ -354,6 +362,18 @@ export const useStore = create<State>()(
             d.id === dayId ? { ...d, items: d.items.filter((i) => i.exerciseId !== exerciseId) } : d,
           ),
         })),
+      moveItem: (dayId, exerciseId, index) =>
+        set((s) => ({
+          days: s.days.map((d) => {
+            if (d.id !== dayId) return d
+            const from = d.items.findIndex((i) => i.exerciseId === exerciseId)
+            const to = Math.max(0, Math.min(d.items.length - 1, index))
+            if (from < 0 || from === to) return d
+            const items = [...d.items]
+            items.splice(to, 0, ...items.splice(from, 1))
+            return { ...d, items }
+          }),
+        })),
       updateItem: (dayId, exerciseId, patch) =>
         set((s) => ({
           days: s.days.map((d) =>
@@ -378,7 +398,7 @@ export const useStore = create<State>()(
     }),
     {
       name: 'muscle-explorer-plan',
-      version: 6,
+      version: 7,
       partialize: (s) => ({ days: s.days, unit: s.unit, defaultSets: s.defaultSets, defaultReps: s.defaultReps }),
       migrate: (persisted, version) => {
         const old = persisted as
@@ -387,7 +407,7 @@ export const useStore = create<State>()(
         // v0 stored one flat `plan` array. Keep it by moving it into "Day 1".
         let days: Day[] =
           version < 1 && old?.plan?.length
-            ? [{ id: newId(), title: 'Day 1', items: old.plan, active: true }]
+            ? [{ id: newId(), title: 'Day 1', items: old.plan, active: true, collapsed: false }]
             : (old?.days ?? [])
         // v2 regrouped the muscles and dropped the exercises left without one (neck, tibialis...).
         if (version < 2) {
@@ -402,6 +422,8 @@ export const useStore = create<State>()(
         if (version < 6) {
           days = days.map((d) => ({ ...d, items: d.items.filter((i) => i.exerciseId in EXERCISES_BY_ID) }))
         }
+        // v7 added `collapsed`; existing days start open.
+        if (version < 7) days = days.map((d) => ({ ...d, collapsed: d.collapsed ?? false }))
         return {
           days,
           unit: old?.unit ?? 'kg',

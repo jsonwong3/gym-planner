@@ -18,6 +18,8 @@ export interface Exercise {
   group: Target
   /** Every muscle the exercise works with its share of the work. */
   muscles: MuscleIntensities
+  /** How much of a set each muscle is credited with in the heatmap (see SECONDARY_CAP). */
+  credit: MuscleIntensities
   /** The target part (`target_part`). */
   primary: MuscleId[]
   /** The secondary parts, biggest share first. */
@@ -63,6 +65,14 @@ function parseCsv(text: string): string[][] {
 
 /** Shares must add up to 1, give or take rounding. */
 const SUM_TOLERANCE = 0.001
+
+/**
+ * A set counts in full for the target part. Other parts get their weight
+ * relative to the target's, capped here: research counts indirect work as about
+ * half a set (Pelland et al. 2025), so even a big secondary can't pass for
+ * direct work.
+ */
+export const SECONDARY_CAP = 0.5
 
 /**
  * Reads `muscle_list.csv`, the source of truth for exercises. Rows without a
@@ -113,13 +123,17 @@ function loadExercises(text: string): Exercise[] {
     const total = parts.reduce((sum, [, w]) => sum + w, 0)
     if (Math.abs(total - 1) > SUM_TOLERANCE) throw new Error(`${where}: weights add up to ${total}, not 1`)
 
-    const [[target], ...rest] = parts
+    const [[target, targetWeight], ...rest] = parts
     rest.sort((a, b) => b[1] - a[1])
     exercises.push({
       id,
       name,
       group,
       muscles: Object.fromEntries(parts),
+      credit: Object.fromEntries([
+        [target, 1],
+        ...rest.map(([m, w]) => [m, Math.min(SECONDARY_CAP, w / targetWeight)]),
+      ]),
       primary: [target],
       secondary: rest.map(([m]) => m),
     })
@@ -138,10 +152,18 @@ export function muscleEntries(exercise: Exercise): Array<[MuscleId, number]> {
   return (Object.entries(exercise.muscles) as Array<[MuscleId, number]>).sort((a, b) => b[1] - a[1])
 }
 
-/** An exercise's share of work on a muscle or group (a group adds up its parts), 0 if none. */
-export function intensityOf(exercise: Exercise, target: Target): number {
-  return musclesOf(target).reduce((sum, m) => sum + (exercise.muscles[m] ?? 0), 0)
+/**
+ * How much of a set an exercise counts for on a muscle or group, 0 if none.
+ * A group takes its best part, so a set of bench press is one set of chest,
+ * not one plus the clavicular pec's share.
+ */
+export function creditOf(exercise: Exercise, target: Target): number {
+  return Math.max(0, ...musclesOf(target).map((m) => exercise.credit[m] ?? 0))
 }
+
+/** An exercise's share of the work on a muscle or group (a group adds up its parts), 0 if none. */
+const shareOf = (exercise: Exercise, target: Target) =>
+  musclesOf(target).reduce((sum, m) => sum + (exercise.muscles[m] ?? 0), 0)
 
 /** Whether an exercise is listed under `target`: its own group, or a part of that group. */
 const listedUnder = (exercise: Exercise, target: Target) =>
@@ -155,7 +177,7 @@ const listedUnder = (exercise: Exercise, target: Target) =>
 export function exercisesForTarget(target: Target) {
   const listed = EXERCISES.filter((e) => listedUnder(e, target))
   const isPrimary = (e: Exercise) => e.group === target || e.primary.includes(target as MuscleId)
-  const share = (e: Exercise) => intensityOf(e, target)
+  const share = (e: Exercise) => shareOf(e, target)
   const biggestFirst = (a: Exercise, b: Exercise) => share(b) - share(a)
   return {
     primary: listed.filter(isPrimary).sort(biggestFirst),
