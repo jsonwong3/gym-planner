@@ -165,21 +165,31 @@ function remap(target: Target | null, expanded: readonly GroupId[], part?: Muscl
 }
 
 /**
- * Groups currently showing as their parts: every group on the heatmap (load
- * is per part, so the parts are what's worth comparing), otherwise the ones
- * the user drilled into. Pass to `displayTarget` / `visibleTargets`.
- */
-export const splitGroups = (s: Pick<State, 'tab' | 'expanded'>): readonly GroupId[] =>
-  s.tab === 'heatmap' ? GROUP_IDS : s.expanded
-
-/**
  * Whether the model shows heat colours: on the heatmap tab, or on the plan tab
  * while a day is highlighted (`planFocus`). `useHeat` picks the matching scope.
  */
 export const showsHeat = (s: Pick<State, 'tab' | 'planFocus'>) => s.tab === 'heatmap' || (s.tab === 'plan' && !!s.planFocus)
 
-/** The heatmap only shows parts, so a selected group has nothing to point at there. */
+/**
+ * Groups currently showing as their parts: every group while heat is showing
+ * (load is per part, so the parts are what's worth comparing), otherwise the
+ * ones the user drilled into. Pass to `displayTarget` / `visibleTargets`.
+ */
+export const splitGroups = (s: Pick<State, 'tab' | 'planFocus' | 'expanded'>): readonly GroupId[] =>
+  showsHeat(s) ? GROUP_IDS : s.expanded
+
+/** Heat views only show parts, so a selected group has nothing to point at there. */
 const partOnly = (target: Target | null) => (target && isGroup(target) ? null : target)
+
+/**
+ * Leaving a heat view with a part selected keeps it, drilling into its group
+ * so the model shows it too; anything else is remapped to what's on show.
+ */
+function keepSelection(s: Pick<State, 'selected' | 'expanded'>): Pick<State, 'selected' | 'expanded'> {
+  const group = s.selected && !isGroup(s.selected) ? groupOf(s.selected) : null
+  const expanded = group && !s.expanded.includes(group) ? [...s.expanded, group] : s.expanded
+  return { expanded, selected: remap(s.selected, expanded) }
+}
 
 // Day titles are unique, ignoring case and surrounding spaces ("Push" = " push").
 const titleKey = (title: string) => title.trim().toLowerCase()
@@ -232,16 +242,19 @@ export const useStore = create<State>()(
       // Picking a muscle shows its exercises (so it also clears any search), except while looking at
       // the heatmap, where it should stay put and show that muscle's breakdown.
       select: (id) =>
-        set((s) =>
-          id
-            ? { selected: id, tab: s.tab === 'heatmap' ? 'heatmap' : 'exercises', exerciseQuery: '' }
-            : { selected: null },
-        ),
+        set((s) => {
+          if (!id) return { selected: null }
+          if (s.tab === 'heatmap') return { selected: id, exerciseQuery: '' }
+          // A part picked from a heat view (a highlighted plan day) needs its group drilled into on the exercises tab.
+          const group = isGroup(id) ? null : groupOf(id)
+          const expanded = group && !s.expanded.includes(group) ? [...s.expanded, group] : s.expanded
+          return { selected: id, tab: 'exercises', exerciseQuery: '', expanded }
+        }),
       hover: (id) => set({ hovered: id }),
       drillDown: (muscle) =>
         set((s) => {
           const group = groupOf(muscle)
-          if (!group || s.tab === 'heatmap') return {}
+          if (!group || showsHeat(s)) return {}
           const expanded = s.expanded.includes(group)
             ? s.expanded.filter((g) => g !== group)
             : [...s.expanded, group]
@@ -249,13 +262,11 @@ export const useStore = create<State>()(
         }),
       resetDrillDown: () => set((s) => ({ expanded: [], selected: remap(s.selected, []), hovered: null })),
       setTab: (tab) =>
-        set((s) => {
-          if (tab === 'heatmap') return { tab, sidebarCollapsed: false, selected: partOnly(s.selected) }
-          // Leaving the heatmap with a part selected keeps it, drilling into its group so the model shows it too.
-          const group = s.tab === 'heatmap' && s.selected && !isGroup(s.selected) ? groupOf(s.selected) : null
-          const expanded = group && !s.expanded.includes(group) ? [...s.expanded, group] : s.expanded
-          return { tab, sidebarCollapsed: false, expanded, selected: remap(s.selected, expanded) }
-        }),
+        set((s) =>
+          showsHeat({ ...s, tab })
+            ? { tab, sidebarCollapsed: false, selected: partOnly(s.selected) }
+            : { tab, sidebarCollapsed: false, ...keepSelection(s) },
+        ),
       toggleSidebar: () => set((s) => ({ sidebarCollapsed: !s.sidebarCollapsed })),
       setSidebarWidth: (px) => set({ sidebarWidth: Math.round(Math.max(SIDEBAR_MIN, Math.min(SIDEBAR_MAX, px))) }),
       toggleAutoRotate: () => set((s) => ({ autoRotate: !s.autoRotate })),
@@ -270,7 +281,12 @@ export const useStore = create<State>()(
       resetView: () => set((s) => ({ autoRotate: false, view: { azimuth: 0, reset: true, nonce: s.view.nonce + 1 } })),
 
       setHeatScope: (scope) => set({ heatScope: scope }),
-      focusDay: (dayId) => set((s) => ({ planFocus: s.planFocus === dayId ? null : dayId })),
+      focusDay: (dayId) =>
+        set((s) =>
+          s.planFocus === dayId
+            ? { planFocus: null, ...keepSelection(s) }
+            : { planFocus: dayId, selected: partOnly(s.selected) },
+        ),
       showHeatmap: (scope = ALL_DAYS) =>
         set((s) => ({ heatScope: scope, tab: 'heatmap', selected: partOnly(s.selected) })),
 
@@ -313,7 +329,7 @@ export const useStore = create<State>()(
         set((s) => ({
           days: s.days.filter((d) => d.id !== dayId),
           heatScope: s.heatScope === dayId ? ALL_DAYS : s.heatScope,
-          planFocus: s.planFocus === dayId ? null : s.planFocus,
+          ...(s.planFocus === dayId ? { planFocus: null, ...keepSelection(s) } : {}),
         })),
       moveDay: (dayId, index) =>
         set((s) => {

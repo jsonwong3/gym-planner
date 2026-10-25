@@ -369,9 +369,9 @@ function CursorLabel() {
   const hovered = useStore((s) => s.hovered)
   const label = useMuscleLabel(hovered)
   const tagging = useStore((s) => s.tagging)
-  const heatmapOn = useStore((s) => s.tab === 'heatmap')
-  // No drill-down on the heatmap: it always shows parts.
-  const hint = tagging ? (hovered ? 'Right-click to pick' : null) : heatmapOn ? null : drillHint(hovered)
+  const heatOn = useStore(showsHeat)
+  // No drill-down while heat is showing: it always shows parts.
+  const hint = tagging ? (hovered ? 'Right-click to pick' : null) : heatOn ? null : drillHint(hovered)
 
   useEffect(() => {
     const el = ref.current
@@ -428,7 +428,7 @@ function ViewControls() {
   const resetView = useStore((s) => s.resetView)
   const autoRotate = useStore((s) => s.autoRotate)
   const toggle = useStore((s) => s.toggleAutoRotate)
-  const drilled = useStore((s) => s.tab !== 'heatmap' && s.expanded.length > 0)
+  const drilled = useStore((s) => !showsHeat(s) && s.expanded.length > 0)
   const resetDrillDown = useStore((s) => s.resetDrillDown)
   const tagging = useStore((s) => s.tagging)
   const toggleTagging = useStore((s) => s.toggleTagging)

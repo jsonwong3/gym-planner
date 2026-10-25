@@ -3,7 +3,7 @@ import type { KeyboardEvent, MouseEvent, PointerEvent } from 'react'
 import { EXERCISES_BY_ID } from '../data/exercises'
 import { TARGETS, displayTarget } from '../data/muscles'
 import type { Target } from '../data/muscles'
-import { isTitleTaken, useStore } from '../store'
+import { isTitleTaken, splitGroups, useStore } from '../store'
 import type { Day, PlanItem } from '../store'
 import MuscleTags from './MuscleTags'
 import { Stepper, WeightInput } from './Steppers'
@@ -230,7 +230,8 @@ function DayCard({ day, index }: { day: Day; index: number }) {
   const removeDay = useStore((s) => s.removeDay)
   const select = useStore((s) => s.select)
   const showHeatmap = useStore((s) => s.showHeatmap)
-  const expanded = useStore((s) => s.expanded)
+  // Parts while a day is highlighted, so the chips match the model.
+  const expanded = useStore(splitGroups)
   const focused = useStore((s) => s.planFocus === day.id)
   const focusDay = useStore((s) => s.focusDay)
   const setActive = useStore((s) => s.setDayActive)

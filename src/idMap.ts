@@ -51,8 +51,8 @@ const V1_CODES = [
   6, // delt_rear
   7, // supraspinatus -> traps_upper
   12, // triceps -> triceps_lateral (re-tag the other heads)
-  13, // biceps -> bicep
-  13, // brachialis -> bicep
+  13, // biceps
+  13, // brachialis -> biceps
   40, // brachioradialis
   33, // wrist flexors -> forearm_flexors
   16, // forearm_extensors

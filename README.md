@@ -52,8 +52,9 @@ Click behaviour worth knowing:
 | Chest | clavicular head, sternal head, serratus anterior |
 | Core | abs, obliques |
 | Back | upper, middle, lower trapezius; infraspinatus & teres minor; latissimus dorsi & teres major; erector spinae |
-| Forearm | brachioradialis, extensors, flexors |
-| Neck, Bicep, Quadriceps, Adductors, Abductors, Hamstrings, Calves, Glutes | WIP: one whole-area muscle each, no parts yet |
+| Forearms | brachioradialis, extensors, flexors |
+| Legs | glutes, quadriceps, hamstrings, adductors, abductors, calves |
+| Neck, Biceps | WIP: one whole-area muscle each, no parts yet |
 
 WIP areas work like any single muscle (tag, select, heatmap) until they're split; see the comment at the top of `muscles.ts` for how to split one without losing its tags.
 
@@ -65,7 +66,7 @@ The exercise list is `muscle_list.csv` in the repo root; `src/data/exercises.ts`
 | --- | --- |
 | `exercise_id` | Stable id saved in plans. Never renumber or reuse one; names can change freely |
 | `exercise_name` | Shown in the app and searched |
-| `target_group` | The one muscle or group whose list shows this exercise (e.g. `Chest`, `Bicep`), even if it works others |
+| `target_group` | The one muscle or group whose list shows this exercise (e.g. `Chest`, `Biceps`), even if it works others |
 | `target_part`, `target_part_weight` | The main part worked and its share |
 | `secondary_part_N`, `secondary_part_weight_N` | Up to five more parts and their shares |
 
@@ -94,7 +95,7 @@ A set counts in full for the exercise's target part; the weights only set how mu
 - **Scope:** all days, or a single day (chips at the top of the tab). "All days" counts only days ticked **Active** in the plan; unticked (draft) days are dashed and only show when picked on their own.
 - **From the plan:** click a day's card on the My plan tab to colour what that day works on the model (same scale, one-day scope, groups shown as groups); click it again to clear. Drag a day by its ⠿ handle (or focus it and use the arrow keys) to reorder; the card follows the pointer and the other days dim while you drag. ▾ next to the handle collapses a day to its header (remembered). Exercises within a day reorder with the ▲/▼ buttons on each row.
 - **Colour scale:** load is divided by `FULL_HEAT_SETS` (8 for one day, 16 for all days, in `src/heat.ts`) and capped at 1. All days is treated as a week: 12-20 sets per muscle per week is the usual recommendation, and one session stops adding much past about 11. Purple -> crimson -> orange -> yellow. Grey means untrained.
-- **Parts, not groups:** the heatmap always shows every group split into its parts (on the model and in the list), so you can see e.g. front vs. rear delts; drill-down is off there. Opening the heatmap with a whole group selected clears the selection; leaving it with a part selected drills into that part's group so it stays selected.
+- **Parts, not groups:** wherever heat is showing (the heatmap, or a day highlighted on the plan tab) every group is split into its parts (on the model and in the lists), so you can see e.g. front vs. rear delts; drill-down is off there. Showing heat with a whole group selected clears the selection; leaving it with a part selected drills into that part's group so it stays selected.
 - **Breakdown:** tap a muscle (on the model or in the list) to see which exercises contribute and how much.
 
 ## Real anatomy model (GLB)

@@ -31,19 +31,20 @@ export const MUSCLE_IDS = [
   'infraspinatus',
   'lats',
   'erector_spinae',
-  // Forearm
+  // Forearms
   'brachioradialis',
   'forearm_extensors',
   'forearm_flexors',
-  // WIP: whole areas, not split into parts yet
-  'neck',
-  'bicep',
+  // Legs
+  'glutes',
   'quadriceps',
+  'hamstrings',
   'adductors',
   'abductors',
-  'hamstrings',
   'calves',
-  'glutes',
+  // WIP: whole areas, not split into parts yet
+  'neck',
+  'biceps',
 ] as const
 
 export type MuscleId = (typeof MUSCLE_IDS)[number]
@@ -52,17 +53,12 @@ export type Region =
   | 'Neck'
   | 'Shoulders'
   | 'Triceps'
-  | 'Bicep'
+  | 'Biceps'
   | 'Chest'
   | 'Core'
   | 'Back'
-  | 'Forearm'
-  | 'Quadriceps'
-  | 'Adductors'
-  | 'Abductors'
-  | 'Hamstrings'
-  | 'Calves'
-  | 'Glutes'
+  | 'Forearms'
+  | 'Legs'
 
 export interface Muscle {
   id: MuscleId
@@ -95,18 +91,19 @@ export const MUSCLES: Record<MuscleId, Muscle> = {
   lats: m('lats', 'Latissimus Dorsi & Teres Major', 'Back'),
   erector_spinae: m('erector_spinae', 'Erector Spinae', 'Back'),
 
-  brachioradialis: m('brachioradialis', 'Brachioradialis', 'Forearm'),
-  forearm_extensors: m('forearm_extensors', 'Forearm Extensors', 'Forearm'),
-  forearm_flexors: m('forearm_flexors', 'Forearm Flexors', 'Forearm'),
+  brachioradialis: m('brachioradialis', 'Brachioradialis', 'Forearms'),
+  forearm_extensors: m('forearm_extensors', 'Forearm Extensors', 'Forearms'),
+  forearm_flexors: m('forearm_flexors', 'Forearm Flexors', 'Forearms'),
+
+  glutes: m('glutes', 'Glutes', 'Legs'),
+  quadriceps: m('quadriceps', 'Quadriceps', 'Legs'),
+  hamstrings: m('hamstrings', 'Hamstrings', 'Legs'),
+  adductors: m('adductors', 'Adductors', 'Legs'),
+  abductors: m('abductors', 'Abductors', 'Legs'),
+  calves: m('calves', 'Calves', 'Legs'),
 
   neck: m('neck', 'Neck', 'Neck'),
-  bicep: m('bicep', 'Bicep', 'Bicep'),
-  quadriceps: m('quadriceps', 'Quadriceps', 'Quadriceps'),
-  adductors: m('adductors', 'Adductors', 'Adductors'),
-  abductors: m('abductors', 'Abductors', 'Abductors'),
-  hamstrings: m('hamstrings', 'Hamstrings', 'Hamstrings'),
-  calves: m('calves', 'Calves', 'Calves'),
-  glutes: m('glutes', 'Glutes', 'Glutes'),
+  biceps: m('biceps', 'Biceps', 'Biceps'),
 }
 
 /**
@@ -127,7 +124,7 @@ export const MUSCLE_CODES: Record<MuscleId, number> = {
   triceps_lateral: 12,
   traps_upper: 7,
   traps_middle: 8,
-  bicep: 13,
+  biceps: 13,
   abs: 17,
   obliques: 18,
   hamstrings: 25,
@@ -192,10 +189,15 @@ export const GROUPS = {
     region: 'Back',
     muscles: ['traps_upper', 'traps_middle', 'traps_lower', 'infraspinatus', 'lats', 'erector_spinae'],
   },
-  forearm: {
-    label: 'Forearm',
-    region: 'Forearm',
+  forearms: {
+    label: 'Forearms',
+    region: 'Forearms',
     muscles: ['brachioradialis', 'forearm_extensors', 'forearm_flexors'],
+  },
+  legs: {
+    label: 'Legs',
+    region: 'Legs',
+    muscles: ['glutes', 'quadriceps', 'hamstrings', 'adductors', 'abductors', 'calves'],
   },
 } as const satisfies Record<string, { label: string; region: Region; muscles: readonly MuscleId[] }>
 
