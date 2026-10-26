@@ -33,17 +33,13 @@ npm install
 
 ### Exercise GIFs
 
-The animated exercise demos aren't in this repo: they belong to [Gym visual](https://gymvisual.com/) and come from the [exercises-dataset](https://github.com/hasaneyldrm/exercises-dataset). The app works without them; hovering an exercise just shows no preview. To add them:
+The animated exercise demos aren't in this repo: they belong to [Gym visual](https://gymvisual.com/) and come from the [exercises-dataset](https://github.com/hasaneyldrm/exercises-dataset). The app works without them; hovering an exercise just shows no preview. To add them, download the ones the app uses (about 80 MB) into `public/exercise-gifs/`:
 
-1. Download the dataset: <https://github.com/hasaneyldrm/exercises-dataset/archive/refs/heads/main.zip> (about 150 MB unzipped).
-2. Unzip it into the project root, so you have `exercises-dataset-main/data/exercises.json` next to `package.json`.
-3. Copy the GIFs the app uses into `public/exercise-gifs/`:
+```bash
+npm run gifs
+```
 
-   ```bash
-   npm run gifs
-   ```
-
-Run `npm run gifs` again whenever the exercise list changes. Both `exercises-dataset-main/` and `public/exercise-gifs/` are git-ignored; keep it that way (see [Credits and licences](#credits-and-licences)).
+Run it again whenever the exercise list changes: it only fetches GIFs you don't have yet and removes ones for exercises no longer listed. If some downloads fail, run it again to retry them. `public/exercise-gifs/` is git-ignored; keep it that way (see [Credits and licences](#credits-and-licences)).
 
 This is only for running from source. The desktop app downloads the GIFs itself (see [Desktop app](#desktop-app-windows-electron)).
 
@@ -101,7 +97,7 @@ The app's exercises are `src/data/muscle_list.csv`: one row per exercise, with t
 - Keep each exercise's `exercise_id`. Saved plans refer to exercises by id, and the id is also the GIF's file name.
 - After adding exercises, run `npm run gifs` to copy their GIFs.
 
-The list was generated from the dataset by the scripts in `scripts/`. To regenerate it (for example after adding exercises to `scripts/data/exercises.csv`), with the dataset downloaded:
+The list was generated from the dataset by the scripts in `scripts/`. To regenerate it (for example after adding exercises to `scripts/data/exercises.csv`):
 
 ```bash
 node scripts/map-exercises.mjs                # writes scripts/data/muscle_list.csv
@@ -109,9 +105,9 @@ node scripts/map-exercises.mjs                # writes scripts/data/muscle_list.
 npm run gifs
 ```
 
-`node scripts/exercises-json-to-csv.mjs` writes every dataset exercise to `scripts/data/exercises-all.csv`, to pick new ones from.
+`node scripts/exercises-json-to-csv.mjs` fetches the dataset's full exercise list from GitHub and writes it to `scripts/data/exercises-all.csv`, to pick new ones from.
 
 ## Credits and licences
 
-- **Exercise GIFs:** © Gym visual — <https://gymvisual.com/>. Redistributed by the exercises-dataset with Gym visual's permission at 180×180 only; the app shows this credit under every GIF. That permission doesn't extend to you: don't commit the GIFs or ship builds containing them publicly without your own licence from Gym visual (see the dataset's `NOTICE.md` and [Gym visual's terms](https://gymvisual.com/content/3-terms-and-conditions-of-use)).
+- **Exercise GIFs:** © Gym visual — <https://gymvisual.com/>. Redistributed by the exercises-dataset with Gym visual's permission at 180×180 only; the app shows this credit under every GIF. That permission doesn't extend to you: don't commit the GIFs or ship builds containing them publicly without your own licence from Gym visual (see the dataset's [NOTICE.md](https://github.com/hasaneyldrm/exercises-dataset/blob/main/NOTICE.md) and [Gym visual's terms](https://gymvisual.com/content/3-terms-and-conditions-of-use)).
 - **Exercise data:** [exercises-dataset](https://github.com/hasaneyldrm/exercises-dataset) (MIT); muscle parts and weights mapped for this app.

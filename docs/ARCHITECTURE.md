@@ -81,15 +81,15 @@ With nothing selected, the Exercises tab lists every exercise, in sections by gr
 
 ## Exercise data pipeline
 
-The exercises come from the [exercises-dataset](https://github.com/hasaneyldrm/exercises-dataset) (data MIT; GIFs © Gym visual, see its `NOTICE.md`). The dataset and the copied GIFs are git-ignored; only the trimmed list and the scripts are committed.
+The exercises come from the [exercises-dataset](https://github.com/hasaneyldrm/exercises-dataset) (data MIT; GIFs © Gym visual, see its `NOTICE.md`). Nothing needs the dataset repo checked out: the scripts fetch its exercise list and GIFs from `raw.githubusercontent.com`. The downloaded GIFs are git-ignored; only the trimmed list and the scripts are committed.
 
 | File | Role |
 | --- | --- |
-| `scripts/exercises-json-to-csv.mjs` | `exercises-dataset-main/data/exercises.json` -> `scripts/data/exercises-all.csv`: every dataset exercise, minus the instructions, with `secondary_muscles` split into five columns. A list to pick from |
+| `scripts/exercises-json-to-csv.mjs` | The dataset's `data/exercises.json` (fetched, or a local path as the first argument) -> `scripts/data/exercises-all.csv`: every dataset exercise, minus the instructions, with `secondary_muscles` split into five columns. A list to pick from |
 | `scripts/data/exercises.csv` | The hand-trimmed dataset list (committed): the exercises we keep, with the dataset's own muscle columns |
 | `scripts/map-exercises.mjs` | `scripts/data/exercises.csv` -> `scripts/data/muscle_list.csv` in the app's format. Matches each name to a movement pattern (`classify`) and gives it that pattern's group, parts and weights, ignoring the dataset's muscles (too coarse and often wrong). Tidies names (title case, dataset typos), drops same-named duplicates, checks every label against `muscles.ts`. Copy the output over `src/data/muscle_list.csv` by hand, so it never overwrites edits made there |
-| `scripts/copy-exercise-gifs.mjs` (`npm run gifs`) | Copies the dataset GIF for every exercise in `src/data/muscle_list.csv` to `public/exercise-gifs/<exercise_id>.gif`. Dataset ids are zero-padded (`0007`); ours aren't (`7`) |
-| `scripts/gif-manifest.mjs` (`npm run gif-manifest`) | Writes `electron/exercise-gifs.json` (git-ignored): exercise id -> GIF path in the dataset repo, for every exercise in `src/data/muscle_list.csv`. Built from `scripts/data/exercises.csv`, so it doesn't need the dataset. The desktop app downloads from it; `desktop` and `desktop:dist` regenerate it |
+| `scripts/gif-manifest.mjs` (`npm run gif-manifest`) | Writes `electron/exercise-gifs.json` (git-ignored): exercise id -> GIF path in the dataset repo, for every exercise in `src/data/muscle_list.csv`, from the `gif_url` column of `scripts/data/exercises.csv`. Dataset ids are zero-padded (`0007`); ours aren't (`7`). `gifs`, `desktop` and `desktop:dist` regenerate it |
+| `scripts/download-exercise-gifs.mjs` (`npm run gifs`) | Downloads every GIF in the manifest that's missing from `public/exercise-gifs/<exercise_id>.gif` (8 at a time, `.part` then renamed) and deletes ones no longer listed. The desktop app does the same at runtime (see below) |
 
 An exercise with no pattern in `classify` is left out and listed when the script runs; add a pattern (specific ones before general ones they'd also match) or a weighting. An exercise with no GIF just shows no preview.
 

@@ -9,7 +9,7 @@ npm run dev      # Vite dev server, http://localhost:5173
 npm run build    # tsc --noEmit && vite build — the only correctness check
 npm run desktop:dev / desktop / desktop:dist   # Electron (electron/main.js); installers go to release/
 npm run android:sync / android:open / android  # Capacitor (capacitor.config.ts, android/)
-npm run gifs     # copy exercise GIFs from exercises-dataset-main/ into public/exercise-gifs/
+npm run gifs     # download exercise GIFs from the exercises-dataset repo into public/exercise-gifs/
 ```
 
 Desktop and Android wrap the same `dist/`; keep app code platform-neutral (see docs/ARCHITECTURE.md "Desktop and Android").
@@ -34,7 +34,7 @@ Vite + React 19 + TypeScript (strict), three.js via `@react-three/fiber` + `drei
 
 ## Gotchas
 
-- `exercises-dataset-main/` and `public/exercise-gifs/` are git-ignored on purpose: the GIFs are Gym visual's, not ours to redistribute. Never commit them. Any GIF shown must keep the "© Gym visual — https://gymvisual.com/" credit.
+- `public/exercise-gifs/` is git-ignored on purpose: the GIFs are Gym visual's, not ours to redistribute. Never commit them. Any GIF shown must keep the "© Gym visual — https://gymvisual.com/" credit.
 - Don't use `crypto.randomUUID` — the app is often opened over plain http on a LAN IP for phone testing (not a secure context). Use the existing `newId()`.
 - Clicks vs. orbit drags are distinguished with R3F's `e.delta`; the body is one GLB mesh, so the first hit wins and untagged areas act as skin (you can't click through the torso).
 - `select()` keeps the user on the heatmap tab if they're there (shows the breakdown); elsewhere it switches to exercises.

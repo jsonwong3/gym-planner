@@ -8,7 +8,7 @@ import { useStore } from '../store'
  */
 const LINGER_MS = 150
 
-/** Copied from the exercise dataset by scripts/copy-exercise-gifs.mjs. */
+/** Downloaded from the exercise dataset by `npm run gifs` (or, on desktop, by electron/main.js). */
 const gifUrl = (exerciseId: string) => `/exercise-gifs/${exerciseId}.gif`
 
 /**
@@ -37,7 +37,7 @@ export default function ExercisePreview() {
     <div className="exercise-preview" aria-hidden>
       <img key={shown} src={gifUrl(shown)} width={180} height={180} alt="" onError={() => setMissing(shown)} />
       <div className="exercise-preview-name">{EXERCISES_BY_ID[shown]?.name}</div>
-      {/* Required by the GIFs' licence (exercises-dataset-main/NOTICE.md). */}
+      {/* Required by the GIFs' licence (the exercises-dataset repo's NOTICE.md). */}
       <div className="exercise-preview-credit">© Gym visual — https://gymvisual.com/</div>
     </div>
   )
