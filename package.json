@@ -9,11 +9,12 @@
     "preview": "vite preview",
     "gifs": "node scripts/copy-exercise-gifs.mjs",
     "desktop:dev": "concurrently -k -n vite,electron \"vite --strictPort\" \"wait-on tcp:5173 && electron . --dev\"",
-    "desktop": "npm run build && electron .",
-    "desktop:dist": "npm run build && electron-builder --win",
+    "desktop": "npm run build && npm run gif-manifest && electron .",
+    "desktop:dist": "npm run build && npm run gif-manifest && electron-builder --win",
     "android:sync": "npm run build && cap sync android",
     "android:open": "cap open android",
-    "android": "npm run build && cap sync android && cap run android"
+    "android": "npm run build && cap sync android && cap run android",
+    "gif-manifest": "node scripts/gif-manifest.mjs"
   },
   "dependencies": {
     "@capacitor/android": "^8.5.3",
@@ -52,6 +53,7 @@
     },
     "files": [
       "dist/**/*",
+      "!dist/exercise-gifs/**/*",
       "electron/**/*",
       "package.json",
       "!node_modules/**/*"

@@ -89,6 +89,7 @@ The exercises come from the [exercises-dataset](https://github.com/hasaneyldrm/e
 | `scripts/data/exercises.csv` | The hand-trimmed dataset list (committed): the exercises we keep, with the dataset's own muscle columns |
 | `scripts/map-exercises.mjs` | `scripts/data/exercises.csv` -> `scripts/data/muscle_list.csv` in the app's format. Matches each name to a movement pattern (`classify`) and gives it that pattern's group, parts and weights, ignoring the dataset's muscles (too coarse and often wrong). Tidies names (title case, dataset typos), drops same-named duplicates, checks every label against `muscles.ts`. Copy the output over `src/data/muscle_list.csv` by hand, so it never overwrites edits made there |
 | `scripts/copy-exercise-gifs.mjs` (`npm run gifs`) | Copies the dataset GIF for every exercise in `src/data/muscle_list.csv` to `public/exercise-gifs/<exercise_id>.gif`. Dataset ids are zero-padded (`0007`); ours aren't (`7`) |
+| `scripts/gif-manifest.mjs` (`npm run gif-manifest`) | Writes `electron/exercise-gifs.json` (git-ignored): exercise id -> GIF path in the dataset repo, for every exercise in `src/data/muscle_list.csv`. Built from `scripts/data/exercises.csv`, so it doesn't need the dataset. The desktop app downloads from it; `desktop` and `desktop:dist` regenerate it |
 
 An exercise with no pattern in `classify` is left out and listed when the script runs; add a pattern (specific ones before general ones they'd also match) or a weighting. An exercise with no GIF just shows no preview.
 
@@ -152,6 +153,7 @@ Work in progress autosaves to `localStorage` (and wins over the file). **Downloa
 Both wrap the same built web app (`dist/`); nothing in `src/` knows which it's running in, so keep app code platform-neutral.
 
 - **Electron** (`electron/main.js`) serves `dist/` from a custom `app://bundle/` scheme rather than `file://`, so `fetch()` of the model works, absolute paths like `/models/...` and `/exercise-gifs/...` resolve, and localStorage (the saved plan) has a stable origin. `electron . --dev` loads the Vite dev server instead.
+- **Exercise GIFs on desktop:** electron-builder leaves `dist/exercise-gifs/` out of the installers. After the page loads (built app only, not `--dev`), `offerGifs` compares `electron/exercise-gifs.json` with what's on disk and, if any are missing, asks to download them from `raw.githubusercontent.com` (8 at a time, each written to `.part` then renamed). They go to `<userData>/exercise-gifs/`; the `app://` handler serves `/exercise-gifs/<id>.gif` from there first, then from `dist/`. Afterwards the window reloads so previews that failed earlier retry. "Don't ask again" is stored in `<userData>/gif-download.json`. The renderer knows nothing about this: `ExercisePreview` loads `/exercise-gifs/<id>.gif` everywhere and shows nothing if it's missing.
 - **Capacitor** (`capacitor.config.ts`) copies `dist/` into the generated Android Studio project in `android/` (committed; its own `.gitignore` leaves out builds and the copied web files).
 
 ## Next
