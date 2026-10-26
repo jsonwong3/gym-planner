@@ -1,0 +1,800 @@
+id,name,category,body_part,equipment,muscle_group,target_muscle,secondary_muscles_0,secondary_muscles_1,secondary_muscles_2,secondary_muscles_3,secondary_muscles_4,image,gif_url,media_id,created_at
+7,alternate lateral pulldown,back,back,cable,biceps,lats,biceps,rhomboids,,,,images/0007-4IKbhHV.jpg,videos/0007-4IKbhHV.gif,4IKbhHV,2026-03-18T12:31:32.855038+00:00
+9,assisted chest dip (kneeling),chest,chest,leverage machine,triceps,pectorals,triceps,shoulders,,,,images/0009-PAgTVaK.jpg,videos/0009-PAgTVaK.gif,PAgTVaK,2026-03-18T12:31:32.855196+00:00
+15,assisted parallel close grip pull-up,back,back,leverage machine,biceps,lats,biceps,forearms,,,,images/0015-vrhHa6D.jpg,videos/0015-vrhHa6D.gif,vrhHa6D,2026-03-18T12:31:32.855368+00:00
+17,assisted pull-up,back,back,leverage machine,biceps,lats,biceps,forearms,,,,images/0017-kiJ4Z2K.jpg,videos/0017-kiJ4Z2K.gif,kiJ4Z2K,2026-03-18T12:31:32.855436+00:00
+19,assisted triceps dip (kneeling),upper arms,upper arms,leverage machine,chest,triceps,chest,shoulders,,,,images/0019-J60bN17.jpg,videos/0019-J60bN17.gif,J60bN17,2026-03-18T12:31:32.855567+00:00
+22,barbell pullover to press,back,back,barbell,triceps,lats,triceps,chest,shoulders,,,images/0022-znLogoF.jpg,videos/0022-znLogoF.gif,znLogoF,2026-03-18T12:31:32.872296+00:00
+23,barbell alternate biceps curl,upper arms,upper arms,barbell,forearms,biceps,forearms,,,,,images/0023-Yza7XrQ.jpg,videos/0023-Yza7XrQ.gif,Yza7XrQ,2026-03-18T12:31:32.870212+00:00
+24,barbell bench front squat,upper legs,upper legs,barbell,hamstrings,quads,hamstrings,glutes,calves,,,images/0024-Y7YcmIJ.jpg,videos/0024-Y7YcmIJ.gif,Y7YcmIJ,2026-03-18T12:31:32.870232+00:00
+25,barbell bench press,chest,chest,barbell,triceps,pectorals,triceps,shoulders,,,,images/0025-EIeI8Vf.jpg,videos/0025-EIeI8Vf.gif,EIeI8Vf,2026-03-18T12:31:32.870252+00:00
+26,barbell bench squat,upper legs,upper legs,barbell,glutes,quads,glutes,hamstrings,calves,,,images/0026-W9pFVv1.jpg,videos/0026-W9pFVv1.gif,W9pFVv1,2026-03-18T12:31:32.87027+00:00
+27,barbell bent over row,back,back,barbell,biceps,upper back,biceps,forearms,,,,images/0027-eZyBC3j.jpg,videos/0027-eZyBC3j.gif,eZyBC3j,2026-03-18T12:31:32.870309+00:00
+28,barbell clean and press,upper legs,upper legs,barbell,hamstrings,quads,hamstrings,glutes,shoulders,triceps,,images/0028-SGY8Zui.jpg,videos/0028-SGY8Zui.gif,SGY8Zui,2026-03-18T12:31:32.870347+00:00
+29,barbell clean-grip front squat,upper legs,upper legs,barbell,quadriceps,glutes,quadriceps,hamstrings,calves,core,,images/0029-qi996YS.jpg,videos/0029-qi996YS.gif,qi996YS,2026-03-18T12:31:32.870368+00:00
+30,barbell close-grip bench press,upper arms,upper arms,barbell,chest,triceps,chest,shoulders,,,,images/0030-J6Dx1Mu.jpg,videos/0030-J6Dx1Mu.gif,J6Dx1Mu,2026-03-18T12:31:32.870388+00:00
+31,barbell curl,upper arms,upper arms,barbell,forearms,biceps,forearms,,,,,images/0031-25GPyDY.jpg,videos/0031-25GPyDY.gif,25GPyDY,2026-03-18T12:31:32.870407+00:00
+32,barbell deadlift,upper legs,upper legs,barbell,hamstrings,glutes,hamstrings,lower back,,,,images/0032-ila4NZS.jpg,videos/0032-ila4NZS.gif,ila4NZS,2026-03-18T12:31:32.870425+00:00
+33,barbell decline bench press,chest,chest,barbell,triceps,pectorals,triceps,shoulders,,,,images/0033-GrO65fd.jpg,videos/0033-GrO65fd.gif,GrO65fd,2026-03-18T12:31:32.870444+00:00
+34,barbell decline bent arm pullover,back,back,barbell,triceps,lats,triceps,chest,,,,images/0034-hMEptv0.jpg,videos/0034-hMEptv0.gif,hMEptv0,2026-03-18T12:31:32.870463+00:00
+35,barbell decline close grip to skull press,upper arms,upper arms,barbell,chest,triceps,chest,shoulders,,,,images/0035-LMGXZn8.jpg,videos/0035-LMGXZn8.gif,LMGXZn8,2026-03-18T12:31:32.871367+00:00
+36,barbell decline wide-grip press,chest,chest,barbell,triceps,pectorals,triceps,shoulders,,,,images/0036-hl8DUh8.jpg,videos/0036-hl8DUh8.gif,hl8DUh8,2026-03-18T12:31:32.871404+00:00
+37,barbell decline wide-grip pullover,back,back,barbell,triceps,lats,triceps,chest,,,,images/0037-Hj4FOCd.jpg,videos/0037-Hj4FOCd.gif,Hj4FOCd,2026-03-18T12:31:32.871421+00:00
+38,barbell drag curl,upper arms,upper arms,barbell,forearms,biceps,forearms,,,,,images/0038-IENzBdA.jpg,videos/0038-IENzBdA.gif,IENzBdA,2026-03-18T12:31:32.871438+00:00
+39,barbell front chest squat,upper legs,upper legs,barbell,quadriceps,glutes,quadriceps,hamstrings,calves,core,,images/0039-IeTIEqg.jpg,videos/0039-IeTIEqg.gif,IeTIEqg,2026-03-18T12:31:32.871473+00:00
+40,barbell front raise and pullover,chest,chest,barbell,deltoids,pectorals,deltoids,triceps,,,,images/0040-33AzZeV.jpg,videos/0040-33AzZeV.gif,33AzZeV,2026-03-18T12:31:32.871506+00:00
+41,barbell front raise,shoulders,shoulders,barbell,biceps,delts,biceps,triceps,,,,images/0041-b2Uoz54.jpg,videos/0041-b2Uoz54.gif,b2Uoz54,2026-03-18T12:31:32.871489+00:00
+42,barbell front squat,upper legs,upper legs,barbell,quadriceps,glutes,quadriceps,hamstrings,calves,core,,images/0042-zG0zs85.jpg,videos/0042-zG0zs85.gif,zG0zs85,2026-03-18T12:31:32.871523+00:00
+43,barbell full squat,upper legs,upper legs,barbell,quadriceps,glutes,quadriceps,hamstrings,calves,core,,images/0043-qXTaZnJ.jpg,videos/0043-qXTaZnJ.gif,qXTaZnJ,2026-03-18T12:31:32.871543+00:00
+44,barbell good morning,upper legs,upper legs,barbell,lower back,hamstrings,lower back,,,,,images/0044-XlZ4lAC.jpg,videos/0044-XlZ4lAC.gif,XlZ4lAC,2026-03-18T12:31:32.871648+00:00
+45,barbell guillotine bench press,chest,chest,barbell,shoulders,pectorals,shoulders,triceps,,,,images/0045-GXoaSgn.jpg,videos/0045-GXoaSgn.gif,GXoaSgn,2026-03-18T12:31:32.871665+00:00
+46,barbell hack squat,upper legs,upper legs,barbell,quadriceps,glutes,quadriceps,hamstrings,calves,,,images/0046-5VCj6iH.jpg,videos/0046-5VCj6iH.gif,5VCj6iH,2026-03-18T12:31:32.871682+00:00
+47,barbell incline bench press,chest,chest,barbell,shoulders,pectorals,shoulders,triceps,,,,images/0047-3TZduzM.jpg,videos/0047-3TZduzM.gif,3TZduzM,2026-03-18T12:31:32.871718+00:00
+48,barbell incline reverse-grip press,upper arms,upper arms,barbell,chest,triceps,chest,shoulders,,,,images/0048-641mIfk.jpg,videos/0048-641mIfk.gif,641mIfk,2026-03-18T12:31:32.871752+00:00
+49,barbell incline row,back,back,barbell,biceps,upper back,biceps,forearms,,,,images/0049-dmgMp3n.jpg,videos/0049-dmgMp3n.gif,dmgMp3n,2026-03-18T12:31:32.871769+00:00
+50,barbell incline shoulder raise,chest,chest,barbell,deltoids,serratus anterior,deltoids,trapezius,,,,images/0050-xi0yckC.jpg,videos/0050-xi0yckC.gif,xi0yckC,2026-03-18T12:31:32.871785+00:00
+51,barbell jefferson squat,upper legs,upper legs,barbell,quadriceps,glutes,quadriceps,hamstrings,calves,,,images/0051-pkSoCW9.jpg,videos/0051-pkSoCW9.gif,pkSoCW9,2026-03-18T12:31:32.871802+00:00
+52,barbell jm bench press,upper arms,upper arms,barbell,chest,triceps,chest,shoulders,,,,images/0052-ZsiqXYa.jpg,videos/0052-ZsiqXYa.gif,ZsiqXYa,2026-03-18T12:31:32.871819+00:00
+53,barbell jump squat,upper legs,upper legs,barbell,quadriceps,glutes,quadriceps,hamstrings,calves,,,images/0053-1gFNTZV.jpg,videos/0053-1gFNTZV.gif,1gFNTZV,2026-03-18T12:31:32.871835+00:00
+54,barbell lunge,upper legs,upper legs,barbell,quadriceps,glutes,quadriceps,hamstrings,calves,,,images/0054-t8iSghb.jpg,videos/0054-t8iSghb.gif,t8iSghb,2026-03-18T12:31:32.871887+00:00
+55,barbell lying close-grip press,upper arms,upper arms,barbell,chest,triceps,chest,shoulders,,,,images/0055-EcaV7aL.jpg,videos/0055-EcaV7aL.gif,EcaV7aL,2026-03-18T12:31:32.871922+00:00
+56,barbell lying close-grip triceps extension,upper arms,upper arms,barbell,shoulders,triceps,shoulders,,,,,images/0056-HJ63mSO.jpg,videos/0056-HJ63mSO.gif,HJ63mSO,2026-03-18T12:31:32.871939+00:00
+57,barbell lying extension,upper arms,upper arms,barbell,shoulders,triceps,shoulders,,,,,images/0057-EMpUwRI.jpg,videos/0057-EMpUwRI.gif,EMpUwRI,2026-03-18T12:31:32.871956+00:00
+58,barbell lying lifting (on hip),upper legs,upper legs,barbell,hamstrings,glutes,hamstrings,quadriceps,,,,images/0058-SNFfUff.jpg,videos/0058-SNFfUff.gif,SNFfUff,2026-03-18T12:31:32.871972+00:00
+59,barbell lying preacher curl,upper arms,upper arms,barbell,forearms,biceps,forearms,,,,,images/0059-SYJ4Bkt.jpg,videos/0059-SYJ4Bkt.gif,SYJ4Bkt,2026-03-18T12:31:32.871989+00:00
+60,barbell lying triceps extension skull crusher,upper arms,upper arms,barbell,shoulders,triceps,shoulders,,,,,images/0060-h8LFzo9.jpg,videos/0060-h8LFzo9.gif,h8LFzo9,2026-03-18T12:31:32.872022+00:00
+61,barbell lying triceps extension,upper arms,upper arms,barbell,shoulders,triceps,shoulders,,,,,images/0061-iZop9xO.jpg,videos/0061-iZop9xO.gif,iZop9xO,2026-03-18T12:31:32.872006+00:00
+63,barbell narrow stance squat,upper legs,upper legs,barbell,quadriceps,glutes,quadriceps,hamstrings,calves,,,images/0063-elhhVgj.jpg,videos/0063-elhhVgj.gif,elhhVgj,2026-03-18T12:31:32.87204+00:00
+64,barbell one arm bent over row,back,back,barbell,biceps,upper back,biceps,forearms,,,,images/0064-Jsgsc27.jpg,videos/0064-Jsgsc27.gif,Jsgsc27,2026-03-18T12:31:32.872057+00:00
+65,barbell one arm floor press,upper arms,upper arms,barbell,chest,triceps,chest,shoulders,,,,images/0065-vtusOWT.jpg,videos/0065-vtusOWT.gif,vtusOWT,2026-03-18T12:31:32.872077+00:00
+66,barbell one arm side deadlift,upper legs,upper legs,barbell,hamstrings,glutes,hamstrings,quadriceps,lower back,,,images/0066-2DxtqHL.jpg,videos/0066-2DxtqHL.gif,2DxtqHL,2026-03-18T12:31:32.872094+00:00
+67,barbell one arm snatch,shoulders,shoulders,barbell,traps,delts,traps,forearms,core,,,images/0067-xHKN2s8.jpg,videos/0067-xHKN2s8.gif,xHKN2s8,2026-03-18T12:31:32.872112+00:00
+68,barbell one leg squat,upper legs,upper legs,barbell,glutes,quads,glutes,hamstrings,calves,,,images/0068-uKyN64F.jpg,videos/0068-uKyN64F.gif,uKyN64F,2026-03-18T12:31:32.872129+00:00
+69,barbell overhead squat,upper legs,upper legs,barbell,glutes,quads,glutes,hamstrings,calves,core,,images/0069-gfk9kD4.jpg,videos/0069-gfk9kD4.gif,gfk9kD4,2026-03-18T12:31:32.872146+00:00
+70,barbell preacher curl,upper arms,upper arms,barbell,forearms,biceps,forearms,,,,,images/0070-qOgPVf6.jpg,videos/0070-qOgPVf6.gif,qOgPVf6,2026-03-18T12:31:32.87223+00:00
+71,barbell press sit-up,waist,waist,barbell,shoulders,abs,shoulders,chest,,,,images/0071-wnEscH8.jpg,videos/0071-wnEscH8.gif,wnEscH8,2026-03-18T12:31:32.872246+00:00
+72,barbell prone incline curl,upper arms,upper arms,barbell,forearms,biceps,forearms,,,,,images/0072-WLvTAv5.jpg,videos/0072-WLvTAv5.gif,WLvTAv5,2026-03-18T12:31:32.872264+00:00
+73,barbell pullover,back,back,barbell,chest,lats,chest,triceps,,,,images/0073-i6LWjok.jpg,videos/0073-i6LWjok.gif,i6LWjok,2026-03-18T12:31:32.87228+00:00
+74,barbell rack pull,upper legs,upper legs,barbell,hamstrings,glutes,hamstrings,lower back,,,,images/0074-za9Ni4z.jpg,videos/0074-za9Ni4z.gif,za9Ni4z,2026-03-18T12:31:32.872312+00:00
+75,barbell rear delt raise,shoulders,shoulders,barbell,traps,delts,traps,rhomboids,,,,images/0075-Ln9iTbU.jpg,videos/0075-Ln9iTbU.gif,Ln9iTbU,2026-03-18T12:31:32.872329+00:00
+76,barbell rear delt row,shoulders,shoulders,barbell,trapezius,delts,trapezius,rhomboids,biceps,,,images/0076-S9zHIvU.jpg,videos/0076-S9zHIvU.gif,S9zHIvU,2026-03-18T12:31:32.872346+00:00
+77,barbell rear lunge v. 2,upper legs,upper legs,barbell,quadriceps,glutes,quadriceps,hamstrings,calves,,,images/0077-62Nw60O.jpg,videos/0077-62Nw60O.gif,62Nw60O,2026-03-18T12:31:32.872379+00:00
+78,barbell rear lunge,upper legs,upper legs,barbell,quadriceps,glutes,quadriceps,hamstrings,calves,,,images/0078-VaP75jl.jpg,videos/0078-VaP75jl.gif,VaP75jl,2026-03-18T12:31:32.872362+00:00
+79,barbell revers wrist curl v. 2,lower arms,lower arms,barbell,biceps,forearms,biceps,brachialis,,,,images/0079-qDnGfDb.jpg,videos/0079-qDnGfDb.gif,qDnGfDb,2026-03-18T12:31:32.872395+00:00
+80,barbell reverse curl,upper arms,upper arms,barbell,forearms,biceps,forearms,,,,,images/0080-xNrS20v.jpg,videos/0080-xNrS20v.gif,xNrS20v,2026-03-18T12:31:32.872429+00:00
+81,barbell reverse preacher curl,upper arms,upper arms,barbell,forearms,biceps,forearms,,,,,images/0081-4LIG9xr.jpg,videos/0081-4LIG9xr.gif,4LIG9xr,2026-03-18T12:31:32.872536+00:00
+82,barbell reverse wrist curl,lower arms,lower arms,barbell,biceps,forearms,biceps,brachialis,,,,images/0082-LsZkfU6.jpg,videos/0082-LsZkfU6.gif,LsZkfU6,2026-03-18T12:31:32.872552+00:00
+83,barbell rollerout from bench,waist,waist,barbell,shoulders,abs,shoulders,triceps,,,,images/0083-Gxg9lDc.jpg,videos/0083-Gxg9lDc.gif,Gxg9lDc,2026-03-18T12:31:32.872591+00:00
+84,barbell rollerout,waist,waist,barbell,lower back,abs,lower back,,,,,images/0084-7M66AVi.jpg,videos/0084-7M66AVi.gif,7M66AVi,2026-03-18T12:31:32.87257+00:00
+85,barbell romanian deadlift,upper legs,upper legs,barbell,hamstrings,glutes,hamstrings,lower back,,,,images/0085-wQ2c4XD.jpg,videos/0085-wQ2c4XD.gif,wQ2c4XD,2026-03-18T12:31:32.872608+00:00
+86,barbell seated behind head military press,shoulders,shoulders,barbell,triceps,delts,triceps,upper back,,,,images/0086-ngPpyRS.jpg,videos/0086-ngPpyRS.gif,ngPpyRS,2026-03-18T12:31:32.872625+00:00
+87,barbell seated bradford rocky press,shoulders,shoulders,barbell,triceps,delts,triceps,upper back,,,,images/0087-0dCyly0.jpg,videos/0087-0dCyly0.gif,0dCyly0,2026-03-18T12:31:32.872641+00:00
+88,barbell seated calf raise,lower legs,lower legs,barbell,hamstrings,calves,hamstrings,quadriceps,,,,images/0088-ktsFQAZ.jpg,videos/0088-ktsFQAZ.gif,ktsFQAZ,2026-03-18T12:31:32.872658+00:00
+89,barbell seated close-grip concentration curl,upper arms,upper arms,barbell,forearms,biceps,forearms,,,,,images/0089-1V1gj1u.jpg,videos/0089-1V1gj1u.gif,1V1gj1u,2026-03-18T12:31:32.872722+00:00
+90,barbell seated good morning,upper legs,upper legs,barbell,hamstrings,glutes,hamstrings,lower back,,,,images/0090-d960PgE.jpg,videos/0090-d960PgE.gif,d960PgE,2026-03-18T12:31:32.87274+00:00
+91,barbell seated overhead press,shoulders,shoulders,barbell,triceps,delts,triceps,upper back,,,,images/0091-kTbSH9h.jpg,videos/0091-kTbSH9h.gif,kTbSH9h,2026-03-18T12:31:32.872756+00:00
+92,barbell seated overhead triceps extension,upper arms,upper arms,barbell,shoulders,triceps,shoulders,,,,,images/0092-5uFK1xr.jpg,videos/0092-5uFK1xr.gif,5uFK1xr,2026-03-18T12:31:32.872772+00:00
+94,barbell seated twist,waist,waist,barbell,obliques,abs,obliques,lower back,,,,images/0094-dFSNDOA.jpg,videos/0094-dFSNDOA.gif,dFSNDOA,2026-03-18T12:31:32.872789+00:00
+95,barbell shrug,back,back,barbell,shoulders,traps,shoulders,,,,,images/0095-dG7tG5y.jpg,videos/0095-dG7tG5y.gif,dG7tG5y,2026-03-18T12:31:32.872805+00:00
+96,barbell side bent v. 2,waist,waist,barbell,obliques,abs,obliques,lower back,,,,images/0096-i4JkUaL.jpg,videos/0096-i4JkUaL.gif,i4JkUaL,2026-03-18T12:31:32.872821+00:00
+97,barbell side split squat v. 2,upper legs,upper legs,barbell,glutes,quads,glutes,hamstrings,calves,,,images/0097-HUEqZ1y.jpg,videos/0097-HUEqZ1y.gif,HUEqZ1y,2026-03-18T12:31:32.872857+00:00
+98,barbell side split squat,upper legs,upper legs,barbell,glutes,quads,glutes,hamstrings,calves,,,images/0098-W31mMjd.jpg,videos/0098-W31mMjd.gif,W31mMjd,2026-03-18T12:31:32.872837+00:00
+99,barbell single leg split squat,upper legs,upper legs,barbell,glutes,quads,glutes,hamstrings,calves,,,images/0099-gGNQmVt.jpg,videos/0099-gGNQmVt.gif,gGNQmVt,2026-03-18T12:31:32.87289+00:00
+100,barbell skier,shoulders,shoulders,barbell,triceps,delts,triceps,core,,,,images/0100-4Leypho.jpg,videos/0100-4Leypho.gif,4Leypho,2026-03-18T12:31:32.872944+00:00
+101,barbell speed squat,upper legs,upper legs,barbell,quadriceps,glutes,quadriceps,hamstrings,calves,,,images/0101-euI1BwR.jpg,videos/0101-euI1BwR.gif,euI1BwR,2026-03-18T12:31:32.87296+00:00
+102,barbell squat (on knees),upper legs,upper legs,barbell,glutes,quads,glutes,hamstrings,calves,,,images/0102-oR7O9LW.jpg,videos/0102-oR7O9LW.gif,oR7O9LW,2026-03-18T12:31:32.872993+00:00
+103,barbell standing ab rollerout,waist,waist,barbell,shoulders,abs,shoulders,lower back,,,,images/0103-xnInPfE.jpg,videos/0103-xnInPfE.gif,xnInPfE,2026-03-18T12:31:32.873026+00:00
+104,barbell standing back wrist curl,lower arms,lower arms,barbell,biceps,forearms,biceps,shoulders,,,,images/0104-2qTvJAZ.jpg,videos/0104-2qTvJAZ.gif,2qTvJAZ,2026-03-18T12:31:32.873042+00:00
+105,barbell standing bradford press,shoulders,shoulders,barbell,triceps,delts,triceps,upper back,,,,images/0105-dCPESfR.jpg,videos/0105-dCPESfR.gif,dCPESfR,2026-03-18T12:31:32.873059+00:00
+106,barbell standing close grip curl,upper arms,upper arms,barbell,forearms,biceps,forearms,,,,,images/0106-4dUn2iv.jpg,videos/0106-4dUn2iv.gif,4dUn2iv,2026-03-18T12:31:32.873091+00:00
+107,barbell standing front raise over head,shoulders,shoulders,barbell,triceps,delts,triceps,upper back,,,,images/0107-S8mo30S.jpg,videos/0107-S8mo30S.gif,S8mo30S,2026-03-18T12:31:32.873142+00:00
+108,barbell standing leg calf raise,lower legs,lower legs,barbell,hamstrings,calves,hamstrings,glutes,,,,images/0108-rGwhJ5o.jpg,videos/0108-rGwhJ5o.gif,rGwhJ5o,2026-03-18T12:31:32.873158+00:00
+109,barbell standing overhead triceps extension,upper arms,upper arms,barbell,shoulders,triceps,shoulders,,,,,images/0109-dZl9Q27.jpg,videos/0109-dZl9Q27.gif,dZl9Q27,2026-03-18T12:31:32.873176+00:00
+110,barbell standing reverse grip curl,upper arms,upper arms,barbell,forearms,biceps,forearms,,,,,images/0110-LWuA3aZ.jpg,videos/0110-LWuA3aZ.gif,LWuA3aZ,2026-03-18T12:31:32.873194+00:00
+111,barbell standing rocking leg calf raise,lower legs,lower legs,barbell,hamstrings,calves,hamstrings,quadriceps,,,,images/0111-6HiHHe0.jpg,videos/0111-6HiHHe0.gif,6HiHHe0,2026-03-18T12:31:32.873211+00:00
+112,barbell standing twist,waist,waist,barbell,obliques,abs,obliques,lower back,,,,images/0112-yQe5HpE.jpg,videos/0112-yQe5HpE.gif,yQe5HpE,2026-03-18T12:31:32.873228+00:00
+113,barbell standing wide-grip curl,upper arms,upper arms,barbell,forearms,biceps,forearms,shoulders,,,,images/0113-NdIb5Z1.jpg,videos/0113-NdIb5Z1.gif,NdIb5Z1,2026-03-18T12:31:32.873278+00:00
+114,barbell step-up,upper legs,upper legs,barbell,quadriceps,glutes,quadriceps,hamstrings,calves,,,images/0114-Kxquu2E.jpg,videos/0114-Kxquu2E.gif,Kxquu2E,2026-03-18T12:31:32.873295+00:00
+115,barbell stiff leg good morning,upper legs,upper legs,barbell,hamstrings,glutes,hamstrings,lower back,,,,images/0115-JrOHAZc.jpg,videos/0115-JrOHAZc.gif,JrOHAZc,2026-03-18T12:31:32.873312+00:00
+116,barbell straight leg deadlift,upper legs,upper legs,barbell,glutes,hamstrings,glutes,lower back,,,,images/0116-hrVQWvE.jpg,videos/0116-hrVQWvE.gif,hrVQWvE,2026-03-18T12:31:32.873329+00:00
+117,barbell sumo deadlift,upper legs,upper legs,barbell,hamstrings,glutes,hamstrings,quadriceps,lower back,,,images/0117-KgI0tqW.jpg,videos/0117-KgI0tqW.gif,KgI0tqW,2026-03-18T12:31:32.873347+00:00
+118,barbell reverse grip bent over row,back,back,barbell,biceps,upper back,biceps,forearms,,,,images/0118-SzX3uzM.jpg,videos/0118-SzX3uzM.gif,SzX3uzM,2026-03-18T12:31:32.872446+00:00
+119,barbell upright row v. 2,shoulders,shoulders,barbell,traps,delts,traps,biceps,,,,images/0119-83HoW9X.jpg,videos/0119-83HoW9X.gif,83HoW9X,2026-03-18T12:31:32.873396+00:00
+120,barbell upright row,shoulders,shoulders,barbell,traps,delts,traps,biceps,,,,images/0120-UDlhcO8.jpg,videos/0120-UDlhcO8.gif,UDlhcO8,2026-03-18T12:31:32.87338+00:00
+121,barbell upright row v. 3,shoulders,shoulders,barbell,traps,delts,traps,biceps,,,,images/0121-fI18Rbc.jpg,videos/0121-fI18Rbc.gif,fI18Rbc,2026-03-18T12:31:32.873413+00:00
+122,barbell wide bench press,chest,chest,barbell,shoulders,pectorals,shoulders,triceps,,,,images/0122-JsKq9so.jpg,videos/0122-JsKq9so.gif,JsKq9so,2026-03-18T12:31:32.873432+00:00
+123,barbell wide-grip upright row,shoulders,shoulders,barbell,traps,delts,traps,biceps,,,,images/0123-RgJDRR1.jpg,videos/0123-RgJDRR1.gif,RgJDRR1,2026-03-18T12:31:32.873486+00:00
+124,barbell wide squat,upper legs,upper legs,barbell,glutes,quads,glutes,hamstrings,calves,,,images/0124-s7HX1BY.jpg,videos/0124-s7HX1BY.gif,s7HX1BY,2026-03-18T12:31:32.873466+00:00
+125,barbell wrist curl v. 2,lower arms,lower arms,barbell,biceps,forearms,biceps,brachialis,,,,images/0125-6kSxYnw.jpg,videos/0125-6kSxYnw.gif,6kSxYnw,2026-03-18T12:31:32.87352+00:00
+126,barbell wrist curl,lower arms,lower arms,barbell,biceps,forearms,biceps,brachialis,,,,images/0126-82LxxkW.jpg,videos/0126-82LxxkW.gif,82LxxkW,2026-03-18T12:31:32.873502+00:00
+127,barbell zercher squat,upper legs,upper legs,barbell,quadriceps,glutes,quadriceps,hamstrings,calves,core,,images/0127-LSTChY9.jpg,videos/0127-LSTChY9.gif,LSTChY9,2026-03-18T12:31:32.873537+00:00
+148,cable alternate shoulder press,shoulders,shoulders,cable,triceps,delts,triceps,upper back,,,,images/0148-KHPZL0b.jpg,videos/0148-KHPZL0b.gif,KHPZL0b,2026-03-18T12:31:32.874106+00:00
+149,cable alternate triceps extension,upper arms,upper arms,cable,shoulders,triceps,shoulders,,,,,images/0149-Gchi5Tr.jpg,videos/0149-Gchi5Tr.gif,Gchi5Tr,2026-03-18T12:31:32.874123+00:00
+150,cable bar lateral pulldown,back,back,cable,biceps,lats,biceps,rhomboids,rear deltoids,,,images/0150-eYnzaCm.jpg,videos/0150-eYnzaCm.gif,eYnzaCm,2026-03-18T12:31:32.874157+00:00
+151,cable bench press,chest,chest,cable,triceps,pectorals,triceps,shoulders,,,,images/0151-7xI5MXA.jpg,videos/0151-7xI5MXA.gif,7xI5MXA,2026-03-18T12:31:32.874181+00:00
+152,cable concentration extension (on knee),upper arms,upper arms,cable,forearms,triceps,forearms,,,,,images/0152-Db7eEgw.jpg,videos/0152-Db7eEgw.gif,Db7eEgw,2026-03-18T12:31:32.874232+00:00
+153,cable cross-over lateral pulldown,back,back,cable,biceps,lats,biceps,rhomboids,rear deltoids,,,images/0153-OQ1otBN.jpg,videos/0153-OQ1otBN.gif,OQ1otBN,2026-03-18T12:31:32.874248+00:00
+154,cable cross-over revers fly,shoulders,shoulders,cable,rhomboids,delts,rhomboids,trapezius,,,,images/0154-aqvSOQE.jpg,videos/0154-aqvSOQE.gif,aqvSOQE,2026-03-18T12:31:32.874265+00:00
+155,cable cross-over variation,chest,chest,cable,deltoids,pectorals,deltoids,triceps,,,,images/0155-0CXGHya.jpg,videos/0155-0CXGHya.gif,0CXGHya,2026-03-18T12:31:32.874282+00:00
+157,cable deadlift,upper legs,upper legs,cable,hamstrings,glutes,hamstrings,quadriceps,lower back,,,images/0157-eGDudUV.jpg,videos/0157-eGDudUV.gif,eGDudUV,2026-03-18T12:31:32.874316+00:00
+158,cable decline fly,chest,chest,cable,shoulders,pectorals,shoulders,triceps,,,,images/0158-7saC5zz.jpg,videos/0158-7saC5zz.gif,7saC5zz,2026-03-18T12:31:32.874334+00:00
+159,cable decline seated wide-grip row,back,back,cable,biceps,upper back,biceps,forearms,,,,images/0159-kesXOpB.jpg,videos/0159-kesXOpB.gif,kesXOpB,2026-03-18T12:31:32.874384+00:00
+160,cable floor seated wide-grip row,back,back,cable,biceps,upper back,biceps,forearms,,,,images/0160-veXwo0D.jpg,videos/0160-veXwo0D.gif,veXwo0D,2026-03-18T12:31:32.874418+00:00
+161,cable forward raise,shoulders,shoulders,cable,triceps,delts,triceps,forearms,,,,images/0161-hvHhCv8.jpg,videos/0161-hvHhCv8.gif,hvHhCv8,2026-03-18T12:31:32.874436+00:00
+162,cable front raise,shoulders,shoulders,cable,triceps,delts,triceps,forearms,,,,images/0162-u2X71Np.jpg,videos/0162-u2X71Np.gif,u2X71Np,2026-03-18T12:31:32.874454+00:00
+164,cable front shoulder raise,shoulders,shoulders,cable,trapezius,delts,trapezius,biceps,,,,images/0164-mTT3KLn.jpg,videos/0164-mTT3KLn.gif,mTT3KLn,2026-03-18T12:31:32.874472+00:00
+165,cable hammer curl (with rope),upper arms,upper arms,cable,forearms,biceps,forearms,,,,,images/0165-HPlPoQA.jpg,videos/0165-HPlPoQA.gif,HPlPoQA,2026-03-18T12:31:32.87449+00:00
+167,cable high row (kneeling),back,back,cable,biceps,upper back,biceps,shoulders,,,,images/0167-ZSJNetl.jpg,videos/0167-ZSJNetl.gif,ZSJNetl,2026-03-18T12:31:32.874529+00:00
+168,cable hip adduction,upper legs,upper legs,cable,glutes,adductors,glutes,quadriceps,,,,images/0168-hBGWILP.jpg,videos/0168-hBGWILP.gif,hBGWILP,2026-03-18T12:31:32.874547+00:00
+169,cable incline bench press,chest,chest,cable,deltoids,pectorals,deltoids,triceps,,,,images/0169-Vh0GsK4.jpg,videos/0169-Vh0GsK4.gif,Vh0GsK4,2026-03-18T12:31:32.874565+00:00
+170,cable incline fly (on stability ball),chest,chest,cable,deltoids,pectorals,deltoids,triceps,,,,images/0170-27NNGFr.jpg,videos/0170-27NNGFr.gif,27NNGFr,2026-03-18T12:31:32.87462+00:00
+171,cable incline fly,chest,chest,cable,deltoids,pectorals,deltoids,triceps,,,,images/0171-tBWXbIT.jpg,videos/0171-tBWXbIT.gif,tBWXbIT,2026-03-18T12:31:32.874601+00:00
+172,cable incline pushdown,back,back,cable,triceps,lats,triceps,shoulders,,,,images/0172-1PK5Uo3.jpg,videos/0172-1PK5Uo3.gif,1PK5Uo3,2026-03-18T12:31:32.874638+00:00
+173,cable incline triceps extension,upper arms,upper arms,cable,shoulders,triceps,shoulders,,,,,images/0173-Hx1WC8I.jpg,videos/0173-Hx1WC8I.gif,Hx1WC8I,2026-03-18T12:31:32.874657+00:00
+174,cable judo flip,waist,waist,cable,obliques,abs,obliques,shoulders,,,,images/0174-MvQPqVW.jpg,videos/0174-MvQPqVW.gif,MvQPqVW,2026-03-18T12:31:32.874675+00:00
+175,cable kneeling crunch,waist,waist,cable,obliques,abs,obliques,,,,,images/0175-WW95auq.jpg,videos/0175-WW95auq.gif,WW95auq,2026-03-18T12:31:32.874713+00:00
+176,cable kneeling triceps extension,upper arms,upper arms,cable,shoulders,triceps,shoulders,,,,,images/0176-KWdF2JI.jpg,videos/0176-KWdF2JI.gif,KWdF2JI,2026-03-18T12:31:32.874749+00:00
+177,cable lateral pulldown (with rope attachment),back,back,cable,biceps,lats,biceps,forearms,,,,images/0177-CuaWCmC.jpg,videos/0177-CuaWCmC.gif,CuaWCmC,2026-03-18T12:31:32.87479+00:00
+178,cable lateral raise,shoulders,shoulders,cable,traps,delts,traps,triceps,,,,images/0178-goJ6ezq.jpg,videos/0178-goJ6ezq.gif,goJ6ezq,2026-03-18T12:31:32.874825+00:00
+179,cable low fly,chest,chest,cable,deltoids,pectorals,deltoids,triceps,,,,images/0179-FVmZVhk.jpg,videos/0179-FVmZVhk.gif,FVmZVhk,2026-03-18T12:31:32.874842+00:00
+180,cable low seated row,back,back,cable,biceps,upper back,biceps,forearms,,,,images/0180-hvV79Si.jpg,videos/0180-hvV79Si.gif,hvV79Si,2026-03-18T12:31:32.874859+00:00
+182,cable lying close-grip curl,upper arms,upper arms,cable,forearms,biceps,forearms,,,,,images/0182-61GrD55.jpg,videos/0182-61GrD55.gif,61GrD55,2026-03-18T12:31:32.874894+00:00
+184,cable lying extension pullover (with rope attachment),back,back,cable,triceps,lats,triceps,shoulders,,,,images/0184-Q2Eu1Ax.jpg,videos/0184-Q2Eu1Ax.gif,Q2Eu1Ax,2026-03-18T12:31:32.874914+00:00
+185,cable lying fly,chest,chest,cable,deltoids,pectorals,deltoids,triceps,,,,images/0185-lJJ7Yq8.jpg,videos/0185-lJJ7Yq8.gif,lJJ7Yq8,2026-03-18T12:31:32.874931+00:00
+186,cable lying triceps extension v. 2,upper arms,upper arms,cable,shoulders,triceps,shoulders,,,,,images/0186-uxJcFUU.jpg,videos/0186-uxJcFUU.gif,uxJcFUU,2026-03-18T12:31:32.874948+00:00
+188,cable middle fly,chest,chest,cable,deltoids,pectorals,deltoids,triceps,,,,images/0188-xLYSdtg.jpg,videos/0188-xLYSdtg.gif,xLYSdtg,2026-03-18T12:31:32.874965+00:00
+189,cable one arm bent over row,back,back,cable,biceps,upper back,biceps,forearms,,,,images/0189-EIsE3u8.jpg,videos/0189-EIsE3u8.gif,EIsE3u8,2026-03-18T12:31:32.874981+00:00
+190,cable one arm curl,upper arms,upper arms,cable,forearms,biceps,forearms,,,,,images/0190-YTur5nR.jpg,videos/0190-YTur5nR.gif,YTur5nR,2026-03-18T12:31:32.874998+00:00
+191,cable one arm lateral bent-over,chest,chest,cable,deltoids,pectorals,deltoids,trapezius,,,,images/0191-dB07vDu.jpg,videos/0191-dB07vDu.gif,dB07vDu,2026-03-18T12:31:32.875113+00:00
+192,cable one arm lateral raise,shoulders,shoulders,cable,traps,delts,traps,triceps,,,,images/0192-wEulIzp.jpg,videos/0192-wEulIzp.gif,wEulIzp,2026-03-18T12:31:32.87513+00:00
+193,cable one arm straight back high row (kneeling),back,back,cable,biceps,upper back,biceps,shoulders,,,,images/0193-WrYPP2g.jpg,videos/0193-WrYPP2g.gif,WrYPP2g,2026-03-18T12:31:32.875232+00:00
+194,cable overhead triceps extension (rope attachment),upper arms,upper arms,cable,shoulders,triceps,shoulders,,,,,images/0194-2IxROQ1.jpg,videos/0194-2IxROQ1.gif,2IxROQ1,2026-03-18T12:31:32.875301+00:00
+195,cable preacher curl,upper arms,upper arms,cable,forearms,biceps,forearms,,,,,images/0195-P2lNrGL.jpg,videos/0195-P2lNrGL.gif,P2lNrGL,2026-03-18T12:31:32.875335+00:00
+196,cable pull through (with rope),upper legs,upper legs,cable,hamstrings,glutes,hamstrings,lower back,,,,images/0196-OM46QHm.jpg,videos/0196-OM46QHm.gif,OM46QHm,2026-03-18T12:31:32.875368+00:00
+197,cable pulldown (pro lat bar),back,back,cable,biceps,lats,biceps,forearms,,,,images/0197-qdRxqCj.jpg,videos/0197-qdRxqCj.gif,qdRxqCj,2026-03-18T12:31:32.875402+00:00
+198,cable pulldown,back,back,cable,biceps,lats,biceps,forearms,,,,images/0198-RVwzP10.jpg,videos/0198-RVwzP10.gif,RVwzP10,2026-03-18T12:31:32.875385+00:00
+199,cable pushdown (straight arm) v. 2,back,back,cable,triceps,lats,triceps,shoulders,,,,images/0199-PskORrA.jpg,videos/0199-PskORrA.gif,PskORrA,2026-03-18T12:31:32.875452+00:00
+200,cable pushdown (with rope attachment),upper arms,upper arms,cable,forearms,triceps,forearms,,,,,images/0200-dU605di.jpg,videos/0200-dU605di.gif,dU605di,2026-03-18T12:31:32.875469+00:00
+201,cable pushdown,upper arms,upper arms,cable,forearms,triceps,forearms,,,,,images/0201-3ZflifB.jpg,videos/0201-3ZflifB.gif,3ZflifB,2026-03-18T12:31:32.875436+00:00
+202,cable rear delt row (stirrups),shoulders,shoulders,cable,trapezius,delts,trapezius,rhomboids,biceps,,,images/0202-yUdIGNs.jpg,videos/0202-yUdIGNs.gif,yUdIGNs,2026-03-18T12:31:32.875486+00:00
+203,cable rear delt row (with rope),shoulders,shoulders,cable,trapezius,delts,trapezius,rhomboids,biceps,,,images/0203-wqNPGCg.jpg,videos/0203-wqNPGCg.gif,wqNPGCg,2026-03-18T12:31:32.875502+00:00
+204,cable rear drive,upper arms,upper arms,cable,shoulders,triceps,shoulders,back,,,,images/0204-c3QQLPi.jpg,videos/0204-c3QQLPi.gif,c3QQLPi,2026-03-18T12:31:32.875519+00:00
+205,cable rear pulldown,back,back,cable,biceps,lats,biceps,rhomboids,rear deltoids,,,images/0205-SpsOSXk.jpg,videos/0205-SpsOSXk.gif,SpsOSXk,2026-03-18T12:31:32.875536+00:00
+206,cable reverse curl,upper arms,upper arms,cable,forearms,biceps,forearms,,,,,images/0206-eOG0r6v.jpg,videos/0206-eOG0r6v.gif,eOG0r6v,2026-03-18T12:31:32.875569+00:00
+207,cable reverse-grip pushdown,upper arms,upper arms,cable,forearms,triceps,forearms,,,,,images/0207-VjYliFZ.jpg,videos/0207-VjYliFZ.gif,VjYliFZ,2026-03-18T12:31:32.875652+00:00
+208,cable reverse-grip straight back seated high row,back,back,cable,biceps,upper back,biceps,forearms,,,,images/0208-PNtsX17.jpg,videos/0208-PNtsX17.gif,PNtsX17,2026-03-18T12:31:32.875669+00:00
+209,cable reverse preacher curl,upper arms,upper arms,cable,forearms,biceps,forearms,,,,,images/0209-IwX5NqK.jpg,videos/0209-IwX5NqK.gif,IwX5NqK,2026-03-18T12:31:32.875618+00:00
+210,cable reverse wrist curl,lower arms,lower arms,cable,forearms,forearms,forearms,wrists,,,,images/0210-eYmsEPR.jpg,videos/0210-eYmsEPR.gif,eYmsEPR,2026-03-18T12:31:32.875635+00:00
+211,cable russian twists (on stability ball),waist,waist,cable,obliques,abs,obliques,lower back,,,,images/0211-d9Xaxq6.jpg,videos/0211-d9Xaxq6.gif,d9Xaxq6,2026-03-18T12:31:32.875837+00:00
+212,cable seated crunch,waist,waist,cable,obliques,abs,obliques,,,,,images/0212-8xUv4J7.jpg,videos/0212-8xUv4J7.gif,8xUv4J7,2026-03-18T12:31:32.87587+00:00
+213,cable seated high row (v-bar),back,back,cable,biceps,lats,biceps,rhomboids,rear deltoids,,,images/0213-pwt0pnM.jpg,videos/0213-pwt0pnM.gif,pwt0pnM,2026-03-18T12:31:32.875904+00:00
+214,cable seated one arm alternate row,back,back,cable,biceps,upper back,biceps,forearms,,,,images/0214-vpp9Ku2.jpg,videos/0214-vpp9Ku2.gif,vpp9Ku2,2026-03-18T12:31:32.875923+00:00
+215,cable seated rear lateral raise,shoulders,shoulders,cable,traps,delts,traps,rhomboids,,,,images/0215-x825CZm.jpg,videos/0215-x825CZm.gif,x825CZm,2026-03-18T12:31:32.875978+00:00
+216,cable seated shoulder internal rotation,shoulders,shoulders,cable,rotator cuff,delts,rotator cuff,triceps,,,,images/0216-YPoVrBi.jpg,videos/0216-YPoVrBi.gif,YPoVrBi,2026-03-18T12:31:32.876014+00:00
+218,cable seated wide-grip row,back,back,cable,biceps,upper back,biceps,forearms,,,,images/0218-qcY50ZD.jpg,videos/0218-qcY50ZD.gif,qcY50ZD,2026-03-18T12:31:32.87605+00:00
+219,cable shoulder press,shoulders,shoulders,cable,triceps,delts,triceps,upper back,,,,images/0219-PzQanLE.jpg,videos/0219-PzQanLE.gif,PzQanLE,2026-03-18T12:31:32.876068+00:00
+220,cable shrug,back,back,cable,shoulders,traps,shoulders,,,,,images/0220-Eg98Ft9.jpg,videos/0220-Eg98Ft9.gif,Eg98Ft9,2026-03-18T12:31:32.876086+00:00
+221,cable side bend crunch (bosu ball),waist,waist,cable,obliques,abs,obliques,,,,,images/0221-qatbkEd.jpg,videos/0221-qatbkEd.gif,qatbkEd,2026-03-18T12:31:32.876121+00:00
+222,cable side bend,waist,waist,cable,obliques,abs,obliques,,,,,images/0222-wPypxFY.jpg,videos/0222-wPypxFY.gif,wPypxFY,2026-03-18T12:31:32.876103+00:00
+223,cable side crunch,waist,waist,cable,obliques,abs,obliques,,,,,images/0223-q2ADGqV.jpg,videos/0223-q2ADGqV.gif,q2ADGqV,2026-03-18T12:31:32.876139+00:00
+224,cable standing back wrist curl,lower arms,lower arms,cable,biceps,forearms,biceps,brachialis,,,,images/0224-VhX2JdE.jpg,videos/0224-VhX2JdE.gif,VhX2JdE,2026-03-18T12:31:32.876195+00:00
+225,cable standing cross-over high reverse fly,shoulders,shoulders,cable,trapezius,delts,trapezius,rhomboids,rear deltoids,,,images/0225-P5p0j8B.jpg,videos/0225-P5p0j8B.gif,P5p0j8B,2026-03-18T12:31:32.876232+00:00
+226,cable standing crunch,waist,waist,cable,obliques,abs,obliques,,,,,images/0226-jpgqxiS.jpg,videos/0226-jpgqxiS.gif,jpgqxiS,2026-03-18T12:31:32.876249+00:00
+227,cable standing fly,chest,chest,cable,deltoids,pectorals,deltoids,triceps,,,,images/0227-Pr9Rhf4.jpg,videos/0227-Pr9Rhf4.gif,Pr9Rhf4,2026-03-18T12:31:32.876283+00:00
+228,cable standing hip extension,upper legs,upper legs,cable,hamstrings,glutes,hamstrings,quadriceps,,,,images/0228-Kpajagk.jpg,videos/0228-Kpajagk.gif,Kpajagk,2026-03-18T12:31:32.8763+00:00
+229,cable standing inner curl,upper arms,upper arms,cable,forearms,biceps,forearms,,,,,images/0229-YwnI4ja.jpg,videos/0229-YwnI4ja.gif,YwnI4ja,2026-03-18T12:31:32.876316+00:00
+230,cable standing lift,waist,waist,cable,obliques,abs,obliques,lower back,,,,images/0230-qFpAkpP.jpg,videos/0230-qFpAkpP.gif,qFpAkpP,2026-03-18T12:31:32.876332+00:00
+231,cable standing one arm triceps extension,upper arms,upper arms,cable,shoulders,triceps,shoulders,,,,,images/0231-sYCcnon.jpg,videos/0231-sYCcnon.gif,sYCcnon,2026-03-18T12:31:32.87635+00:00
+232,cable standing pulldown (with rope),upper arms,upper arms,cable,forearms,biceps,forearms,shoulders,,,,images/0232-CvPn9WV.jpg,videos/0232-CvPn9WV.gif,CvPn9WV,2026-03-18T12:31:32.876383+00:00
+233,cable standing rear delt row (with rope),shoulders,shoulders,cable,trapezius,delts,trapezius,rhomboids,biceps,,,images/0233-ZfyAGhK.jpg,videos/0233-ZfyAGhK.gif,ZfyAGhK,2026-03-18T12:31:32.876399+00:00
+234,cable standing row (v-bar),back,back,cable,biceps,upper back,biceps,shoulders,,,,images/0234-4f8RXP8.jpg,videos/0234-4f8RXP8.gif,4f8RXP8,2026-03-18T12:31:32.876434+00:00
+235,cable standing shoulder external rotation,shoulders,shoulders,cable,rotator cuff,delts,rotator cuff,trapezius,,,,images/0235-FWdVhcW.jpg,videos/0235-FWdVhcW.gif,FWdVhcW,2026-03-18T12:31:32.87645+00:00
+236,cable standing twist row (v-bar),back,back,cable,biceps,upper back,biceps,shoulders,,,,images/0236-JOZhu2h.jpg,videos/0236-JOZhu2h.gif,JOZhu2h,2026-03-18T12:31:32.876467+00:00
+237,cable straight arm pulldown (with rope),back,back,cable,biceps,lats,biceps,forearms,,,,images/0237-DT14T9T.jpg,videos/0237-DT14T9T.gif,DT14T9T,2026-03-18T12:31:32.876517+00:00
+238,cable straight arm pulldown,back,back,cable,shoulders,lats,shoulders,biceps,,,,images/0238-x69MAlq.jpg,videos/0238-x69MAlq.gif,x69MAlq,2026-03-18T12:31:32.8765+00:00
+239,cable straight back seated row,back,back,cable,biceps,upper back,biceps,forearms,shoulders,,,images/0239-Tq6gbK6.jpg,videos/0239-Tq6gbK6.gif,Tq6gbK6,2026-03-18T12:31:32.876534+00:00
+240,cable supine reverse fly,shoulders,shoulders,cable,trapezius,delts,trapezius,rhomboids,,,,images/0240-PQcUlDi.jpg,videos/0240-PQcUlDi.gif,PQcUlDi,2026-03-18T12:31:32.87655+00:00
+241,cable triceps pushdown (v-bar),upper arms,upper arms,cable,forearms,triceps,forearms,,,,,images/0241-gAwDzB3.jpg,videos/0241-gAwDzB3.gif,gAwDzB3,2026-03-18T12:31:32.876584+00:00
+242,cable tuck reverse crunch,waist,waist,cable,hip flexors,abs,hip flexors,,,,,images/0242-TXtXc84.jpg,videos/0242-TXtXc84.gif,TXtXc84,2026-03-18T12:31:32.876616+00:00
+243,cable twist,waist,waist,cable,obliques,abs,obliques,,,,,images/0243-aVs3BR3.jpg,videos/0243-aVs3BR3.gif,aVs3BR3,2026-03-18T12:31:32.876632+00:00
+244,cable twisting pull,back,back,cable,shoulders,lats,shoulders,biceps,,,,images/0244-zCgxPbV.jpg,videos/0244-zCgxPbV.gif,zCgxPbV,2026-03-18T12:31:32.876674+00:00
+245,cable underhand pulldown,back,back,cable,biceps,lats,biceps,forearms,,,,images/0245-xBYcQHj.jpg,videos/0245-xBYcQHj.gif,xBYcQHj,2026-03-18T12:31:32.876727+00:00
+246,cable upright row,shoulders,shoulders,cable,traps,delts,traps,biceps,,,,images/0246-cALKspW.jpg,videos/0246-cALKspW.gif,cALKspW,2026-03-18T12:31:32.876777+00:00
+247,cable wrist curl,lower arms,lower arms,cable,biceps,forearms,biceps,brachialis,,,,images/0247-LrV4s90.jpg,videos/0247-LrV4s90.gif,LrV4s90,2026-03-18T12:31:32.87681+00:00
+248,cambered bar lying row,back,back,barbell,biceps,upper back,biceps,forearms,,,,images/0248-R5swFnc.jpg,videos/0248-R5swFnc.gif,R5swFnc,2026-03-18T12:31:32.876877+00:00
+285,dumbbell alternate biceps curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/0285-BU15nH4.jpg,videos/0285-BU15nH4.gif,BU15nH4,2026-03-18T12:31:32.877501+00:00
+286,dumbbell alternate side press,shoulders,shoulders,dumbbell,triceps,delts,triceps,core,,,,images/0286-izMnLqz.jpg,videos/0286-izMnLqz.gif,izMnLqz,2026-03-18T12:31:32.877583+00:00
+287,dumbbell arnold press v. 2,shoulders,shoulders,dumbbell,triceps,delts,triceps,upper chest,,,,images/0287-eOrFCnx.jpg,videos/0287-eOrFCnx.gif,eOrFCnx,2026-03-18T12:31:32.877651+00:00
+288,dumbbell around pullover,chest,chest,dumbbell,triceps,pectorals,triceps,latissimus dorsi,,,,images/0288-vi8EhoE.jpg,videos/0288-vi8EhoE.gif,vi8EhoE,2026-03-18T12:31:32.877667+00:00
+289,dumbbell bench press,chest,chest,dumbbell,triceps,pectorals,triceps,shoulders,,,,images/0289-SpYC0Kp.jpg,videos/0289-SpYC0Kp.gif,SpYC0Kp,2026-03-18T12:31:32.877684+00:00
+290,dumbbell bench seated press,shoulders,shoulders,dumbbell,triceps,delts,triceps,chest,,,,images/0290-3d7wHyd.jpg,videos/0290-3d7wHyd.gif,3d7wHyd,2026-03-18T12:31:32.8777+00:00
+291,dumbbell bench squat,upper legs,upper legs,dumbbell,quadriceps,glutes,quadriceps,hamstrings,calves,,,images/0291-mnzcrIB.jpg,videos/0291-mnzcrIB.gif,mnzcrIB,2026-03-18T12:31:32.877716+00:00
+292,dumbbell one arm bent-over row,back,back,dumbbell,biceps,upper back,biceps,forearms,,,,images/0292-C0MA9bC.jpg,videos/0292-C0MA9bC.gif,C0MA9bC,2026-03-18T12:31:32.879708+00:00
+293,dumbbell bent over row,back,back,dumbbell,biceps,upper back,biceps,forearms,,,,images/0293-BJ0Hz5L.jpg,videos/0293-BJ0Hz5L.gif,BJ0Hz5L,2026-03-18T12:31:32.877733+00:00
+294,dumbbell biceps curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/0294-NbVPDMW.jpg,videos/0294-NbVPDMW.gif,NbVPDMW,2026-03-18T12:31:32.877799+00:00
+295,dumbbell clean,upper legs,upper legs,dumbbell,hamstrings,glutes,hamstrings,quadriceps,calves,,,images/0295-7Hg55JG.jpg,videos/0295-7Hg55JG.gif,7Hg55JG,2026-03-18T12:31:32.87793+00:00
+296,dumbbell close-grip press,upper arms,upper arms,dumbbell,chest,triceps,chest,shoulders,,,,images/0296-RxayqAZ.jpg,videos/0296-RxayqAZ.gif,RxayqAZ,2026-03-18T12:31:32.877969+00:00
+297,dumbbell concentration curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/0297-gvsWLQw.jpg,videos/0297-gvsWLQw.gif,gvsWLQw,2026-03-18T12:31:32.877987+00:00
+298,dumbbell cross body hammer curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/0298-Qyk5J3p.jpg,videos/0298-Qyk5J3p.gif,Qyk5J3p,2026-03-18T12:31:32.878026+00:00
+299,dumbbell cuban press,shoulders,shoulders,dumbbell,triceps,delts,triceps,upper back,,,,images/0299-QfAKy1G.jpg,videos/0299-QfAKy1G.gif,QfAKy1G,2026-03-18T12:31:32.878063+00:00
+300,dumbbell deadlift,upper legs,upper legs,dumbbell,hamstrings,glutes,hamstrings,lower back,,,,images/0300-nUwVh7b.jpg,videos/0300-nUwVh7b.gif,nUwVh7b,2026-03-18T12:31:32.8781+00:00
+301,dumbbell decline bench press,chest,chest,dumbbell,triceps,pectorals,triceps,shoulders,,,,images/0301-DwhEmmE.jpg,videos/0301-DwhEmmE.gif,DwhEmmE,2026-03-18T12:31:32.878118+00:00
+302,dumbbell decline fly,chest,chest,dumbbell,shoulders,pectorals,shoulders,,,,,images/0302-xXm4nYq.jpg,videos/0302-xXm4nYq.gif,xXm4nYq,2026-03-18T12:31:32.878137+00:00
+303,dumbbell decline hammer press,chest,chest,dumbbell,triceps,pectorals,triceps,shoulders,,,,images/0303-1qrWgZ2.jpg,videos/0303-1qrWgZ2.gif,1qrWgZ2,2026-03-18T12:31:32.878154+00:00
+304,dumbbell decline shrug v. 2,back,back,dumbbell,shoulders,traps,shoulders,rhomboids,,,,images/0304-bRlbdjK.jpg,videos/0304-bRlbdjK.gif,bRlbdjK,2026-03-18T12:31:32.878229+00:00
+305,dumbbell decline shrug,back,back,dumbbell,shoulders,traps,shoulders,rhomboids,,,,images/0305-cwsAI4G.jpg,videos/0305-cwsAI4G.gif,cwsAI4G,2026-03-18T12:31:32.87821+00:00
+306,dumbbell decline triceps extension,upper arms,upper arms,dumbbell,shoulders,triceps,shoulders,,,,,images/0306-OTgkHwR.jpg,videos/0306-OTgkHwR.gif,OTgkHwR,2026-03-18T12:31:32.878248+00:00
+307,dumbbell decline twist fly,chest,chest,dumbbell,shoulders,pectorals,shoulders,triceps,,,,images/0307-reFHapa.jpg,videos/0307-reFHapa.gif,reFHapa,2026-03-18T12:31:32.878266+00:00
+308,dumbbell fly,chest,chest,dumbbell,shoulders,pectorals,shoulders,,,,,images/0308-yz9nUhF.jpg,videos/0308-yz9nUhF.gif,yz9nUhF,2026-03-18T12:31:32.87831+00:00
+309,dumbbell front raise v. 2,shoulders,shoulders,dumbbell,trapezius,delts,trapezius,biceps,,,,images/0309-Rr7S3yg.jpg,videos/0309-Rr7S3yg.gif,Rr7S3yg,2026-03-18T12:31:32.878386+00:00
+310,dumbbell front raise,shoulders,shoulders,dumbbell,biceps,delts,biceps,trapezius,,,,images/0310-3eGE2JC.jpg,videos/0310-3eGE2JC.gif,3eGE2JC,2026-03-18T12:31:32.878366+00:00
+311,dumbbell full can lateral raise,shoulders,shoulders,dumbbell,traps,delts,traps,rotator cuff,,,,images/0311-AQ0mC4Y.jpg,videos/0311-AQ0mC4Y.gif,AQ0mC4Y,2026-03-18T12:31:32.878407+00:00
+312,dumbbell hammer curl v. 2,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/0312-2NpxjC1.jpg,videos/0312-2NpxjC1.gif,2NpxjC1,2026-03-18T12:31:32.878473+00:00
+313,dumbbell hammer curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/0313-slDvUAU.jpg,videos/0313-slDvUAU.gif,slDvUAU,2026-03-18T12:31:32.87844+00:00
+314,dumbbell incline bench press,chest,chest,dumbbell,shoulders,pectorals,shoulders,triceps,,,,images/0314-ns0SIbU.jpg,videos/0314-ns0SIbU.gif,ns0SIbU,2026-03-18T12:31:32.878538+00:00
+315,dumbbell incline biceps curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/0315-F3xgbjF.jpg,videos/0315-F3xgbjF.gif,F3xgbjF,2026-03-18T12:31:32.878554+00:00
+316,dumbbell incline breeding,chest,chest,dumbbell,shoulders,pectorals,shoulders,triceps,,,,images/0316-B3Rxp6L.jpg,videos/0316-B3Rxp6L.gif,B3Rxp6L,2026-03-18T12:31:32.878573+00:00
+317,dumbbell incline curl v. 2,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/0317-RaflbWD.jpg,videos/0317-RaflbWD.gif,RaflbWD,2026-03-18T12:31:32.878605+00:00
+318,dumbbell incline curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/0318-ae9UoXQ.jpg,videos/0318-ae9UoXQ.gif,ae9UoXQ,2026-03-18T12:31:32.878589+00:00
+319,dumbbell incline fly,chest,chest,dumbbell,shoulders,pectorals,shoulders,,,,,images/0319-ESOd5Pl.jpg,videos/0319-ESOd5Pl.gif,ESOd5Pl,2026-03-18T12:31:32.878622+00:00
+320,dumbbell incline hammer curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/0320-ByX0WxV.jpg,videos/0320-ByX0WxV.gif,ByX0WxV,2026-03-18T12:31:32.878654+00:00
+321,dumbbell incline hammer press,chest,chest,dumbbell,shoulders,pectorals,shoulders,triceps,,,,images/0321-PG1kcIb.jpg,videos/0321-PG1kcIb.gif,PG1kcIb,2026-03-18T12:31:32.878671+00:00
+322,dumbbell incline inner biceps curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/0322-LCtQPn8.jpg,videos/0322-LCtQPn8.gif,LCtQPn8,2026-03-18T12:31:32.878704+00:00
+323,dumbbell incline one arm lateral raise,shoulders,shoulders,dumbbell,trapezius,delts,trapezius,triceps,,,,images/0323-aTNKZiC.jpg,videos/0323-aTNKZiC.gif,aTNKZiC,2026-03-18T12:31:32.878789+00:00
+324,dumbbell incline palm-in press,chest,chest,dumbbell,shoulders,pectorals,shoulders,triceps,,,,images/0324-OVLmUuL.jpg,videos/0324-OVLmUuL.gif,OVLmUuL,2026-03-18T12:31:32.878845+00:00
+325,dumbbell incline raise,shoulders,shoulders,dumbbell,trapezius,delts,trapezius,triceps,,,,images/0325-nxW6BkN.jpg,videos/0325-nxW6BkN.gif,nxW6BkN,2026-03-18T12:31:32.878885+00:00
+326,dumbbell incline rear lateral raise,shoulders,shoulders,dumbbell,traps,delts,traps,rhomboids,,,,images/0326-vYk8lqw.jpg,videos/0326-vYk8lqw.gif,vYk8lqw,2026-03-18T12:31:32.878903+00:00
+327,dumbbell incline row,back,back,dumbbell,biceps,upper back,biceps,shoulders,,,,images/0327-7vG5o25.jpg,videos/0327-7vG5o25.gif,7vG5o25,2026-03-18T12:31:32.87892+00:00
+328,dumbbell incline shoulder raise,chest,chest,dumbbell,deltoids,serratus anterior,deltoids,trapezius,,,,images/0328-6e2DcYX.jpg,videos/0328-6e2DcYX.gif,6e2DcYX,2026-03-18T12:31:32.878938+00:00
+329,dumbbell incline shrug,back,back,dumbbell,shoulders,traps,shoulders,,,,,images/0329-JymLInS.jpg,videos/0329-JymLInS.gif,JymLInS,2026-03-18T12:31:32.878956+00:00
+330,dumbbell incline triceps extension,upper arms,upper arms,dumbbell,shoulders,triceps,shoulders,,,,,images/0330-OVIKwsd.jpg,videos/0330-OVIKwsd.gif,OVIKwsd,2026-03-18T12:31:32.878993+00:00
+331,dumbbell incline twisted flyes,chest,chest,dumbbell,shoulders,pectorals,shoulders,triceps,,,,images/0331-1PLE8e9.jpg,videos/0331-1PLE8e9.gif,1PLE8e9,2026-03-18T12:31:32.879011+00:00
+332,dumbbell iron cross,shoulders,shoulders,dumbbell,triceps,delts,triceps,chest,,,,images/0332-cALkHHX.jpg,videos/0332-cALkHHX.gif,cALkHHX,2026-03-18T12:31:32.879064+00:00
+333,dumbbell kickback,upper arms,upper arms,dumbbell,shoulders,triceps,shoulders,,,,,images/0333-W6PxUkg.jpg,videos/0333-W6PxUkg.gif,W6PxUkg,2026-03-18T12:31:32.879083+00:00
+334,dumbbell lateral raise,shoulders,shoulders,dumbbell,traps,delts,traps,,,,,images/0334-DsgkuIt.jpg,videos/0334-DsgkuIt.gif,DsgkuIt,2026-03-18T12:31:32.879137+00:00
+335,dumbbell lateral to front raise,shoulders,shoulders,dumbbell,trapezius,delts,trapezius,biceps,,,,images/0335-xMjBKwn.jpg,videos/0335-xMjBKwn.gif,xMjBKwn,2026-03-18T12:31:32.879155+00:00
+336,dumbbell lunge,upper legs,upper legs,dumbbell,quadriceps,glutes,quadriceps,hamstrings,calves,,,images/0336-RRWFUcw.jpg,videos/0336-RRWFUcw.gif,RRWFUcw,2026-03-18T12:31:32.879172+00:00
+337,dumbbell lying extension (across face),upper arms,upper arms,dumbbell,shoulders,triceps,shoulders,,,,,images/0337-L2V5Nan.jpg,videos/0337-L2V5Nan.gif,L2V5Nan,2026-03-18T12:31:32.879208+00:00
+338,dumbbell lying elbow press,upper arms,upper arms,dumbbell,chest,triceps,chest,shoulders,,,,images/0338-eOCOwIR.jpg,videos/0338-eOCOwIR.gif,eOCOwIR,2026-03-18T12:31:32.879244+00:00
+339,dumbbell lying femoral,upper legs,upper legs,dumbbell,glutes,hamstrings,glutes,,,,,images/0339-FkBIE6a.jpg,videos/0339-FkBIE6a.gif,FkBIE6a,2026-03-18T12:31:32.879279+00:00
+340,dumbbell lying hammer press,chest,chest,dumbbell,triceps,pectorals,triceps,shoulders,,,,images/0340-7gdLIXa.jpg,videos/0340-7gdLIXa.gif,7gdLIXa,2026-03-18T12:31:32.879299+00:00
+341,dumbbell lying one arm deltoid rear,shoulders,shoulders,dumbbell,trapezius,delts,trapezius,rhomboids,,,,images/0341-gSw59a4.jpg,videos/0341-gSw59a4.gif,gSw59a4,2026-03-18T12:31:32.879338+00:00
+342,dumbbell lying one arm press v. 2,chest,chest,dumbbell,triceps,pectorals,triceps,shoulders,,,,images/0342-K3dIO25.jpg,videos/0342-K3dIO25.gif,K3dIO25,2026-03-18T12:31:32.879383+00:00
+343,dumbbell lying one arm press,chest,chest,dumbbell,triceps,pectorals,triceps,shoulders,,,,images/0343-zGSIWQi.jpg,videos/0343-zGSIWQi.gif,zGSIWQi,2026-03-18T12:31:32.87936+00:00
+344,dumbbell lying one arm pronated triceps extension,upper arms,upper arms,dumbbell,shoulders,triceps,shoulders,,,,,images/0344-wyaqzOS.jpg,videos/0344-wyaqzOS.gif,wyaqzOS,2026-03-18T12:31:32.8794+00:00
+345,dumbbell lying one arm rear lateral raise,shoulders,shoulders,dumbbell,traps,delts,traps,rhomboids,,,,images/0345-KwFGiEP.jpg,videos/0345-KwFGiEP.gif,KwFGiEP,2026-03-18T12:31:32.879421+00:00
+346,dumbbell lying one arm supinated triceps extension,upper arms,upper arms,dumbbell,forearms,triceps,forearms,,,,,images/0346-zZlORz6.jpg,videos/0346-zZlORz6.gif,zZlORz6,2026-03-18T12:31:32.879438+00:00
+347,dumbbell lying pronation,lower arms,lower arms,dumbbell,biceps,forearms,biceps,shoulders,,,,images/0347-mym4hJo.jpg,videos/0347-mym4hJo.gif,mym4hJo,2026-03-18T12:31:32.879454+00:00
+348,dumbbell lying rear lateral raise,shoulders,shoulders,dumbbell,traps,delts,traps,rhomboids,,,,images/0348-53Ttlck.jpg,videos/0348-53Ttlck.gif,53Ttlck,2026-03-18T12:31:32.879529+00:00
+349,dumbbell lying supination,lower arms,lower arms,dumbbell,biceps,forearms,biceps,shoulders,,,,images/0349-M2Pm3zj.jpg,videos/0349-M2Pm3zj.gif,M2Pm3zj,2026-03-18T12:31:32.879565+00:00
+350,dumbbell lying supine curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/0350-KUaZst7.jpg,videos/0350-KUaZst7.gif,KUaZst7,2026-03-18T12:31:32.879619+00:00
+351,dumbbell lying triceps extension,upper arms,upper arms,dumbbell,shoulders,triceps,shoulders,,,,,images/0351-mpKZGWz.jpg,videos/0351-mpKZGWz.gif,mpKZGWz,2026-03-18T12:31:32.879637+00:00
+352,dumbbell neutral grip bench press,upper arms,upper arms,dumbbell,chest,triceps,chest,shoulders,,,,images/0352-pP8wP2P.jpg,videos/0352-pP8wP2P.gif,pP8wP2P,2026-03-18T12:31:32.879672+00:00
+353,dumbbell one arm concentration curl (on stability ball),upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/0353-k5IpyHg.jpg,videos/0353-k5IpyHg.gif,k5IpyHg,2026-03-18T12:31:32.879745+00:00
+354,dumbbell one arm kickback,upper arms,upper arms,dumbbell,shoulders,triceps,shoulders,,,,,images/0354-bQy2Eni.jpg,videos/0354-bQy2Eni.gif,bQy2Eni,2026-03-18T12:31:32.879867+00:00
+355,dumbbell one arm lateral raise,shoulders,shoulders,dumbbell,trapezius,delts,trapezius,triceps,,,,images/0355-n5cWCsI.jpg,videos/0355-n5cWCsI.gif,n5cWCsI,2026-03-18T12:31:32.879883+00:00
+356,dumbbell one arm lateral raise with support,shoulders,shoulders,dumbbell,trapezius,delts,trapezius,rotator cuff,,,,images/0356-Yg7MJAT.jpg,videos/0356-Yg7MJAT.gif,Yg7MJAT,2026-03-18T12:31:32.879899+00:00
+358,dumbbell one arm reverse wrist curl,lower arms,lower arms,dumbbell,wrist extensors,forearms,wrist extensors,,,,,images/0358-BwSNDGt.jpg,videos/0358-BwSNDGt.gif,BwSNDGt,2026-03-18T12:31:32.879985+00:00
+359,dumbbell one arm reverse fly (with support),shoulders,shoulders,dumbbell,trapezius,delts,trapezius,rhomboids,,,,images/0359-e25F58f.jpg,videos/0359-e25F58f.gif,e25F58f,2026-03-18T12:31:32.880003+00:00
+360,dumbbell one arm shoulder press v. 2,shoulders,shoulders,dumbbell,triceps,delts,triceps,upper back,,,,images/0360-1TkiAFK.jpg,videos/0360-1TkiAFK.gif,1TkiAFK,2026-03-18T12:31:32.880151+00:00
+361,dumbbell one arm shoulder press,shoulders,shoulders,dumbbell,triceps,delts,triceps,upper back,,,,images/0361-84RyJf8.jpg,videos/0361-84RyJf8.gif,84RyJf8,2026-03-18T12:31:32.880133+00:00
+362,dumbbell one arm triceps extension (on bench),upper arms,upper arms,dumbbell,shoulders,triceps,shoulders,,,,,images/0362-nAuHPcD.jpg,videos/0362-nAuHPcD.gif,nAuHPcD,2026-03-18T12:31:32.880224+00:00
+363,dumbbell one arm upright row,shoulders,shoulders,dumbbell,traps,delts,traps,biceps,,,,images/0363-6cKQC5E.jpg,videos/0363-6cKQC5E.gif,6cKQC5E,2026-03-18T12:31:32.880245+00:00
+364,dumbbell one arm wrist curl,lower arms,lower arms,dumbbell,biceps,forearms,biceps,brachialis,,,,images/0364-q8aHNoF.jpg,videos/0364-q8aHNoF.gif,q8aHNoF,2026-03-18T12:31:32.880264+00:00
+365,dumbbell over bench neutral wrist curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/0365-BKa8dmT.jpg,videos/0365-BKa8dmT.gif,BKa8dmT,2026-03-18T12:31:32.880315+00:00
+366,dumbbell over bench one arm neutral wrist curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/0366-IvV6C9M.jpg,videos/0366-IvV6C9M.gif,IvV6C9M,2026-03-18T12:31:32.880332+00:00
+367,dumbbell over bench one arm wrist curl,lower arms,lower arms,dumbbell,biceps,forearms,biceps,shoulders,,,,images/0367-KI1DjNN.jpg,videos/0367-KI1DjNN.gif,KI1DjNN,2026-03-18T12:31:32.880365+00:00
+368,dumbbell over bench revers wrist curl,lower arms,lower arms,dumbbell,biceps,forearms,biceps,brachialis,,,,images/0368-3tAXPQ6.jpg,videos/0368-3tAXPQ6.gif,3tAXPQ6,2026-03-18T12:31:32.880382+00:00
+369,dumbbell over bench wrist curl,lower arms,lower arms,dumbbell,biceps,forearms,biceps,brachialis,,,,images/0369-D1xYJAU.jpg,videos/0369-D1xYJAU.gif,D1xYJAU,2026-03-18T12:31:32.880398+00:00
+370,dumbbell peacher hammer curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/0370-F1KxjBa.jpg,videos/0370-F1KxjBa.gif,F1KxjBa,2026-03-18T12:31:32.880455+00:00
+371,dumbbell plyo squat,upper legs,upper legs,dumbbell,quadriceps,glutes,quadriceps,hamstrings,calves,,,images/0371-S4pwGlc.jpg,videos/0371-S4pwGlc.gif,S4pwGlc,2026-03-18T12:31:32.880478+00:00
+372,dumbbell preacher curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/0372-jivWf8n.jpg,videos/0372-jivWf8n.gif,jivWf8n,2026-03-18T12:31:32.880496+00:00
+373,dumbbell pronate-grip triceps extension,upper arms,upper arms,dumbbell,forearms,triceps,forearms,,,,,images/0373-bpJL2Qs.jpg,videos/0373-bpJL2Qs.gif,bpJL2Qs,2026-03-18T12:31:32.880552+00:00
+374,dumbbell prone incline curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/0374-mwpPcr1.jpg,videos/0374-mwpPcr1.gif,mwpPcr1,2026-03-18T12:31:32.880575+00:00
+375,dumbbell pullover,chest,chest,dumbbell,latissimus dorsi,pectorals,latissimus dorsi,triceps,,,,images/0375-9XjtHvS.jpg,videos/0375-9XjtHvS.gif,9XjtHvS,2026-03-18T12:31:32.880608+00:00
+376,dumbbell raise,shoulders,shoulders,dumbbell,traps,delts,traps,rhomboids,,,,images/0376-c9MnDRp.jpg,videos/0376-c9MnDRp.gif,c9MnDRp,2026-03-18T12:31:32.880674+00:00
+377,dumbbell rear delt row_shoulder,shoulders,shoulders,dumbbell,trapezius,delts,trapezius,rhomboids,,,,images/0377-EKXOMEh.jpg,videos/0377-EKXOMEh.gif,EKXOMEh,2026-03-18T12:31:32.880707+00:00
+378,dumbbell rear fly,shoulders,shoulders,dumbbell,trapezius,delts,trapezius,rhomboids,,,,images/0378-8DiFDVA.jpg,videos/0378-8DiFDVA.gif,8DiFDVA,2026-03-18T12:31:32.880725+00:00
+379,dumbbell rear lateral raise (support head),shoulders,shoulders,dumbbell,traps,delts,traps,rhomboids,,,,images/0379-UzkLrem.jpg,videos/0379-UzkLrem.gif,UzkLrem,2026-03-18T12:31:32.880759+00:00
+380,dumbbell rear lateral raise,shoulders,shoulders,dumbbell,traps,delts,traps,rhomboids,,,,images/0380-v1qBec9.jpg,videos/0380-v1qBec9.gif,v1qBec9,2026-03-18T12:31:32.880742+00:00
+381,dumbbell rear lunge,upper legs,upper legs,dumbbell,quadriceps,glutes,quadriceps,hamstrings,calves,,,images/0381-SSsBDwB.jpg,videos/0381-SSsBDwB.gif,SSsBDwB,2026-03-18T12:31:32.880776+00:00
+382,dumbbell revers grip biceps curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/0382-e4ojVhP.jpg,videos/0382-e4ojVhP.gif,e4ojVhP,2026-03-18T12:31:32.880793+00:00
+383,dumbbell reverse fly,shoulders,shoulders,dumbbell,trapezius,delts,trapezius,rhomboids,,,,images/0383-EAs3xL9.jpg,videos/0383-EAs3xL9.gif,EAs3xL9,2026-03-18T12:31:32.880826+00:00
+384,dumbbell reverse preacher curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/0384-O8Aq69u.jpg,videos/0384-O8Aq69u.gif,O8Aq69u,2026-03-18T12:31:32.880899+00:00
+385,dumbbell reverse wrist curl,lower arms,lower arms,dumbbell,biceps,forearms,biceps,brachialis,,,,images/0385-BLCvwr2.jpg,videos/0385-BLCvwr2.gif,BLCvwr2,2026-03-18T12:31:32.880936+00:00
+386,dumbbell rotation reverse fly,shoulders,shoulders,dumbbell,trapezius,delts,trapezius,rhomboids,,,,images/0386-prbWx1D.jpg,videos/0386-prbWx1D.gif,prbWx1D,2026-03-18T12:31:32.880971+00:00
+387,dumbbell seated alternate front raise,shoulders,shoulders,dumbbell,trapezius,delts,trapezius,biceps,,,,images/0387-gH5fRsC.jpg,videos/0387-gH5fRsC.gif,gH5fRsC,2026-03-18T12:31:32.881007+00:00
+388,dumbbell seated alternate press,shoulders,shoulders,dumbbell,triceps,delts,triceps,chest,,,,images/0388-QT5Q0nK.jpg,videos/0388-QT5Q0nK.gif,QT5Q0nK,2026-03-18T12:31:32.881043+00:00
+389,dumbbell seated bench extension,upper arms,upper arms,dumbbell,shoulders,triceps,shoulders,,,,,images/0389-JhYSVwT.jpg,videos/0389-JhYSVwT.gif,JhYSVwT,2026-03-18T12:31:32.881079+00:00
+390,dumbbell seated biceps curl (on stability ball),upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/0390-WgJnBH5.jpg,videos/0390-WgJnBH5.gif,WgJnBH5,2026-03-18T12:31:32.881168+00:00
+391,dumbbell seated curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/0391-TiaZTxx.jpg,videos/0391-TiaZTxx.gif,TiaZTxx,2026-03-18T12:31:32.881221+00:00
+392,dumbbell seated front raise,shoulders,shoulders,dumbbell,trapezius,delts,trapezius,biceps,,,,images/0392-Ys97II0.jpg,videos/0392-Ys97II0.gif,Ys97II0,2026-03-18T12:31:32.881239+00:00
+393,dumbbell seated inner biceps curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/0393-KXyoEtA.jpg,videos/0393-KXyoEtA.gif,KXyoEtA,2026-03-18T12:31:32.881273+00:00
+394,dumbbell seated kickback,upper arms,upper arms,dumbbell,shoulders,triceps,shoulders,,,,,images/0394-en550rk.jpg,videos/0394-en550rk.gif,en550rk,2026-03-18T12:31:32.881289+00:00
+395,dumbbell seated lateral raise v. 2,shoulders,shoulders,dumbbell,traps,delts,traps,triceps,,,,images/0395-hrrS0Ed.jpg,videos/0395-hrrS0Ed.gif,hrrS0Ed,2026-03-18T12:31:32.881323+00:00
+396,dumbbell seated lateral raise,shoulders,shoulders,dumbbell,traps,delts,traps,upper back,,,,images/0396-hxyTtWj.jpg,videos/0396-hxyTtWj.gif,hxyTtWj,2026-03-18T12:31:32.881306+00:00
+397,dumbbell seated neutral wrist curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/0397-uJmK7Z1.jpg,videos/0397-uJmK7Z1.gif,uJmK7Z1,2026-03-18T12:31:32.881339+00:00
+398,dumbbell seated one arm kickback,upper arms,upper arms,dumbbell,shoulders,triceps,shoulders,,,,,images/0398-VQ3sNCn.jpg,videos/0398-VQ3sNCn.gif,VQ3sNCn,2026-03-18T12:31:32.881373+00:00
+399,dumbbell seated one arm rotate,lower arms,lower arms,dumbbell,shoulders,forearms,shoulders,biceps,,,,images/0399-7f2jsqP.jpg,videos/0399-7f2jsqP.gif,7f2jsqP,2026-03-18T12:31:32.88139+00:00
+400,dumbbell seated one leg calf raise,lower legs,lower legs,dumbbell,hamstrings,calves,hamstrings,glutes,,,,images/0400-Ia7tumC.jpg,videos/0400-Ia7tumC.gif,Ia7tumC,2026-03-18T12:31:32.881406+00:00
+401,dumbbell seated palms up wrist curl,lower arms,lower arms,dumbbell,biceps,forearms,biceps,shoulders,,,,images/0401-2dImyQ8.jpg,videos/0401-2dImyQ8.gif,2dImyQ8,2026-03-18T12:31:32.881457+00:00
+402,dumbbell seated preacher curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/0402-7D5bgLT.jpg,videos/0402-7D5bgLT.gif,7D5bgLT,2026-03-18T12:31:32.881476+00:00
+403,dumbbell seated revers grip concentration curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/0403-lyKCLmK.jpg,videos/0403-lyKCLmK.gif,lyKCLmK,2026-03-18T12:31:32.881493+00:00
+404,dumbbell seated shoulder press (parallel grip),shoulders,shoulders,dumbbell,triceps,delts,triceps,upper back,,,,images/0404-f1jf47L.jpg,videos/0404-f1jf47L.gif,f1jf47L,2026-03-18T12:31:32.881546+00:00
+405,dumbbell seated shoulder press,shoulders,shoulders,dumbbell,triceps,delts,triceps,upper back,,,,images/0405-znQUdHY.jpg,videos/0405-znQUdHY.gif,znQUdHY,2026-03-18T12:31:32.881529+00:00
+406,dumbbell shrug,back,back,dumbbell,shoulders,traps,shoulders,,,,,images/0406-NJzBsGJ.jpg,videos/0406-NJzBsGJ.gif,NJzBsGJ,2026-03-18T12:31:32.881581+00:00
+407,dumbbell side bend,waist,waist,dumbbell,obliques,abs,obliques,,,,,images/0407-IpONWYv.jpg,videos/0407-IpONWYv.gif,IpONWYv,2026-03-18T12:31:32.881599+00:00
+408,dumbbell side lying one hand raise,shoulders,shoulders,dumbbell,trapezius,delts,trapezius,rhomboids,,,,images/0408-fTlkJop.jpg,videos/0408-fTlkJop.gif,fTlkJop,2026-03-18T12:31:32.881616+00:00
+409,dumbbell single leg calf raise,lower legs,lower legs,dumbbell,ankles,calves,ankles,,,,,images/0409-1kB3Wmk.jpg,videos/0409-1kB3Wmk.gif,1kB3Wmk,2026-03-18T12:31:32.88167+00:00
+410,dumbbell single leg split squat,upper legs,upper legs,dumbbell,glutes,quads,glutes,hamstrings,calves,,,images/0410-qx4fgX7.jpg,videos/0410-qx4fgX7.gif,qx4fgX7,2026-03-18T12:31:32.881725+00:00
+411,dumbbell single leg squat,upper legs,upper legs,dumbbell,quadriceps,glutes,quadriceps,hamstrings,calves,,,images/0411-H6ybluc.jpg,videos/0411-H6ybluc.gif,H6ybluc,2026-03-18T12:31:32.881743+00:00
+413,dumbbell squat,upper legs,upper legs,dumbbell,quadriceps,glutes,quadriceps,hamstrings,calves,,,images/0413-HsvHqgf.jpg,videos/0413-HsvHqgf.gif,HsvHqgf,2026-03-18T12:31:32.88176+00:00
+414,dumbbell standing alternate overhead press,shoulders,shoulders,dumbbell,triceps,delts,triceps,core,,,,images/0414-bBi35y3.jpg,videos/0414-bBi35y3.gif,bBi35y3,2026-03-18T12:31:32.881795+00:00
+415,dumbbell standing alternate raise,shoulders,shoulders,dumbbell,traps,delts,traps,forearms,,,,images/0415-SxHteRW.jpg,videos/0415-SxHteRW.gif,SxHteRW,2026-03-18T12:31:32.881811+00:00
+416,dumbbell standing biceps curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/0416-3s4NnTh.jpg,videos/0416-3s4NnTh.gif,3s4NnTh,2026-03-18T12:31:32.881892+00:00
+417,dumbbell standing calf raise,lower legs,lower legs,dumbbell,ankles,calves,ankles,,,,,images/0417-dPmaUaU.jpg,videos/0417-dPmaUaU.gif,dPmaUaU,2026-03-18T12:31:32.881908+00:00
+418,dumbbell standing concentration curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/0418-7inpWch.jpg,videos/0418-7inpWch.gif,7inpWch,2026-03-18T12:31:32.881925+00:00
+419,dumbbell standing front raise above head,shoulders,shoulders,dumbbell,trapezius,delts,trapezius,biceps,,,,images/0419-laVRfDf.jpg,videos/0419-laVRfDf.gif,laVRfDf,2026-03-18T12:31:32.881942+00:00
+420,dumbbell standing kickback,upper arms,upper arms,dumbbell,shoulders,triceps,shoulders,,,,,images/0420-UmpPAAe.jpg,videos/0420-UmpPAAe.gif,UmpPAAe,2026-03-18T12:31:32.881977+00:00
+421,dumbbell standing one arm concentration curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/0421-8fgqP5a.jpg,videos/0421-8fgqP5a.gif,8fgqP5a,2026-03-18T12:31:32.881995+00:00
+422,dumbbell standing one arm curl (over incline bench),upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/0422-BIb1tGo.jpg,videos/0422-BIb1tGo.gif,BIb1tGo,2026-03-18T12:31:32.882013+00:00
+423,dumbbell standing one arm extension,upper arms,upper arms,dumbbell,shoulders,triceps,shoulders,,,,,images/0423-BCUR88E.jpg,videos/0423-BCUR88E.gif,BCUR88E,2026-03-18T12:31:32.882051+00:00
+424,dumbbell standing one arm palm in press,shoulders,shoulders,dumbbell,triceps,delts,triceps,core,,,,images/0424-ocYc6Db.jpg,videos/0424-ocYc6Db.gif,ocYc6Db,2026-03-18T12:31:32.882069+00:00
+425,dumbbell standing one arm reverse curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/0425-DU5Kkj2.jpg,videos/0425-DU5Kkj2.gif,DU5Kkj2,2026-03-18T12:31:32.882087+00:00
+426,dumbbell standing overhead press,shoulders,shoulders,dumbbell,triceps,delts,triceps,upper back,,,,images/0426-A6wtbuL.jpg,videos/0426-A6wtbuL.gif,A6wtbuL,2026-03-18T12:31:32.882104+00:00
+427,dumbbell standing palms in press,shoulders,shoulders,dumbbell,triceps,delts,triceps,chest,,,,images/0427-UilDHSs.jpg,videos/0427-UilDHSs.gif,UilDHSs,2026-03-18T12:31:32.882122+00:00
+428,dumbbell standing preacher curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/0428-hq2hyDH.jpg,videos/0428-hq2hyDH.gif,hq2hyDH,2026-03-18T12:31:32.88214+00:00
+429,dumbbell standing reverse curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/0429-0IgNjSM.jpg,videos/0429-0IgNjSM.gif,0IgNjSM,2026-03-18T12:31:32.882158+00:00
+430,dumbbell standing triceps extension,upper arms,upper arms,dumbbell,shoulders,triceps,shoulders,,,,,images/0430-PdmaD0N.jpg,videos/0430-PdmaD0N.gif,PdmaD0N,2026-03-18T12:31:32.882176+00:00
+431,dumbbell step-up,upper legs,upper legs,dumbbell,quadriceps,glutes,quadriceps,hamstrings,calves,,,images/0431-aXtJhlg.jpg,videos/0431-aXtJhlg.gif,aXtJhlg,2026-03-18T12:31:32.88223+00:00
+432,dumbbell stiff leg deadlift,upper legs,upper legs,dumbbell,hamstrings,glutes,hamstrings,lower back,,,,images/0432-5eLRITT.jpg,videos/0432-5eLRITT.gif,5eLRITT,2026-03-18T12:31:32.882283+00:00
+433,dumbbell straight arm pullover,chest,chest,dumbbell,latissimus dorsi,pectorals,latissimus dorsi,triceps,,,,images/0433-i8BdLTK.jpg,videos/0433-i8BdLTK.gif,i8BdLTK,2026-03-18T12:31:32.882299+00:00
+434,dumbbell straight leg deadlift,upper legs,upper legs,dumbbell,hamstrings,glutes,hamstrings,lower back,,,,images/0434-oom75KC.jpg,videos/0434-oom75KC.gif,oom75KC,2026-03-18T12:31:32.882316+00:00
+436,dumbbell tate press,upper arms,upper arms,dumbbell,shoulders,triceps,shoulders,,,,,images/0436-s5PdDyY.jpg,videos/0436-s5PdDyY.gif,s5PdDyY,2026-03-18T12:31:32.882366+00:00
+437,dumbbell upright row,shoulders,shoulders,dumbbell,traps,delts,traps,biceps,,,,images/0437-ainizkb.jpg,videos/0437-ainizkb.gif,ainizkb,2026-03-18T12:31:32.882415+00:00
+438,dumbbell w-press,shoulders,shoulders,dumbbell,triceps,delts,triceps,chest,,,,images/0438-vmwLyCg.jpg,videos/0438-vmwLyCg.gif,vmwLyCg,2026-03-18T12:31:32.882483+00:00
+439,dumbbell zottman curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/0439-kXaIn5A.jpg,videos/0439-kXaIn5A.gif,kXaIn5A,2026-03-18T12:31:32.882501+00:00
+445,ez barbell anti gravity press,shoulders,shoulders,ez barbell,triceps,delts,triceps,chest,,,,images/0445-fprd84i.jpg,videos/0445-fprd84i.gif,fprd84i,2026-03-18T12:31:32.883231+00:00
+446,ez barbell close-grip curl,upper arms,upper arms,ez barbell,forearms,biceps,forearms,,,,,images/0446-V4ryaZa.jpg,videos/0446-V4ryaZa.gif,V4ryaZa,2026-03-18T12:31:32.883268+00:00
+447,ez barbell curl,upper arms,upper arms,ez barbell,forearms,biceps,forearms,,,,,images/0447-6TG6x2w.jpg,videos/0447-6TG6x2w.gif,6TG6x2w,2026-03-18T12:31:32.883284+00:00
+448,ez barbell decline close grip face press,upper arms,upper arms,ez barbell,chest,triceps,chest,shoulders,,,,images/0448-DgZQ11d.jpg,videos/0448-DgZQ11d.gif,DgZQ11d,2026-03-18T12:31:32.883301+00:00
+449,ez barbell incline triceps extension,upper arms,upper arms,ez barbell,shoulders,triceps,shoulders,,,,,images/0449-KyLtiLT.jpg,videos/0449-KyLtiLT.gif,KyLtiLT,2026-03-18T12:31:32.883333+00:00
+450,ez barbell jm bench press,upper arms,upper arms,ez barbell,chest,triceps,chest,shoulders,,,,images/0450-hnOYgH3.jpg,videos/0450-hnOYgH3.gif,hnOYgH3,2026-03-18T12:31:32.88335+00:00
+451,ez barbell reverse grip curl,upper arms,upper arms,ez barbell,forearms,biceps,forearms,,,,,images/0451-Y5X65IB.jpg,videos/0451-Y5X65IB.gif,Y5X65IB,2026-03-18T12:31:32.883366+00:00
+452,ez barbell reverse grip preacher curl,upper arms,upper arms,ez barbell,forearms,biceps,forearms,,,,,images/0452-vBNyir7.jpg,videos/0452-vBNyir7.gif,vBNyir7,2026-03-18T12:31:32.883382+00:00
+453,ez barbell seated triceps extension,upper arms,upper arms,ez barbell,shoulders,triceps,shoulders,,,,,images/0453-iaapw0g.jpg,videos/0453-iaapw0g.gif,iaapw0g,2026-03-18T12:31:32.883415+00:00
+454,ez barbell spider curl,upper arms,upper arms,ez barbell,forearms,biceps,forearms,,,,,images/0454-Ye5Qxb0.jpg,videos/0454-Ye5Qxb0.gif,Ye5Qxb0,2026-03-18T12:31:32.883432+00:00
+455,finger curls,lower arms,lower arms,barbell,wrist flexors,forearms,wrist flexors,grip muscles,,,,images/0455-awG04cF.jpg,videos/0455-awG04cF.gif,awG04cF,2026-03-18T12:31:32.883548+00:00
+458,floor fly (with barbell),chest,chest,barbell,deltoids,pectorals,deltoids,triceps,,,,images/0458-neonEDL.jpg,videos/0458-neonEDL.gif,neonEDL,2026-03-18T12:31:32.88362+00:00
+517,kettlebell advanced windmill,waist,waist,kettlebell,obliques,abs,obliques,shoulders,,,,images/0517-Kal9cQQ.jpg,videos/0517-Kal9cQQ.gif,Kal9cQQ,2026-03-18T12:31:32.8849+00:00
+518,kettlebell alternating hang clean,lower arms,lower arms,kettlebell,shoulders,forearms,shoulders,traps,core,,,images/0518-I4tibZG.jpg,videos/0518-I4tibZG.gif,I4tibZG,2026-03-18T12:31:32.884918+00:00
+519,kettlebell alternating press on floor,chest,chest,kettlebell,shoulders,pectorals,shoulders,triceps,,,,images/0519-7w6i0vE.jpg,videos/0519-7w6i0vE.gif,7w6i0vE,2026-03-18T12:31:32.884957+00:00
+520,kettlebell alternating press,shoulders,shoulders,kettlebell,triceps,delts,triceps,core,,,,images/0520-5KLbZWx.jpg,videos/0520-5KLbZWx.gif,5KLbZWx,2026-03-18T12:31:32.884936+00:00
+521,kettlebell alternating renegade row,back,back,kettlebell,core,upper back,core,shoulders,,,,images/0521-b9kqlBy.jpg,videos/0521-b9kqlBy.gif,b9kqlBy,2026-03-18T12:31:32.884973+00:00
+522,kettlebell alternating row,back,back,kettlebell,biceps,upper back,biceps,forearms,,,,images/0522-Ca76jUE.jpg,videos/0522-Ca76jUE.gif,Ca76jUE,2026-03-18T12:31:32.884991+00:00
+523,kettlebell arnold press,shoulders,shoulders,kettlebell,triceps,delts,triceps,upper back,,,,images/0523-UM8mgyG.jpg,videos/0523-UM8mgyG.gif,UM8mgyG,2026-03-18T12:31:32.88501+00:00
+524,kettlebell bent press,waist,waist,kettlebell,shoulders,abs,shoulders,triceps,obliques,,,images/0524-kjE55n5.jpg,videos/0524-kjE55n5.gif,kjE55n5,2026-03-18T12:31:32.885036+00:00
+525,kettlebell bottoms up clean from the hang position,upper arms,upper arms,kettlebell,forearms,biceps,forearms,shoulders,,,,images/0525-4KJEpzb.jpg,videos/0525-4KJEpzb.gif,4KJEpzb,2026-03-18T12:31:32.885058+00:00
+526,kettlebell double alternating hang clean,upper arms,upper arms,kettlebell,forearms,biceps,forearms,shoulders,,,,images/0526-a4F9Oyc.jpg,videos/0526-a4F9Oyc.gif,a4F9Oyc,2026-03-18T12:31:32.885077+00:00
+527,kettlebell double jerk,shoulders,shoulders,kettlebell,triceps,delts,triceps,core,,,,images/0527-tznL2Ad.jpg,videos/0527-tznL2Ad.gif,tznL2Ad,2026-03-18T12:31:32.885098+00:00
+528,kettlebell double push press,shoulders,shoulders,kettlebell,triceps,delts,triceps,core,,,,images/0528-I4KkPdl.jpg,videos/0528-I4KkPdl.gif,I4KkPdl,2026-03-18T12:31:32.885123+00:00
+529,kettlebell double snatch,shoulders,shoulders,kettlebell,trapezius,delts,trapezius,forearms,core,,,images/0529-M74kdvm.jpg,videos/0529-M74kdvm.gif,M74kdvm,2026-03-18T12:31:32.885142+00:00
+530,kettlebell double windmill,waist,waist,kettlebell,shoulders,abs,shoulders,hamstrings,,,,images/0530-OaE7CpD.jpg,videos/0530-OaE7CpD.gif,OaE7CpD,2026-03-18T12:31:32.885161+00:00
+531,kettlebell extended range one arm press on floor,chest,chest,kettlebell,triceps,pectorals,triceps,shoulders,,,,images/0531-rseLfH3.jpg,videos/0531-rseLfH3.gif,rseLfH3,2026-03-18T12:31:32.885179+00:00
+532,kettlebell figure 8,waist,waist,kettlebell,shoulders,abs,shoulders,forearms,,,,images/0532-L4ay0PW.jpg,videos/0532-L4ay0PW.gif,L4ay0PW,2026-03-18T12:31:32.885198+00:00
+533,kettlebell front squat,upper legs,upper legs,kettlebell,quadriceps,glutes,quadriceps,hamstrings,calves,,,images/0533-DB0n8AG.jpg,videos/0533-DB0n8AG.gif,DB0n8AG,2026-03-18T12:31:32.885219+00:00
+534,kettlebell goblet squat,upper legs,upper legs,kettlebell,quadriceps,glutes,quadriceps,hamstrings,calves,,,images/0534-ZA8b5hc.jpg,videos/0534-ZA8b5hc.gif,ZA8b5hc,2026-03-18T12:31:32.885238+00:00
+535,kettlebell hang clean,upper legs,upper legs,kettlebell,glutes,hamstrings,glutes,quadriceps,calves,,,images/0535-LHWF7us.jpg,videos/0535-LHWF7us.gif,LHWF7us,2026-03-18T12:31:32.885267+00:00
+536,kettlebell lunge pass through,upper legs,upper legs,kettlebell,quadriceps,glutes,quadriceps,hamstrings,calves,,,images/0536-WKMQzCD.jpg,videos/0536-WKMQzCD.gif,WKMQzCD,2026-03-18T12:31:32.885288+00:00
+537,kettlebell one arm clean and jerk,shoulders,shoulders,kettlebell,triceps,delts,triceps,core,,,,images/0537-vzAxBtt.jpg,videos/0537-vzAxBtt.gif,vzAxBtt,2026-03-18T12:31:32.885309+00:00
+538,kettlebell one arm jerk,shoulders,shoulders,kettlebell,triceps,delts,triceps,core,,,,images/0538-S37C94C.jpg,videos/0538-S37C94C.gif,S37C94C,2026-03-18T12:31:32.885345+00:00
+539,kettlebell one arm military press to the side,shoulders,shoulders,kettlebell,triceps,delts,triceps,core,,,,images/0539-yCvYdi7.jpg,videos/0539-yCvYdi7.gif,yCvYdi7,2026-03-18T12:31:32.885363+00:00
+540,kettlebell one arm push press,shoulders,shoulders,kettlebell,triceps,delts,triceps,core,,,,images/0540-osdXT3K.jpg,videos/0540-osdXT3K.gif,osdXT3K,2026-03-18T12:31:32.88538+00:00
+541,kettlebell one arm row,back,back,kettlebell,biceps,upper back,biceps,forearms,,,,images/0541-g9AsZ8P.jpg,videos/0541-g9AsZ8P.gif,g9AsZ8P,2026-03-18T12:31:32.885399+00:00
+542,kettlebell one arm snatch,shoulders,shoulders,kettlebell,trapezius,delts,trapezius,forearms,core,,,images/0542-aXcUyKb.jpg,videos/0542-aXcUyKb.gif,aXcUyKb,2026-03-18T12:31:32.885421+00:00
+543,kettlebell pirate supper legs,shoulders,shoulders,kettlebell,triceps,delts,triceps,forearms,,,,images/0543-kuXhl0o.jpg,videos/0543-kuXhl0o.gif,kuXhl0o,2026-03-18T12:31:32.885439+00:00
+544,kettlebell pistol squat,upper legs,upper legs,kettlebell,quadriceps,glutes,quadriceps,hamstrings,calves,,,images/0544-5bpPTHv.jpg,videos/0544-5bpPTHv.gif,5bpPTHv,2026-03-18T12:31:32.885457+00:00
+545,kettlebell plyo push-up,chest,chest,kettlebell,triceps,pectorals,triceps,shoulders,core,,,images/0545-ktf3nvW.jpg,videos/0545-ktf3nvW.gif,ktf3nvW,2026-03-18T12:31:32.885475+00:00
+546,kettlebell seated press,shoulders,shoulders,kettlebell,triceps,delts,triceps,core,,,,images/0546-BkxB8LW.jpg,videos/0546-BkxB8LW.gif,BkxB8LW,2026-03-18T12:31:32.885493+00:00
+547,kettlebell seesaw press,shoulders,shoulders,kettlebell,triceps,delts,triceps,core,,,,images/0547-UDm6cGl.jpg,videos/0547-UDm6cGl.gif,UDm6cGl,2026-03-18T12:31:32.885528+00:00
+548,kettlebell sumo high pull,back,back,kettlebell,shoulders,traps,shoulders,glutes,hamstrings,,,images/0548-8ARQ9Hw.jpg,videos/0548-8ARQ9Hw.gif,8ARQ9Hw,2026-03-18T12:31:32.88555+00:00
+549,kettlebell swing,upper legs,upper legs,kettlebell,hamstrings,glutes,hamstrings,core,,,,images/0549-UHJlbu3.jpg,videos/0549-UHJlbu3.gif,UHJlbu3,2026-03-18T12:31:32.88557+00:00
+550,kettlebell thruster,shoulders,shoulders,kettlebell,quadriceps,delts,quadriceps,glutes,core,,,images/0550-yWxMvB5.jpg,videos/0550-yWxMvB5.gif,yWxMvB5,2026-03-18T12:31:32.885588+00:00
+551,kettlebell turkish get up (squat style),upper legs,upper legs,kettlebell,quadriceps,glutes,quadriceps,hamstrings,core,,,images/0551-Ha7SZ3y.jpg,videos/0551-Ha7SZ3y.gif,Ha7SZ3y,2026-03-18T12:31:32.885608+00:00
+552,kettlebell two arm clean,shoulders,shoulders,kettlebell,traps,delts,traps,forearms,,,,images/0552-7Ba7bQ2.jpg,videos/0552-7Ba7bQ2.gif,7Ba7bQ2,2026-03-18T12:31:32.885625+00:00
+553,kettlebell two arm military press,shoulders,shoulders,kettlebell,triceps,delts,triceps,upper back,,,,images/0553-blBXysN.jpg,videos/0553-blBXysN.gif,blBXysN,2026-03-18T12:31:32.88565+00:00
+554,kettlebell windmill,waist,waist,kettlebell,obliques,abs,obliques,shoulders,,,,images/0554-9Tkqa9O.jpg,videos/0554-9Tkqa9O.gif,9Tkqa9O,2026-03-18T12:31:32.885691+00:00
+562,landmine 180,waist,waist,barbell,obliques,abs,obliques,quadriceps,,,,images/0562-QYysSLV.jpg,videos/0562-QYysSLV.gif,QYysSLV,2026-03-18T12:31:32.885909+00:00
+571,lever alternating narrow grip seated row,back,back,leverage machine,biceps,upper back,biceps,forearms,,,,images/0571-w2oRpuH.jpg,videos/0571-w2oRpuH.gif,w2oRpuH,2026-03-18T12:31:32.886043+00:00
+572,lever assisted chin-up,back,back,leverage machine,biceps,lats,biceps,forearms,,,,images/0572-MaMuGH6.jpg,videos/0572-MaMuGH6.gif,MaMuGH6,2026-03-18T12:31:32.88606+00:00
+573,lever back extension,back,back,leverage machine,glutes,spine,glutes,hamstrings,,,,images/0573-rUXfn3R.jpg,videos/0573-rUXfn3R.gif,rUXfn3R,2026-03-18T12:31:32.886077+00:00
+574,lever bent over row,back,back,barbell,biceps,upper back,biceps,forearms,,,,images/0574-X3cqyXz.jpg,videos/0574-X3cqyXz.gif,X3cqyXz,2026-03-18T12:31:32.886094+00:00
+575,lever bicep curl,upper arms,upper arms,leverage machine,forearms,biceps,forearms,,,,,images/0575-q6y3OhV.jpg,videos/0575-q6y3OhV.gif,q6y3OhV,2026-03-18T12:31:32.886132+00:00
+576,lever chest press,chest,chest,leverage machine,triceps,pectorals,triceps,shoulders,,,,images/0576-DOoWcnA.jpg,videos/0576-DOoWcnA.gif,DOoWcnA,2026-03-18T12:31:32.886189+00:00
+577,lever chest press,chest,chest,leverage machine,triceps,pectorals,triceps,shoulders,,,,images/0577-T0yTjgW.jpg,videos/0577-T0yTjgW.gif,T0yTjgW,2026-03-18T12:31:32.886168+00:00
+578,lever deadlift,upper legs,upper legs,leverage machine,hamstrings,glutes,hamstrings,quadriceps,,,,images/0578-GUT8I22.jpg,videos/0578-GUT8I22.gif,GUT8I22,2026-03-18T12:31:32.886207+00:00
+579,lever front pulldown,back,back,leverage machine,biceps,lats,biceps,rhomboids,rear deltoids,,,images/0579-7F1DVzn.jpg,videos/0579-7F1DVzn.gif,7F1DVzn,2026-03-18T12:31:32.886267+00:00
+580,lever gripless shrug,back,back,leverage machine,shoulders,traps,shoulders,forearms,,,,images/0580-f91FwXG.jpg,videos/0580-f91FwXG.gif,f91FwXG,2026-03-18T12:31:32.886289+00:00
+581,lever high row,back,back,leverage machine,biceps,upper back,biceps,rear deltoids,,,,images/0581-nZZZy9m.jpg,videos/0581-nZZZy9m.gif,nZZZy9m,2026-03-18T12:31:32.886364+00:00
+582,lever kneeling leg curl,upper legs,upper legs,leverage machine,glutes,hamstrings,glutes,,,,,images/0582-nnmCTLN.jpg,videos/0582-nnmCTLN.gif,nnmCTLN,2026-03-18T12:31:32.886463+00:00
+583,lever kneeling twist,waist,waist,leverage machine,obliques,abs,obliques,lower back,,,,images/0583-sZOR9EV.jpg,videos/0583-sZOR9EV.gif,sZOR9EV,2026-03-18T12:31:32.886481+00:00
+584,lever lateral raise,shoulders,shoulders,leverage machine,traps,delts,traps,upper back,,,,images/0584-dRTfGZT.jpg,videos/0584-dRTfGZT.gif,dRTfGZT,2026-03-18T12:31:32.886499+00:00
+585,lever leg extension,upper legs,upper legs,leverage machine,hamstrings,quads,hamstrings,,,,,images/0585-my33uHU.jpg,videos/0585-my33uHU.gif,my33uHU,2026-03-18T12:31:32.886517+00:00
+586,lever lying leg curl,upper legs,upper legs,leverage machine,calves,hamstrings,calves,,,,,images/0586-17lJ1kr.jpg,videos/0586-17lJ1kr.gif,17lJ1kr,2026-03-18T12:31:32.886539+00:00
+587,lever military press,shoulders,shoulders,leverage machine,triceps,delts,triceps,upper chest,,,,images/0587-CggQhII.jpg,videos/0587-CggQhII.gif,CggQhII,2026-03-18T12:31:32.886574+00:00
+588,lever narrow grip seated row,back,back,leverage machine,biceps,upper back,biceps,forearms,,,,images/0588-IGjKj1v.jpg,videos/0588-IGjKj1v.gif,IGjKj1v,2026-03-18T12:31:32.886596+00:00
+589,lever one arm bent over row,back,back,barbell,biceps,upper back,biceps,forearms,,,,images/0589-Fhdtwf3.jpg,videos/0589-Fhdtwf3.gif,Fhdtwf3,2026-03-18T12:31:32.886615+00:00
+590,lever one arm shoulder press,shoulders,shoulders,leverage machine,triceps,delts,triceps,upper back,,,,images/0590-2KGnL6M.jpg,videos/0590-2KGnL6M.gif,2KGnL6M,2026-03-18T12:31:32.886677+00:00
+591,lever overhand triceps dip,upper arms,upper arms,leverage machine,chest,triceps,chest,shoulders,,,,images/0591-D5yqP2p.jpg,videos/0591-D5yqP2p.gif,D5yqP2p,2026-03-18T12:31:32.886698+00:00
+592,lever preacher curl,upper arms,upper arms,leverage machine,forearms,biceps,forearms,,,,,images/0592-b6hQYMb.jpg,videos/0592-b6hQYMb.gif,b6hQYMb,2026-03-18T12:31:32.886716+00:00
+593,lever reverse hyperextension,upper legs,upper legs,leverage machine,hamstrings,glutes,hamstrings,lower back,,,,images/0593-Krmb3cB.jpg,videos/0593-Krmb3cB.gif,Krmb3cB,2026-03-18T12:31:32.886831+00:00
+594,lever seated calf raise,lower legs,lower legs,leverage machine,soleus,calves,soleus,ankle stabilizers,,,,images/0594-bOOdeyc.jpg,videos/0594-bOOdeyc.gif,bOOdeyc,2026-03-18T12:31:32.886903+00:00
+595,lever seated crunch (chest pad),waist,waist,leverage machine,obliques,abs,obliques,,,,,images/0595-ZnJHhMk.jpg,videos/0595-ZnJHhMk.gif,ZnJHhMk,2026-03-18T12:31:32.886937+00:00
+596,lever seated fly,chest,chest,leverage machine,deltoids,pectorals,deltoids,trapezius,,,,images/0596-v3xmPAR.jpg,videos/0596-v3xmPAR.gif,v3xmPAR,2026-03-18T12:31:32.886987+00:00
+597,lever seated hip abduction,upper legs,upper legs,leverage machine,glutes,abductors,glutes,hamstrings,,,,images/0597-CHpahtl.jpg,videos/0597-CHpahtl.gif,CHpahtl,2026-03-18T12:31:32.887024+00:00
+598,lever seated hip adduction,upper legs,upper legs,leverage machine,hamstrings,adductors,hamstrings,glutes,,,,images/0598-oHsrypV.jpg,videos/0598-oHsrypV.gif,oHsrypV,2026-03-18T12:31:32.887042+00:00
+599,lever seated leg curl,upper legs,upper legs,leverage machine,calves,hamstrings,calves,,,,,images/0599-Zg3XY7P.jpg,videos/0599-Zg3XY7P.gif,Zg3XY7P,2026-03-18T12:31:32.887065+00:00
+600,lever seated leg raise crunch,waist,waist,leverage machine,hip flexors,abs,hip flexors,,,,,images/0600-PQ2AtC3.jpg,videos/0600-PQ2AtC3.gif,PQ2AtC3,2026-03-18T12:31:32.887083+00:00
+601,lever seated reverse fly (parallel grip),shoulders,shoulders,leverage machine,trapezius,delts,trapezius,rhomboids,,,,images/0601-xiHiJcA.jpg,videos/0601-xiHiJcA.gif,xiHiJcA,2026-03-18T12:31:32.88712+00:00
+602,lever seated reverse fly,shoulders,shoulders,leverage machine,trapezius,delts,trapezius,rhomboids,,,,images/0602-myfUsKf.jpg,videos/0602-myfUsKf.gif,myfUsKf,2026-03-18T12:31:32.887102+00:00
+603,lever shoulder press,shoulders,shoulders,leverage machine,triceps,delts,triceps,chest,,,,images/0603-67n3r98.jpg,videos/0603-67n3r98.gif,67n3r98,2026-03-18T12:31:32.887176+00:00
+604,lever shrug,back,back,leverage machine,shoulders,traps,shoulders,,,,,images/0604-ZZKbeMw.jpg,videos/0604-ZZKbeMw.gif,ZZKbeMw,2026-03-18T12:31:32.887229+00:00
+605,lever standing calf raise,lower legs,lower legs,leverage machine,soleus,calves,soleus,ankle stabilizers,,,,images/0605-ykUOVze.jpg,videos/0605-ykUOVze.gif,ykUOVze,2026-03-18T12:31:32.887247+00:00
+606,lever t bar row,back,back,leverage machine,biceps,upper back,biceps,forearms,,,,images/0606-aaXr7ld.jpg,videos/0606-aaXr7ld.gif,aaXr7ld,2026-03-18T12:31:32.887281+00:00
+607,lever triceps extension,upper arms,upper arms,leverage machine,shoulders,triceps,shoulders,,,,,images/0607-Ser9eQp.jpg,videos/0607-Ser9eQp.gif,Ser9eQp,2026-03-18T12:31:32.887314+00:00
+648,power clean,upper legs,upper legs,barbell,glutes,hamstrings,glutes,quadriceps,calves,,,images/0648-SiWCcTN.jpg,videos/0648-SiWCcTN.gif,SiWCcTN,2026-03-18T12:31:32.888304+00:00
+660,push-up close-grip off dumbbell,upper arms,upper arms,dumbbell,chest,triceps,chest,shoulders,,,,images/0660-KZXAtKQ.jpg,videos/0660-KZXAtKQ.gif,KZXAtKQ,2026-03-18T12:31:32.888591+00:00
+673,reverse grip machine lat pulldown,back,back,leverage machine,biceps,lats,biceps,forearms,,,,images/0673-ecpY0rH.jpg,videos/0673-ecpY0rH.gif,ecpY0rH,2026-03-18T12:31:32.888994+00:00
+727,single leg calf raise (on a dumbbell),lower legs,lower legs,dumbbell,ankles,calves,ankles,feet,,,,images/0727-fKZgDEO.jpg,videos/0727-fKZgDEO.gif,fKZgDEO,2026-03-18T12:31:32.889955+00:00
+746,smith back shrug,back,back,smith machine,shoulders,traps,shoulders,,,,,images/0746-MzNnwx9.jpg,videos/0746-MzNnwx9.gif,MzNnwx9,2026-03-18T12:31:32.890379+00:00
+747,smith behind neck press,shoulders,shoulders,smith machine,triceps,delts,triceps,upper back,,,,images/0747-Gpn4ADc.jpg,videos/0747-Gpn4ADc.gif,Gpn4ADc,2026-03-18T12:31:32.890397+00:00
+748,smith bench press,chest,chest,smith machine,triceps,pectorals,triceps,shoulders,,,,images/0748-trqKQv2.jpg,videos/0748-trqKQv2.gif,trqKQv2,2026-03-18T12:31:32.890414+00:00
+749,smith bent knee good morning,upper legs,upper legs,smith machine,hamstrings,glutes,hamstrings,lower back,,,,images/0749-1bQkKZK.jpg,videos/0749-1bQkKZK.gif,1bQkKZK,2026-03-18T12:31:32.890432+00:00
+750,smith chair squat,upper legs,upper legs,smith machine,glutes,quads,glutes,hamstrings,calves,,,images/0750-Gu2rNJd.jpg,videos/0750-Gu2rNJd.gif,Gu2rNJd,2026-03-18T12:31:32.89047+00:00
+751,smith close-grip bench press,upper arms,upper arms,smith machine,chest,triceps,chest,shoulders,,,,images/0751-WcHl7ru.jpg,videos/0751-WcHl7ru.gif,WcHl7ru,2026-03-18T12:31:32.890488+00:00
+752,smith deadlift,upper legs,upper legs,smith machine,hamstrings,glutes,hamstrings,quadriceps,lower back,,,images/0752-UfePqpx.jpg,videos/0752-UfePqpx.gif,UfePqpx,2026-03-18T12:31:32.890506+00:00
+753,smith decline bench press,chest,chest,smith machine,triceps,pectorals,triceps,shoulders,,,,images/0753-ETZfAbZ.jpg,videos/0753-ETZfAbZ.gif,ETZfAbZ,2026-03-18T12:31:32.890524+00:00
+754,smith decline reverse-grip press,chest,chest,smith machine,triceps,pectorals,triceps,shoulders,,,,images/0754-MY9P1WA.jpg,videos/0754-MY9P1WA.gif,MY9P1WA,2026-03-18T12:31:32.890541+00:00
+755,smith hack squat,upper legs,upper legs,smith machine,quadriceps,glutes,quadriceps,hamstrings,calves,,,images/0755-ZuPXtCK.jpg,videos/0755-ZuPXtCK.gif,ZuPXtCK,2026-03-18T12:31:32.890597+00:00
+756,smith hip raise,waist,waist,smith machine,glutes,abs,glutes,hamstrings,,,,images/0756-CqhoytW.jpg,videos/0756-CqhoytW.gif,CqhoytW,2026-03-18T12:31:32.890615+00:00
+757,smith incline bench press,chest,chest,smith machine,shoulders,pectorals,shoulders,triceps,,,,images/0757-5v7KYld.jpg,videos/0757-5v7KYld.gif,5v7KYld,2026-03-18T12:31:32.890633+00:00
+758,smith incline reverse-grip press,chest,chest,smith machine,triceps,pectorals,triceps,shoulders,,,,images/0758-78VqWQK.jpg,videos/0758-78VqWQK.gif,78VqWQK,2026-03-18T12:31:32.890652+00:00
+759,smith incline shoulder raises,chest,chest,smith machine,deltoids,serratus anterior,deltoids,trapezius,,,,images/0759-ayAHcEm.jpg,videos/0759-ayAHcEm.gif,ayAHcEm,2026-03-18T12:31:32.89067+00:00
+760,smith leg press,upper legs,upper legs,smith machine,quadriceps,glutes,quadriceps,hamstrings,calves,,,images/0760-7zdxRTl.jpg,videos/0760-7zdxRTl.gif,7zdxRTl,2026-03-18T12:31:32.890689+00:00
+761,smith narrow row,back,back,smith machine,biceps,upper back,biceps,rear deltoids,,,,images/0761-JGKowMS.jpg,videos/0761-JGKowMS.gif,JGKowMS,2026-03-18T12:31:32.890798+00:00
+762,smith rear delt row,shoulders,shoulders,smith machine,trapezius,delts,trapezius,rhomboids,biceps,,,images/0762-nFUwqG6.jpg,videos/0762-nFUwqG6.gif,nFUwqG6,2026-03-18T12:31:32.89085+00:00
+763,smith reverse calf raises,lower legs,lower legs,smith machine,hamstrings,calves,hamstrings,,,,,images/0763-ywaNfuh.jpg,videos/0763-ywaNfuh.gif,ywaNfuh,2026-03-18T12:31:32.890867+00:00
+764,smith reverse-grip press,chest,chest,smith machine,triceps,pectorals,triceps,shoulders,,,,images/0764-zK8Fu1W.jpg,videos/0764-zK8Fu1W.gif,zK8Fu1W,2026-03-18T12:31:32.890927+00:00
+765,smith seated shoulder press,shoulders,shoulders,smith machine,triceps,delts,triceps,upper back,,,,images/0765-xUwnBMT.jpg,videos/0765-xUwnBMT.gif,xUwnBMT,2026-03-18T12:31:32.890963+00:00
+766,smith shoulder press,shoulders,shoulders,smith machine,triceps,delts,triceps,upper back,,,,images/0766-903mzG8.jpg,videos/0766-903mzG8.gif,903mzG8,2026-03-18T12:31:32.891+00:00
+767,smith shrug,back,back,smith machine,shoulders,traps,shoulders,,,,,images/0767-OUQ0ZyW.jpg,videos/0767-OUQ0ZyW.gif,OUQ0ZyW,2026-03-18T12:31:32.891022+00:00
+768,smith single leg split squat,upper legs,upper legs,smith machine,glutes,quads,glutes,hamstrings,,,,images/0768-wWFspEi.jpg,videos/0768-wWFspEi.gif,wWFspEi,2026-03-18T12:31:32.89104+00:00
+769,smith sprint lunge,upper legs,upper legs,smith machine,quadriceps,glutes,quadriceps,hamstrings,calves,,,images/0769-HsjbB1z.jpg,videos/0769-HsjbB1z.gif,HsjbB1z,2026-03-18T12:31:32.89106+00:00
+770,smith squat,upper legs,upper legs,smith machine,quadriceps,glutes,quadriceps,hamstrings,calves,,,images/0770-jFtipLl.jpg,videos/0770-jFtipLl.gif,jFtipLl,2026-03-18T12:31:32.891081+00:00
+771,smith standing back wrist curl,lower arms,lower arms,smith machine,biceps,forearms,biceps,triceps,,,,images/0771-hfmQ0Tz.jpg,videos/0771-hfmQ0Tz.gif,hfmQ0Tz,2026-03-18T12:31:32.891104+00:00
+772,smith standing behind head military press,shoulders,shoulders,smith machine,triceps,delts,triceps,upper back,,,,images/0772-ht8xDrP.jpg,videos/0772-ht8xDrP.gif,ht8xDrP,2026-03-18T12:31:32.891124+00:00
+773,smith standing leg calf raise,lower legs,lower legs,smith machine,hamstrings,calves,hamstrings,glutes,,,,images/0773-6MaEjVA.jpg,videos/0773-6MaEjVA.gif,6MaEjVA,2026-03-18T12:31:32.891142+00:00
+774,smith standing military press,shoulders,shoulders,smith machine,triceps,delts,triceps,upper back,,,,images/0774-jjUPrze.jpg,videos/0774-jjUPrze.gif,jjUPrze,2026-03-18T12:31:32.891162+00:00
+775,smith upright row,shoulders,shoulders,smith machine,traps,delts,traps,biceps,,,,images/0775-1DN3iz4.jpg,videos/0775-1DN3iz4.gif,1DN3iz4,2026-03-18T12:31:32.891221+00:00
+776,snatch pull,upper legs,upper legs,barbell,hamstrings,quads,hamstrings,glutes,calves,,,images/0776-dG5Smob.jpg,videos/0776-dG5Smob.gif,dG5Smob,2026-03-18T12:31:32.891274+00:00
+777,spell caster,waist,waist,dumbbell,obliques,abs,obliques,lower back,,,,images/0777-p9cCe2r.jpg,videos/0777-p9cCe2r.gif,p9cCe2r,2026-03-18T12:31:32.89129+00:00
+786,squat jerk,upper legs,upper legs,barbell,glutes,quads,glutes,hamstrings,calves,core,,images/0786-IMRsOCn.jpg,videos/0786-IMRsOCn.gif,IMRsOCn,2026-03-18T12:31:32.891392+00:00
+788,standing behind neck press,shoulders,shoulders,barbell,triceps,delts,triceps,upper back,,,,images/0788-xDh0lJr.jpg,videos/0788-xDh0lJr.gif,xDh0lJr,2026-03-18T12:31:32.891531+00:00
+798,stationary bike walk,cardio,cardio,leverage machine,quadriceps,cardiovascular system,quadriceps,hamstrings,calves,,,images/0798-a8VDgLw.jpg,videos/0798-a8VDgLw.gif,a8VDgLw,2026-03-18T12:31:32.904905+00:00
+811,trap bar deadlift,upper legs,upper legs,trap bar,hamstrings,glutes,hamstrings,quadriceps,lower back,,,images/0811-jQGwmxN.jpg,videos/0811-jQGwmxN.gif,jQGwmxN,2026-03-18T12:31:32.905261+00:00
+818,twin handle parallel grip lat pulldown,back,back,cable,biceps,lats,biceps,rhomboids,rear deltoids,,,images/0818-rkg41Fb.jpg,videos/0818-rkg41Fb.gif,rkg41Fb,2026-03-18T12:31:32.905437+00:00
+860,cable kickback,upper arms,upper arms,cable,shoulders,triceps,shoulders,,,,,images/0860-HEJ6DIX.jpg,videos/0860-HEJ6DIX.gif,HEJ6DIX,2026-03-18T12:31:32.874695+00:00
+861,cable seated row,back,back,cable,biceps,upper back,biceps,forearms,,,,images/0861-fUBheHs.jpg,videos/0861-fUBheHs.gif,fUBheHs,2026-03-18T12:31:32.875996+00:00
+862,cable twist (up-down),waist,waist,cable,obliques,abs,obliques,lower back,,,,images/0862-fhZQPlV.jpg,videos/0862-fhZQPlV.gif,fhZQPlV,2026-03-18T12:31:32.876648+00:00
+863,dumbbell lying external shoulder rotation,shoulders,shoulders,dumbbell,rotator cuff,delts,rotator cuff,triceps,,,,images/0863-bmBf7LN.jpg,videos/0863-bmBf7LN.gif,bmBf7LN,2026-03-18T12:31:32.879262+00:00
+864,dumbbell upright shoulder external rotation,shoulders,shoulders,dumbbell,rotator cuff,delts,rotator cuff,trapezius,,,,images/0864-x306lCW.jpg,videos/0864-x306lCW.gif,x306lCW,2026-03-18T12:31:32.882448+00:00
+868,cable curl,upper arms,upper arms,cable,forearms,biceps,forearms,,,,,images/0868-G08RZcQ.jpg,videos/0868-G08RZcQ.gif,G08RZcQ,2026-03-18T12:31:32.874298+00:00
+869,lever shoulder press v. 2,shoulders,shoulders,leverage machine,triceps,delts,triceps,chest,,,,images/0869-vqsbmL0.jpg,videos/0869-vqsbmL0.gif,vqsbmL0,2026-03-18T12:31:32.887193+00:00
+873,cable reverse crunch,waist,waist,cable,hip flexors,abs,hip flexors,,,,,images/0873-RqOtqD7.jpg,videos/0873-RqOtqD7.gif,RqOtqD7,2026-03-18T12:31:32.875553+00:00
+874,cable standing crunch (with rope attachment),waist,waist,cable,obliques,abs,obliques,,,,,images/0874-XU3ePuv.jpg,videos/0874-XU3ePuv.gif,XU3ePuv,2026-03-18T12:31:32.876266+00:00
+1201,dumbbell burpee,cardio,cardio,dumbbell,quadriceps,cardiovascular system,quadriceps,hamstrings,calves,shoulders,triceps,images/1201-0JtKWum.jpg,videos/1201-0JtKWum.gif,0JtKWum,2026-03-18T12:31:32.877911+00:00
+1253,lever donkey calf raise,lower legs,lower legs,leverage machine,hamstrings,calves,hamstrings,glutes,,,,images/1253-C9LuR4A.jpg,videos/1253-C9LuR4A.gif,C9LuR4A,2026-03-18T12:31:32.886243+00:00
+1255,barbell decline pullover,chest,chest,barbell,triceps,pectorals,triceps,shoulders,,,,images/1255-9sgNE2O.jpg,videos/1255-9sgNE2O.gif,9sgNE2O,2026-03-18T12:31:32.871387+00:00
+1256,barbell reverse grip decline bench press,chest,chest,barbell,triceps,pectorals,triceps,shoulders,,,,images/1256-DotAgEF.jpg,videos/1256-DotAgEF.gif,DotAgEF,2026-03-18T12:31:32.872464+00:00
+1257,barbell reverse grip incline bench press,chest,chest,barbell,triceps,pectorals,triceps,shoulders,,,,images/1257-DU7I633.jpg,videos/1257-DU7I633.gif,DU7I633,2026-03-18T12:31:32.872481+00:00
+1258,barbell wide reverse grip bench press,chest,chest,barbell,triceps,pectorals,triceps,shoulders,,,,images/1258-945zpRg.jpg,videos/1258-945zpRg.gif,945zpRg,2026-03-18T12:31:32.87345+00:00
+1260,cable decline one arm press,chest,chest,cable,triceps,pectorals,triceps,shoulders,,,,images/1260-KHGNa16.jpg,videos/1260-KHGNa16.gif,KHGNa16,2026-03-18T12:31:32.874351+00:00
+1261,cable decline press,chest,chest,cable,triceps,pectorals,triceps,shoulders,,,,images/1261-2Pya1cP.jpg,videos/1261-2Pya1cP.gif,2Pya1cP,2026-03-18T12:31:32.874368+00:00
+1262,cable one arm decline chest fly,chest,chest,cable,shoulders,pectorals,shoulders,triceps,,,,images/1262-w4dLzSx.jpg,videos/1262-w4dLzSx.gif,w4dLzSx,2026-03-18T12:31:32.875015+00:00
+1263,cable one arm fly on exercise ball,chest,chest,cable,deltoids,pectorals,deltoids,triceps,,,,images/1263-hHy8tQG.jpg,videos/1263-hHy8tQG.gif,hHy8tQG,2026-03-18T12:31:32.875032+00:00
+1264,cable one arm incline fly on exercise ball,chest,chest,cable,deltoids,pectorals,deltoids,triceps,,,,images/1264-P14Dz9D.jpg,videos/1264-P14Dz9D.gif,P14Dz9D,2026-03-18T12:31:32.87505+00:00
+1265,cable one arm incline press,chest,chest,cable,deltoids,pectorals,deltoids,triceps,,,,images/1265-GKEH6jj.jpg,videos/1265-GKEH6jj.gif,GKEH6jj,2026-03-18T12:31:32.875069+00:00
+1266,cable one arm incline press on exercise ball,chest,chest,cable,shoulders,pectorals,shoulders,triceps,,,,images/1266-6t00BsF.jpg,videos/1266-6t00BsF.gif,6t00BsF,2026-03-18T12:31:32.875092+00:00
+1267,cable one arm press on exercise ball,chest,chest,cable,shoulders,pectorals,shoulders,triceps,,,,images/1267-MKIelrR.jpg,videos/1267-MKIelrR.gif,MKIelrR,2026-03-18T12:31:32.875174+00:00
+1268,cable press on exercise ball,chest,chest,cable,shoulders,pectorals,shoulders,triceps,,,,images/1268-vAwm6rK.jpg,videos/1268-vAwm6rK.gif,vAwm6rK,2026-03-18T12:31:32.875351+00:00
+1269,cable standing up straight crossovers,chest,chest,cable,deltoids,pectorals,deltoids,triceps,,,,images/1269-UKWTJWR.jpg,videos/1269-UKWTJWR.gif,UKWTJWR,2026-03-18T12:31:32.876483+00:00
+1270,cable upper chest crossovers,chest,chest,cable,deltoids,pectorals,deltoids,triceps,,,,images/1270-j7XMAyn.jpg,videos/1270-j7XMAyn.gif,j7XMAyn,2026-03-18T12:31:32.876744+00:00
+1274,deep push up,chest,chest,dumbbell,triceps,pectorals,triceps,shoulders,,,,images/1274-vptOQ4N.jpg,videos/1274-vptOQ4N.gif,vptOQ4N,2026-03-18T12:31:32.877433+00:00
+1276,dumbbell decline one arm fly,chest,chest,dumbbell,shoulders,pectorals,shoulders,,,,,images/1276-NL6YBwN.jpg,videos/1276-NL6YBwN.gif,NL6YBwN,2026-03-18T12:31:32.878172+00:00
+1277,dumbbell fly on exercise ball,chest,chest,dumbbell,shoulders,pectorals,shoulders,triceps,,,,images/1277-Lt3iWnf.jpg,videos/1277-Lt3iWnf.gif,Lt3iWnf,2026-03-18T12:31:32.878331+00:00
+1278,dumbbell incline fly on exercise ball,chest,chest,dumbbell,shoulders,pectorals,shoulders,,,,,images/1278-HYe1ZqR.jpg,videos/1278-HYe1ZqR.gif,HYe1ZqR,2026-03-18T12:31:32.878638+00:00
+1279,dumbbell incline one arm fly,chest,chest,dumbbell,deltoids,pectorals,deltoids,triceps,,,,images/1279-Gw2HFvW.jpg,videos/1279-Gw2HFvW.gif,Gw2HFvW,2026-03-18T12:31:32.878721+00:00
+1280,dumbbell incline one arm fly on exercise ball,chest,chest,dumbbell,shoulders,pectorals,shoulders,,,,,images/1280-LLNh6q5.jpg,videos/1280-LLNh6q5.gif,LLNh6q5,2026-03-18T12:31:32.878737+00:00
+1281,dumbbell incline one arm press,chest,chest,dumbbell,shoulders,pectorals,shoulders,triceps,,,,images/1281-rDAiRf9.jpg,videos/1281-rDAiRf9.gif,rDAiRf9,2026-03-18T12:31:32.878806+00:00
+1282,dumbbell incline one arm press on exercise ball,chest,chest,dumbbell,shoulders,pectorals,shoulders,triceps,,,,images/1282-Bg5JKSH.jpg,videos/1282-Bg5JKSH.gif,Bg5JKSH,2026-03-18T12:31:32.878826+00:00
+1283,dumbbell incline press on exercise ball,chest,chest,dumbbell,shoulders,pectorals,shoulders,triceps,,,,images/1283-bfiHMpI.jpg,videos/1283-bfiHMpI.gif,bfiHMpI,2026-03-18T12:31:32.878866+00:00
+1284,dumbbell lying pullover on exercise ball,chest,chest,dumbbell,triceps,pectorals,triceps,shoulders,back,,,images/1284-iK59oEA.jpg,videos/1284-iK59oEA.gif,iK59oEA,2026-03-18T12:31:32.879495+00:00
+1285,dumbbell one arm bench fly,chest,chest,dumbbell,shoulders,pectorals,shoulders,,,,,images/1285-o5Jsk92.jpg,videos/1285-o5Jsk92.gif,o5Jsk92,2026-03-18T12:31:32.87969+00:00
+1286,dumbbell one arm chest fly on exercise ball,chest,chest,dumbbell,shoulders,pectorals,shoulders,triceps,,,,images/1286-Bpkf41o.jpg,videos/1286-Bpkf41o.gif,Bpkf41o,2026-03-18T12:31:32.879726+00:00
+1287,dumbbell one arm decline chest press,chest,chest,dumbbell,triceps,pectorals,triceps,shoulders,,,,images/1287-REGM1dE.jpg,videos/1287-REGM1dE.gif,REGM1dE,2026-03-18T12:31:32.879764+00:00
+1288,dumbbell one arm fly on exercise ball,chest,chest,dumbbell,shoulders,pectorals,shoulders,triceps,,,,images/1288-Am02iPd.jpg,videos/1288-Am02iPd.gif,Am02iPd,2026-03-18T12:31:32.879782+00:00
+1289,dumbbell one arm incline chest press,chest,chest,dumbbell,shoulders,pectorals,shoulders,triceps,,,,images/1289-PDaMuyV.jpg,videos/1289-PDaMuyV.gif,PDaMuyV,2026-03-18T12:31:32.879848+00:00
+1290,dumbbell one arm press on exercise ball,chest,chest,dumbbell,shoulders,pectorals,shoulders,triceps,core,,,images/1290-QZFv5ui.jpg,videos/1290-QZFv5ui.gif,QZFv5ui,2026-03-18T12:31:32.879916+00:00
+1291,dumbbell one arm pullover on exercise ball,chest,chest,dumbbell,triceps,pectorals,triceps,latissimus dorsi,rhomboids,,,images/1291-bQHPBU3.jpg,videos/1291-bQHPBU3.gif,bQHPBU3,2026-03-18T12:31:32.879966+00:00
+1292,dumbbell one leg fly on exercise ball,chest,chest,dumbbell,shoulders,pectorals,shoulders,triceps,,,,images/1292-pH2x2jj.jpg,videos/1292-pH2x2jj.gif,pH2x2jj,2026-03-18T12:31:32.880298+00:00
+1293,dumbbell press on exercise ball,chest,chest,dumbbell,shoulders,pectorals,shoulders,triceps,,,,images/1293-O8o7q4d.jpg,videos/1293-O8o7q4d.gif,O8o7q4d,2026-03-18T12:31:32.880528+00:00
+1294,dumbbell pullover hip extension on exercise ball,chest,chest,dumbbell,triceps,pectorals,triceps,shoulders,core,,,images/1294-lI7easp.jpg,videos/1294-lI7easp.gif,lI7easp,2026-03-18T12:31:32.880625+00:00
+1295,dumbbell pullover on exercise ball,chest,chest,dumbbell,triceps,pectorals,triceps,latissimus dorsi,,,,images/1295-FSD6PGL.jpg,videos/1295-FSD6PGL.gif,FSD6PGL,2026-03-18T12:31:32.880642+00:00
+1298,kettlebell one arm floor press,chest,chest,kettlebell,triceps,pectorals,triceps,shoulders,,,,images/1298-rg59QCH.jpg,videos/1298-rg59QCH.gif,rg59QCH,2026-03-18T12:31:32.885327+00:00
+1299,lever incline chest press,chest,chest,leverage machine,shoulders,pectorals,shoulders,triceps,,,,images/1299-jHAnWmT.jpg,videos/1299-jHAnWmT.gif,jHAnWmT,2026-03-18T12:31:32.886425+00:00
+1300,lever decline chest press,chest,chest,leverage machine,triceps,pectorals,triceps,shoulders,,,,images/1300-vsVoPHt.jpg,videos/1300-vsVoPHt.gif,vsVoPHt,2026-03-18T12:31:32.886226+00:00
+1301,machine inner chest press,chest,chest,leverage machine,triceps,pectorals,triceps,shoulders,,,,images/1301-wDN97Ca.jpg,videos/1301-wDN97Ca.gif,wDN97Ca,2026-03-18T12:31:32.887505+00:00
+1308,smith wide grip bench press,chest,chest,smith machine,triceps,pectorals,triceps,shoulders,,,,images/1308-zoOvPcx.jpg,videos/1308-zoOvPcx.gif,zoOvPcx,2026-03-18T12:31:32.891239+00:00
+1309,smith wide grip decline bench press,chest,chest,smith machine,triceps,pectorals,triceps,shoulders,,,,images/1309-wi2H9QX.jpg,videos/1309-wi2H9QX.gif,wi2H9QX,2026-03-18T12:31:32.891256+00:00
+1313,lever unilateral row,back,back,leverage machine,biceps,upper back,biceps,forearms,,,,images/1313-oROuvrX.jpg,videos/1313-oROuvrX.gif,oROuvrX,2026-03-18T12:31:32.88733+00:00
+1316,barbell bent arm pullover,back,back,barbell,triceps,lats,triceps,chest,,,,images/1316-cA9FuWG.jpg,videos/1316-cA9FuWG.gif,cA9FuWG,2026-03-18T12:31:32.870288+00:00
+1317,barbell reverse grip incline bench row,back,back,barbell,biceps,upper back,biceps,forearms,,,,images/1317-8d8qJQI.jpg,videos/1317-8d8qJQI.gif,8d8qJQI,2026-03-18T12:31:32.872497+00:00
+1318,cable incline bench row,back,back,cable,biceps,upper back,biceps,rear deltoids,,,,images/1318-yaMIo4D.jpg,videos/1318-yaMIo4D.gif,yaMIo4D,2026-03-18T12:31:32.874583+00:00
+1319,cable palm rotational row,back,back,cable,biceps,upper back,biceps,forearms,,,,images/1319-OmQ8w0p.jpg,videos/1319-OmQ8w0p.gif,OmQ8w0p,2026-03-18T12:31:32.875318+00:00
+1320,cable rope crossover seated row,back,back,cable,biceps,upper back,biceps,forearms,,,,images/1320-UFGF6gk.jpg,videos/1320-UFGF6gk.gif,UFGF6gk,2026-03-18T12:31:32.875686+00:00
+1321,cable rope elevated seated row,back,back,cable,biceps,upper back,biceps,forearms,,,,images/1321-c8oybX6.jpg,videos/1321-c8oybX6.gif,c8oybX6,2026-03-18T12:31:32.875702+00:00
+1322,cable rope extension incline bench row,back,back,cable,biceps,upper back,biceps,shoulders,,,,images/1322-MgKwAAo.jpg,videos/1322-MgKwAAo.gif,MgKwAAo,2026-03-18T12:31:32.87572+00:00
+1323,cable rope seated row,back,back,cable,biceps,upper back,biceps,forearms,,,,images/1323-SJqRxOt.jpg,videos/1323-SJqRxOt.gif,SJqRxOt,2026-03-18T12:31:32.87582+00:00
+1324,cable upper row,back,back,cable,biceps,upper back,biceps,shoulders,,,,images/1324-PQStVXH.jpg,videos/1324-PQStVXH.gif,PQStVXH,2026-03-18T12:31:32.87676+00:00
+1325,cable wide grip rear pulldown behind neck,back,back,cable,biceps,lats,biceps,rhomboids,rear deltoids,,,images/1325-CmEr4pM.jpg,videos/1325-CmEr4pM.gif,CmEr4pM,2026-03-18T12:31:32.876793+00:00
+1328,dumbbell lying rear delt row,back,back,dumbbell,shoulders,upper back,shoulders,biceps,,,,images/1328-XUUD0Fs.jpg,videos/1328-XUUD0Fs.gif,XUUD0Fs,2026-03-18T12:31:32.879513+00:00
+1329,dumbbell palm rotational bent over row,back,back,dumbbell,biceps,upper back,biceps,forearms,,,,images/1329-wt6rwjk.jpg,videos/1329-wt6rwjk.gif,wt6rwjk,2026-03-18T12:31:32.880416+00:00
+1330,dumbbell reverse grip incline bench one arm row,back,back,dumbbell,biceps,upper back,biceps,shoulders,,,,images/1330-ZIViNh1.jpg,videos/1330-ZIViNh1.gif,ZIViNh1,2026-03-18T12:31:32.880846+00:00
+1331,dumbbell reverse grip incline bench two arm row,back,back,dumbbell,biceps,upper back,biceps,forearms,,,,images/1331-9pQSkH8.jpg,videos/1331-9pQSkH8.gif,9pQSkH8,2026-03-18T12:31:32.880864+00:00
+1344,ez bar reverse grip bent over row,back,back,ez barbell,biceps,upper back,biceps,forearms,,,,images/1344-G8dXpNG.jpg,videos/1344-G8dXpNG.gif,G8dXpNG,2026-03-18T12:31:32.883178+00:00
+1345,kettlebell two arm row,back,back,kettlebell,biceps,upper back,biceps,forearms,,,,images/1345-wf24o8S.jpg,videos/1345-wf24o8S.gif,wf24o8S,2026-03-18T12:31:32.88567+00:00
+1347,lever one arm lateral wide pulldown,back,back,leverage machine,biceps,lats,biceps,rhomboids,rear deltoids,,,images/1347-tTuZSDT.jpg,videos/1347-tTuZSDT.gif,tTuZSDT,2026-03-18T12:31:32.886658+00:00
+1348,lever reverse grip vertical row,back,back,leverage machine,biceps,upper back,biceps,forearms,,,,images/1348-ZqNOWQ6.jpg,videos/1348-ZqNOWQ6.gif,ZqNOWQ6,2026-03-18T12:31:32.886814+00:00
+1349,lever reverse t-bar row,back,back,leverage machine,biceps,upper back,biceps,forearms,,,,images/1349-BgljGjd.jpg,videos/1349-BgljGjd.gif,BgljGjd,2026-03-18T12:31:32.886848+00:00
+1350,lever seated row,back,back,leverage machine,biceps,upper back,biceps,forearms,,,,images/1350-7I6LNUG.jpg,videos/1350-7I6LNUG.gif,7I6LNUG,2026-03-18T12:31:32.887138+00:00
+1351,lever t-bar reverse grip row,back,back,leverage machine,biceps,upper back,biceps,forearms,,,,images/1351-FVM1AUZ.jpg,videos/1351-FVM1AUZ.gif,FVM1AUZ,2026-03-18T12:31:32.887298+00:00
+1356,lever one arm lateral high row,back,back,leverage machine,biceps,upper back,biceps,shoulders,,,,images/1356-OIFMAp1.jpg,videos/1356-OIFMAp1.gif,OIFMAp1,2026-03-18T12:31:32.886637+00:00
+1359,smith bent over row,back,back,smith machine,biceps,upper back,biceps,forearms,,,,images/1359-ZX9UZmj.jpg,videos/1359-ZX9UZmj.gif,ZX9UZmj,2026-03-18T12:31:32.890452+00:00
+1360,smith one arm row,back,back,smith machine,biceps,upper back,biceps,forearms,,,,images/1360-Q4DSJPC.jpg,videos/1360-Q4DSJPC.gif,Q4DSJPC,2026-03-18T12:31:32.890816+00:00
+1361,smith reverse grip bent over row,back,back,smith machine,biceps,upper back,biceps,forearms,,,,images/1361-aaxA3cm.jpg,videos/1361-aaxA3cm.gif,aaxA3cm,2026-03-18T12:31:32.890908+00:00
+1370,barbell floor calf raise,lower legs,lower legs,barbell,hamstrings,calves,hamstrings,,,,,images/1370-2IHEa2T.jpg,videos/1370-2IHEa2T.gif,2IHEa2T,2026-03-18T12:31:32.871455+00:00
+1371,barbell seated calf raise,lower legs,lower legs,barbell,hamstrings,calves,hamstrings,,,,,images/1371-ipvgBnC.jpg,videos/1371-ipvgBnC.gif,ipvgBnC,2026-03-18T12:31:32.872686+00:00
+1372,barbell standing calf raise,lower legs,lower legs,barbell,hamstrings,calves,hamstrings,glutes,,,,images/1372-8ozhUIZ.jpg,videos/1372-8ozhUIZ.gif,8ozhUIZ,2026-03-18T12:31:32.873075+00:00
+1375,cable standing calf raise,lower legs,lower legs,cable,hamstrings,calves,hamstrings,glutes,,,,images/1375-yl2IYyy.jpg,videos/1375-yl2IYyy.gif,yl2IYyy,2026-03-18T12:31:32.876213+00:00
+1376,cable standing one leg calf raise,lower legs,lower legs,cable,ankles,calves,ankles,feet,,,,images/1376-fgc9Xdl.jpg,videos/1376-fgc9Xdl.gif,fgc9Xdl,2026-03-18T12:31:32.876366+00:00
+1379,dumbbell seated calf raise,lower legs,lower legs,dumbbell,hamstrings,calves,hamstrings,,,,,images/1379-r29jP7S.jpg,videos/1379-r29jP7S.gif,r29jP7S,2026-03-18T12:31:32.881204+00:00
+1380,dumbbell seated one leg calf raise - hammer grip,lower legs,lower legs,dumbbell,hamstrings,calves,hamstrings,glutes,,,,images/1380-FxhcxUW.jpg,videos/1380-FxhcxUW.gif,FxhcxUW,2026-03-18T12:31:32.881422+00:00
+1381,dumbbell seated one leg calf raise - palm up,lower legs,lower legs,dumbbell,hamstrings,calves,hamstrings,glutes,,,,images/1381-VW88JNd.jpg,videos/1381-VW88JNd.gif,VW88JNd,2026-03-18T12:31:32.881439+00:00
+1382,exercise ball on the wall calf raise,lower legs,lower legs,dumbbell,hamstrings,calves,hamstrings,quadriceps,,,,images/1382-xo6sENf.jpg,videos/1382-xo6sENf.gif,xo6sENf,2026-03-18T12:31:32.882838+00:00
+1385,lever seated squat calf raise on leg press machine,lower legs,lower legs,leverage machine,quadriceps,calves,quadriceps,hamstrings,glutes,,,images/1385-IeDEXTe.jpg,videos/1385-IeDEXTe.gif,IeDEXTe,2026-03-18T12:31:32.887157+00:00
+1393,smith one leg floor calf raise,lower legs,lower legs,smith machine,hamstrings,calves,hamstrings,glutes,,,,images/1393-9GXrTE6.jpg,videos/1393-9GXrTE6.gif,9GXrTE6,2026-03-18T12:31:32.890833+00:00
+1394,smith reverse calf raises,lower legs,lower legs,smith machine,hamstrings,calves,hamstrings,,,,,images/1394-Lsqrgh4.jpg,videos/1394-Lsqrgh4.gif,Lsqrgh4,2026-03-18T12:31:32.890887+00:00
+1395,smith seated one leg calf raise,lower legs,lower legs,smith machine,hamstrings,calves,hamstrings,,,,,images/1395-0S75mYG.jpg,videos/1395-0S75mYG.gif,0S75mYG,2026-03-18T12:31:32.890945+00:00
+1396,smith toe raise,lower legs,lower legs,smith machine,ankles,calves,ankles,shins,,,,images/1396-Y4QlY8z.jpg,videos/1396-Y4QlY8z.gif,Y4QlY8z,2026-03-18T12:31:32.891203+00:00
+1409,barbell glute bridge,upper legs,upper legs,barbell,hamstrings,glutes,hamstrings,lower back,,,,images/1409-qKBpF7I.jpg,videos/1409-qKBpF7I.gif,qKBpF7I,2026-03-18T12:31:32.871614+00:00
+1410,barbell lateral lunge,upper legs,upper legs,barbell,quadriceps,glutes,quadriceps,hamstrings,calves,,,images/1410-py1HSzx.jpg,videos/1410-py1HSzx.gif,py1HSzx,2026-03-18T12:31:32.871852+00:00
+1411,barbell palms down wrist curl over a bench,lower arms,lower arms,barbell,biceps,forearms,biceps,brachialis,,,,images/1411-yzYH9pI.jpg,videos/1411-yzYH9pI.gif,yzYH9pI,2026-03-18T12:31:32.872163+00:00
+1412,barbell palms up wrist curl over a bench,lower arms,lower arms,barbell,biceps,forearms,biceps,shoulders,,,,images/1412-SJAA2IQ.jpg,videos/1412-SJAA2IQ.gif,SJAA2IQ,2026-03-18T12:31:32.87218+00:00
+1413,cable reverse one arm curl,upper arms,upper arms,cable,forearms,biceps,forearms,,,,,images/1413-gVlnLIJ.jpg,videos/1413-gVlnLIJ.gif,gVlnLIJ,2026-03-18T12:31:32.875602+00:00
+1414,dumbbell one arm reverse preacher curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/1414-bWxq4op.jpg,videos/1414-bWxq4op.gif,bWxq4op,2026-03-18T12:31:32.88004+00:00
+1415,dumbbell one arm seated neutral wrist curl,lower arms,lower arms,dumbbell,biceps,forearms,biceps,brachialis,,,,images/1415-YtaCTYl.jpg,videos/1415-YtaCTYl.gif,YtaCTYl,2026-03-18T12:31:32.880116+00:00
+1420,kneeling jump squat,upper legs,upper legs,barbell,quadriceps,glutes,quadriceps,hamstrings,calves,,,images/1420-UgDm3oy.jpg,videos/1420-UgDm3oy.gif,UgDm3oy,2026-03-18T12:31:32.885777+00:00
+1426,smith seated wrist curl,lower arms,lower arms,smith machine,biceps,forearms,biceps,brachialis,,,,images/1426-B6dAO1t.jpg,videos/1426-B6dAO1t.gif,B6dAO1t,2026-03-18T12:31:32.890981+00:00
+1431,assisted standing chin-up,back,back,leverage machine,biceps,lats,biceps,forearms,,,,images/1431-7OeHptV.jpg,videos/1431-7OeHptV.gif,7OeHptV,2026-03-18T12:31:32.855515+00:00
+1432,assisted standing pull-up,back,back,leverage machine,biceps,lats,biceps,forearms,,,,images/1432-f4xtKBj.jpg,videos/1432-f4xtKBj.gif,f4xtKBj,2026-03-18T12:31:32.855533+00:00
+1433,smith front squat (clean grip),upper legs,upper legs,smith machine,quadriceps,glutes,quadriceps,hamstrings,calves,core,,images/1433-lFhb2Rw.jpg,videos/1433-lFhb2Rw.gif,lFhb2Rw,2026-03-18T12:31:32.89056+00:00
+1434,smith low bar squat,upper legs,upper legs,smith machine,quadriceps,glutes,quadriceps,hamstrings,calves,,,images/1434-RGLscZM.jpg,videos/1434-RGLscZM.gif,RGLscZM,2026-03-18T12:31:32.890708+00:00
+1435,barbell low bar squat,upper legs,upper legs,barbell,quadriceps,glutes,quadriceps,hamstrings,calves,,,images/1435-bTpEUcm.jpg,videos/1435-bTpEUcm.gif,bTpEUcm,2026-03-18T12:31:32.87187+00:00
+1436,barbell high bar squat,upper legs,upper legs,barbell,quadriceps,glutes,quadriceps,hamstrings,calves,core,,images/1436-Gnfo4FM.jpg,videos/1436-Gnfo4FM.gif,Gnfo4FM,2026-03-18T12:31:32.8717+00:00
+1437,dumbbell finger curls,lower arms,lower arms,dumbbell,wrist flexors,forearms,wrist flexors,wrist extensors,,,,images/1437-mtXengz.jpg,videos/1437-mtXengz.gif,mtXengz,2026-03-18T12:31:32.878284+00:00
+1438,kettlebell seated two arm military press,shoulders,shoulders,kettlebell,triceps,delts,triceps,upper back,,,,images/1438-ZEkjZDi.jpg,videos/1438-ZEkjZDi.gif,ZEkjZDi,2026-03-18T12:31:32.885511+00:00
+1439,lever gripless shrug v. 2,back,back,leverage machine,shoulders,traps,shoulders,forearms,,,,images/1439-cbuFJrn.jpg,videos/1439-cbuFJrn.gif,cbuFJrn,2026-03-18T12:31:32.886309+00:00
+1441,dumbbell over bench one arm reverse wrist curl,lower arms,lower arms,dumbbell,biceps,forearms,biceps,brachialis,,,,images/1441-4Jc36XM.jpg,videos/1441-4Jc36XM.gif,4Jc36XM,2026-03-18T12:31:32.880349+00:00
+1451,lever seated dip,upper arms,upper arms,leverage machine,chest,triceps,chest,shoulders,,,,images/1451-BRImeP8.jpg,videos/1451-BRImeP8.gif,BRImeP8,2026-03-18T12:31:32.88697+00:00
+1452,lever seated crunch,waist,waist,leverage machine,obliques,abs,obliques,,,,,images/1452-Wgaz7pm.jpg,videos/1452-Wgaz7pm.gif,Wgaz7pm,2026-03-18T12:31:32.88692+00:00
+1456,barbell standing close grip military press,shoulders,shoulders,barbell,triceps,delts,triceps,upper back,,,,images/1456-wdRZISl.jpg,videos/1456-wdRZISl.gif,wdRZISl,2026-03-18T12:31:32.873108+00:00
+1457,barbell standing wide military press,shoulders,shoulders,barbell,triceps,delts,triceps,upper back,,,,images/1457-Kyd9Rz5.jpg,videos/1457-Kyd9Rz5.gif,Kyd9Rz5,2026-03-18T12:31:32.873261+00:00
+1458,ez barbell seated curls,upper arms,upper arms,ez barbell,forearms,biceps,forearms,,,,,images/1458-jtFKbt5.jpg,videos/1458-jtFKbt5.gif,jtFKbt5,2026-03-18T12:31:32.883398+00:00
+1459,dumbbell romanian deadlift,upper legs,upper legs,dumbbell,hamstrings,glutes,hamstrings,lower back,,,,images/1459-rR0LJzx.jpg,videos/1459-rR0LJzx.gif,rR0LJzx,2026-03-18T12:31:32.880954+00:00
+1461,barbell full squat (back pov),upper legs,upper legs,barbell,quadriceps,glutes,quadriceps,hamstrings,calves,core,,images/1461-DhMl549.jpg,videos/1461-DhMl549.gif,DhMl549,2026-03-18T12:31:32.871562+00:00
+1462,barbell full squat (side pov),upper legs,upper legs,barbell,quadriceps,glutes,quadriceps,hamstrings,calves,core,,images/1462-iYzB0Cz.jpg,videos/1462-iYzB0Cz.gif,iYzB0Cz,2026-03-18T12:31:32.87158+00:00
+1479,lever incline chest press v. 2,chest,chest,leverage machine,triceps,pectorals,triceps,shoulders,,,,images/1479-o17Jfkt.jpg,videos/1479-o17Jfkt.gif,o17Jfkt,2026-03-18T12:31:32.886445+00:00
+1545,barbell full zercher squat,upper legs,upper legs,barbell,quadriceps,glutes,quadriceps,hamstrings,calves,core,,images/1545-vR1vold.jpg,videos/1545-vR1vold.gif,vR1vold,2026-03-18T12:31:32.871597+00:00
+1614,lever preacher curl v. 2,upper arms,upper arms,leverage machine,forearms,biceps,forearms,,,,,images/1614-ye84CTU.jpg,videos/1614-ye84CTU.gif,ye84CTU,2026-03-18T12:31:32.886733+00:00
+1615,lever hammer grip preacher curl,upper arms,upper arms,leverage machine,forearms,biceps,forearms,,,,,images/1615-OAguZoG.jpg,videos/1615-OAguZoG.gif,OAguZoG,2026-03-18T12:31:32.886345+00:00
+1616,lever reverse grip preacher curl,upper arms,upper arms,leverage machine,forearms,biceps,forearms,,,,,images/1616-kj3hy6W.jpg,videos/1616-kj3hy6W.gif,kj3hy6W,2026-03-18T12:31:32.886797+00:00
+1617,dumbbell decline one arm hammer press,upper arms,upper arms,dumbbell,chest,triceps,chest,shoulders,,,,images/1617-SHUMp5H.jpg,videos/1617-SHUMp5H.gif,SHUMp5H,2026-03-18T12:31:32.878191+00:00
+1618,dumbbell incline hammer press on exercise ball,upper arms,upper arms,dumbbell,chest,triceps,chest,shoulders,,,,images/1618-wkgnGfb.jpg,videos/1618-wkgnGfb.gif,wkgnGfb,2026-03-18T12:31:32.878688+00:00
+1619,dumbbell incline one arm hammer press,upper arms,upper arms,dumbbell,shoulders,triceps,shoulders,chest,,,,images/1619-LL1UiTX.jpg,videos/1619-LL1UiTX.gif,LL1UiTX,2026-03-18T12:31:32.878754+00:00
+1620,dumbbell incline one arm hammer press on exercise ball,upper arms,upper arms,dumbbell,shoulders,triceps,shoulders,chest,,,,images/1620-jDnrkar.jpg,videos/1620-jDnrkar.gif,jDnrkar,2026-03-18T12:31:32.878771+00:00
+1621,dumbbell one arm hammer press on exercise ball,upper arms,upper arms,dumbbell,shoulders,triceps,shoulders,chest,,,,images/1621-VYmYxK5.jpg,videos/1621-VYmYxK5.gif,VYmYxK5,2026-03-18T12:31:32.879831+00:00
+1622,dumbbell one arm reverse grip press,chest,chest,dumbbell,triceps,pectorals,triceps,shoulders,,,,images/1622-Ze7MoIb.jpg,videos/1622-Ze7MoIb.gif,Ze7MoIb,2026-03-18T12:31:32.880021+00:00
+1623,dumbbell palms in incline bench press,upper arms,upper arms,dumbbell,chest,triceps,chest,shoulders,,,,images/1623-8eqjhOl.jpg,videos/1623-8eqjhOl.gif,8eqjhOl,2026-03-18T12:31:32.880432+00:00
+1624,dumbbell reverse bench press,chest,chest,dumbbell,triceps,pectorals,triceps,shoulders,,,,images/1624-UIbGx6H.jpg,videos/1624-UIbGx6H.gif,UIbGx6H,2026-03-18T12:31:32.880809+00:00
+1625,smith machine decline close grip bench press,upper arms,upper arms,smith machine,chest,triceps,chest,shoulders,,,,images/1625-yB9SvIF.jpg,videos/1625-yB9SvIF.gif,yB9SvIF,2026-03-18T12:31:32.890746+00:00
+1626,smith machine reverse decline close grip bench press,chest,chest,smith machine,triceps,pectorals,triceps,shoulders,,,,images/1626-QyO6Uma.jpg,videos/1626-QyO6Uma.gif,QyO6Uma,2026-03-18T12:31:32.890782+00:00
+1627,ez barbell close grip preacher curl,upper arms,upper arms,ez barbell,forearms,biceps,forearms,,,,,images/1627-hacCyUv.jpg,videos/1627-hacCyUv.gif,hacCyUv,2026-03-18T12:31:32.883249+00:00
+1628,ez barbell spider curl,upper arms,upper arms,ez barbell,forearms,biceps,forearms,,,,,images/1628-2kattbR.jpg,videos/1628-2kattbR.gif,2kattbR,2026-03-18T12:31:32.883456+00:00
+1629,barbell standing wide grip biceps curl,upper arms,upper arms,barbell,forearms,biceps,forearms,,,,,images/1629-faHKVkK.jpg,videos/1629-faHKVkK.gif,faHKVkK,2026-03-18T12:31:32.873244+00:00
+1630,cable close grip curl,upper arms,upper arms,cable,forearms,biceps,forearms,,,,,images/1630-BCGQ6J5.jpg,videos/1630-BCGQ6J5.gif,BCGQ6J5,2026-03-18T12:31:32.874199+00:00
+1631,cable concentration curl,upper arms,upper arms,cable,forearms,biceps,forearms,,,,,images/1631-NvfE43H.jpg,videos/1631-NvfE43H.gif,NvfE43H,2026-03-18T12:31:32.874215+00:00
+1632,cable drag curl,upper arms,upper arms,cable,forearms,biceps,forearms,,,,,images/1632-dXz8zjF.jpg,videos/1632-dXz8zjF.gif,dXz8zjF,2026-03-18T12:31:32.8744+00:00
+1633,cable one arm preacher curl,upper arms,upper arms,cable,forearms,biceps,forearms,,,,,images/1633-eHBlPsa.jpg,videos/1633-eHBlPsa.gif,eHBlPsa,2026-03-18T12:31:32.875151+00:00
+1634,cable lying bicep curl,upper arms,upper arms,cable,forearms,biceps,forearms,,,,,images/1634-otqIxU4.jpg,videos/1634-otqIxU4.gif,otqIxU4,2026-03-18T12:31:32.874877+00:00
+1635,cable one arm reverse preacher curl,upper arms,upper arms,cable,forearms,biceps,forearms,,,,,images/1635-ZXnjcOQ.jpg,videos/1635-ZXnjcOQ.gif,ZXnjcOQ,2026-03-18T12:31:32.875212+00:00
+1636,cable overhead curl,upper arms,upper arms,cable,forearms,biceps,forearms,shoulders,,,,images/1636-wDUqY2u.jpg,videos/1636-wDUqY2u.gif,wDUqY2u,2026-03-18T12:31:32.875267+00:00
+1637,cable overhead curl on exercise ball,upper arms,upper arms,cable,forearms,biceps,forearms,shoulders,,,,images/1637-ioTf098.jpg,videos/1637-ioTf098.gif,ioTf098,2026-03-18T12:31:32.875284+00:00
+1638,cable pulldown bicep curl,upper arms,upper arms,cable,forearms,biceps,forearms,,,,,images/1638-QTXKWPh.jpg,videos/1638-QTXKWPh.gif,QTXKWPh,2026-03-18T12:31:32.875418+00:00
+1639,cable rope hammer preacher curl,upper arms,upper arms,cable,forearms,biceps,forearms,,,,,images/1639-PcPe0P5.jpg,videos/1639-PcPe0P5.gif,PcPe0P5,2026-03-18T12:31:32.875737+00:00
+1640,cable rope one arm hammer preacher curl,upper arms,upper arms,cable,forearms,biceps,forearms,,,,,images/1640-4hATdoB.jpg,videos/1640-4hATdoB.gif,4hATdoB,2026-03-18T12:31:32.875803+00:00
+1641,cable seated curl,upper arms,upper arms,cable,forearms,biceps,forearms,,,,,images/1641-8oYqOt9.jpg,videos/1641-8oYqOt9.gif,8oYqOt9,2026-03-18T12:31:32.875886+00:00
+1642,cable seated one arm concentration curl,upper arms,upper arms,cable,forearms,biceps,forearms,,,,,images/1642-rZ80Gbp.jpg,videos/1642-rZ80Gbp.gif,rZ80Gbp,2026-03-18T12:31:32.875942+00:00
+1643,cable seated overhead curl,upper arms,upper arms,cable,forearms,biceps,forearms,shoulders,,,,images/1643-DpWMFP5.jpg,videos/1643-DpWMFP5.gif,DpWMFP5,2026-03-18T12:31:32.87596+00:00
+1644,cable squatting curl,upper arms,upper arms,cable,forearms,biceps,forearms,,,,,images/1644-3XFdb1Z.jpg,videos/1644-3XFdb1Z.gif,3XFdb1Z,2026-03-18T12:31:32.876176+00:00
+1645,cable two arm curl on incline bench,upper arms,upper arms,cable,forearms,biceps,forearms,,,,,images/1645-H9y3Dkr.jpg,videos/1645-H9y3Dkr.gif,H9y3Dkr,2026-03-18T12:31:32.876692+00:00
+1646,dumbbell alternate hammer preacher curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/1646-fy7Tgy4.jpg,videos/1646-fy7Tgy4.gif,fy7Tgy4,2026-03-18T12:31:32.877534+00:00
+1647,dumbbell alternate preacher curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/1647-NlfIbzq.jpg,videos/1647-NlfIbzq.gif,NlfIbzq,2026-03-18T12:31:32.87755+00:00
+1648,dumbbell alternate seated hammer curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/1648-6em2Dxj.jpg,videos/1648-6em2Dxj.gif,6em2Dxj,2026-03-18T12:31:32.877567+00:00
+1649,dumbbell alternating bicep curl with leg raised on exercise ball,upper arms,upper arms,dumbbell,forearms,biceps,forearms,shoulders,,,,images/1649-Zwiw7XR.jpg,videos/1649-Zwiw7XR.gif,Zwiw7XR,2026-03-18T12:31:32.8776+00:00
+1650,dumbbell alternating seated bicep curl on exercise ball,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/1650-J74XlNf.jpg,videos/1650-J74XlNf.gif,J74XlNf,2026-03-18T12:31:32.877616+00:00
+1651,dumbbell bicep curl lunge with bowling motion,upper arms,upper arms,dumbbell,forearms,biceps,forearms,shoulders,,,,images/1651-1VpF8db.jpg,videos/1651-1VpF8db.gif,1VpF8db,2026-03-18T12:31:32.877749+00:00
+1652,dumbbell bicep curl on exercise ball with leg raised,upper arms,upper arms,dumbbell,forearms,biceps,forearms,shoulders,,,,images/1652-2NImIAG.jpg,videos/1652-2NImIAG.gif,2NImIAG,2026-03-18T12:31:32.877766+00:00
+1653,dumbbell bicep curl with stork stance,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/1653-uSkDMYl.jpg,videos/1653-uSkDMYl.gif,uSkDMYl,2026-03-18T12:31:32.877783+00:00
+1654,dumbbell biceps curl reverse,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/1654-nFc4FyV.jpg,videos/1654-nFc4FyV.gif,nFc4FyV,2026-03-18T12:31:32.877851+00:00
+1655,dumbbell biceps curl squat,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/1655-niXESDw.jpg,videos/1655-niXESDw.gif,niXESDw,2026-03-18T12:31:32.877872+00:00
+1656,dumbbell biceps curl v sit on bosu ball,upper arms,upper arms,dumbbell,forearms,biceps,forearms,shoulders,,,,images/1656-H1XAdpk.jpg,videos/1656-H1XAdpk.gif,H1XAdpk,2026-03-18T12:31:32.877892+00:00
+1657,dumbbell cross body hammer curl v. 2,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/1657-HDYiZcY.jpg,videos/1657-HDYiZcY.gif,HDYiZcY,2026-03-18T12:31:32.878045+00:00
+1658,dumbbell lunge with bicep curl,upper arms,upper arms,dumbbell,quadriceps,biceps,quadriceps,hamstrings,,,,images/1658-Mz6lLcW.jpg,videos/1658-Mz6lLcW.gif,Mz6lLcW,2026-03-18T12:31:32.879191+00:00
+1659,dumbbell hammer curl on exercise ball,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/1659-fY68AyX.jpg,videos/1659-fY68AyX.gif,fY68AyX,2026-03-18T12:31:32.878456+00:00
+1660,dumbbell kneeling bicep curl exercise ball,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/1660-2JCuFTU.jpg,videos/1660-2JCuFTU.gif,2JCuFTU,2026-03-18T12:31:32.879119+00:00
+1661,dumbbell lying supine biceps curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/1661-XVzF3iZ.jpg,videos/1661-XVzF3iZ.gif,XVzF3iZ,2026-03-18T12:31:32.879601+00:00
+1662,dumbbell lying wide curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/1662-qm9veZw.jpg,videos/1662-qm9veZw.gif,qm9veZw,2026-03-18T12:31:32.879655+00:00
+1663,dumbbell one arm hammer preacher curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/1663-4dF3maG.jpg,videos/1663-4dF3maG.gif,4dF3maG,2026-03-18T12:31:32.879815+00:00
+1664,dumbbell high curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/1664-qAmNMJY.jpg,videos/1664-qAmNMJY.gif,qAmNMJY,2026-03-18T12:31:32.878505+00:00
+1665,dumbbell one arm prone curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/1665-JWjujiY.jpg,videos/1665-JWjujiY.gif,JWjujiY,2026-03-18T12:31:32.879932+00:00
+1666,dumbbell one arm prone hammer curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/1666-LIGZSTA.jpg,videos/1666-LIGZSTA.gif,LIGZSTA,2026-03-18T12:31:32.879949+00:00
+1667,dumbbell one arm reverse spider curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/1667-VdLZ3nB.jpg,videos/1667-VdLZ3nB.gif,VdLZ3nB,2026-03-18T12:31:32.880058+00:00
+1668,dumbbell one arm seated bicep curl on exercise ball,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/1668-s999Hdo.jpg,videos/1668-s999Hdo.gif,s999Hdo,2026-03-18T12:31:32.880078+00:00
+1669,dumbbell one arm seated hammer curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/1669-jK2hZ6n.jpg,videos/1669-jK2hZ6n.gif,jK2hZ6n,2026-03-18T12:31:32.880097+00:00
+1670,dumbbell one arm standing curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/1670-ffQsyBj.jpg,videos/1670-ffQsyBj.gif,ffQsyBj,2026-03-18T12:31:32.880187+00:00
+1671,dumbbell one arm standing hammer curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/1671-2sQGZ5b.jpg,videos/1671-2sQGZ5b.gif,2sQGZ5b,2026-03-18T12:31:32.880205+00:00
+1672,dumbbell one arm zottman preacher curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/1672-sxY5Biu.jpg,videos/1672-sxY5Biu.gif,sxY5Biu,2026-03-18T12:31:32.88028+00:00
+1673,dumbbell preacher curl over exercise ball,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/1673-hwygydB.jpg,videos/1673-hwygydB.gif,hwygydB,2026-03-18T12:31:32.880512+00:00
+1674,dumbbell prone incline hammer curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/1674-cWemPG8.jpg,videos/1674-cWemPG8.gif,cWemPG8,2026-03-18T12:31:32.880592+00:00
+1675,dumbbell reverse spider curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/1675-6sMAmNv.jpg,videos/1675-6sMAmNv.gif,6sMAmNv,2026-03-18T12:31:32.880918+00:00
+1676,dumbbell seated alternate hammer curl on exercise ball,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/1676-QLRmNeT.jpg,videos/1676-QLRmNeT.gif,QLRmNeT,2026-03-18T12:31:32.881026+00:00
+1677,dumbbell seated bicep curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/1677-xiA6lRr.jpg,videos/1677-xiA6lRr.gif,xiA6lRr,2026-03-18T12:31:32.88115+00:00
+1678,dumbbell seated hammer curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/1678-IGtBdNT.jpg,videos/1678-IGtBdNT.gif,IGtBdNT,2026-03-18T12:31:32.881256+00:00
+1679,dumbbell seated one arm bicep curl on exercise ball with leg raised,upper arms,upper arms,dumbbell,forearms,biceps,forearms,shoulders,,,,images/1679-84sESNy.jpg,videos/1679-84sESNy.gif,84sESNy,2026-03-18T12:31:32.881357+00:00
+1680,dumbbell standing one arm curl over incline bench,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/1680-EmlJR2y.jpg,videos/1680-EmlJR2y.gif,EmlJR2y,2026-03-18T12:31:32.88203+00:00
+1682,ez bar seated close grip concentration curl,upper arms,upper arms,ez barbell,forearms,biceps,forearms,,,,,images/1682-Dsfz0Id.jpg,videos/1682-Dsfz0Id.gif,Dsfz0Id,2026-03-18T12:31:32.883196+00:00
+1683,smith machine bicep curl,upper arms,upper arms,smith machine,forearms,biceps,forearms,,,,,images/1683-zILLZ98.jpg,videos/1683-zILLZ98.gif,zILLZ98,2026-03-18T12:31:32.890726+00:00
+1684,dumbbell step up single leg balance with bicep curl,upper arms,upper arms,dumbbell,quadriceps,biceps,quadriceps,glutes,hamstrings,,,images/1684-76vfTdU.jpg,videos/1684-76vfTdU.gif,76vfTdU,2026-03-18T12:31:32.882212+00:00
+1700,dumbbell push press,shoulders,shoulders,dumbbell,triceps,delts,triceps,core,,,,images/1700-FS63wTN.jpg,videos/1700-FS63wTN.gif,FS63wTN,2026-03-18T12:31:32.880658+00:00
+1717,cable squat row (with rope attachment),back,back,cable,biceps,lats,biceps,rhomboids,rear deltoids,,,images/1717-f7fnAIB.jpg,videos/1717-f7fnAIB.gif,f7fnAIB,2026-03-18T12:31:32.876158+00:00
+1718,barbell seated close grip behind neck triceps extension,upper arms,upper arms,barbell,shoulders,triceps,shoulders,,,,,images/1718-4CBIBOM.jpg,videos/1718-4CBIBOM.gif,4CBIBOM,2026-03-18T12:31:32.872703+00:00
+1719,barbell incline close grip bench press,upper arms,upper arms,barbell,chest,triceps,chest,shoulders,,,,images/1719-gx7s7uF.jpg,videos/1719-gx7s7uF.gif,gx7s7uF,2026-03-18T12:31:32.871735+00:00
+1720,barbell lying back of the head tricep extension,upper arms,upper arms,barbell,shoulders,triceps,shoulders,,,,,images/1720-yg8Totb.jpg,videos/1720-yg8Totb.gif,yg8Totb,2026-03-18T12:31:32.871905+00:00
+1721,barbell reverse grip skullcrusher,upper arms,upper arms,barbell,forearms,triceps,forearms,,,,,images/1721-yRLPCLu.jpg,videos/1721-yRLPCLu.gif,yRLPCLu,2026-03-18T12:31:32.872518+00:00
+1722,cable high pulley overhead tricep extension,upper arms,upper arms,cable,shoulders,triceps,shoulders,,,,,images/1722-1xHyxys.jpg,videos/1722-1xHyxys.gif,1xHyxys,2026-03-18T12:31:32.87451+00:00
+1723,cable one arm tricep pushdown,upper arms,upper arms,cable,forearms,triceps,forearms,,,,,images/1723-qRZ5S1N.jpg,videos/1723-qRZ5S1N.gif,qRZ5S1N,2026-03-18T12:31:32.87525+00:00
+1724,cable rope high pulley overhead tricep extension,upper arms,upper arms,cable,shoulders,triceps,shoulders,,,,,images/1724-NN8nSNT.jpg,videos/1724-NN8nSNT.gif,NN8nSNT,2026-03-18T12:31:32.875754+00:00
+1725,cable rope incline tricep extension,upper arms,upper arms,cable,shoulders,triceps,shoulders,,,,,images/1725-ZujAdR9.jpg,videos/1725-ZujAdR9.gif,ZujAdR9,2026-03-18T12:31:32.87577+00:00
+1726,cable rope lying on floor tricep extension,upper arms,upper arms,cable,shoulders,triceps,shoulders,,,,,images/1726-U3ffHlY.jpg,videos/1726-U3ffHlY.gif,U3ffHlY,2026-03-18T12:31:32.875786+00:00
+1727,cable standing reverse grip one arm overhead tricep extension,upper arms,upper arms,cable,shoulders,triceps,shoulders,,,,,images/1727-i11JWU7.jpg,videos/1727-i11JWU7.gif,i11JWU7,2026-03-18T12:31:32.876416+00:00
+1728,cable two arm tricep kickback,upper arms,upper arms,cable,shoulders,triceps,shoulders,,,,,images/1728-vvNjDJS.jpg,videos/1728-vvNjDJS.gif,vvNjDJS,2026-03-18T12:31:32.876709+00:00
+1729,dumbbell lying alternate extension,upper arms,upper arms,dumbbell,shoulders,triceps,shoulders,,,,,images/1729-NfP83rA.jpg,videos/1729-NfP83rA.gif,NfP83rA,2026-03-18T12:31:32.879226+00:00
+1730,dumbbell seated bent over alternate kickback,upper arms,upper arms,dumbbell,shoulders,triceps,shoulders,back,,,,images/1730-x0lwvfq.jpg,videos/1730-x0lwvfq.gif,x0lwvfq,2026-03-18T12:31:32.881114+00:00
+1731,dumbbell close grip press,upper arms,upper arms,dumbbell,chest,triceps,chest,shoulders,,,,images/1731-7jGOBF3.jpg,videos/1731-7jGOBF3.gif,7jGOBF3,2026-03-18T12:31:32.87795+00:00
+1732,dumbbell forward lunge triceps extension,upper arms,upper arms,dumbbell,shoulders,triceps,shoulders,core,,,,images/1732-XalXcvM.jpg,videos/1732-XalXcvM.gif,XalXcvM,2026-03-18T12:31:32.878349+00:00
+1733,dumbbell incline two arm extension,upper arms,upper arms,dumbbell,shoulders,triceps,shoulders,,,,,images/1733-U7D9Fx3.jpg,videos/1733-U7D9Fx3.gif,U7D9Fx3,2026-03-18T12:31:32.879029+00:00
+1734,dumbbell kickbacks on exercise ball,upper arms,upper arms,dumbbell,shoulders,triceps,shoulders,back,,,,images/1734-cAvTaSg.jpg,videos/1734-cAvTaSg.gif,cAvTaSg,2026-03-18T12:31:32.879101+00:00
+1735,dumbbell lying single extension,upper arms,upper arms,dumbbell,shoulders,triceps,shoulders,,,,,images/1735-6MfS53i.jpg,videos/1735-6MfS53i.gif,6MfS53i,2026-03-18T12:31:32.879547+00:00
+1736,dumbbell one arm french press on exercise ball,upper arms,upper arms,dumbbell,shoulders,triceps,shoulders,,,,,images/1736-ziFKQXP.jpg,videos/1736-ziFKQXP.gif,ziFKQXP,2026-03-18T12:31:32.879798+00:00
+1737,dumbbell seated bent over triceps extension,upper arms,upper arms,dumbbell,shoulders,triceps,shoulders,back,,,,images/1737-4ievMJ9.jpg,videos/1737-4ievMJ9.gif,4ievMJ9,2026-03-18T12:31:32.881132+00:00
+1738,dumbbell seated reverse grip one arm overhead tricep extension,upper arms,upper arms,dumbbell,shoulders,triceps,shoulders,,,,,images/1738-5fKX7wi.jpg,videos/1738-5fKX7wi.gif,5fKX7wi,2026-03-18T12:31:32.881511+00:00
+1739,dumbbell standing alternating tricep kickback,upper arms,upper arms,dumbbell,shoulders,triceps,shoulders,,,,,images/1739-Gi2BXfK.jpg,videos/1739-Gi2BXfK.gif,Gi2BXfK,2026-03-18T12:31:32.881827+00:00
+1740,dumbbell standing bent over one arm triceps extension,upper arms,upper arms,dumbbell,shoulders,triceps,shoulders,back,,,,images/1740-CJwa0vD.jpg,videos/1740-CJwa0vD.gif,CJwa0vD,2026-03-18T12:31:32.88186+00:00
+1741,dumbbell standing bent over two arm triceps extension,upper arms,upper arms,dumbbell,shoulders,triceps,shoulders,back,,,,images/1741-3T12T87.jpg,videos/1741-3T12T87.gif,3T12T87,2026-03-18T12:31:32.881876+00:00
+1742,dumbbell tricep kickback with stork stance,upper arms,upper arms,dumbbell,shoulders,triceps,shoulders,,,,,images/1742-wOLmCXc.jpg,videos/1742-wOLmCXc.gif,wOLmCXc,2026-03-18T12:31:32.882382+00:00
+1743,dumbbell twisting bench press,upper arms,upper arms,dumbbell,chest,triceps,chest,shoulders,,,,images/1743-z6TAHoT.jpg,videos/1743-z6TAHoT.gif,z6TAHoT,2026-03-18T12:31:32.882399+00:00
+1746,exercise ball supine triceps extension,upper arms,upper arms,dumbbell,shoulders,triceps,shoulders,,,,,images/1746-Gm2Uv1z.jpg,videos/1746-Gm2Uv1z.gif,Gm2Uv1z,2026-03-18T12:31:32.882992+00:00
+1747,ez bar french press on exercise ball,upper arms,upper arms,ez barbell,shoulders,triceps,shoulders,,,,,images/1747-CFN9P8G.jpg,videos/1747-CFN9P8G.gif,CFN9P8G,2026-03-18T12:31:32.88301+00:00
+1748,ez bar lying close grip triceps extension behind head,upper arms,upper arms,ez barbell,shoulders,triceps,shoulders,,,,,images/1748-6CKUx7o.jpg,videos/1748-6CKUx7o.gif,6CKUx7o,2026-03-18T12:31:32.883159+00:00
+1749,ez bar standing french press,upper arms,upper arms,ez barbell,shoulders,triceps,shoulders,,,,,images/1749-1cTf2Ux.jpg,videos/1749-1cTf2Ux.gif,1cTf2Ux,2026-03-18T12:31:32.883214+00:00
+1751,barbell pin presses,upper arms,upper arms,barbell,shoulders,triceps,shoulders,,,,,images/1751-bndCa3Q.jpg,videos/1751-bndCa3Q.gif,bndCa3Q,2026-03-18T12:31:32.872213+00:00
+1752,smith machine incline tricep extension,upper arms,upper arms,smith machine,shoulders,triceps,shoulders,,,,,images/1752-o8aOcrz.jpg,videos/1752-o8aOcrz.gif,o8aOcrz,2026-03-18T12:31:32.890765+00:00
+1756,barbell single leg deadlift,upper legs,upper legs,barbell,hamstrings,glutes,hamstrings,lower back,,,,images/1756-gEyURal.jpg,videos/1756-gEyURal.gif,gEyURal,2026-03-18T12:31:32.872873+00:00
+1757,dumbbell single leg deadlift,upper legs,upper legs,dumbbell,hamstrings,glutes,hamstrings,lower back,,,,images/1757-gKozT8X.jpg,videos/1757-gKozT8X.gif,gKozT8X,2026-03-18T12:31:32.881688+00:00
+1760,dumbbell goblet squat,upper legs,upper legs,dumbbell,glutes,quads,glutes,hamstrings,calves,,,images/1760-yn8yg1r.jpg,videos/1760-yn8yg1r.gif,yn8yg1r,2026-03-18T12:31:32.878423+00:00
+1765,dumbbell upright row (back pov),shoulders,shoulders,dumbbell,traps,delts,traps,biceps,,,,images/1765-Iptlv6x.jpg,videos/1765-Iptlv6x.gif,Iptlv6x,2026-03-18T12:31:32.882431+00:00
+2133,farmers walk,upper legs,upper legs,dumbbell,calves,quads,calves,forearms,core,,,images/2133-qPEzJjA.jpg,videos/2133-qPEzJjA.gif,qPEzJjA,2026-03-18T12:31:32.88353+00:00
+2136,dumbbell cuban press v. 2,shoulders,shoulders,dumbbell,triceps,delts,triceps,upper back,,,,images/2136-BqgCRif.jpg,videos/2136-BqgCRif.gif,BqgCRif,2026-03-18T12:31:32.878082+00:00
+2137,dumbbell arnold press,shoulders,shoulders,dumbbell,triceps,delts,triceps,upper chest,,,,images/2137-Xy4jlWA.jpg,videos/2137-Xy4jlWA.gif,Xy4jlWA,2026-03-18T12:31:32.877634+00:00
+2143,dumbbell standing around world,shoulders,shoulders,dumbbell,triceps,delts,triceps,forearms,,,,images/2143-RSOsp5d.jpg,videos/2143-RSOsp5d.gif,RSOsp5d,2026-03-18T12:31:32.881843+00:00
+2144,cable seated chest press,chest,chest,cable,shoulders,pectorals,shoulders,triceps,,,,images/2144-nIR4Rwl.jpg,videos/2144-nIR4Rwl.gif,nIR4Rwl,2026-03-18T12:31:32.875854+00:00
+2186,ez barbell decline triceps extension,upper arms,upper arms,ez barbell,shoulders,triceps,shoulders,,,,,images/2186-CQHoDm0.jpg,videos/2186-CQHoDm0.gif,CQHoDm0,2026-03-18T12:31:32.883317+00:00
+2187,barbell reverse close-grip bench press,upper arms,upper arms,barbell,chest,triceps,chest,shoulders,,,,images/2187-YqJw82s.jpg,videos/2187-YqJw82s.gif,YqJw82s,2026-03-18T12:31:32.872412+00:00
+2188,dumbbell seated triceps extension,upper arms,upper arms,dumbbell,shoulders,triceps,shoulders,,,,,images/2188-kont8Ut.jpg,videos/2188-kont8Ut.gif,kont8Ut,2026-03-18T12:31:32.881564+00:00
+2189,dumbbells seated triceps extension,upper arms,upper arms,dumbbell,shoulders,triceps,shoulders,,,,,images/2189-FQXdXzY.jpg,videos/2189-FQXdXzY.gif,FQXdXzY,2026-03-18T12:31:32.882536+00:00
+2285,lever pullover,back,back,leverage machine,triceps,lats,triceps,shoulders,,,,images/2285-4U7iLb5.jpg,videos/2285-4U7iLb5.gif,4U7iLb5,2026-03-18T12:31:32.886759+00:00
+2286,lever hip extension v. 2,upper legs,upper legs,leverage machine,hamstrings,glutes,hamstrings,,,,,images/2286-OPqShYN.jpg,videos/2286-OPqShYN.gif,OPqShYN,2026-03-18T12:31:32.886381+00:00
+2287,lever alternate leg press,upper legs,upper legs,leverage machine,hamstrings,quads,hamstrings,glutes,,,,images/2287-V07qpXy.jpg,videos/2287-V07qpXy.gif,V07qpXy,2026-03-18T12:31:32.886025+00:00
+2288,lever gripper hands,lower arms,lower arms,leverage machine,biceps,forearms,biceps,triceps,,,,images/2288-mKwcrHn.jpg,videos/2288-mKwcrHn.gif,mKwcrHn,2026-03-18T12:31:32.886326+00:00
+2289,lever calf press,lower legs,lower legs,leverage machine,hamstrings,calves,hamstrings,,,,,images/2289-7B4F5nZ.jpg,videos/2289-7B4F5nZ.gif,7B4F5nZ,2026-03-18T12:31:32.88615+00:00
+2292,dumbbell rear delt raise,shoulders,shoulders,dumbbell,trapezius,delts,trapezius,rhomboids,,,,images/2292-mu5Guxt.jpg,videos/2292-mu5Guxt.gif,mu5Guxt,2026-03-18T12:31:32.88069+00:00
+2293,dumbbell standing zottman preacher curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/2293-P2nRiUa.jpg,videos/2293-P2nRiUa.gif,P2nRiUa,2026-03-18T12:31:32.882194+00:00
+2294,dumbbell zottman preacher curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/2294-y5U5B9Y.jpg,videos/2294-y5U5B9Y.gif,y5U5B9Y,2026-03-18T12:31:32.882518+00:00
+2315,lever rotary calf,lower legs,lower legs,leverage machine,soleus,calves,soleus,ankle stabilizers,,,,images/2315-MrgP9L6.jpg,videos/2315-MrgP9L6.gif,MrgP9L6,2026-03-18T12:31:32.886865+00:00
+2317,dumbbell seated bent arm lateral raise,shoulders,shoulders,dumbbell,trapezius,delts,trapezius,rhomboids,,,,images/2317-JzQbv7J.jpg,videos/2317-JzQbv7J.gif,JzQbv7J,2026-03-18T12:31:32.881097+00:00
+2318,lever shoulder press v. 3,shoulders,shoulders,leverage machine,triceps,delts,triceps,chest,,,,images/2318-dNFYIU1.jpg,videos/2318-dNFYIU1.gif,dNFYIU1,2026-03-18T12:31:32.887211+00:00
+2321,dumbbell standing inner biceps curl v. 2,upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/2321-vKilzz3.jpg,videos/2321-vKilzz3.gif,vKilzz3,2026-03-18T12:31:32.88196+00:00
+2327,dumbbell reverse grip row (female),back,back,dumbbell,biceps,upper back,biceps,forearms,,,,images/2327-Nh3mvOO.jpg,videos/2327-Nh3mvOO.gif,Nh3mvOO,2026-03-18T12:31:32.880881+00:00
+2330,cable lat pulldown full range of motion,back,back,cable,biceps,lats,biceps,rhomboids,rear deltoids,,,images/2330-LEprlgG.jpg,videos/2330-LEprlgG.gif,LEprlgG,2026-03-18T12:31:32.874773+00:00
+2331,cycle cross trainer,cardio,cardio,leverage machine,quadriceps,cardiovascular system,quadriceps,hamstrings,glutes,,,images/2331-XSCHmiI.jpg,videos/2331-XSCHmiI.gif,XSCHmiI,2026-03-18T12:31:32.877347+00:00
+2335,lever seated calf press,lower legs,lower legs,leverage machine,soleus,calves,soleus,hamstrings,,,,images/2335-Ie9UGty.jpg,videos/2335-Ie9UGty.gif,Ie9UGty,2026-03-18T12:31:32.886885+00:00
+2364,assisted wide-grip chest dip (kneeling),chest,chest,leverage machine,triceps,pectorals,triceps,shoulders,,,,images/2364-PnZJIrk.jpg,videos/2364-PnZJIrk.gif,PnZJIrk,2026-03-18T12:31:32.855584+00:00
+2397,dumbbell scott press,shoulders,shoulders,dumbbell,triceps,delts,triceps,chest,,,,images/2397-5vfAI0I.jpg,videos/2397-5vfAI0I.gif,5vfAI0I,2026-03-18T12:31:32.88099+00:00
+2399,cable seated twist,waist,waist,cable,obliques,abs,obliques,,,,,images/2399-UEjSrKI.jpg,videos/2399-UEjSrKI.gif,UEjSrKI,2026-03-18T12:31:32.876032+00:00
+2401,dumbbell biceps curl (with arm blaster),upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/2401-nlJsbkW.jpg,videos/2401-nlJsbkW.gif,nlJsbkW,2026-03-18T12:31:32.877828+00:00
+2402,dumbbell hammer curls (with arm blaster),upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/2402-GNhAeJ0.jpg,videos/2402-GNhAeJ0.gif,GNhAeJ0,2026-03-18T12:31:32.878489+00:00
+2403,dumbbell alternate biceps curl (with arm blaster),upper arms,upper arms,dumbbell,forearms,biceps,forearms,,,,,images/2403-CfKsRbG.jpg,videos/2403-CfKsRbG.gif,CfKsRbG,2026-03-18T12:31:32.877517+00:00
+2404,ez-bar biceps curl (with arm blaster),upper arms,upper arms,ez barbell,forearms,biceps,forearms,,,,,images/2404-tJ5nYqo.jpg,videos/2404-tJ5nYqo.gif,tJ5nYqo,2026-03-18T12:31:32.883474+00:00
+2405,cable triceps pushdown (v-bar) (with arm blaster),upper arms,upper arms,cable,forearms,triceps,forearms,,,,,images/2405-OxJk1fg.jpg,videos/2405-OxJk1fg.gif,OxJk1fg,2026-03-18T12:31:32.8766+00:00
+2406,cable reverse grip triceps pushdown (sz-bar) (with arm blaster),upper arms,upper arms,cable,forearms,triceps,forearms,,,,,images/2406-ThKP69G.jpg,videos/2406-ThKP69G.gif,ThKP69G,2026-03-18T12:31:32.875586+00:00
+2407,barbell biceps curl (with arm blaster),upper arms,upper arms,barbell,forearms,biceps,forearms,,,,,images/2407-aee2Fcj.jpg,videos/2407-aee2Fcj.gif,aee2Fcj,2026-03-18T12:31:32.870329+00:00
+2414,barbell standing concentration curl,upper arms,upper arms,barbell,forearms,biceps,forearms,,,,,images/2414-vsMcDi9.jpg,videos/2414-vsMcDi9.gif,vsMcDi9,2026-03-18T12:31:32.873125+00:00
+2432,ez-bar close-grip bench press,upper arms,upper arms,ez barbell,chest,triceps,chest,shoulders,,,,images/2432-da4cXST.jpg,videos/2432-da4cXST.gif,da4cXST,2026-03-18T12:31:32.883492+00:00
+2464,cable thibaudeau kayak row,back,back,cable,biceps,lats,biceps,rhomboids,rear deltoids,,,images/2464-ZgwWBoC.jpg,videos/2464-ZgwWBoC.gif,ZgwWBoC,2026-03-18T12:31:32.876566+00:00
+2470,dumbbell lying on floor rear delt raise,shoulders,shoulders,dumbbell,trapezius,delts,trapezius,rhomboids,,,,images/2470-Ion0XWz.jpg,videos/2470-Ion0XWz.gif,Ion0XWz,2026-03-18T12:31:32.879317+00:00
+2611,lever horizontal one leg press,upper legs,upper legs,leverage machine,quadriceps,glutes,quadriceps,hamstrings,calves,,,images/2611-9KU9TYF.jpg,videos/2611-9KU9TYF.gif,9KU9TYF,2026-03-18T12:31:32.8864+00:00
+2616,cable lateral pulldown with v-bar,back,back,cable,biceps,lats,biceps,forearms,,,,images/2616-4c9BhzB.jpg,videos/2616-4c9BhzB.gif,4c9BhzB,2026-03-18T12:31:32.874806+00:00
+2705,dumbbell lying pronation on floor,lower arms,lower arms,dumbbell,biceps,forearms,biceps,triceps,,,,images/2705-7RWNjiB.jpg,videos/2705-7RWNjiB.gif,7RWNjiB,2026-03-18T12:31:32.879478+00:00
+2706,dumbbell lying supination on floor,lower arms,lower arms,dumbbell,biceps,forearms,biceps,shoulders,,,,images/2706-rEhi2o5.jpg,videos/2706-rEhi2o5.gif,rEhi2o5,2026-03-18T12:31:32.879583+00:00
+2736,lever reverse grip lateral pulldown,back,back,leverage machine,biceps,lats,biceps,rhomboids,rear deltoids,,,images/2736-ky8FLU8.jpg,videos/2736-ky8FLU8.gif,ky8FLU8,2026-03-18T12:31:32.886778+00:00
+2741,ez-barbell standing wide grip biceps curl,upper arms,upper arms,ez barbell,forearms,biceps,forearms,,,,,images/2741-OVTZ65k.jpg,videos/2741-OVTZ65k.gif,OVTZ65k,2026-03-18T12:31:32.88351+00:00
+2796,dumbbell step-up lunge,upper legs,upper legs,dumbbell,glutes,quads,glutes,hamstrings,calves,,,images/2796-gFyFj9z.jpg,videos/2796-gFyFj9z.gif,gFyFj9z,2026-03-18T12:31:32.882248+00:00
+2798,barbell squat jump step rear lunge,upper legs,upper legs,barbell,glutes,quads,glutes,hamstrings,calves,,,images/2798-RYcV1kH.jpg,videos/2798-RYcV1kH.gif,RYcV1kH,2026-03-18T12:31:32.87301+00:00
+2799,barbell sitted alternate leg raise,waist,waist,barbell,hip flexors,abs,hip flexors,,,,,images/2799-G7xoEzr.jpg,videos/2799-G7xoEzr.gif,G7xoEzr,2026-03-18T12:31:32.872907+00:00
+2800,barbell sitted alternate leg raise (female),waist,waist,barbell,hip flexors,abs,hip flexors,quadriceps,,,,images/2800-BCs0G2F.jpg,videos/2800-BCs0G2F.gif,BCs0G2F,2026-03-18T12:31:32.872923+00:00
+2803,dumbbell supported squat,upper legs,upper legs,dumbbell,glutes,quads,glutes,hamstrings,calves,,,images/2803-r5DgrW9.jpg,videos/2803-r5DgrW9.gif,r5DgrW9,2026-03-18T12:31:32.88235+00:00
+2805,dumbbell single leg deadlift with stepbox support,upper legs,upper legs,dumbbell,hamstrings,glutes,hamstrings,lower back,,,,images/2805-daBmy1Y.jpg,videos/2805-daBmy1Y.gif,daBmy1Y,2026-03-18T12:31:32.881706+00:00
+2808,dumbbell sumo pull through,upper legs,upper legs,dumbbell,hamstrings,glutes,hamstrings,quadriceps,core,,,images/2808-BmrwWzo.jpg,videos/2808-BmrwWzo.gif,BmrwWzo,2026-03-18T12:31:32.882333+00:00
+2810,barbell split squat v. 2,upper legs,upper legs,barbell,glutes,quads,glutes,hamstrings,calves,,,images/2810-HBYyX94.jpg,videos/2810-HBYyX94.gif,HBYyX94,2026-03-18T12:31:32.872977+00:00
+2812,dumbbell step-up split squat,upper legs,upper legs,dumbbell,glutes,quads,glutes,hamstrings,calves,,,images/2812-QjE2DcA.jpg,videos/2812-QjE2DcA.gif,QjE2DcA,2026-03-18T12:31:32.882266+00:00
+3010,ez bar lying bent arms pullover,back,back,ez barbell,triceps,lats,triceps,chest,,,,images/3010-nDK1HJ0.jpg,videos/3010-nDK1HJ0.gif,nDK1HJ0,2026-03-18T12:31:32.883028+00:00
+3017,barbell pendlay row,back,back,barbell,biceps,upper back,biceps,forearms,,,,images/3017-r0z6xzQ.jpg,videos/3017-r0z6xzQ.gif,r0z6xzQ,2026-03-18T12:31:32.872197+00:00
+3142,smith sumo squat,upper legs,upper legs,smith machine,quadriceps,glutes,quadriceps,hamstrings,calves,,,images/3142-dzz6BiV.jpg,videos/3142-dzz6BiV.gif,dzz6BiV,2026-03-18T12:31:32.891183+00:00
+3194,frankenstein squat,upper legs,upper legs,barbell,quadriceps,glutes,quadriceps,hamstrings,calves,,,images/3194-bdWcbaU.jpg,videos/3194-bdWcbaU.gif,bdWcbaU,2026-03-18T12:31:32.883694+00:00
+3195,lever lying two-one leg curl,upper legs,upper legs,leverage machine,glutes,hamstrings,glutes,,,,,images/3195-UXpKJoq.jpg,videos/3195-UXpKJoq.gif,UXpKJoq,2026-03-18T12:31:32.886557+00:00
+3200,lever bent-over row with v-bar,back,back,leverage machine,biceps,upper back,biceps,forearms,,,,images/3200-LuBEORI.jpg,videos/3200-LuBEORI.gif,LuBEORI,2026-03-18T12:31:32.886114+00:00
+3234,hyght dumbbell fly,chest,chest,dumbbell,shoulders,pectorals,shoulders,,,,,images/3234-P9ZRyLT.jpg,videos/3234-P9ZRyLT.gif,P9ZRyLT,2026-03-18T12:31:32.88432+00:00
+3235,cable assisted inverse leg curl,upper legs,upper legs,cable,glutes,hamstrings,glutes,calves,,,,images/3235-zHEpuuc.jpg,videos/3235-zHEpuuc.gif,zHEpuuc,2026-03-18T12:31:32.87414+00:00
+3237,landmine lateral raise,shoulders,shoulders,barbell,traps,delts,traps,upper back,,,,images/3237-eXMFHww.jpg,videos/3237-eXMFHww.gif,eXMFHww,2026-03-18T12:31:32.885926+00:00
+3240,exercise ball on the wall calf raise (tennis ball between knees),lower legs,lower legs,dumbbell,quadriceps,calves,quadriceps,hamstrings,,,,images/3240-j74M6Zn.jpg,videos/3240-j74M6Zn.gif,j74M6Zn,2026-03-18T12:31:32.882871+00:00
+3241,exercise ball on the wall calf raise (tennis ball between ankles),lower legs,lower legs,dumbbell,hamstrings,calves,hamstrings,quadriceps,,,,images/3241-FY3UdNT.jpg,videos/3241-FY3UdNT.gif,FY3UdNT,2026-03-18T12:31:32.882854+00:00
+3281,smith full squat,upper legs,upper legs,smith machine,quadriceps,glutes,quadriceps,hamstrings,calves,,,images/3281-NNoHCEA.jpg,videos/3281-NNoHCEA.gif,NNoHCEA,2026-03-18T12:31:32.890579+00:00
+3305,barbell thruster,shoulders,shoulders,barbell,quadriceps,delts,quadriceps,glutes,hamstrings,core,,images/3305-f7Y9eDZ.jpg,videos/3305-f7Y9eDZ.gif,f7Y9eDZ,2026-03-18T12:31:32.873363+00:00
+3541,dumbbell incline y-raise,back,back,dumbbell,shoulders,upper back,shoulders,rear deltoids,,,,images/3541-PbzNu7c.jpg,videos/3541-PbzNu7c.gif,PbzNu7c,2026-03-18T12:31:32.879046+00:00
+3542,dumbbell incline t-raise,shoulders,shoulders,dumbbell,traps,delts,traps,rhomboids,,,,images/3542-jgbvVJ0.jpg,videos/3542-jgbvVJ0.gif,jgbvVJ0,2026-03-18T12:31:32.878975+00:00
+3545,dumbbell incline alternate press,chest,chest,dumbbell,shoulders,pectorals,shoulders,triceps,,,,images/3545-TVdivgY.jpg,videos/3545-TVdivgY.gif,TVdivgY,2026-03-18T12:31:32.878522+00:00
+3546,dumbbell seated alternate shoulder,shoulders,shoulders,dumbbell,triceps,delts,triceps,upper back,,,,images/3546-q7qkONO.jpg,videos/3546-q7qkONO.gif,q7qkONO,2026-03-18T12:31:32.881062+00:00
+3547,dumbbell seated biceps curl to shoulder press,upper arms,upper arms,dumbbell,shoulders,biceps,shoulders,,,,,images/3547-OeL23VY.jpg,videos/3547-OeL23VY.gif,OeL23VY,2026-03-18T12:31:32.881186+00:00
+3548,dumbbell single arm overhead carry,shoulders,shoulders,dumbbell,traps,delts,traps,core,,,,images/3548-mWBtgmb.jpg,videos/3548-mWBtgmb.gif,mWBtgmb,2026-03-18T12:31:32.881652+00:00
+3560,dumbbell standing alternate hammer curl and press,upper arms,upper arms,dumbbell,forearms,biceps,forearms,shoulders,,,,images/3560-LeaZOIz.jpg,videos/3560-LeaZOIz.gif,LeaZOIz,2026-03-18T12:31:32.881778+00:00
+3562,barbell glute bridge two legs on bench (male),upper legs,upper legs,barbell,hamstrings,glutes,hamstrings,core,,,,images/3562-qg2PGl6.jpg,videos/3562-qg2PGl6.gif,qg2PGl6,2026-03-18T12:31:32.871631+00:00
+3563,cable one arm pulldown,back,back,cable,biceps,lats,biceps,forearms,,,,images/3563-U5INZY6.jpg,videos/3563-U5INZY6.gif,U5INZY6,2026-03-18T12:31:32.875195+00:00
+3635,dumbbell contralateral forward lunge,upper legs,upper legs,dumbbell,quadriceps,glutes,quadriceps,hamstrings,calves,,,images/3635-ecl28tP.jpg,videos/3635-ecl28tP.gif,ecl28tP,2026-03-18T12:31:32.878005+00:00
+3664,dumbbell side plank with rear fly,back,back,dumbbell,shoulders,upper back,shoulders,core,,,,images/3664-X6ytgYZ.jpg,videos/3664-X6ytgYZ.gif,X6ytgYZ,2026-03-18T12:31:32.881635+00:00
+3666,walking on incline treadmill,cardio,cardio,leverage machine,quadriceps,cardiovascular system,quadriceps,hamstrings,calves,,,images/3666-rjiM4L3.jpg,videos/3666-rjiM4L3.gif,rjiM4L3,2026-03-18T12:31:32.905681+00:00
+3697,cable kneeling rear delt row (with rope) (male),shoulders,shoulders,cable,trapezius,delts,trapezius,rhomboids,biceps,,,images/3697-G61cXLk.jpg,videos/3697-G61cXLk.gif,G61cXLk,2026-03-18T12:31:32.874731+00:00
+3758,lever standing chest press,chest,chest,leverage machine,shoulders,pectorals,shoulders,triceps,,,,images/3758-WbNq5Xu.jpg,videos/3758-WbNq5Xu.gif,WbNq5Xu,2026-03-18T12:31:32.887265+00:00
+3759,lever seated good morning,upper legs,upper legs,leverage machine,hamstrings,glutes,hamstrings,lower back,,,,images/3759-XsCcxCC.jpg,videos/3759-XsCcxCC.gif,XsCcxCC,2026-03-18T12:31:32.887005+00:00
+3760,lever seated crunch v. 2,waist,waist,leverage machine,obliques,abs,obliques,hip flexors,,,,images/3760-eXFXCY0.jpg,videos/3760-eXFXCY0.gif,eXFXCY0,2026-03-18T12:31:32.886953+00:00
+3888,dumbbell one arm snatch,upper legs,upper legs,dumbbell,hamstrings,glutes,hamstrings,quadriceps,core,,,images/3888-6pTkI99.jpg,videos/3888-6pTkI99.gif,6pTkI99,2026-03-18T12:31:32.88017+00:00
+5201,dumbbell waiter biceps curl,upper arms,upper arms,dumbbell,forearms,biceps,forearms,shoulders,,,,images/5201-KOpzGBL.jpg,videos/5201-KOpzGBL.gif,KOpzGBL,2026-03-18T12:31:32.882466+00:00
