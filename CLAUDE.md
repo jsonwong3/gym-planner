@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Frontend-only prototype: rotate a 3D body, tap a muscle, browse exercises, build a multi-day plan, view a heatmap of trained muscles. See [README.md](README.md) for the file-by-file map, intensity scale, heatmap formula and GLB swap guide; don't duplicate it here, and keep it current when behaviour changes.
+Frontend-only prototype: rotate a 3D body, tap a muscle, browse exercises, build a multi-day plan, view a heatmap of trained muscles. See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for the file-by-file map, intensity scale, heatmap formula, exercise data pipeline and GLB swap guide; don't duplicate it here, and keep it current when behaviour changes. [README.md](README.md) is for people building the project (setup, commands, GIF download); keep it free of internals.
 
 ## Commands
 
@@ -9,9 +9,10 @@ npm run dev      # Vite dev server, http://localhost:5173
 npm run build    # tsc --noEmit && vite build — the only correctness check
 npm run desktop:dev / desktop / desktop:dist   # Electron (electron/main.js); installers go to release/
 npm run android:sync / android:open / android  # Capacitor (capacitor.config.ts, android/)
+npm run gifs     # copy exercise GIFs from exercises-dataset-main/ into public/exercise-gifs/
 ```
 
-Desktop and Android wrap the same `dist/`; keep app code platform-neutral (see README "Desktop and Android").
+Desktop and Android wrap the same `dist/`; keep app code platform-neutral (see docs/ARCHITECTURE.md "Desktop and Android").
 
 There are no tests, linter or formatter. Verify changes with `npm run build`.
 
@@ -33,6 +34,7 @@ Vite + React 19 + TypeScript (strict), three.js via `@react-three/fiber` + `drei
 
 ## Gotchas
 
+- `exercises-dataset-main/` and `public/exercise-gifs/` are git-ignored on purpose: the GIFs are Gym visual's, not ours to redistribute. Never commit them. Any GIF shown must keep the "© Gym visual — https://gymvisual.com/" credit.
 - Don't use `crypto.randomUUID` — the app is often opened over plain http on a LAN IP for phone testing (not a secure context). Use the existing `newId()`.
 - Clicks vs. orbit drags are distinguished with R3F's `e.delta`; the body is one GLB mesh, so the first hit wins and untagged areas act as skin (you can't click through the torso).
 - `select()` keeps the user on the heatmap tab if they're there (shows the breakdown); elsewhere it switches to exercises.

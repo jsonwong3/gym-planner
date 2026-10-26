@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
+    "gifs": "node scripts/copy-exercise-gifs.mjs",
     "desktop:dev": "concurrently -k -n vite,electron \"vite --strictPort\" \"wait-on tcp:5173 && electron . --dev\"",
     "desktop": "npm run build && electron .",
     "desktop:dist": "npm run build && electron-builder --win",

@@ -2,6 +2,7 @@ import type { CSSProperties, KeyboardEvent, PointerEvent } from 'react'
 import BodyViewer from './components/BodyViewer'
 import DayPicker from './components/DayPicker'
 import ExercisePanel from './components/ExercisePanel'
+import ExercisePreview from './components/ExercisePreview'
 import HeatmapPanel from './components/HeatmapPanel'
 import PlanPanel from './components/PlanPanel'
 import Settings from './components/Settings'
@@ -107,6 +108,7 @@ export default function App() {
 
         <aside className="sidebar">
           {!collapsed && <ResizeHandle />}
+          <ExercisePreview />
           <div className="tabs" role="tablist">
             {TABS.map((t) => (
               <button

@@ -2,7 +2,7 @@ import { EXERCISES, exercisesForTarget } from '../data/exercises'
 import type { Exercise } from '../data/exercises'
 import { MUSCLES, TARGETS, groupOf, isGroup, musclesOf, visibleTargets } from '../data/muscles'
 import type { Target } from '../data/muscles'
-import { useMemo } from 'react'
+import { useEffect, useMemo } from 'react'
 import type { PointerEvent } from 'react'
 import { searchExercises } from '../search'
 import { useStore } from '../store'
@@ -11,6 +11,14 @@ import MuscleTags from './MuscleTags'
 /** `muscle` is highlighted in the exercise's muscle tags (none in search results). */
 function ExerciseRow({ exercise, muscle }: { exercise: Exercise; muscle: Target | null }) {
   const openPicker = useStore((s) => s.openPicker)
+  const setPreview = useStore((s) => s.setPreviewExercise)
+  // A row that disappears under the mouse (tab switch, new search) never gets a pointerleave.
+  useEffect(
+    () => () => {
+      if (useStore.getState().previewExerciseId === exercise.id) setPreview(null)
+    },
+    [exercise.id, setPreview],
+  )
   // Titles of the days this exercise is already in (a string, so the selector stays stable).
   const inDays = useStore((s) =>
     s.days
@@ -19,7 +27,12 @@ function ExerciseRow({ exercise, muscle }: { exercise: Exercise; muscle: Target 
       .join(', '),
   )
   return (
-    <li className="row">
+    <li
+      className="row"
+      // Mouse only, like the chips' hover preview: a tap fires pointerenter but often no pointerleave.
+      onPointerEnter={(e) => e.pointerType === 'mouse' && setPreview(exercise.id)}
+      onPointerLeave={() => setPreview(null)}
+    >
       <div className="row-main">
         <div className="row-name">{exercise.name}</div>
         <MuscleTags exercise={exercise} highlight={muscle} />
@@ -27,7 +40,10 @@ function ExerciseRow({ exercise, muscle }: { exercise: Exercise; muscle: Target 
       </div>
       <button
         className="add"
-        onClick={() => openPicker(exercise.id)}
+        onClick={() => {
+          setPreview(null) // the dialog covers the row without a pointerleave
+          openPicker(exercise.id)
+        }}
         aria-label={`Add ${exercise.name} to a day`}
       >
         + Add

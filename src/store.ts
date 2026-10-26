@@ -91,6 +91,8 @@ interface State {
   trackWeek: string
   /** Exercises tab search box; non-empty shows search results instead of the selected muscle's list. Not persisted. */
   exerciseQuery: string
+  /** Exercise row the mouse is over, whose GIF shows beside the sidebar. Not persisted. */
+  previewExerciseId: string | null
 
   select: (id: Target | null) => void
   hover: (id: Target | null) => void
@@ -131,6 +133,7 @@ interface State {
   /** Opens or closes the settings dialog (the cog in the top bar). */
   setSettingsOpen: (open: boolean) => void
   setExerciseQuery: (query: string) => void
+  setPreviewExercise: (exerciseId: string | null) => void
 
   /** Creates an empty day and returns its id. Blank title falls back to the next free "Day N". */
   addDay: (title?: string) => string
@@ -275,6 +278,7 @@ export const useStore = create<State>()(
       log: {},
       trackWeek: weekOf(),
       exerciseQuery: '',
+      previewExerciseId: null,
 
       // Picking a muscle shows its exercises (so it also clears any search), except while looking at
       // the heatmap, where it should stay put and show that muscle's breakdown.
@@ -345,6 +349,7 @@ export const useStore = create<State>()(
       setHeatPalette: (palette) => set({ heatPalette: palette }),
       setSettingsOpen: (open) => set({ settingsOpen: open }),
       setExerciseQuery: (query) => set({ exerciseQuery: query }),
+      setPreviewExercise: (exerciseId) => set({ previewExerciseId: exerciseId }),
 
       addDay: (title) => {
         const id = newId()

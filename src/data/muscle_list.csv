@@ -1,102 +1,793 @@
 exercise_id,exercise_name,target_group,target_part,target_part_weight,secondary_part_0,secondary_part_weight_0,secondary_part_1,secondary_part_weight_1,secondary_part_2,secondary_part_weight_2,secondary_part_3,secondary_part_weight_3,secondary_part_4,secondary_part_weight_4
-0,Barbell Bench Press,Chest,Sternal Head,0.5,Clavicular Head,0.15,Anterior Deltoid,0.15,Triceps Lateral Head,0.1,Triceps Long Head,0.05,Triceps Medial Head,0.05
-1,Barbell Incline Bench Press,Chest,Clavicular Head,0.45,Sternal Head,0.15,Anterior Deltoid,0.2,Triceps Lateral Head,0.1,Triceps Long Head,0.05,Triceps Medial Head,0.05
-2,Barbell Decline Bench Press,Chest,Sternal Head,0.6,Triceps Lateral Head,0.15,Triceps Long Head,0.1,Triceps Medial Head,0.1,Anterior Deltoid,0.05,,
-3,Dumbbell Bench Press,Chest,Sternal Head,0.55,Clavicular Head,0.15,Anterior Deltoid,0.15,Triceps Lateral Head,0.1,Triceps Medial Head,0.05,,
-4,Dumbbell Incline Bench Press,Chest,Clavicular Head,0.5,Sternal Head,0.15,Anterior Deltoid,0.2,Triceps Lateral Head,0.1,Triceps Medial Head,0.05,,
-5,Dumbbell Decline Bench Press,Chest,Sternal Head,0.65,Triceps Lateral Head,0.15,Triceps Medial Head,0.1,Anterior Deltoid,0.1,,,,
-6,Machine Bench Press,Chest,Sternal Head,0.55,Clavicular Head,0.15,Anterior Deltoid,0.15,Triceps Lateral Head,0.1,Triceps Medial Head,0.05,,
-7,Machine Incline Bench Press,Chest,Clavicular Head,0.5,Sternal Head,0.15,Anterior Deltoid,0.2,Triceps Lateral Head,0.1,Triceps Medial Head,0.05,,
-8,Machine Decline Bench Press,Chest,Sternal Head,0.65,Triceps Lateral Head,0.15,Triceps Medial Head,0.1,Anterior Deltoid,0.1,,,,
-10,Cable Fly,Chest,Sternal Head,0.7,Clavicular Head,0.15,Anterior Deltoid,0.15,,,,,,
-11,Cable Low Fly,Chest,Clavicular Head,0.6,Sternal Head,0.15,Anterior Deltoid,0.25,,,,,,
-12,Dumbbell Fly,Chest,Sternal Head,0.7,Clavicular Head,0.15,Anterior Deltoid,0.15,,,,,,
-13,Dumbbell Decline Fly,Chest,Sternal Head,0.8,Clavicular Head,0.1,Anterior Deltoid,0.1,,,,,,
-14,Dumbbell Incline Fly,Chest,Clavicular Head,0.6,Sternal Head,0.15,Anterior Deltoid,0.25,,,,,,
-15,Machine Seated Fly,Chest,Sternal Head,0.7,Clavicular Head,0.2,Anterior Deltoid,0.1,,,,,,
-16,Barbell Close-Grip Bench Press,Tricep,Triceps Lateral Head,0.35,Triceps Medial Head,0.15,Triceps Long Head,0.15,Sternal Head,0.2,Anterior Deltoid,0.1,Clavicular Head,0.05
-17,Cable Overhead Extensions - Straight Bar,Tricep,Triceps Long Head,0.6,Triceps Lateral Head,0.2,Triceps Medial Head,0.2,,,,,,
-18,Cable Overhead Extensions - Rope,Tricep,Triceps Long Head,0.6,Triceps Lateral Head,0.2,Triceps Medial Head,0.2,,,,,,
-19,Dumbbell One-Arm Extension,Tricep,Triceps Long Head,0.6,Triceps Lateral Head,0.2,Triceps Medial Head,0.2,,,,,,
-20,Dumbbell Seated Extension,Tricep,Triceps Long Head,0.6,Triceps Lateral Head,0.2,Triceps Medial Head,0.2,,,,,,
-21,Barbell Seated Tricep Extensions,Tricep,Triceps Long Head,0.6,Triceps Lateral Head,0.2,Triceps Medial Head,0.2,,,,,,
-22,Barbell Lying Tricep Extensions,Tricep,Triceps Long Head,0.45,Triceps Lateral Head,0.3,Triceps Medial Head,0.25,,,,,,
-23,Cable Pushdown - Rope,Tricep,Triceps Lateral Head,0.5,Triceps Medial Head,0.3,Triceps Long Head,0.2,,,,,,
-24,Cable Pushdown - Straight Bar,Tricep,Triceps Lateral Head,0.5,Triceps Medial Head,0.3,Triceps Long Head,0.2,,,,,,
-25,Cable Pushdown - V Bar,Tricep,Triceps Lateral Head,0.5,Triceps Medial Head,0.3,Triceps Long Head,0.2,,,,,,
-26,Cable Reverse-Grip Pushdown,Tricep,Triceps Medial Head,0.5,Triceps Lateral Head,0.3,Triceps Long Head,0.2,,,,,,
-27,Dumbbell Kickback,Tricep,Triceps Lateral Head,0.45,Triceps Medial Head,0.3,Triceps Long Head,0.25,,,,,,
-28,Cable Kickback,Tricep,Triceps Lateral Head,0.45,Triceps Medial Head,0.3,Triceps Long Head,0.25,,,,,,
-29,Machine Overhead Extensions,Tricep,Triceps Long Head,0.6,Triceps Lateral Head,0.2,Triceps Medial Head,0.2,,,,,,
-30,Barbell Shoulder Press,Shoulder,Anterior Deltoid,0.45,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Triceps Medial Head,0.05,Clavicular Head,0.1,Upper Trapezius,0.1
-31,Dumbbell Shoulder Press,Shoulder,Anterior Deltoid,0.45,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Triceps Medial Head,0.05,Clavicular Head,0.1,Upper Trapezius,0.1
-32,Machine Shoulder Press,Shoulder,Anterior Deltoid,0.5,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Triceps Medial Head,0.05,Clavicular Head,0.1,Upper Trapezius,0.05
-33,Dumbbell Front Raise,Shoulder,Anterior Deltoid,0.7,Clavicular Head,0.15,Lateral Deltoid,0.1,Serratus Anterior,0.05,,,,
-34,Dumbbell Incline Raise,Shoulder,Anterior Deltoid,0.7,Clavicular Head,0.15,Lateral Deltoid,0.1,Serratus Anterior,0.05,,,,
-35,Dumbbell Lateral Raise,Shoulder,Lateral Deltoid,0.75,Anterior Deltoid,0.1,Upper Trapezius,0.1,Serratus Anterior,0.05,,,,
-36,Machine Lateral Raise,Shoulder,Lateral Deltoid,0.8,Anterior Deltoid,0.1,Upper Trapezius,0.1,,,,,,
-37,Cable Front Raise,Shoulder,Anterior Deltoid,0.7,Clavicular Head,0.15,Lateral Deltoid,0.1,Serratus Anterior,0.05,,,,
-38,Cable Lateral Raise,Shoulder,Lateral Deltoid,0.75,Anterior Deltoid,0.1,Upper Trapezius,0.1,Serratus Anterior,0.05,,,,
-39,Machine Reverse Fly,Shoulder,Posterior Deltoid,0.6,Middle Trapezius,0.2,Infraspinatus & Teres Minor,0.1,Lower Trapezius,0.1,,,,
-40,Dumbbell Lying Reverse Fly,Shoulder,Posterior Deltoid,0.6,Middle Trapezius,0.2,Infraspinatus & Teres Minor,0.1,Lower Trapezius,0.1,,,,
-41,Dumbbell Arnold Press,Shoulder,Anterior Deltoid,0.45,Lateral Deltoid,0.25,Triceps Lateral Head,0.1,Triceps Medial Head,0.05,Clavicular Head,0.1,Upper Trapezius,0.05
-42,Machine Preacher Curl,Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
-43,Dumbbell Preacher Curl,Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
-44,Cable Preacher Curl,Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
-45,Barbell Preacher Curl,Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
-46,Barbell Curl,Biceps,Biceps,0.75,Brachioradialis,0.15,Forearm Flexors,0.1,,,,,,
-47,Dumbbell Curl,Biceps,Biceps,0.75,Brachioradialis,0.15,Forearm Flexors,0.1,,,,,,
-48,Dumbbell Incline Curl,Biceps,Biceps,0.8,Brachioradialis,0.1,Forearm Flexors,0.1,,,,,,
-49,Dumbbell Incline Hammer Curl,Biceps,Biceps,0.5,Brachioradialis,0.4,Forearm Extensors,0.1,,,,,,
-50,Machine Preacher Curl,Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
-51,Machine Alternate Curls,Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
-52,Cable Rope Hammer Curl,Biceps,Biceps,0.5,Brachioradialis,0.4,Forearm Extensors,0.1,,,,,,
-53,Dumbbell Hammer Curl,Biceps,Biceps,0.5,Brachioradialis,0.4,Forearm Extensors,0.1,,,,,,
-54,Barbell Bent-Over Row,Back,Latissimus Dorsi & Teres Major,0.35,Middle Trapezius,0.25,Posterior Deltoid,0.15,Biceps,0.1,Erector Spinae,0.1,Brachioradialis,0.05
-55,Dumbbell Bent-Over Row,Back,Latissimus Dorsi & Teres Major,0.4,Middle Trapezius,0.2,Posterior Deltoid,0.15,Biceps,0.1,Erector Spinae,0.1,Brachioradialis,0.05
-56,Machine Bent-Over Row - V Bar,Back,Latissimus Dorsi & Teres Major,0.4,Middle Trapezius,0.25,Biceps,0.15,Posterior Deltoid,0.1,Brachioradialis,0.05,Erector Spinae,0.05
-57,Machine Bent-Over Row - T Bar,Back,Latissimus Dorsi & Teres Major,0.35,Middle Trapezius,0.3,Posterior Deltoid,0.15,Biceps,0.1,Brachioradialis,0.05,Erector Spinae,0.05
-58,Cable Reverse-Grip Lateral Pulldown - Straight Bar,Back,Latissimus Dorsi & Teres Major,0.55,Biceps,0.25,Lower Trapezius,0.1,Middle Trapezius,0.05,Brachioradialis,0.05,,
-59,Cable Lateral Pulldown - Straight Bar,Back,Latissimus Dorsi & Teres Major,0.55,Biceps,0.15,Lower Trapezius,0.1,Middle Trapezius,0.1,Posterior Deltoid,0.05,Brachioradialis,0.05
-60,Cable Lateral Pulldown - V Handle,Back,Latissimus Dorsi & Teres Major,0.6,Biceps,0.2,Lower Trapezius,0.1,Middle Trapezius,0.05,Brachioradialis,0.05,,
-61,Cable Seated Row - Straight Bar,Back,Middle Trapezius,0.35,Latissimus Dorsi & Teres Major,0.3,Posterior Deltoid,0.15,Biceps,0.1,Lower Trapezius,0.05,Brachioradialis,0.05
-62,Cable Seated Row - V Handle,Back,Latissimus Dorsi & Teres Major,0.4,Middle Trapezius,0.3,Biceps,0.15,Posterior Deltoid,0.1,Erector Spinae,0.05,,
-63,Cable Pushdown - Straight Arm,Back,Latissimus Dorsi & Teres Major,0.7,Triceps Long Head,0.15,Sternal Head,0.1,Abs,0.05,,,,
-64,Machine Alternating Row,Back,Latissimus Dorsi & Teres Major,0.4,Middle Trapezius,0.3,Biceps,0.15,Posterior Deltoid,0.1,Brachioradialis,0.05,,
-65,Machine Alternating Pulldown,Back,Latissimus Dorsi & Teres Major,0.6,Biceps,0.2,Lower Trapezius,0.1,Middle Trapezius,0.05,Brachioradialis,0.05,,
-66,Machine High Row,Back,Latissimus Dorsi & Teres Major,0.45,Middle Trapezius,0.2,Lower Trapezius,0.1,Posterior Deltoid,0.1,Biceps,0.1,Brachioradialis,0.05
-67,Barbell Shrug,Back,Upper Trapezius,0.8,Middle Trapezius,0.1,Forearm Flexors,0.1,,,,,,
-68,Dumbbell Shrug,Back,Upper Trapezius,0.8,Middle Trapezius,0.1,Forearm Flexors,0.1,,,,,,
-69,Machine Shrug,Back,Upper Trapezius,0.85,Middle Trapezius,0.1,Forearm Flexors,0.05,,,,,,
-70,Cable Facepull - Rope,Back,Middle Trapezius,0.35,Posterior Deltoid,0.35,Infraspinatus & Teres Minor,0.2,Lower Trapezius,0.1,,,,
-71,Machine Pushdown - Straight Arm,Back,Latissimus Dorsi & Teres Major,0.7,Sternal Head,0.15,Triceps Long Head,0.1,Serratus Anterior,0.05,,,,
-72,Hyperextension,Back,Erector Spinae,0.5,Glutes,0.3,Hamstrings,0.2,,,,,,
-73,Barbell Deadlift,Back,Erector Spinae,0.3,Glutes,0.3,Hamstrings,0.2,Quadriceps,0.1,Upper Trapezius,0.05,Forearm Flexors,0.05
-74,Machine Seated Hyperextension,Back,Erector Spinae,0.7,Glutes,0.2,Hamstrings,0.1,,,,,,
-75,Barbell Stiff-Leg Good Morning,Back,Erector Spinae,0.4,Hamstrings,0.35,Glutes,0.25,,,,,,
-76,Cable Hammer Curl,Forearms,Brachioradialis,0.5,Biceps,0.4,Forearm Extensors,0.1,,,,,,
-77,Dumbbell Reverse-Grip Curl,Forearms,Brachioradialis,0.45,Biceps,0.3,Forearm Extensors,0.25,,,,,,
-78,Barbell Reverse Wrist Curl,Forearms,Forearm Extensors,1,,,,,,,,,,
-79,Barbell Wrist Curl,Forearms,Forearm Flexors,1,,,,,,,,,,
+7,Alternate Lateral Pulldown,Back,Latissimus Dorsi & Teres Major,0.55,Biceps,0.15,Lower Trapezius,0.1,Middle Trapezius,0.1,Posterior Deltoid,0.05,Brachioradialis,0.05
+9,Assisted Chest Dip (Kneeling),Chest,Sternal Head,0.5,Anterior Deltoid,0.2,Triceps Lateral Head,0.15,Triceps Medial Head,0.1,Triceps Long Head,0.05,,
+15,Assisted Parallel Close Grip Pull-Up,Back,Latissimus Dorsi & Teres Major,0.6,Biceps,0.2,Lower Trapezius,0.1,Middle Trapezius,0.05,Brachioradialis,0.05,,
+17,Assisted Pull-Up,Back,Latissimus Dorsi & Teres Major,0.55,Biceps,0.15,Lower Trapezius,0.1,Middle Trapezius,0.1,Posterior Deltoid,0.05,Brachioradialis,0.05
+19,Assisted Triceps Dip (Kneeling),Triceps,Triceps Lateral Head,0.4,Triceps Medial Head,0.25,Triceps Long Head,0.15,Anterior Deltoid,0.15,Sternal Head,0.05,,
+22,Barbell Pullover to Press,Back,Latissimus Dorsi & Teres Major,0.5,Sternal Head,0.25,Triceps Long Head,0.15,Serratus Anterior,0.1,,,,
+23,Barbell Alternate Biceps Curl,Biceps,Biceps,0.75,Brachioradialis,0.15,Forearm Flexors,0.1,,,,,,
+24,Barbell Bench Front Squat,Legs,Quadriceps,0.6,Glutes,0.15,Adductors,0.1,Erector Spinae,0.1,Abs,0.05,,
+25,Barbell Bench Press,Chest,Sternal Head,0.5,Clavicular Head,0.15,Anterior Deltoid,0.15,Triceps Lateral Head,0.1,Triceps Long Head,0.05,Triceps Medial Head,0.05
+26,Barbell Bench Squat,Legs,Quadriceps,0.45,Glutes,0.25,Adductors,0.15,Erector Spinae,0.1,Hamstrings,0.05,,
+27,Barbell Bent over Row,Back,Latissimus Dorsi & Teres Major,0.35,Middle Trapezius,0.25,Posterior Deltoid,0.15,Biceps,0.1,Erector Spinae,0.1,Brachioradialis,0.05
+28,Barbell Clean and Press,Shoulders,Anterior Deltoid,0.35,Quadriceps,0.2,Glutes,0.15,Triceps Lateral Head,0.1,Lateral Deltoid,0.1,Upper Trapezius,0.1
+29,Barbell Clean-Grip Front Squat,Legs,Quadriceps,0.6,Glutes,0.15,Adductors,0.1,Erector Spinae,0.1,Abs,0.05,,
+30,Barbell Close-Grip Bench Press,Triceps,Triceps Lateral Head,0.35,Sternal Head,0.2,Triceps Medial Head,0.15,Triceps Long Head,0.15,Anterior Deltoid,0.1,Clavicular Head,0.05
+31,Barbell Curl,Biceps,Biceps,0.75,Brachioradialis,0.15,Forearm Flexors,0.1,,,,,,
+32,Barbell Deadlift,Back,Erector Spinae,0.3,Glutes,0.3,Hamstrings,0.2,Quadriceps,0.1,Upper Trapezius,0.05,Forearm Flexors,0.05
+33,Barbell Decline Bench Press,Chest,Sternal Head,0.6,Triceps Lateral Head,0.15,Triceps Long Head,0.1,Triceps Medial Head,0.1,Anterior Deltoid,0.05,,
+34,Barbell Decline Bent Arm Pullover,Back,Latissimus Dorsi & Teres Major,0.5,Sternal Head,0.25,Triceps Long Head,0.15,Serratus Anterior,0.1,,,,
+35,Barbell Decline Close Grip to Skull Press,Triceps,Triceps Long Head,0.45,Triceps Lateral Head,0.3,Triceps Medial Head,0.25,,,,,,
+36,Barbell Decline Wide-Grip Press,Chest,Sternal Head,0.6,Triceps Lateral Head,0.15,Triceps Long Head,0.1,Triceps Medial Head,0.1,Anterior Deltoid,0.05,,
+37,Barbell Decline Wide-Grip Pullover,Back,Latissimus Dorsi & Teres Major,0.5,Sternal Head,0.25,Triceps Long Head,0.15,Serratus Anterior,0.1,,,,
+38,Barbell Drag Curl,Biceps,Biceps,0.8,Brachioradialis,0.1,Forearm Flexors,0.1,,,,,,
+39,Barbell Front Chest Squat,Legs,Quadriceps,0.6,Glutes,0.15,Adductors,0.1,Erector Spinae,0.1,Abs,0.05,,
+40,Barbell Front Raise and Pullover,Chest,Sternal Head,0.45,Latissimus Dorsi & Teres Major,0.3,Triceps Long Head,0.15,Serratus Anterior,0.1,,,,
+41,Barbell Front Raise,Shoulders,Anterior Deltoid,0.7,Clavicular Head,0.15,Lateral Deltoid,0.1,Serratus Anterior,0.05,,,,
+42,Barbell Front Squat,Legs,Quadriceps,0.6,Glutes,0.15,Adductors,0.1,Erector Spinae,0.1,Abs,0.05,,
+43,Barbell Full Squat,Legs,Quadriceps,0.45,Glutes,0.25,Adductors,0.15,Erector Spinae,0.1,Hamstrings,0.05,,
+44,Barbell Good Morning,Back,Erector Spinae,0.4,Hamstrings,0.35,Glutes,0.25,,,,,,
+45,Barbell Guillotine Bench Press,Chest,Sternal Head,0.5,Clavicular Head,0.15,Anterior Deltoid,0.15,Triceps Lateral Head,0.1,Triceps Long Head,0.05,Triceps Medial Head,0.05
+46,Barbell Hack Squat,Legs,Quadriceps,0.65,Glutes,0.2,Adductors,0.1,Hamstrings,0.05,,,,
+47,Barbell Incline Bench Press,Chest,Clavicular Head,0.45,Anterior Deltoid,0.2,Sternal Head,0.15,Triceps Lateral Head,0.1,Triceps Long Head,0.05,Triceps Medial Head,0.05
+48,Barbell Incline Reverse-Grip Press,Triceps,Triceps Lateral Head,0.35,Sternal Head,0.2,Triceps Medial Head,0.15,Triceps Long Head,0.15,Anterior Deltoid,0.1,Clavicular Head,0.05
+49,Barbell Incline Row,Back,Middle Trapezius,0.4,Latissimus Dorsi & Teres Major,0.25,Posterior Deltoid,0.15,Biceps,0.1,Lower Trapezius,0.05,Brachioradialis,0.05
+50,Barbell Incline Shoulder Raise,Chest,Serratus Anterior,0.75,Anterior Deltoid,0.15,Sternal Head,0.1,,,,,,
+51,Barbell Jefferson Squat,Legs,Quadriceps,0.45,Glutes,0.25,Adductors,0.15,Erector Spinae,0.1,Hamstrings,0.05,,
+52,Barbell JM Bench Press,Triceps,Triceps Lateral Head,0.35,Sternal Head,0.2,Triceps Medial Head,0.15,Triceps Long Head,0.15,Anterior Deltoid,0.1,Clavicular Head,0.05
+53,Barbell Jump Squat,Legs,Quadriceps,0.45,Glutes,0.3,Calves,0.1,Adductors,0.1,Hamstrings,0.05,,
+54,Barbell Lunge,Legs,Quadriceps,0.45,Glutes,0.3,Adductors,0.1,Hamstrings,0.05,Abductors,0.05,Calves,0.05
+55,Barbell Lying Close-Grip Press,Triceps,Triceps Lateral Head,0.35,Sternal Head,0.2,Triceps Medial Head,0.15,Triceps Long Head,0.15,Anterior Deltoid,0.1,Clavicular Head,0.05
+56,Barbell Lying Close-Grip Triceps Extension,Triceps,Triceps Long Head,0.45,Triceps Lateral Head,0.3,Triceps Medial Head,0.25,,,,,,
+57,Barbell Lying Extension,Triceps,Triceps Long Head,0.45,Triceps Lateral Head,0.3,Triceps Medial Head,0.25,,,,,,
+58,Barbell Lying Lifting (On Hip),Legs,Glutes,0.75,Hamstrings,0.15,Quadriceps,0.05,Adductors,0.05,,,,
+59,Barbell Lying Preacher Curl,Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
+60,Barbell Lying Triceps Extension Skull Crusher,Triceps,Triceps Long Head,0.45,Triceps Lateral Head,0.3,Triceps Medial Head,0.25,,,,,,
+61,Barbell Lying Triceps Extension,Triceps,Triceps Long Head,0.45,Triceps Lateral Head,0.3,Triceps Medial Head,0.25,,,,,,
+63,Barbell Narrow Stance Squat,Legs,Quadriceps,0.45,Glutes,0.25,Adductors,0.15,Erector Spinae,0.1,Hamstrings,0.05,,
+64,Barbell One Arm Bent over Row,Back,Latissimus Dorsi & Teres Major,0.4,Middle Trapezius,0.2,Posterior Deltoid,0.15,Biceps,0.1,Erector Spinae,0.1,Brachioradialis,0.05
+65,Barbell One Arm Floor Press,Triceps,Triceps Lateral Head,0.35,Sternal Head,0.2,Triceps Medial Head,0.15,Triceps Long Head,0.15,Anterior Deltoid,0.1,Clavicular Head,0.05
+66,Barbell One Arm Side Deadlift,Legs,Glutes,0.3,Quadriceps,0.2,Obliques,0.2,Hamstrings,0.1,Erector Spinae,0.1,Forearm Flexors,0.1
+67,Barbell One Arm Snatch,Legs,Glutes,0.3,Hamstrings,0.15,Quadriceps,0.15,Upper Trapezius,0.15,Anterior Deltoid,0.15,Erector Spinae,0.1
+68,Barbell One Leg Squat,Legs,Quadriceps,0.5,Glutes,0.3,Adductors,0.05,Abductors,0.05,Abs,0.05,Calves,0.05
+69,Barbell Overhead Squat,Legs,Quadriceps,0.45,Glutes,0.2,Adductors,0.1,Erector Spinae,0.1,Anterior Deltoid,0.1,Abs,0.05
+70,Barbell Preacher Curl,Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
+71,Barbell Press Sit-Up,Core,Abs,0.7,Anterior Deltoid,0.1,Obliques,0.1,Quadriceps,0.1,,,,
+72,Barbell Prone Incline Curl,Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
+73,Barbell Pullover,Back,Latissimus Dorsi & Teres Major,0.5,Sternal Head,0.25,Triceps Long Head,0.15,Serratus Anterior,0.1,,,,
+74,Barbell Rack Pull,Back,Erector Spinae,0.35,Upper Trapezius,0.2,Glutes,0.2,Hamstrings,0.1,Forearm Flexors,0.1,Latissimus Dorsi & Teres Major,0.05
+75,Barbell Rear Delt Raise,Shoulders,Posterior Deltoid,0.6,Middle Trapezius,0.2,Infraspinatus & Teres Minor,0.1,Lower Trapezius,0.1,,,,
+76,Barbell Rear Delt Row,Shoulders,Posterior Deltoid,0.45,Middle Trapezius,0.25,Latissimus Dorsi & Teres Major,0.1,Biceps,0.1,Infraspinatus & Teres Minor,0.05,Lower Trapezius,0.05
+77,Barbell Rear Lunge V2,Legs,Quadriceps,0.45,Glutes,0.3,Adductors,0.1,Hamstrings,0.05,Abductors,0.05,Calves,0.05
+78,Barbell Rear Lunge,Legs,Quadriceps,0.45,Glutes,0.3,Adductors,0.1,Hamstrings,0.05,Abductors,0.05,Calves,0.05
+79,Barbell Reverse Wrist Curl V2,Forearms,Forearm Extensors,1,,,,,,,,,,
 80,Barbell Reverse Curl,Forearms,Brachioradialis,0.45,Biceps,0.3,Forearm Extensors,0.25,,,,,,
-81,Dumbbell Alternating Wrist Curl,Forearms,Forearm Flexors,1,,,,,,,,,,
-82,Dumbbell Alternating Reverse Wrist Curl,Forearms,Forearm Extensors,1,,,,,,,,,,
-83,Wrist Roller,Forearms,Forearm Flexors,0.5,Forearm Extensors,0.4,Brachioradialis,0.1,,,,,,
-84,Plate Pinch,Forearms,Forearm Flexors,0.8,Forearm Extensors,0.2,,,,,,,,
-85,Machine Seated Calf Raise,Legs,Calves,1,,,,,,,,,,
-86,Machine Standing Calf Raise,Legs,Calves,1,,,,,,,,,,
-87,Barbell Squat,Legs,Quadriceps,0.45,Glutes,0.25,Adductors,0.15,Erector Spinae,0.1,Hamstrings,0.05,,
-88,Barbell Sumo Deadlift,Legs,Glutes,0.3,Adductors,0.2,Quadriceps,0.2,Hamstrings,0.15,Erector Spinae,0.1,Forearm Flexors,0.05
-89,Dumbbell Lunges,Legs,Quadriceps,0.45,Glutes,0.3,Adductors,0.1,Hamstrings,0.05,Abductors,0.05,Calves,0.05
-90,Machine Seated Leg Extensions,Legs,Quadriceps,1,,,,,,,,,,
-91,Machine Seated Leg Curls,Legs,Hamstrings,0.9,Calves,0.1,,,,,,,,
-92,Machine Lying Leg Curls,Legs,Hamstrings,0.85,Calves,0.1,Glutes,0.05,,,,,,
-93,Machine Leg Press,Legs,Quadriceps,0.55,Glutes,0.25,Adductors,0.15,Hamstrings,0.05,,,,
-94,Machine Sled Hack Squat,Legs,Quadriceps,0.65,Glutes,0.2,Adductors,0.1,Hamstrings,0.05,,,,
-95,Machine Pendulum Squat,Legs,Quadriceps,0.65,Glutes,0.2,Adductors,0.1,Hamstrings,0.05,,,,
-96,Machine Incline Row,Back,Middle Trapezius,0.4,Latissimus Dorsi & Teres Major,0.25,Posterior Deltoid,0.15,Biceps,0.1,Lower Trapezius,0.05,Brachioradialis,0.05
-97,Machine Hip Abductors,Legs,Abductors,0.8,Glutes,0.2,,,,,,,,
-98,Machine Hip Adductors,Legs,Adductors,1,,,,,,,,,,
-99,Hip Thrust,Legs,Glutes,0.7,Hamstrings,0.15,Quadriceps,0.1,Adductors,0.05,,,,
-100,Romanian Deadlift,Legs,Hamstrings,0.45,Glutes,0.3,Erector Spinae,0.15,Adductors,0.05,Forearm Flexors,0.05,,
-101,Cable Kickback,Legs,Glutes,0.85,Hamstrings,0.15,,,,,,,,
+81,Barbell Reverse Preacher Curl,Forearms,Brachioradialis,0.45,Biceps,0.3,Forearm Extensors,0.25,,,,,,
+82,Barbell Reverse Wrist Curl,Forearms,Forearm Extensors,1,,,,,,,,,,
+83,Barbell Rollerout from Bench,Core,Abs,0.6,Latissimus Dorsi & Teres Major,0.15,Obliques,0.1,Serratus Anterior,0.1,Triceps Long Head,0.05,,
+84,Barbell Rollerout,Core,Abs,0.6,Latissimus Dorsi & Teres Major,0.15,Obliques,0.1,Serratus Anterior,0.1,Triceps Long Head,0.05,,
+85,Barbell Romanian Deadlift,Legs,Hamstrings,0.45,Glutes,0.3,Erector Spinae,0.15,Adductors,0.05,Forearm Flexors,0.05,,
+86,Barbell Seated Behind Head Military Press,Shoulders,Anterior Deltoid,0.45,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Upper Trapezius,0.1,Triceps Medial Head,0.05
+87,Barbell Seated Bradford Rocky Press,Shoulders,Anterior Deltoid,0.45,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Upper Trapezius,0.1,Triceps Medial Head,0.05
+88,Barbell Seated Calf Raise,Legs,Calves,1,,,,,,,,,,
+89,Barbell Seated Close-Grip Concentration Curl,Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
+90,Barbell Seated Good Morning,Back,Erector Spinae,0.6,Glutes,0.25,Hamstrings,0.15,,,,,,
+91,Barbell Seated Overhead Press,Shoulders,Anterior Deltoid,0.45,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Upper Trapezius,0.1,Triceps Medial Head,0.05
+92,Barbell Seated Overhead Triceps Extension,Triceps,Triceps Long Head,0.6,Triceps Lateral Head,0.2,Triceps Medial Head,0.2,,,,,,
+94,Barbell Seated Twist,Core,Obliques,0.65,Abs,0.35,,,,,,,,
+95,Barbell Shrug,Back,Upper Trapezius,0.8,Middle Trapezius,0.1,Forearm Flexors,0.1,,,,,,
+96,Barbell Side Bend V2,Core,Obliques,0.75,Abs,0.1,Erector Spinae,0.1,Forearm Flexors,0.05,,,,
+97,Barbell Side Split Squat V2,Legs,Quadriceps,0.4,Adductors,0.3,Glutes,0.25,Hamstrings,0.05,,,,
+98,Barbell Side Split Squat,Legs,Quadriceps,0.4,Adductors,0.3,Glutes,0.25,Hamstrings,0.05,,,,
+99,Barbell Single Leg Split Squat,Legs,Quadriceps,0.45,Glutes,0.35,Adductors,0.1,Hamstrings,0.05,Abductors,0.05,,
+100,Barbell Skier,Shoulders,Anterior Deltoid,0.4,Obliques,0.3,Abs,0.15,Lateral Deltoid,0.15,,,,
+101,Barbell Speed Squat,Legs,Quadriceps,0.45,Glutes,0.3,Calves,0.1,Adductors,0.1,Hamstrings,0.05,,
+102,Barbell Squat (On Knees),Legs,Glutes,0.6,Quadriceps,0.2,Hamstrings,0.1,Adductors,0.1,,,,
+103,Barbell Standing Ab Rollerout,Core,Abs,0.6,Latissimus Dorsi & Teres Major,0.15,Obliques,0.1,Serratus Anterior,0.1,Triceps Long Head,0.05,,
+104,Barbell Standing Back Wrist Curl,Forearms,Forearm Flexors,1,,,,,,,,,,
+105,Barbell Standing Bradford Press,Shoulders,Anterior Deltoid,0.45,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Upper Trapezius,0.1,Triceps Medial Head,0.05
+106,Barbell Standing Close Grip Curl,Biceps,Biceps,0.75,Brachioradialis,0.15,Forearm Flexors,0.1,,,,,,
+107,Barbell Standing Front Raise over Head,Shoulders,Anterior Deltoid,0.7,Clavicular Head,0.15,Lateral Deltoid,0.1,Serratus Anterior,0.05,,,,
+108,Barbell Standing Leg Calf Raise,Legs,Calves,1,,,,,,,,,,
+109,Barbell Standing Overhead Triceps Extension,Triceps,Triceps Long Head,0.6,Triceps Lateral Head,0.2,Triceps Medial Head,0.2,,,,,,
+110,Barbell Standing Reverse Grip Curl,Forearms,Brachioradialis,0.45,Biceps,0.3,Forearm Extensors,0.25,,,,,,
+111,Barbell Standing Rocking Leg Calf Raise,Legs,Calves,1,,,,,,,,,,
+112,Barbell Standing Twist,Core,Obliques,0.65,Abs,0.35,,,,,,,,
+113,Barbell Standing Wide-Grip Curl,Biceps,Biceps,0.75,Brachioradialis,0.15,Forearm Flexors,0.1,,,,,,
+114,Barbell Step-Up,Legs,Quadriceps,0.45,Glutes,0.35,Hamstrings,0.1,Abductors,0.05,Calves,0.05,,
+115,Barbell Stiff Leg Good Morning,Back,Erector Spinae,0.4,Hamstrings,0.35,Glutes,0.25,,,,,,
+116,Barbell Straight Leg Deadlift,Legs,Hamstrings,0.45,Glutes,0.3,Erector Spinae,0.15,Adductors,0.05,Forearm Flexors,0.05,,
+117,Barbell Sumo Deadlift,Legs,Glutes,0.3,Adductors,0.2,Quadriceps,0.2,Hamstrings,0.15,Erector Spinae,0.1,Forearm Flexors,0.05
+118,Barbell Reverse Grip Bent over Row,Back,Latissimus Dorsi & Teres Major,0.4,Middle Trapezius,0.25,Biceps,0.2,Posterior Deltoid,0.1,Brachioradialis,0.05,,
+119,Barbell Upright Row V2,Shoulders,Lateral Deltoid,0.45,Upper Trapezius,0.3,Anterior Deltoid,0.1,Biceps,0.1,Brachioradialis,0.05,,
+120,Barbell Upright Row,Shoulders,Lateral Deltoid,0.45,Upper Trapezius,0.3,Anterior Deltoid,0.1,Biceps,0.1,Brachioradialis,0.05,,
+121,Barbell Upright Row V3,Shoulders,Lateral Deltoid,0.45,Upper Trapezius,0.3,Anterior Deltoid,0.1,Biceps,0.1,Brachioradialis,0.05,,
+122,Barbell Wide Bench Press,Chest,Sternal Head,0.5,Clavicular Head,0.15,Anterior Deltoid,0.15,Triceps Lateral Head,0.1,Triceps Long Head,0.05,Triceps Medial Head,0.05
+123,Barbell Wide-Grip Upright Row,Shoulders,Lateral Deltoid,0.45,Upper Trapezius,0.3,Anterior Deltoid,0.1,Biceps,0.1,Brachioradialis,0.05,,
+124,Barbell Wide Squat,Legs,Quadriceps,0.35,Glutes,0.3,Adductors,0.25,Erector Spinae,0.05,Hamstrings,0.05,,
+125,Barbell Wrist Curl V2,Forearms,Forearm Flexors,1,,,,,,,,,,
+126,Barbell Wrist Curl,Forearms,Forearm Flexors,1,,,,,,,,,,
+127,Barbell Zercher Squat,Legs,Quadriceps,0.6,Glutes,0.15,Adductors,0.1,Erector Spinae,0.1,Abs,0.05,,
+148,Cable Alternate Shoulder Press,Shoulders,Anterior Deltoid,0.5,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Triceps Medial Head,0.05,Upper Trapezius,0.05
+149,Cable Alternate Triceps Extension,Triceps,Triceps Long Head,0.6,Triceps Lateral Head,0.2,Triceps Medial Head,0.2,,,,,,
+150,Cable Bar Lateral Pulldown,Back,Latissimus Dorsi & Teres Major,0.55,Biceps,0.15,Lower Trapezius,0.1,Middle Trapezius,0.1,Posterior Deltoid,0.05,Brachioradialis,0.05
+151,Cable Bench Press,Chest,Sternal Head,0.55,Clavicular Head,0.15,Anterior Deltoid,0.15,Triceps Lateral Head,0.1,Triceps Medial Head,0.05,,
+152,Cable Concentration Extension (On Knee),Triceps,Triceps Long Head,0.45,Triceps Lateral Head,0.3,Triceps Medial Head,0.25,,,,,,
+153,Cable Cross-Over Lateral Pulldown,Back,Latissimus Dorsi & Teres Major,0.55,Biceps,0.15,Lower Trapezius,0.1,Middle Trapezius,0.1,Posterior Deltoid,0.05,Brachioradialis,0.05
+154,Cable Cross-Over Reverse Fly,Shoulders,Posterior Deltoid,0.6,Middle Trapezius,0.2,Infraspinatus & Teres Minor,0.1,Lower Trapezius,0.1,,,,
+155,Cable Cross-Over Variation,Chest,Sternal Head,0.7,Clavicular Head,0.15,Anterior Deltoid,0.15,,,,,,
+157,Cable Deadlift,Back,Erector Spinae,0.3,Glutes,0.3,Hamstrings,0.2,Quadriceps,0.1,Upper Trapezius,0.05,Forearm Flexors,0.05
+158,Cable Decline Fly,Chest,Sternal Head,0.8,Clavicular Head,0.1,Anterior Deltoid,0.1,,,,,,
+159,Cable Decline Seated Wide-Grip Row,Back,Middle Trapezius,0.35,Latissimus Dorsi & Teres Major,0.3,Posterior Deltoid,0.15,Biceps,0.1,Lower Trapezius,0.05,Brachioradialis,0.05
+160,Cable Floor Seated Wide-Grip Row,Back,Middle Trapezius,0.35,Latissimus Dorsi & Teres Major,0.3,Posterior Deltoid,0.15,Biceps,0.1,Lower Trapezius,0.05,Brachioradialis,0.05
+161,Cable Forward Raise,Shoulders,Anterior Deltoid,0.7,Clavicular Head,0.15,Lateral Deltoid,0.1,Serratus Anterior,0.05,,,,
+162,Cable Front Raise,Shoulders,Anterior Deltoid,0.7,Clavicular Head,0.15,Lateral Deltoid,0.1,Serratus Anterior,0.05,,,,
+164,Cable Front Shoulder Raise,Shoulders,Anterior Deltoid,0.7,Clavicular Head,0.15,Lateral Deltoid,0.1,Serratus Anterior,0.05,,,,
+165,Cable Hammer Curl (With Rope),Biceps,Biceps,0.5,Brachioradialis,0.4,Forearm Extensors,0.1,,,,,,
+167,Cable High Row (Kneeling),Back,Latissimus Dorsi & Teres Major,0.45,Middle Trapezius,0.2,Lower Trapezius,0.1,Posterior Deltoid,0.1,Biceps,0.1,Brachioradialis,0.05
+168,Cable Hip Adduction,Legs,Adductors,1,,,,,,,,,,
+169,Cable Incline Bench Press,Chest,Clavicular Head,0.5,Anterior Deltoid,0.2,Sternal Head,0.15,Triceps Lateral Head,0.1,Triceps Medial Head,0.05,,
+170,Cable Incline Fly (On Stability Ball),Chest,Clavicular Head,0.6,Anterior Deltoid,0.25,Sternal Head,0.15,,,,,,
+171,Cable Incline Fly,Chest,Clavicular Head,0.6,Anterior Deltoid,0.25,Sternal Head,0.15,,,,,,
+172,Cable Incline Pushdown,Back,Latissimus Dorsi & Teres Major,0.7,Triceps Long Head,0.15,Sternal Head,0.1,Abs,0.05,,,,
+173,Cable Incline Triceps Extension,Triceps,Triceps Long Head,0.45,Triceps Lateral Head,0.3,Triceps Medial Head,0.25,,,,,,
+174,Cable Judo Flip,Core,Obliques,0.5,Abs,0.3,Latissimus Dorsi & Teres Major,0.2,,,,,,
+175,Cable Kneeling Crunch,Core,Abs,0.85,Obliques,0.15,,,,,,,,
+176,Cable Kneeling Triceps Extension,Triceps,Triceps Long Head,0.6,Triceps Lateral Head,0.2,Triceps Medial Head,0.2,,,,,,
+177,Cable Lateral Pulldown (With Rope Attachment),Back,Latissimus Dorsi & Teres Major,0.55,Biceps,0.15,Lower Trapezius,0.1,Middle Trapezius,0.1,Posterior Deltoid,0.05,Brachioradialis,0.05
+178,Cable Lateral Raise,Shoulders,Lateral Deltoid,0.75,Anterior Deltoid,0.1,Upper Trapezius,0.1,Serratus Anterior,0.05,,,,
+179,Cable Low Fly,Chest,Clavicular Head,0.6,Anterior Deltoid,0.25,Sternal Head,0.15,,,,,,
+180,Cable Low Seated Row,Back,Latissimus Dorsi & Teres Major,0.4,Middle Trapezius,0.3,Biceps,0.15,Posterior Deltoid,0.1,Erector Spinae,0.05,,
+182,Cable Lying Close-Grip Curl,Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
+184,Cable Lying Extension Pullover (With Rope Attachment),Back,Latissimus Dorsi & Teres Major,0.5,Sternal Head,0.25,Triceps Long Head,0.15,Serratus Anterior,0.1,,,,
+185,Cable Lying Fly,Chest,Sternal Head,0.7,Clavicular Head,0.15,Anterior Deltoid,0.15,,,,,,
+186,Cable Lying Triceps Extension V2,Triceps,Triceps Long Head,0.45,Triceps Lateral Head,0.3,Triceps Medial Head,0.25,,,,,,
+188,Cable Middle Fly,Chest,Sternal Head,0.7,Clavicular Head,0.15,Anterior Deltoid,0.15,,,,,,
+189,Cable One Arm Bent over Row,Back,Latissimus Dorsi & Teres Major,0.35,Middle Trapezius,0.25,Posterior Deltoid,0.15,Biceps,0.1,Erector Spinae,0.1,Brachioradialis,0.05
+190,Cable One Arm Curl,Biceps,Biceps,0.75,Brachioradialis,0.15,Forearm Flexors,0.1,,,,,,
+191,Cable One Arm Lateral Bent-Over,Shoulders,Posterior Deltoid,0.6,Middle Trapezius,0.2,Infraspinatus & Teres Minor,0.1,Lower Trapezius,0.1,,,,
+192,Cable One Arm Lateral Raise,Shoulders,Lateral Deltoid,0.75,Anterior Deltoid,0.1,Upper Trapezius,0.1,Serratus Anterior,0.05,,,,
+193,Cable One Arm Straight Back High Row (Kneeling),Back,Latissimus Dorsi & Teres Major,0.45,Middle Trapezius,0.2,Lower Trapezius,0.1,Posterior Deltoid,0.1,Biceps,0.1,Brachioradialis,0.05
+194,Cable Overhead Triceps Extension (Rope Attachment),Triceps,Triceps Long Head,0.6,Triceps Lateral Head,0.2,Triceps Medial Head,0.2,,,,,,
+195,Cable Preacher Curl,Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
+196,Cable Pull Through (With Rope),Legs,Glutes,0.6,Hamstrings,0.3,Erector Spinae,0.1,,,,,,
+197,Cable Pulldown (Pro Lat Bar),Back,Latissimus Dorsi & Teres Major,0.55,Biceps,0.15,Lower Trapezius,0.1,Middle Trapezius,0.1,Posterior Deltoid,0.05,Brachioradialis,0.05
+198,Cable Pulldown,Back,Latissimus Dorsi & Teres Major,0.55,Biceps,0.15,Lower Trapezius,0.1,Middle Trapezius,0.1,Posterior Deltoid,0.05,Brachioradialis,0.05
+199,Cable Pushdown (Straight Arm) V2,Back,Latissimus Dorsi & Teres Major,0.7,Triceps Long Head,0.15,Sternal Head,0.1,Abs,0.05,,,,
+200,Cable Pushdown (With Rope Attachment),Triceps,Triceps Lateral Head,0.5,Triceps Medial Head,0.3,Triceps Long Head,0.2,,,,,,
+201,Cable Pushdown,Triceps,Triceps Lateral Head,0.5,Triceps Medial Head,0.3,Triceps Long Head,0.2,,,,,,
+202,Cable Rear Delt Row (Stirrups),Shoulders,Posterior Deltoid,0.45,Middle Trapezius,0.25,Latissimus Dorsi & Teres Major,0.1,Biceps,0.1,Infraspinatus & Teres Minor,0.05,Lower Trapezius,0.05
+203,Cable Rear Delt Row (With Rope),Shoulders,Posterior Deltoid,0.45,Middle Trapezius,0.25,Latissimus Dorsi & Teres Major,0.1,Biceps,0.1,Infraspinatus & Teres Minor,0.05,Lower Trapezius,0.05
+204,Cable Rear Drive,Triceps,Triceps Lateral Head,0.45,Triceps Medial Head,0.3,Triceps Long Head,0.25,,,,,,
+205,Cable Rear Pulldown,Back,Latissimus Dorsi & Teres Major,0.55,Biceps,0.15,Lower Trapezius,0.1,Middle Trapezius,0.1,Posterior Deltoid,0.05,Brachioradialis,0.05
+206,Cable Reverse Curl,Forearms,Brachioradialis,0.45,Biceps,0.3,Forearm Extensors,0.25,,,,,,
+207,Cable Reverse-Grip Pushdown,Triceps,Triceps Medial Head,0.5,Triceps Lateral Head,0.3,Triceps Long Head,0.2,,,,,,
+208,Cable Reverse-Grip Straight Back Seated High Row,Back,Latissimus Dorsi & Teres Major,0.45,Middle Trapezius,0.2,Lower Trapezius,0.1,Posterior Deltoid,0.1,Biceps,0.1,Brachioradialis,0.05
+209,Cable Reverse Preacher Curl,Forearms,Brachioradialis,0.45,Biceps,0.3,Forearm Extensors,0.25,,,,,,
+210,Cable Reverse Wrist Curl,Forearms,Forearm Extensors,1,,,,,,,,,,
+211,Cable Russian Twists (On Stability Ball),Core,Obliques,0.65,Abs,0.35,,,,,,,,
+212,Cable Seated Crunch,Core,Abs,0.85,Obliques,0.15,,,,,,,,
+213,Cable Seated High Row (V-Bar),Back,Latissimus Dorsi & Teres Major,0.45,Middle Trapezius,0.2,Lower Trapezius,0.1,Posterior Deltoid,0.1,Biceps,0.1,Brachioradialis,0.05
+214,Cable Seated One Arm Alternate Row,Back,Latissimus Dorsi & Teres Major,0.4,Middle Trapezius,0.3,Biceps,0.15,Posterior Deltoid,0.1,Erector Spinae,0.05,,
+215,Cable Seated Rear Lateral Raise,Shoulders,Posterior Deltoid,0.6,Middle Trapezius,0.2,Infraspinatus & Teres Minor,0.1,Lower Trapezius,0.1,,,,
+216,Cable Seated Shoulder Internal Rotation,Shoulders,Anterior Deltoid,0.5,Sternal Head,0.3,Latissimus Dorsi & Teres Major,0.2,,,,,,
+218,Cable Seated Wide-Grip Row,Back,Middle Trapezius,0.35,Latissimus Dorsi & Teres Major,0.3,Posterior Deltoid,0.15,Biceps,0.1,Lower Trapezius,0.05,Brachioradialis,0.05
+219,Cable Shoulder Press,Shoulders,Anterior Deltoid,0.5,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Triceps Medial Head,0.05,Upper Trapezius,0.05
+220,Cable Shrug,Back,Upper Trapezius,0.8,Middle Trapezius,0.1,Forearm Flexors,0.1,,,,,,
+221,Cable Side Bend Crunch (Bosu Ball),Core,Obliques,0.7,Abs,0.3,,,,,,,,
+222,Cable Side Bend,Core,Obliques,0.75,Abs,0.1,Erector Spinae,0.1,Forearm Flexors,0.05,,,,
+223,Cable Side Crunch,Core,Obliques,0.7,Abs,0.3,,,,,,,,
+224,Cable Standing Back Wrist Curl,Forearms,Forearm Flexors,1,,,,,,,,,,
+225,Cable Standing Cross-Over High Reverse Fly,Shoulders,Posterior Deltoid,0.6,Middle Trapezius,0.2,Infraspinatus & Teres Minor,0.1,Lower Trapezius,0.1,,,,
+226,Cable Standing Crunch,Core,Abs,0.85,Obliques,0.15,,,,,,,,
+227,Cable Standing Fly,Chest,Sternal Head,0.7,Clavicular Head,0.15,Anterior Deltoid,0.15,,,,,,
+228,Cable Standing Hip Extension,Legs,Glutes,0.85,Hamstrings,0.15,,,,,,,,
+229,Cable Standing Inner Curl,Biceps,Biceps,0.75,Brachioradialis,0.15,Forearm Flexors,0.1,,,,,,
+230,Cable Standing Lift,Core,Obliques,0.65,Abs,0.15,Anterior Deltoid,0.1,Glutes,0.1,,,,
+231,Cable Standing One Arm Triceps Extension,Triceps,Triceps Long Head,0.6,Triceps Lateral Head,0.2,Triceps Medial Head,0.2,,,,,,
+232,Cable Standing Pulldown (With Rope),Back,Latissimus Dorsi & Teres Major,0.55,Biceps,0.15,Lower Trapezius,0.1,Middle Trapezius,0.1,Posterior Deltoid,0.05,Brachioradialis,0.05
+233,Cable Standing Rear Delt Row (With Rope),Shoulders,Posterior Deltoid,0.45,Middle Trapezius,0.25,Latissimus Dorsi & Teres Major,0.1,Biceps,0.1,Infraspinatus & Teres Minor,0.05,Lower Trapezius,0.05
+234,Cable Standing Row (V-Bar),Back,Latissimus Dorsi & Teres Major,0.4,Middle Trapezius,0.3,Biceps,0.15,Posterior Deltoid,0.1,Erector Spinae,0.05,,
+235,Cable Standing Shoulder External Rotation,Back,Infraspinatus & Teres Minor,0.8,Posterior Deltoid,0.2,,,,,,,,
+236,Cable Standing Twist Row (V-Bar),Back,Latissimus Dorsi & Teres Major,0.4,Middle Trapezius,0.3,Biceps,0.15,Posterior Deltoid,0.1,Erector Spinae,0.05,,
+237,Cable Straight Arm Pulldown (With Rope),Back,Latissimus Dorsi & Teres Major,0.7,Triceps Long Head,0.15,Sternal Head,0.1,Abs,0.05,,,,
+238,Cable Straight Arm Pulldown,Back,Latissimus Dorsi & Teres Major,0.7,Triceps Long Head,0.15,Sternal Head,0.1,Abs,0.05,,,,
+239,Cable Straight Back Seated Row,Back,Latissimus Dorsi & Teres Major,0.4,Middle Trapezius,0.3,Biceps,0.15,Posterior Deltoid,0.1,Erector Spinae,0.05,,
+240,Cable Supine Reverse Fly,Shoulders,Posterior Deltoid,0.6,Middle Trapezius,0.2,Infraspinatus & Teres Minor,0.1,Lower Trapezius,0.1,,,,
+241,Cable Triceps Pushdown (V-Bar),Triceps,Triceps Lateral Head,0.5,Triceps Medial Head,0.3,Triceps Long Head,0.2,,,,,,
+242,Cable Tuck Reverse Crunch,Core,Abs,0.85,Obliques,0.15,,,,,,,,
+243,Cable Twist,Core,Obliques,0.65,Abs,0.35,,,,,,,,
+244,Cable Twisting Pull,Back,Latissimus Dorsi & Teres Major,0.4,Middle Trapezius,0.3,Biceps,0.15,Posterior Deltoid,0.1,Erector Spinae,0.05,,
+245,Cable Underhand Pulldown,Back,Latissimus Dorsi & Teres Major,0.55,Biceps,0.25,Lower Trapezius,0.1,Middle Trapezius,0.05,Brachioradialis,0.05,,
+246,Cable Upright Row,Shoulders,Lateral Deltoid,0.45,Upper Trapezius,0.3,Anterior Deltoid,0.1,Biceps,0.1,Brachioradialis,0.05,,
+247,Cable Wrist Curl,Forearms,Forearm Flexors,1,,,,,,,,,,
+248,Cambered Bar Lying Row,Back,Middle Trapezius,0.4,Latissimus Dorsi & Teres Major,0.25,Posterior Deltoid,0.15,Biceps,0.1,Lower Trapezius,0.05,Brachioradialis,0.05
+285,Dumbbell Alternate Biceps Curl,Biceps,Biceps,0.75,Brachioradialis,0.15,Forearm Flexors,0.1,,,,,,
+286,Dumbbell Alternate Side Press,Shoulders,Anterior Deltoid,0.45,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Upper Trapezius,0.1,Triceps Medial Head,0.05
+287,Dumbbell Arnold Press V2,Shoulders,Anterior Deltoid,0.45,Lateral Deltoid,0.25,Triceps Lateral Head,0.1,Clavicular Head,0.1,Triceps Medial Head,0.05,Upper Trapezius,0.05
+288,Dumbbell Around Pullover,Chest,Sternal Head,0.45,Latissimus Dorsi & Teres Major,0.3,Triceps Long Head,0.15,Serratus Anterior,0.1,,,,
+289,Dumbbell Bench Press,Chest,Sternal Head,0.55,Clavicular Head,0.15,Anterior Deltoid,0.15,Triceps Lateral Head,0.1,Triceps Medial Head,0.05,,
+290,Dumbbell Bench Seated Press,Shoulders,Anterior Deltoid,0.45,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Upper Trapezius,0.1,Triceps Medial Head,0.05
+291,Dumbbell Bench Squat,Legs,Quadriceps,0.45,Glutes,0.25,Adductors,0.15,Erector Spinae,0.1,Hamstrings,0.05,,
+292,Dumbbell One Arm Bent-Over Row,Back,Latissimus Dorsi & Teres Major,0.4,Middle Trapezius,0.2,Posterior Deltoid,0.15,Biceps,0.1,Erector Spinae,0.1,Brachioradialis,0.05
+293,Dumbbell Bent over Row,Back,Latissimus Dorsi & Teres Major,0.35,Middle Trapezius,0.25,Posterior Deltoid,0.15,Biceps,0.1,Erector Spinae,0.1,Brachioradialis,0.05
+294,Dumbbell Biceps Curl,Biceps,Biceps,0.75,Brachioradialis,0.15,Forearm Flexors,0.1,,,,,,
+295,Dumbbell Clean,Legs,Glutes,0.3,Hamstrings,0.2,Upper Trapezius,0.2,Quadriceps,0.15,Erector Spinae,0.1,Forearm Flexors,0.05
+296,Dumbbell Close-Grip Press,Triceps,Triceps Lateral Head,0.35,Sternal Head,0.2,Triceps Medial Head,0.15,Triceps Long Head,0.15,Anterior Deltoid,0.1,Clavicular Head,0.05
+297,Dumbbell Concentration Curl,Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
+298,Dumbbell Cross Body Hammer Curl,Biceps,Biceps,0.5,Brachioradialis,0.4,Forearm Extensors,0.1,,,,,,
+299,Dumbbell Cuban Press,Back,Infraspinatus & Teres Minor,0.4,Lateral Deltoid,0.2,Upper Trapezius,0.15,Posterior Deltoid,0.15,Middle Trapezius,0.1,,
+300,Dumbbell Deadlift,Back,Erector Spinae,0.3,Glutes,0.3,Hamstrings,0.2,Quadriceps,0.1,Upper Trapezius,0.05,Forearm Flexors,0.05
+301,Dumbbell Decline Bench Press,Chest,Sternal Head,0.65,Triceps Lateral Head,0.15,Triceps Medial Head,0.1,Anterior Deltoid,0.1,,,,
+302,Dumbbell Decline Fly,Chest,Sternal Head,0.8,Clavicular Head,0.1,Anterior Deltoid,0.1,,,,,,
+303,Dumbbell Decline Hammer Press,Chest,Sternal Head,0.65,Triceps Lateral Head,0.15,Triceps Medial Head,0.1,Anterior Deltoid,0.1,,,,
+304,Dumbbell Decline Shrug V2,Back,Middle Trapezius,0.5,Upper Trapezius,0.4,Lower Trapezius,0.1,,,,,,
+305,Dumbbell Decline Shrug,Back,Middle Trapezius,0.5,Upper Trapezius,0.4,Lower Trapezius,0.1,,,,,,
+306,Dumbbell Decline Triceps Extension,Triceps,Triceps Long Head,0.45,Triceps Lateral Head,0.3,Triceps Medial Head,0.25,,,,,,
+307,Dumbbell Decline Twist Fly,Chest,Sternal Head,0.8,Clavicular Head,0.1,Anterior Deltoid,0.1,,,,,,
+308,Dumbbell Fly,Chest,Sternal Head,0.7,Clavicular Head,0.15,Anterior Deltoid,0.15,,,,,,
+309,Dumbbell Front Raise V2,Shoulders,Anterior Deltoid,0.7,Clavicular Head,0.15,Lateral Deltoid,0.1,Serratus Anterior,0.05,,,,
+310,Dumbbell Front Raise,Shoulders,Anterior Deltoid,0.7,Clavicular Head,0.15,Lateral Deltoid,0.1,Serratus Anterior,0.05,,,,
+311,Dumbbell Full Can Lateral Raise,Shoulders,Lateral Deltoid,0.75,Anterior Deltoid,0.1,Upper Trapezius,0.1,Serratus Anterior,0.05,,,,
+312,Dumbbell Hammer Curl V2,Biceps,Biceps,0.5,Brachioradialis,0.4,Forearm Extensors,0.1,,,,,,
+313,Dumbbell Hammer Curl,Biceps,Biceps,0.5,Brachioradialis,0.4,Forearm Extensors,0.1,,,,,,
+314,Dumbbell Incline Bench Press,Chest,Clavicular Head,0.5,Anterior Deltoid,0.2,Sternal Head,0.15,Triceps Lateral Head,0.1,Triceps Medial Head,0.05,,
+315,Dumbbell Incline Biceps Curl,Biceps,Biceps,0.8,Brachioradialis,0.1,Forearm Flexors,0.1,,,,,,
+316,Dumbbell Incline Breeding,Chest,Clavicular Head,0.6,Anterior Deltoid,0.25,Sternal Head,0.15,,,,,,
+317,Dumbbell Incline Curl V2,Biceps,Biceps,0.8,Brachioradialis,0.1,Forearm Flexors,0.1,,,,,,
+318,Dumbbell Incline Curl,Biceps,Biceps,0.8,Brachioradialis,0.1,Forearm Flexors,0.1,,,,,,
+319,Dumbbell Incline Fly,Chest,Clavicular Head,0.6,Anterior Deltoid,0.25,Sternal Head,0.15,,,,,,
+320,Dumbbell Incline Hammer Curl,Biceps,Biceps,0.5,Brachioradialis,0.4,Forearm Extensors,0.1,,,,,,
+321,Dumbbell Incline Hammer Press,Chest,Clavicular Head,0.5,Anterior Deltoid,0.2,Sternal Head,0.15,Triceps Lateral Head,0.1,Triceps Medial Head,0.05,,
+322,Dumbbell Incline Inner Biceps Curl,Biceps,Biceps,0.8,Brachioradialis,0.1,Forearm Flexors,0.1,,,,,,
+323,Dumbbell Incline One Arm Lateral Raise,Shoulders,Lateral Deltoid,0.75,Anterior Deltoid,0.1,Upper Trapezius,0.1,Serratus Anterior,0.05,,,,
+324,Dumbbell Incline Palm-In Press,Chest,Clavicular Head,0.5,Anterior Deltoid,0.2,Sternal Head,0.15,Triceps Lateral Head,0.1,Triceps Medial Head,0.05,,
+325,Dumbbell Incline Raise,Shoulders,Anterior Deltoid,0.7,Clavicular Head,0.15,Lateral Deltoid,0.1,Serratus Anterior,0.05,,,,
+326,Dumbbell Incline Rear Lateral Raise,Shoulders,Posterior Deltoid,0.6,Middle Trapezius,0.2,Infraspinatus & Teres Minor,0.1,Lower Trapezius,0.1,,,,
+327,Dumbbell Incline Row,Back,Middle Trapezius,0.4,Latissimus Dorsi & Teres Major,0.25,Posterior Deltoid,0.15,Biceps,0.1,Lower Trapezius,0.05,Brachioradialis,0.05
+328,Dumbbell Incline Shoulder Raise,Chest,Serratus Anterior,0.75,Anterior Deltoid,0.15,Sternal Head,0.1,,,,,,
+329,Dumbbell Incline Shrug,Back,Middle Trapezius,0.5,Upper Trapezius,0.4,Lower Trapezius,0.1,,,,,,
+330,Dumbbell Incline Triceps Extension,Triceps,Triceps Long Head,0.45,Triceps Lateral Head,0.3,Triceps Medial Head,0.25,,,,,,
+331,Dumbbell Incline Twisted Fly,Chest,Clavicular Head,0.6,Anterior Deltoid,0.25,Sternal Head,0.15,,,,,,
+332,Dumbbell Iron Cross,Shoulders,Lateral Deltoid,0.6,Anterior Deltoid,0.25,Upper Trapezius,0.15,,,,,,
+333,Dumbbell Kickback,Triceps,Triceps Lateral Head,0.45,Triceps Medial Head,0.3,Triceps Long Head,0.25,,,,,,
+334,Dumbbell Lateral Raise,Shoulders,Lateral Deltoid,0.75,Anterior Deltoid,0.1,Upper Trapezius,0.1,Serratus Anterior,0.05,,,,
+335,Dumbbell Lateral to Front Raise,Shoulders,Lateral Deltoid,0.45,Anterior Deltoid,0.4,Upper Trapezius,0.1,Serratus Anterior,0.05,,,,
+336,Dumbbell Lunge,Legs,Quadriceps,0.45,Glutes,0.3,Adductors,0.1,Hamstrings,0.05,Abductors,0.05,Calves,0.05
+337,Dumbbell Lying Extension (Across Face),Triceps,Triceps Long Head,0.45,Triceps Lateral Head,0.3,Triceps Medial Head,0.25,,,,,,
+338,Dumbbell Lying Elbow Press,Triceps,Triceps Long Head,0.45,Triceps Lateral Head,0.3,Triceps Medial Head,0.25,,,,,,
+339,Dumbbell Lying Femoral,Legs,Hamstrings,0.85,Calves,0.1,Glutes,0.05,,,,,,
+340,Dumbbell Lying Hammer Press,Chest,Sternal Head,0.55,Clavicular Head,0.15,Anterior Deltoid,0.15,Triceps Lateral Head,0.1,Triceps Medial Head,0.05,,
+341,Dumbbell Lying One Arm Deltoid Rear,Shoulders,Posterior Deltoid,0.6,Middle Trapezius,0.2,Infraspinatus & Teres Minor,0.1,Lower Trapezius,0.1,,,,
+342,Dumbbell Lying One Arm Press V2,Chest,Sternal Head,0.55,Clavicular Head,0.15,Anterior Deltoid,0.15,Triceps Lateral Head,0.1,Triceps Medial Head,0.05,,
+343,Dumbbell Lying One Arm Press,Chest,Sternal Head,0.55,Clavicular Head,0.15,Anterior Deltoid,0.15,Triceps Lateral Head,0.1,Triceps Medial Head,0.05,,
+344,Dumbbell Lying One Arm Pronated Triceps Extension,Triceps,Triceps Long Head,0.45,Triceps Lateral Head,0.3,Triceps Medial Head,0.25,,,,,,
+345,Dumbbell Lying One Arm Rear Lateral Raise,Shoulders,Posterior Deltoid,0.6,Middle Trapezius,0.2,Infraspinatus & Teres Minor,0.1,Lower Trapezius,0.1,,,,
+346,Dumbbell Lying One Arm Supinated Triceps Extension,Triceps,Triceps Long Head,0.45,Triceps Lateral Head,0.3,Triceps Medial Head,0.25,,,,,,
+347,Dumbbell Lying Pronation,Forearms,Forearm Flexors,0.8,Brachioradialis,0.2,,,,,,,,
+348,Dumbbell Lying Rear Lateral Raise,Shoulders,Posterior Deltoid,0.6,Middle Trapezius,0.2,Infraspinatus & Teres Minor,0.1,Lower Trapezius,0.1,,,,
+349,Dumbbell Lying Supination,Forearms,Forearm Extensors,0.6,Biceps,0.4,,,,,,,,
+350,Dumbbell Lying Supine Curl,Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
+351,Dumbbell Lying Triceps Extension,Triceps,Triceps Long Head,0.45,Triceps Lateral Head,0.3,Triceps Medial Head,0.25,,,,,,
+352,Dumbbell Neutral Grip Bench Press,Triceps,Triceps Lateral Head,0.35,Sternal Head,0.2,Triceps Medial Head,0.15,Triceps Long Head,0.15,Anterior Deltoid,0.1,Clavicular Head,0.05
+353,Dumbbell One Arm Concentration Curl (On Stability Ball),Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
+354,Dumbbell One Arm Kickback,Triceps,Triceps Lateral Head,0.45,Triceps Medial Head,0.3,Triceps Long Head,0.25,,,,,,
+355,Dumbbell One Arm Lateral Raise,Shoulders,Lateral Deltoid,0.75,Anterior Deltoid,0.1,Upper Trapezius,0.1,Serratus Anterior,0.05,,,,
+356,Dumbbell One Arm Lateral Raise with Support,Shoulders,Lateral Deltoid,0.75,Anterior Deltoid,0.1,Upper Trapezius,0.1,Serratus Anterior,0.05,,,,
+358,Dumbbell One Arm Reverse Wrist Curl,Forearms,Forearm Extensors,1,,,,,,,,,,
+359,Dumbbell One Arm Reverse Fly (With Support),Shoulders,Posterior Deltoid,0.6,Middle Trapezius,0.2,Infraspinatus & Teres Minor,0.1,Lower Trapezius,0.1,,,,
+360,Dumbbell One Arm Shoulder Press V2,Shoulders,Anterior Deltoid,0.45,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Upper Trapezius,0.1,Triceps Medial Head,0.05
+361,Dumbbell One Arm Shoulder Press,Shoulders,Anterior Deltoid,0.45,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Upper Trapezius,0.1,Triceps Medial Head,0.05
+362,Dumbbell One Arm Triceps Extension (On Bench),Triceps,Triceps Long Head,0.45,Triceps Lateral Head,0.3,Triceps Medial Head,0.25,,,,,,
+363,Dumbbell One Arm Upright Row,Shoulders,Lateral Deltoid,0.45,Upper Trapezius,0.3,Anterior Deltoid,0.1,Biceps,0.1,Brachioradialis,0.05,,
+364,Dumbbell One Arm Wrist Curl,Forearms,Forearm Flexors,1,,,,,,,,,,
+365,Dumbbell over Bench Neutral Wrist Curl,Forearms,Brachioradialis,0.4,Forearm Flexors,0.3,Forearm Extensors,0.3,,,,,,
+366,Dumbbell over Bench One Arm Neutral Wrist Curl,Forearms,Brachioradialis,0.4,Forearm Flexors,0.3,Forearm Extensors,0.3,,,,,,
+367,Dumbbell over Bench One Arm Wrist Curl,Forearms,Forearm Flexors,1,,,,,,,,,,
+368,Dumbbell over Bench Reverse Wrist Curl,Forearms,Forearm Extensors,1,,,,,,,,,,
+369,Dumbbell over Bench Wrist Curl,Forearms,Forearm Flexors,1,,,,,,,,,,
+370,Dumbbell Preacher Hammer Curl,Biceps,Biceps,0.5,Brachioradialis,0.4,Forearm Extensors,0.1,,,,,,
+371,Dumbbell Plyo Squat,Legs,Quadriceps,0.45,Glutes,0.3,Calves,0.1,Adductors,0.1,Hamstrings,0.05,,
+372,Dumbbell Preacher Curl,Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
+373,Dumbbell Pronate-Grip Triceps Extension,Triceps,Triceps Long Head,0.45,Triceps Lateral Head,0.3,Triceps Medial Head,0.25,,,,,,
+374,Dumbbell Prone Incline Curl,Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
+375,Dumbbell Pullover,Chest,Sternal Head,0.45,Latissimus Dorsi & Teres Major,0.3,Triceps Long Head,0.15,Serratus Anterior,0.1,,,,
+376,Dumbbell Raise,Shoulders,Posterior Deltoid,0.6,Middle Trapezius,0.2,Infraspinatus & Teres Minor,0.1,Lower Trapezius,0.1,,,,
+377,Dumbbell Rear Delt Row,Shoulders,Posterior Deltoid,0.45,Middle Trapezius,0.25,Latissimus Dorsi & Teres Major,0.1,Biceps,0.1,Infraspinatus & Teres Minor,0.05,Lower Trapezius,0.05
+378,Dumbbell Rear Fly,Shoulders,Posterior Deltoid,0.6,Middle Trapezius,0.2,Infraspinatus & Teres Minor,0.1,Lower Trapezius,0.1,,,,
+379,Dumbbell Rear Lateral Raise (Support Head),Shoulders,Posterior Deltoid,0.6,Middle Trapezius,0.2,Infraspinatus & Teres Minor,0.1,Lower Trapezius,0.1,,,,
+380,Dumbbell Rear Lateral Raise,Shoulders,Posterior Deltoid,0.6,Middle Trapezius,0.2,Infraspinatus & Teres Minor,0.1,Lower Trapezius,0.1,,,,
+381,Dumbbell Rear Lunge,Legs,Quadriceps,0.45,Glutes,0.3,Adductors,0.1,Hamstrings,0.05,Abductors,0.05,Calves,0.05
+382,Dumbbell Reverse Grip Biceps Curl,Forearms,Brachioradialis,0.45,Biceps,0.3,Forearm Extensors,0.25,,,,,,
+383,Dumbbell Reverse Fly,Shoulders,Posterior Deltoid,0.6,Middle Trapezius,0.2,Infraspinatus & Teres Minor,0.1,Lower Trapezius,0.1,,,,
+384,Dumbbell Reverse Preacher Curl,Forearms,Brachioradialis,0.45,Biceps,0.3,Forearm Extensors,0.25,,,,,,
+385,Dumbbell Reverse Wrist Curl,Forearms,Forearm Extensors,1,,,,,,,,,,
+386,Dumbbell Rotation Reverse Fly,Shoulders,Posterior Deltoid,0.6,Middle Trapezius,0.2,Infraspinatus & Teres Minor,0.1,Lower Trapezius,0.1,,,,
+387,Dumbbell Seated Alternate Front Raise,Shoulders,Anterior Deltoid,0.7,Clavicular Head,0.15,Lateral Deltoid,0.1,Serratus Anterior,0.05,,,,
+388,Dumbbell Seated Alternate Press,Shoulders,Anterior Deltoid,0.45,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Upper Trapezius,0.1,Triceps Medial Head,0.05
+389,Dumbbell Seated Bench Extension,Triceps,Triceps Long Head,0.6,Triceps Lateral Head,0.2,Triceps Medial Head,0.2,,,,,,
+390,Dumbbell Seated Biceps Curl (On Stability Ball),Biceps,Biceps,0.75,Brachioradialis,0.15,Forearm Flexors,0.1,,,,,,
+391,Dumbbell Seated Curl,Biceps,Biceps,0.75,Brachioradialis,0.15,Forearm Flexors,0.1,,,,,,
+392,Dumbbell Seated Front Raise,Shoulders,Anterior Deltoid,0.7,Clavicular Head,0.15,Lateral Deltoid,0.1,Serratus Anterior,0.05,,,,
+393,Dumbbell Seated Inner Biceps Curl,Biceps,Biceps,0.75,Brachioradialis,0.15,Forearm Flexors,0.1,,,,,,
+394,Dumbbell Seated Kickback,Triceps,Triceps Lateral Head,0.45,Triceps Medial Head,0.3,Triceps Long Head,0.25,,,,,,
+395,Dumbbell Seated Lateral Raise V2,Shoulders,Lateral Deltoid,0.75,Anterior Deltoid,0.1,Upper Trapezius,0.1,Serratus Anterior,0.05,,,,
+396,Dumbbell Seated Lateral Raise,Shoulders,Lateral Deltoid,0.75,Anterior Deltoid,0.1,Upper Trapezius,0.1,Serratus Anterior,0.05,,,,
+397,Dumbbell Seated Neutral Wrist Curl,Forearms,Brachioradialis,0.4,Forearm Flexors,0.3,Forearm Extensors,0.3,,,,,,
+398,Dumbbell Seated One Arm Kickback,Triceps,Triceps Lateral Head,0.45,Triceps Medial Head,0.3,Triceps Long Head,0.25,,,,,,
+399,Dumbbell Seated One Arm Rotate,Forearms,Forearm Flexors,0.5,Forearm Extensors,0.5,,,,,,,,
+400,Dumbbell Seated One Leg Calf Raise,Legs,Calves,1,,,,,,,,,,
+401,Dumbbell Seated Palms Up Wrist Curl,Forearms,Forearm Flexors,1,,,,,,,,,,
+402,Dumbbell Seated Preacher Curl,Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
+403,Dumbbell Seated Reverse Grip Concentration Curl,Forearms,Brachioradialis,0.45,Biceps,0.3,Forearm Extensors,0.25,,,,,,
+404,Dumbbell Seated Shoulder Press (Parallel Grip),Shoulders,Anterior Deltoid,0.45,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Upper Trapezius,0.1,Triceps Medial Head,0.05
+405,Dumbbell Seated Shoulder Press,Shoulders,Anterior Deltoid,0.45,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Upper Trapezius,0.1,Triceps Medial Head,0.05
+406,Dumbbell Shrug,Back,Upper Trapezius,0.8,Middle Trapezius,0.1,Forearm Flexors,0.1,,,,,,
+407,Dumbbell Side Bend,Core,Obliques,0.75,Abs,0.1,Erector Spinae,0.1,Forearm Flexors,0.05,,,,
+408,Dumbbell Side Lying One Hand Raise,Shoulders,Posterior Deltoid,0.6,Middle Trapezius,0.2,Infraspinatus & Teres Minor,0.1,Lower Trapezius,0.1,,,,
+409,Dumbbell Single Leg Calf Raise,Legs,Calves,1,,,,,,,,,,
+410,Dumbbell Single Leg Split Squat,Legs,Quadriceps,0.45,Glutes,0.35,Adductors,0.1,Hamstrings,0.05,Abductors,0.05,,
+411,Dumbbell Single Leg Squat,Legs,Quadriceps,0.5,Glutes,0.3,Adductors,0.05,Abductors,0.05,Abs,0.05,Calves,0.05
+413,Dumbbell Squat,Legs,Quadriceps,0.45,Glutes,0.25,Adductors,0.15,Erector Spinae,0.1,Hamstrings,0.05,,
+414,Dumbbell Standing Alternate Overhead Press,Shoulders,Anterior Deltoid,0.45,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Upper Trapezius,0.1,Triceps Medial Head,0.05
+415,Dumbbell Standing Alternate Raise,Shoulders,Lateral Deltoid,0.75,Anterior Deltoid,0.1,Upper Trapezius,0.1,Serratus Anterior,0.05,,,,
+416,Dumbbell Standing Biceps Curl,Biceps,Biceps,0.75,Brachioradialis,0.15,Forearm Flexors,0.1,,,,,,
+417,Dumbbell Standing Calf Raise,Legs,Calves,1,,,,,,,,,,
+418,Dumbbell Standing Concentration Curl,Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
+419,Dumbbell Standing Front Raise Above Head,Shoulders,Anterior Deltoid,0.7,Clavicular Head,0.15,Lateral Deltoid,0.1,Serratus Anterior,0.05,,,,
+420,Dumbbell Standing Kickback,Triceps,Triceps Lateral Head,0.45,Triceps Medial Head,0.3,Triceps Long Head,0.25,,,,,,
+421,Dumbbell Standing One Arm Concentration Curl,Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
+422,Dumbbell Standing One Arm Curl (Over Incline Bench),Biceps,Biceps,0.8,Brachioradialis,0.1,Forearm Flexors,0.1,,,,,,
+423,Dumbbell Standing One Arm Extension,Triceps,Triceps Long Head,0.6,Triceps Lateral Head,0.2,Triceps Medial Head,0.2,,,,,,
+424,Dumbbell Standing One Arm Palm in Press,Shoulders,Anterior Deltoid,0.45,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Upper Trapezius,0.1,Triceps Medial Head,0.05
+425,Dumbbell Standing One Arm Reverse Curl,Forearms,Brachioradialis,0.45,Biceps,0.3,Forearm Extensors,0.25,,,,,,
+426,Dumbbell Standing Overhead Press,Shoulders,Anterior Deltoid,0.45,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Upper Trapezius,0.1,Triceps Medial Head,0.05
+427,Dumbbell Standing Palms in Press,Shoulders,Anterior Deltoid,0.45,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Upper Trapezius,0.1,Triceps Medial Head,0.05
+428,Dumbbell Standing Preacher Curl,Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
+429,Dumbbell Standing Reverse Curl,Forearms,Brachioradialis,0.45,Biceps,0.3,Forearm Extensors,0.25,,,,,,
+430,Dumbbell Standing Triceps Extension,Triceps,Triceps Long Head,0.6,Triceps Lateral Head,0.2,Triceps Medial Head,0.2,,,,,,
+431,Dumbbell Step-Up,Legs,Quadriceps,0.45,Glutes,0.35,Hamstrings,0.1,Abductors,0.05,Calves,0.05,,
+432,Dumbbell Stiff Leg Deadlift,Legs,Hamstrings,0.45,Glutes,0.3,Erector Spinae,0.15,Adductors,0.05,Forearm Flexors,0.05,,
+433,Dumbbell Straight Arm Pullover,Chest,Sternal Head,0.45,Latissimus Dorsi & Teres Major,0.3,Triceps Long Head,0.15,Serratus Anterior,0.1,,,,
+434,Dumbbell Straight Leg Deadlift,Legs,Hamstrings,0.45,Glutes,0.3,Erector Spinae,0.15,Adductors,0.05,Forearm Flexors,0.05,,
+436,Dumbbell Tate Press,Triceps,Triceps Long Head,0.45,Triceps Lateral Head,0.3,Triceps Medial Head,0.25,,,,,,
+437,Dumbbell Upright Row,Shoulders,Lateral Deltoid,0.45,Upper Trapezius,0.3,Anterior Deltoid,0.1,Biceps,0.1,Brachioradialis,0.05,,
+438,Dumbbell W-Press,Shoulders,Anterior Deltoid,0.45,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Upper Trapezius,0.1,Triceps Medial Head,0.05
+439,Dumbbell Zottman Curl,Biceps,Biceps,0.6,Brachioradialis,0.25,Forearm Extensors,0.15,,,,,,
+445,EZ Barbell Anti Gravity Press,Shoulders,Anterior Deltoid,0.45,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Upper Trapezius,0.1,Triceps Medial Head,0.05
+446,EZ Barbell Close-Grip Curl,Biceps,Biceps,0.75,Brachioradialis,0.15,Forearm Flexors,0.1,,,,,,
+447,EZ Barbell Curl,Biceps,Biceps,0.75,Brachioradialis,0.15,Forearm Flexors,0.1,,,,,,
+448,EZ Barbell Decline Close Grip Face Press,Triceps,Triceps Long Head,0.45,Triceps Lateral Head,0.3,Triceps Medial Head,0.25,,,,,,
+449,EZ Barbell Incline Triceps Extension,Triceps,Triceps Long Head,0.45,Triceps Lateral Head,0.3,Triceps Medial Head,0.25,,,,,,
+450,EZ Barbell JM Bench Press,Triceps,Triceps Lateral Head,0.35,Sternal Head,0.2,Triceps Medial Head,0.15,Triceps Long Head,0.15,Anterior Deltoid,0.1,Clavicular Head,0.05
+451,EZ Barbell Reverse Grip Curl,Forearms,Brachioradialis,0.45,Biceps,0.3,Forearm Extensors,0.25,,,,,,
+452,EZ Barbell Reverse Grip Preacher Curl,Forearms,Brachioradialis,0.45,Biceps,0.3,Forearm Extensors,0.25,,,,,,
+453,EZ Barbell Seated Triceps Extension,Triceps,Triceps Long Head,0.6,Triceps Lateral Head,0.2,Triceps Medial Head,0.2,,,,,,
+454,EZ Barbell Spider Curl,Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
+455,Finger Curls,Forearms,Forearm Flexors,0.9,Forearm Extensors,0.1,,,,,,,,
+458,Floor Fly (With Barbell),Chest,Sternal Head,0.7,Clavicular Head,0.15,Anterior Deltoid,0.15,,,,,,
+517,Kettlebell Advanced Windmill,Core,Obliques,0.4,Hamstrings,0.2,Glutes,0.15,Anterior Deltoid,0.15,Abs,0.1,,
+518,Kettlebell Alternating Hang Clean,Legs,Glutes,0.3,Hamstrings,0.2,Upper Trapezius,0.2,Quadriceps,0.15,Erector Spinae,0.1,Forearm Flexors,0.05
+519,Kettlebell Alternating Press on Floor,Chest,Sternal Head,0.55,Clavicular Head,0.15,Anterior Deltoid,0.15,Triceps Lateral Head,0.1,Triceps Medial Head,0.05,,
+520,Kettlebell Alternating Press,Shoulders,Anterior Deltoid,0.45,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Upper Trapezius,0.1,Triceps Medial Head,0.05
+521,Kettlebell Alternating Renegade Row,Back,Latissimus Dorsi & Teres Major,0.35,Middle Trapezius,0.2,Abs,0.15,Obliques,0.1,Biceps,0.1,Posterior Deltoid,0.1
+522,Kettlebell Alternating Row,Back,Latissimus Dorsi & Teres Major,0.4,Middle Trapezius,0.2,Posterior Deltoid,0.15,Biceps,0.1,Erector Spinae,0.1,Brachioradialis,0.05
+523,Kettlebell Arnold Press,Shoulders,Anterior Deltoid,0.45,Lateral Deltoid,0.25,Triceps Lateral Head,0.1,Clavicular Head,0.1,Triceps Medial Head,0.05,Upper Trapezius,0.05
+524,Kettlebell Bent Press,Core,Obliques,0.35,Anterior Deltoid,0.25,Triceps Lateral Head,0.15,Abs,0.15,Latissimus Dorsi & Teres Major,0.1,,
+525,Kettlebell Bottoms Up Clean from the Hang Position,Legs,Glutes,0.3,Hamstrings,0.2,Upper Trapezius,0.2,Quadriceps,0.15,Erector Spinae,0.1,Forearm Flexors,0.05
+526,Kettlebell Double Alternating Hang Clean,Legs,Glutes,0.3,Hamstrings,0.2,Upper Trapezius,0.2,Quadriceps,0.15,Erector Spinae,0.1,Forearm Flexors,0.05
+527,Kettlebell Double Jerk,Shoulders,Anterior Deltoid,0.35,Quadriceps,0.2,Glutes,0.15,Triceps Lateral Head,0.1,Lateral Deltoid,0.1,Upper Trapezius,0.1
+528,Kettlebell Double Push Press,Shoulders,Anterior Deltoid,0.35,Quadriceps,0.2,Glutes,0.15,Triceps Lateral Head,0.1,Lateral Deltoid,0.1,Upper Trapezius,0.1
+529,Kettlebell Double Snatch,Legs,Glutes,0.3,Hamstrings,0.15,Quadriceps,0.15,Upper Trapezius,0.15,Anterior Deltoid,0.15,Erector Spinae,0.1
+530,Kettlebell Double Windmill,Core,Obliques,0.4,Hamstrings,0.2,Glutes,0.15,Anterior Deltoid,0.15,Abs,0.1,,
+531,Kettlebell Extended Range One Arm Press on Floor,Chest,Sternal Head,0.55,Clavicular Head,0.15,Anterior Deltoid,0.15,Triceps Lateral Head,0.1,Triceps Medial Head,0.05,,
+532,Kettlebell Figure 8,Core,Obliques,0.4,Glutes,0.2,Hamstrings,0.15,Forearm Flexors,0.15,Abs,0.1,,
+533,Kettlebell Front Squat,Legs,Quadriceps,0.6,Glutes,0.15,Adductors,0.1,Erector Spinae,0.1,Abs,0.05,,
+534,Kettlebell Goblet Squat,Legs,Quadriceps,0.55,Glutes,0.2,Adductors,0.1,Abs,0.05,Erector Spinae,0.05,Hamstrings,0.05
+535,Kettlebell Hang Clean,Legs,Glutes,0.3,Hamstrings,0.2,Upper Trapezius,0.2,Quadriceps,0.15,Erector Spinae,0.1,Forearm Flexors,0.05
+536,Kettlebell Lunge Pass Through,Legs,Quadriceps,0.45,Glutes,0.3,Adductors,0.1,Hamstrings,0.05,Abductors,0.05,Calves,0.05
+537,Kettlebell One Arm Clean and Jerk,Shoulders,Anterior Deltoid,0.35,Quadriceps,0.2,Glutes,0.15,Triceps Lateral Head,0.1,Lateral Deltoid,0.1,Upper Trapezius,0.1
+538,Kettlebell One Arm Jerk,Shoulders,Anterior Deltoid,0.35,Quadriceps,0.2,Glutes,0.15,Triceps Lateral Head,0.1,Lateral Deltoid,0.1,Upper Trapezius,0.1
+539,Kettlebell One Arm Military Press to the Side,Shoulders,Anterior Deltoid,0.45,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Upper Trapezius,0.1,Triceps Medial Head,0.05
+540,Kettlebell One Arm Push Press,Shoulders,Anterior Deltoid,0.35,Quadriceps,0.2,Glutes,0.15,Triceps Lateral Head,0.1,Lateral Deltoid,0.1,Upper Trapezius,0.1
+541,Kettlebell One Arm Row,Back,Latissimus Dorsi & Teres Major,0.4,Middle Trapezius,0.2,Posterior Deltoid,0.15,Biceps,0.1,Erector Spinae,0.1,Brachioradialis,0.05
+542,Kettlebell One Arm Snatch,Legs,Glutes,0.3,Hamstrings,0.15,Quadriceps,0.15,Upper Trapezius,0.15,Anterior Deltoid,0.15,Erector Spinae,0.1
+543,Kettlebell Pirate Supper Legs,Shoulders,Anterior Deltoid,0.4,Lateral Deltoid,0.3,Obliques,0.2,Upper Trapezius,0.1,,,,
+544,Kettlebell Pistol Squat,Legs,Quadriceps,0.5,Glutes,0.3,Adductors,0.05,Abductors,0.05,Abs,0.05,Calves,0.05
+545,Kettlebell Plyo Push-Up,Chest,Sternal Head,0.5,Anterior Deltoid,0.15,Clavicular Head,0.1,Triceps Lateral Head,0.1,Abs,0.1,Triceps Medial Head,0.05
+546,Kettlebell Seated Press,Shoulders,Anterior Deltoid,0.45,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Upper Trapezius,0.1,Triceps Medial Head,0.05
+547,Kettlebell Seesaw Press,Shoulders,Anterior Deltoid,0.45,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Upper Trapezius,0.1,Triceps Medial Head,0.05
+548,Kettlebell Sumo High Pull,Back,Upper Trapezius,0.35,Lateral Deltoid,0.2,Glutes,0.15,Quadriceps,0.1,Hamstrings,0.1,Erector Spinae,0.1
+549,Kettlebell Swing,Legs,Glutes,0.4,Hamstrings,0.3,Erector Spinae,0.15,Abs,0.05,Forearm Flexors,0.05,Anterior Deltoid,0.05
+550,Kettlebell Thruster,Legs,Quadriceps,0.35,Anterior Deltoid,0.25,Glutes,0.2,Triceps Lateral Head,0.1,Lateral Deltoid,0.05,Abs,0.05
+551,Kettlebell Turkish Get Up (Squat Style),Core,Obliques,0.3,Anterior Deltoid,0.25,Glutes,0.2,Quadriceps,0.15,Abs,0.1,,
+552,Kettlebell Two Arm Clean,Legs,Glutes,0.3,Hamstrings,0.2,Upper Trapezius,0.2,Quadriceps,0.15,Erector Spinae,0.1,Forearm Flexors,0.05
+553,Kettlebell Two Arm Military Press,Shoulders,Anterior Deltoid,0.45,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Upper Trapezius,0.1,Triceps Medial Head,0.05
+554,Kettlebell Windmill,Core,Obliques,0.4,Hamstrings,0.2,Glutes,0.15,Anterior Deltoid,0.15,Abs,0.1,,
+562,Landmine 180,Core,Obliques,0.6,Abs,0.2,Anterior Deltoid,0.1,Quadriceps,0.1,,,,
+571,Lever Alternating Narrow Grip Seated Row,Back,Latissimus Dorsi & Teres Major,0.4,Middle Trapezius,0.3,Biceps,0.15,Posterior Deltoid,0.1,Erector Spinae,0.05,,
+572,Lever Assisted Chin-Up,Back,Latissimus Dorsi & Teres Major,0.55,Biceps,0.25,Lower Trapezius,0.1,Middle Trapezius,0.05,Brachioradialis,0.05,,
+573,Lever Back Extension,Back,Erector Spinae,0.5,Glutes,0.3,Hamstrings,0.2,,,,,,
+574,Lever Bent over Row,Back,Latissimus Dorsi & Teres Major,0.35,Middle Trapezius,0.25,Posterior Deltoid,0.15,Biceps,0.1,Erector Spinae,0.1,Brachioradialis,0.05
+575,Lever Bicep Curl,Biceps,Biceps,0.75,Brachioradialis,0.15,Forearm Flexors,0.1,,,,,,
+576,Lever Chest Press,Chest,Sternal Head,0.55,Clavicular Head,0.15,Anterior Deltoid,0.15,Triceps Lateral Head,0.1,Triceps Medial Head,0.05,,
+578,Lever Deadlift,Back,Erector Spinae,0.3,Glutes,0.3,Hamstrings,0.2,Quadriceps,0.1,Upper Trapezius,0.05,Forearm Flexors,0.05
+579,Lever Front Pulldown,Back,Latissimus Dorsi & Teres Major,0.55,Biceps,0.15,Lower Trapezius,0.1,Middle Trapezius,0.1,Posterior Deltoid,0.05,Brachioradialis,0.05
+580,Lever Gripless Shrug,Back,Upper Trapezius,0.9,Middle Trapezius,0.1,,,,,,,,
+581,Lever High Row,Back,Latissimus Dorsi & Teres Major,0.45,Middle Trapezius,0.2,Lower Trapezius,0.1,Posterior Deltoid,0.1,Biceps,0.1,Brachioradialis,0.05
+582,Lever Kneeling Leg Curl,Legs,Hamstrings,0.85,Glutes,0.1,Calves,0.05,,,,,,
+583,Lever Kneeling Twist,Core,Obliques,0.65,Abs,0.35,,,,,,,,
+584,Lever Lateral Raise,Shoulders,Lateral Deltoid,0.8,Anterior Deltoid,0.1,Upper Trapezius,0.1,,,,,,
+585,Lever Leg Extension,Legs,Quadriceps,1,,,,,,,,,,
+586,Lever Lying Leg Curl,Legs,Hamstrings,0.85,Calves,0.1,Glutes,0.05,,,,,,
+587,Lever Military Press,Shoulders,Anterior Deltoid,0.5,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Triceps Medial Head,0.05,Upper Trapezius,0.05
+588,Lever Narrow Grip Seated Row,Back,Latissimus Dorsi & Teres Major,0.4,Middle Trapezius,0.3,Biceps,0.15,Posterior Deltoid,0.1,Erector Spinae,0.05,,
+589,Lever One Arm Bent over Row,Back,Latissimus Dorsi & Teres Major,0.35,Middle Trapezius,0.25,Posterior Deltoid,0.15,Biceps,0.1,Erector Spinae,0.1,Brachioradialis,0.05
+590,Lever One Arm Shoulder Press,Shoulders,Anterior Deltoid,0.5,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Triceps Medial Head,0.05,Upper Trapezius,0.05
+591,Lever Overhand Triceps Dip,Triceps,Triceps Lateral Head,0.4,Triceps Medial Head,0.25,Triceps Long Head,0.15,Anterior Deltoid,0.15,Sternal Head,0.05,,
+592,Lever Preacher Curl,Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
+593,Lever Reverse Hyperextension,Legs,Glutes,0.55,Hamstrings,0.25,Erector Spinae,0.2,,,,,,
+594,Lever Seated Calf Raise,Legs,Calves,1,,,,,,,,,,
+595,Lever Seated Crunch (Chest Pad),Core,Abs,0.85,Obliques,0.15,,,,,,,,
+596,Lever Seated Fly,Chest,Sternal Head,0.7,Clavicular Head,0.2,Anterior Deltoid,0.1,,,,,,
+597,Lever Seated Hip Abduction,Legs,Abductors,0.8,Glutes,0.2,,,,,,,,
+598,Lever Seated Hip Adduction,Legs,Adductors,1,,,,,,,,,,
+599,Lever Seated Leg Curl,Legs,Hamstrings,0.9,Calves,0.1,,,,,,,,
+600,Lever Seated Leg Raise Crunch,Core,Abs,0.85,Obliques,0.15,,,,,,,,
+601,Lever Seated Reverse Fly (Parallel Grip),Shoulders,Posterior Deltoid,0.6,Middle Trapezius,0.2,Infraspinatus & Teres Minor,0.1,Lower Trapezius,0.1,,,,
+602,Lever Seated Reverse Fly,Shoulders,Posterior Deltoid,0.6,Middle Trapezius,0.2,Infraspinatus & Teres Minor,0.1,Lower Trapezius,0.1,,,,
+603,Lever Shoulder Press,Shoulders,Anterior Deltoid,0.5,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Triceps Medial Head,0.05,Upper Trapezius,0.05
+604,Lever Shrug,Back,Upper Trapezius,0.8,Middle Trapezius,0.1,Forearm Flexors,0.1,,,,,,
+605,Lever Standing Calf Raise,Legs,Calves,1,,,,,,,,,,
+606,Lever T Bar Row,Back,Latissimus Dorsi & Teres Major,0.35,Middle Trapezius,0.25,Posterior Deltoid,0.15,Biceps,0.1,Erector Spinae,0.1,Brachioradialis,0.05
+607,Lever Triceps Extension,Triceps,Triceps Long Head,0.45,Triceps Lateral Head,0.3,Triceps Medial Head,0.25,,,,,,
+648,Power Clean,Legs,Glutes,0.3,Hamstrings,0.2,Upper Trapezius,0.2,Quadriceps,0.15,Erector Spinae,0.1,Forearm Flexors,0.05
+660,Push-Up Close-Grip Off Dumbbell,Triceps,Triceps Lateral Head,0.35,Triceps Medial Head,0.2,Sternal Head,0.2,Triceps Long Head,0.1,Anterior Deltoid,0.1,Abs,0.05
+673,Reverse Grip Machine Lat Pulldown,Back,Latissimus Dorsi & Teres Major,0.55,Biceps,0.25,Lower Trapezius,0.1,Middle Trapezius,0.05,Brachioradialis,0.05,,
+727,Single Leg Calf Raise (On a Dumbbell),Legs,Calves,1,,,,,,,,,,
+746,Smith Back Shrug,Back,Upper Trapezius,0.8,Middle Trapezius,0.1,Forearm Flexors,0.1,,,,,,
+747,Smith Behind Neck Press,Shoulders,Anterior Deltoid,0.45,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Upper Trapezius,0.1,Triceps Medial Head,0.05
+748,Smith Bench Press,Chest,Sternal Head,0.5,Clavicular Head,0.15,Anterior Deltoid,0.15,Triceps Lateral Head,0.1,Triceps Long Head,0.05,Triceps Medial Head,0.05
+749,Smith Bent Knee Good Morning,Back,Erector Spinae,0.4,Hamstrings,0.35,Glutes,0.25,,,,,,
+750,Smith Chair Squat,Legs,Quadriceps,0.45,Glutes,0.25,Adductors,0.15,Erector Spinae,0.1,Hamstrings,0.05,,
+751,Smith Close-Grip Bench Press,Triceps,Triceps Lateral Head,0.35,Sternal Head,0.2,Triceps Medial Head,0.15,Triceps Long Head,0.15,Anterior Deltoid,0.1,Clavicular Head,0.05
+752,Smith Deadlift,Back,Erector Spinae,0.3,Glutes,0.3,Hamstrings,0.2,Quadriceps,0.1,Upper Trapezius,0.05,Forearm Flexors,0.05
+753,Smith Decline Bench Press,Chest,Sternal Head,0.6,Triceps Lateral Head,0.15,Triceps Long Head,0.1,Triceps Medial Head,0.1,Anterior Deltoid,0.05,,
+754,Smith Decline Reverse-Grip Press,Chest,Sternal Head,0.6,Triceps Lateral Head,0.15,Triceps Long Head,0.1,Triceps Medial Head,0.1,Anterior Deltoid,0.05,,
+755,Smith Hack Squat,Legs,Quadriceps,0.65,Glutes,0.2,Adductors,0.1,Hamstrings,0.05,,,,
+756,Smith Hip Raise,Legs,Glutes,0.75,Hamstrings,0.15,Quadriceps,0.05,Adductors,0.05,,,,
+757,Smith Incline Bench Press,Chest,Clavicular Head,0.45,Anterior Deltoid,0.2,Sternal Head,0.15,Triceps Lateral Head,0.1,Triceps Long Head,0.05,Triceps Medial Head,0.05
+758,Smith Incline Reverse-Grip Press,Chest,Clavicular Head,0.45,Anterior Deltoid,0.2,Sternal Head,0.15,Triceps Lateral Head,0.1,Triceps Long Head,0.05,Triceps Medial Head,0.05
+759,Smith Incline Shoulder Raises,Chest,Serratus Anterior,0.75,Anterior Deltoid,0.15,Sternal Head,0.1,,,,,,
+760,Smith Leg Press,Legs,Quadriceps,0.55,Glutes,0.25,Adductors,0.15,Hamstrings,0.05,,,,
+761,Smith Narrow Row,Back,Latissimus Dorsi & Teres Major,0.4,Middle Trapezius,0.3,Biceps,0.15,Posterior Deltoid,0.1,Erector Spinae,0.05,,
+762,Smith Rear Delt Row,Shoulders,Posterior Deltoid,0.45,Middle Trapezius,0.25,Latissimus Dorsi & Teres Major,0.1,Biceps,0.1,Infraspinatus & Teres Minor,0.05,Lower Trapezius,0.05
+763,Smith Reverse Calf Raises,Legs,Calves,1,,,,,,,,,,
+764,Smith Reverse-Grip Press,Chest,Sternal Head,0.5,Clavicular Head,0.15,Anterior Deltoid,0.15,Triceps Lateral Head,0.1,Triceps Long Head,0.05,Triceps Medial Head,0.05
+765,Smith Seated Shoulder Press,Shoulders,Anterior Deltoid,0.45,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Upper Trapezius,0.1,Triceps Medial Head,0.05
+766,Smith Shoulder Press,Shoulders,Anterior Deltoid,0.45,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Upper Trapezius,0.1,Triceps Medial Head,0.05
+767,Smith Shrug,Back,Upper Trapezius,0.8,Middle Trapezius,0.1,Forearm Flexors,0.1,,,,,,
+768,Smith Single Leg Split Squat,Legs,Quadriceps,0.45,Glutes,0.35,Adductors,0.1,Hamstrings,0.05,Abductors,0.05,,
+769,Smith Sprint Lunge,Legs,Quadriceps,0.45,Glutes,0.3,Adductors,0.1,Hamstrings,0.05,Abductors,0.05,Calves,0.05
+770,Smith Squat,Legs,Quadriceps,0.45,Glutes,0.25,Adductors,0.15,Erector Spinae,0.1,Hamstrings,0.05,,
+771,Smith Standing Back Wrist Curl,Forearms,Forearm Flexors,1,,,,,,,,,,
+772,Smith Standing Behind Head Military Press,Shoulders,Anterior Deltoid,0.45,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Upper Trapezius,0.1,Triceps Medial Head,0.05
+773,Smith Standing Leg Calf Raise,Legs,Calves,1,,,,,,,,,,
+774,Smith Standing Military Press,Shoulders,Anterior Deltoid,0.45,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Upper Trapezius,0.1,Triceps Medial Head,0.05
+775,Smith Upright Row,Shoulders,Lateral Deltoid,0.45,Upper Trapezius,0.3,Anterior Deltoid,0.1,Biceps,0.1,Brachioradialis,0.05,,
+776,Snatch Pull,Legs,Glutes,0.3,Hamstrings,0.2,Upper Trapezius,0.2,Quadriceps,0.15,Erector Spinae,0.1,Forearm Flexors,0.05
+777,Spell Caster,Core,Obliques,0.6,Abs,0.2,Anterior Deltoid,0.2,,,,,,
+786,Squat Jerk,Shoulders,Anterior Deltoid,0.35,Quadriceps,0.2,Glutes,0.15,Triceps Lateral Head,0.1,Lateral Deltoid,0.1,Upper Trapezius,0.1
+788,Standing Behind Neck Press,Shoulders,Anterior Deltoid,0.45,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Upper Trapezius,0.1,Triceps Medial Head,0.05
+798,Stationary Bike Walk,Legs,Quadriceps,0.55,Glutes,0.2,Hamstrings,0.15,Calves,0.1,,,,
+811,Trap Bar Deadlift,Legs,Glutes,0.3,Quadriceps,0.25,Hamstrings,0.15,Erector Spinae,0.15,Upper Trapezius,0.1,Forearm Flexors,0.05
+818,Twin Handle Parallel Grip Lat Pulldown,Back,Latissimus Dorsi & Teres Major,0.6,Biceps,0.2,Lower Trapezius,0.1,Middle Trapezius,0.05,Brachioradialis,0.05,,
+860,Cable Kickback,Triceps,Triceps Lateral Head,0.45,Triceps Medial Head,0.3,Triceps Long Head,0.25,,,,,,
+861,Cable Seated Row,Back,Latissimus Dorsi & Teres Major,0.4,Middle Trapezius,0.3,Biceps,0.15,Posterior Deltoid,0.1,Erector Spinae,0.05,,
+862,Cable Twist (Up-Down),Core,Obliques,0.65,Abs,0.15,Anterior Deltoid,0.1,Glutes,0.1,,,,
+863,Dumbbell Lying External Shoulder Rotation,Back,Infraspinatus & Teres Minor,0.8,Posterior Deltoid,0.2,,,,,,,,
+864,Dumbbell Upright Shoulder External Rotation,Back,Infraspinatus & Teres Minor,0.8,Posterior Deltoid,0.2,,,,,,,,
+868,Cable Curl,Biceps,Biceps,0.75,Brachioradialis,0.15,Forearm Flexors,0.1,,,,,,
+869,Lever Shoulder Press V2,Shoulders,Anterior Deltoid,0.5,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Triceps Medial Head,0.05,Upper Trapezius,0.05
+873,Cable Reverse Crunch,Core,Abs,0.85,Obliques,0.15,,,,,,,,
+874,Cable Standing Crunch (With Rope Attachment),Core,Abs,0.85,Obliques,0.15,,,,,,,,
+1201,Dumbbell Burpee,Legs,Quadriceps,0.3,Sternal Head,0.2,Glutes,0.15,Anterior Deltoid,0.15,Triceps Lateral Head,0.1,Abs,0.1
+1253,Lever Donkey Calf Raise,Legs,Calves,1,,,,,,,,,,
+1255,Barbell Decline Pullover,Chest,Sternal Head,0.45,Latissimus Dorsi & Teres Major,0.3,Triceps Long Head,0.15,Serratus Anterior,0.1,,,,
+1256,Barbell Reverse Grip Decline Bench Press,Chest,Sternal Head,0.6,Triceps Lateral Head,0.15,Triceps Long Head,0.1,Triceps Medial Head,0.1,Anterior Deltoid,0.05,,
+1257,Barbell Reverse Grip Incline Bench Press,Chest,Clavicular Head,0.45,Anterior Deltoid,0.2,Sternal Head,0.15,Triceps Lateral Head,0.1,Triceps Long Head,0.05,Triceps Medial Head,0.05
+1258,Barbell Wide Reverse Grip Bench Press,Chest,Sternal Head,0.5,Clavicular Head,0.15,Anterior Deltoid,0.15,Triceps Lateral Head,0.1,Triceps Long Head,0.05,Triceps Medial Head,0.05
+1260,Cable Decline One Arm Press,Chest,Sternal Head,0.65,Triceps Lateral Head,0.15,Triceps Medial Head,0.1,Anterior Deltoid,0.1,,,,
+1261,Cable Decline Press,Chest,Sternal Head,0.65,Triceps Lateral Head,0.15,Triceps Medial Head,0.1,Anterior Deltoid,0.1,,,,
+1262,Cable One Arm Decline Chest Fly,Chest,Sternal Head,0.8,Clavicular Head,0.1,Anterior Deltoid,0.1,,,,,,
+1263,Cable One Arm Fly on Exercise Ball,Chest,Sternal Head,0.7,Clavicular Head,0.15,Anterior Deltoid,0.15,,,,,,
+1264,Cable One Arm Incline Fly on Exercise Ball,Chest,Clavicular Head,0.6,Anterior Deltoid,0.25,Sternal Head,0.15,,,,,,
+1265,Cable One Arm Incline Press,Chest,Clavicular Head,0.5,Anterior Deltoid,0.2,Sternal Head,0.15,Triceps Lateral Head,0.1,Triceps Medial Head,0.05,,
+1266,Cable One Arm Incline Press on Exercise Ball,Chest,Clavicular Head,0.5,Anterior Deltoid,0.2,Sternal Head,0.15,Triceps Lateral Head,0.1,Triceps Medial Head,0.05,,
+1267,Cable One Arm Press on Exercise Ball,Chest,Sternal Head,0.55,Clavicular Head,0.15,Anterior Deltoid,0.15,Triceps Lateral Head,0.1,Triceps Medial Head,0.05,,
+1268,Cable Press on Exercise Ball,Chest,Sternal Head,0.55,Clavicular Head,0.15,Anterior Deltoid,0.15,Triceps Lateral Head,0.1,Triceps Medial Head,0.05,,
+1269,Cable Standing Up Straight Crossovers,Chest,Sternal Head,0.7,Clavicular Head,0.15,Anterior Deltoid,0.15,,,,,,
+1270,Cable Upper Chest Crossovers,Chest,Clavicular Head,0.6,Anterior Deltoid,0.25,Sternal Head,0.15,,,,,,
+1274,Deep Push Up,Chest,Sternal Head,0.5,Anterior Deltoid,0.15,Clavicular Head,0.1,Triceps Lateral Head,0.1,Abs,0.1,Triceps Medial Head,0.05
+1276,Dumbbell Decline One Arm Fly,Chest,Sternal Head,0.8,Clavicular Head,0.1,Anterior Deltoid,0.1,,,,,,
+1277,Dumbbell Fly on Exercise Ball,Chest,Sternal Head,0.7,Clavicular Head,0.15,Anterior Deltoid,0.15,,,,,,
+1278,Dumbbell Incline Fly on Exercise Ball,Chest,Clavicular Head,0.6,Anterior Deltoid,0.25,Sternal Head,0.15,,,,,,
+1279,Dumbbell Incline One Arm Fly,Chest,Clavicular Head,0.6,Anterior Deltoid,0.25,Sternal Head,0.15,,,,,,
+1280,Dumbbell Incline One Arm Fly on Exercise Ball,Chest,Clavicular Head,0.6,Anterior Deltoid,0.25,Sternal Head,0.15,,,,,,
+1281,Dumbbell Incline One Arm Press,Chest,Clavicular Head,0.5,Anterior Deltoid,0.2,Sternal Head,0.15,Triceps Lateral Head,0.1,Triceps Medial Head,0.05,,
+1282,Dumbbell Incline One Arm Press on Exercise Ball,Chest,Clavicular Head,0.5,Anterior Deltoid,0.2,Sternal Head,0.15,Triceps Lateral Head,0.1,Triceps Medial Head,0.05,,
+1283,Dumbbell Incline Press on Exercise Ball,Chest,Clavicular Head,0.5,Anterior Deltoid,0.2,Sternal Head,0.15,Triceps Lateral Head,0.1,Triceps Medial Head,0.05,,
+1284,Dumbbell Lying Pullover on Exercise Ball,Chest,Sternal Head,0.45,Latissimus Dorsi & Teres Major,0.3,Triceps Long Head,0.15,Serratus Anterior,0.1,,,,
+1285,Dumbbell One Arm Bench Fly,Chest,Sternal Head,0.7,Clavicular Head,0.15,Anterior Deltoid,0.15,,,,,,
+1286,Dumbbell One Arm Chest Fly on Exercise Ball,Chest,Sternal Head,0.7,Clavicular Head,0.15,Anterior Deltoid,0.15,,,,,,
+1287,Dumbbell One Arm Decline Chest Press,Chest,Sternal Head,0.65,Triceps Lateral Head,0.15,Triceps Medial Head,0.1,Anterior Deltoid,0.1,,,,
+1288,Dumbbell One Arm Fly on Exercise Ball,Chest,Sternal Head,0.7,Clavicular Head,0.15,Anterior Deltoid,0.15,,,,,,
+1289,Dumbbell One Arm Incline Chest Press,Chest,Clavicular Head,0.5,Anterior Deltoid,0.2,Sternal Head,0.15,Triceps Lateral Head,0.1,Triceps Medial Head,0.05,,
+1290,Dumbbell One Arm Press on Exercise Ball,Chest,Sternal Head,0.55,Clavicular Head,0.15,Anterior Deltoid,0.15,Triceps Lateral Head,0.1,Triceps Medial Head,0.05,,
+1291,Dumbbell One Arm Pullover on Exercise Ball,Chest,Sternal Head,0.45,Latissimus Dorsi & Teres Major,0.3,Triceps Long Head,0.15,Serratus Anterior,0.1,,,,
+1292,Dumbbell One Leg Fly on Exercise Ball,Chest,Sternal Head,0.7,Clavicular Head,0.15,Anterior Deltoid,0.15,,,,,,
+1293,Dumbbell Press on Exercise Ball,Chest,Sternal Head,0.55,Clavicular Head,0.15,Anterior Deltoid,0.15,Triceps Lateral Head,0.1,Triceps Medial Head,0.05,,
+1294,Dumbbell Pullover Hip Extension on Exercise Ball,Chest,Sternal Head,0.45,Latissimus Dorsi & Teres Major,0.3,Triceps Long Head,0.15,Serratus Anterior,0.1,,,,
+1295,Dumbbell Pullover on Exercise Ball,Chest,Sternal Head,0.45,Latissimus Dorsi & Teres Major,0.3,Triceps Long Head,0.15,Serratus Anterior,0.1,,,,
+1298,Kettlebell One Arm Floor Press,Chest,Sternal Head,0.55,Clavicular Head,0.15,Anterior Deltoid,0.15,Triceps Lateral Head,0.1,Triceps Medial Head,0.05,,
+1299,Lever Incline Chest Press,Chest,Clavicular Head,0.5,Anterior Deltoid,0.2,Sternal Head,0.15,Triceps Lateral Head,0.1,Triceps Medial Head,0.05,,
+1300,Lever Decline Chest Press,Chest,Sternal Head,0.65,Triceps Lateral Head,0.15,Triceps Medial Head,0.1,Anterior Deltoid,0.1,,,,
+1301,Machine Inner Chest Press,Chest,Sternal Head,0.55,Clavicular Head,0.15,Anterior Deltoid,0.15,Triceps Lateral Head,0.1,Triceps Medial Head,0.05,,
+1308,Smith Wide Grip Bench Press,Chest,Sternal Head,0.5,Clavicular Head,0.15,Anterior Deltoid,0.15,Triceps Lateral Head,0.1,Triceps Long Head,0.05,Triceps Medial Head,0.05
+1309,Smith Wide Grip Decline Bench Press,Chest,Sternal Head,0.6,Triceps Lateral Head,0.15,Triceps Long Head,0.1,Triceps Medial Head,0.1,Anterior Deltoid,0.05,,
+1313,Lever Unilateral Row,Back,Latissimus Dorsi & Teres Major,0.4,Middle Trapezius,0.3,Biceps,0.15,Posterior Deltoid,0.1,Erector Spinae,0.05,,
+1316,Barbell Bent Arm Pullover,Back,Latissimus Dorsi & Teres Major,0.5,Sternal Head,0.25,Triceps Long Head,0.15,Serratus Anterior,0.1,,,,
+1317,Barbell Reverse Grip Incline Bench Row,Back,Latissimus Dorsi & Teres Major,0.4,Middle Trapezius,0.25,Biceps,0.2,Posterior Deltoid,0.1,Brachioradialis,0.05,,
+1318,Cable Incline Bench Row,Back,Middle Trapezius,0.4,Latissimus Dorsi & Teres Major,0.25,Posterior Deltoid,0.15,Biceps,0.1,Lower Trapezius,0.05,Brachioradialis,0.05
+1319,Cable Palm Rotational Row,Back,Latissimus Dorsi & Teres Major,0.4,Middle Trapezius,0.3,Biceps,0.15,Posterior Deltoid,0.1,Erector Spinae,0.05,,
+1320,Cable Rope Crossover Seated Row,Back,Latissimus Dorsi & Teres Major,0.4,Middle Trapezius,0.3,Biceps,0.15,Posterior Deltoid,0.1,Erector Spinae,0.05,,
+1321,Cable Rope Elevated Seated Row,Back,Latissimus Dorsi & Teres Major,0.4,Middle Trapezius,0.3,Biceps,0.15,Posterior Deltoid,0.1,Erector Spinae,0.05,,
+1322,Cable Rope Extension Incline Bench Row,Back,Middle Trapezius,0.4,Latissimus Dorsi & Teres Major,0.25,Posterior Deltoid,0.15,Biceps,0.1,Lower Trapezius,0.05,Brachioradialis,0.05
+1323,Cable Rope Seated Row,Back,Latissimus Dorsi & Teres Major,0.4,Middle Trapezius,0.3,Biceps,0.15,Posterior Deltoid,0.1,Erector Spinae,0.05,,
+1324,Cable Upper Row,Back,Latissimus Dorsi & Teres Major,0.45,Middle Trapezius,0.2,Lower Trapezius,0.1,Posterior Deltoid,0.1,Biceps,0.1,Brachioradialis,0.05
+1325,Cable Wide Grip Rear Pulldown Behind Neck,Back,Latissimus Dorsi & Teres Major,0.55,Biceps,0.15,Lower Trapezius,0.1,Middle Trapezius,0.1,Posterior Deltoid,0.05,Brachioradialis,0.05
+1328,Dumbbell Lying Rear Delt Row,Shoulders,Posterior Deltoid,0.45,Middle Trapezius,0.25,Latissimus Dorsi & Teres Major,0.1,Biceps,0.1,Infraspinatus & Teres Minor,0.05,Lower Trapezius,0.05
+1329,Dumbbell Palm Rotational Bent over Row,Back,Latissimus Dorsi & Teres Major,0.35,Middle Trapezius,0.25,Posterior Deltoid,0.15,Biceps,0.1,Erector Spinae,0.1,Brachioradialis,0.05
+1330,Dumbbell Reverse Grip Incline Bench One Arm Row,Back,Latissimus Dorsi & Teres Major,0.4,Middle Trapezius,0.25,Biceps,0.2,Posterior Deltoid,0.1,Brachioradialis,0.05,,
+1331,Dumbbell Reverse Grip Incline Bench Two Arm Row,Back,Latissimus Dorsi & Teres Major,0.4,Middle Trapezius,0.25,Biceps,0.2,Posterior Deltoid,0.1,Brachioradialis,0.05,,
+1344,EZ Bar Reverse Grip Bent over Row,Back,Latissimus Dorsi & Teres Major,0.4,Middle Trapezius,0.25,Biceps,0.2,Posterior Deltoid,0.1,Brachioradialis,0.05,,
+1345,Kettlebell Two Arm Row,Back,Latissimus Dorsi & Teres Major,0.35,Middle Trapezius,0.25,Posterior Deltoid,0.15,Biceps,0.1,Erector Spinae,0.1,Brachioradialis,0.05
+1347,Lever One Arm Lateral Wide Pulldown,Back,Latissimus Dorsi & Teres Major,0.55,Biceps,0.15,Lower Trapezius,0.1,Middle Trapezius,0.1,Posterior Deltoid,0.05,Brachioradialis,0.05
+1348,Lever Reverse Grip Vertical Row,Back,Latissimus Dorsi & Teres Major,0.4,Middle Trapezius,0.25,Biceps,0.2,Posterior Deltoid,0.1,Brachioradialis,0.05,,
+1349,Lever Reverse T-Bar Row,Back,Latissimus Dorsi & Teres Major,0.4,Middle Trapezius,0.25,Biceps,0.2,Posterior Deltoid,0.1,Brachioradialis,0.05,,
+1350,Lever Seated Row,Back,Latissimus Dorsi & Teres Major,0.4,Middle Trapezius,0.3,Biceps,0.15,Posterior Deltoid,0.1,Erector Spinae,0.05,,
+1351,Lever T-Bar Reverse Grip Row,Back,Latissimus Dorsi & Teres Major,0.4,Middle Trapezius,0.25,Biceps,0.2,Posterior Deltoid,0.1,Brachioradialis,0.05,,
+1356,Lever One Arm Lateral High Row,Back,Latissimus Dorsi & Teres Major,0.45,Middle Trapezius,0.2,Lower Trapezius,0.1,Posterior Deltoid,0.1,Biceps,0.1,Brachioradialis,0.05
+1359,Smith Bent over Row,Back,Latissimus Dorsi & Teres Major,0.35,Middle Trapezius,0.25,Posterior Deltoid,0.15,Biceps,0.1,Erector Spinae,0.1,Brachioradialis,0.05
+1360,Smith One Arm Row,Back,Latissimus Dorsi & Teres Major,0.4,Middle Trapezius,0.2,Posterior Deltoid,0.15,Biceps,0.1,Erector Spinae,0.1,Brachioradialis,0.05
+1361,Smith Reverse Grip Bent over Row,Back,Latissimus Dorsi & Teres Major,0.4,Middle Trapezius,0.25,Biceps,0.2,Posterior Deltoid,0.1,Brachioradialis,0.05,,
+1370,Barbell Floor Calf Raise,Legs,Calves,1,,,,,,,,,,
+1372,Barbell Standing Calf Raise,Legs,Calves,1,,,,,,,,,,
+1375,Cable Standing Calf Raise,Legs,Calves,1,,,,,,,,,,
+1376,Cable Standing One Leg Calf Raise,Legs,Calves,1,,,,,,,,,,
+1379,Dumbbell Seated Calf Raise,Legs,Calves,1,,,,,,,,,,
+1380,Dumbbell Seated One Leg Calf Raise - Hammer Grip,Legs,Calves,1,,,,,,,,,,
+1381,Dumbbell Seated One Leg Calf Raise - Palm Up,Legs,Calves,1,,,,,,,,,,
+1382,Exercise Ball on the Wall Calf Raise,Legs,Calves,1,,,,,,,,,,
+1385,Lever Seated Squat Calf Raise on Leg Press Machine,Legs,Calves,1,,,,,,,,,,
+1393,Smith One Leg Floor Calf Raise,Legs,Calves,1,,,,,,,,,,
+1395,Smith Seated One Leg Calf Raise,Legs,Calves,1,,,,,,,,,,
+1396,Smith Toe Raise,Legs,Calves,1,,,,,,,,,,
+1409,Barbell Glute Bridge,Legs,Glutes,0.75,Hamstrings,0.15,Quadriceps,0.05,Adductors,0.05,,,,
+1410,Barbell Lateral Lunge,Legs,Quadriceps,0.4,Adductors,0.3,Glutes,0.25,Hamstrings,0.05,,,,
+1411,Barbell Palms Down Wrist Curl over a Bench,Forearms,Forearm Extensors,1,,,,,,,,,,
+1412,Barbell Palms Up Wrist Curl over a Bench,Forearms,Forearm Flexors,1,,,,,,,,,,
+1413,Cable Reverse One Arm Curl,Forearms,Brachioradialis,0.45,Biceps,0.3,Forearm Extensors,0.25,,,,,,
+1414,Dumbbell One Arm Reverse Preacher Curl,Forearms,Brachioradialis,0.45,Biceps,0.3,Forearm Extensors,0.25,,,,,,
+1415,Dumbbell One Arm Seated Neutral Wrist Curl,Forearms,Brachioradialis,0.4,Forearm Flexors,0.3,Forearm Extensors,0.3,,,,,,
+1420,Kneeling Jump Squat,Legs,Quadriceps,0.45,Glutes,0.3,Calves,0.1,Adductors,0.1,Hamstrings,0.05,,
+1426,Smith Seated Wrist Curl,Forearms,Forearm Flexors,1,,,,,,,,,,
+1431,Assisted Standing Chin-Up,Back,Latissimus Dorsi & Teres Major,0.55,Biceps,0.25,Lower Trapezius,0.1,Middle Trapezius,0.05,Brachioradialis,0.05,,
+1432,Assisted Standing Pull-Up,Back,Latissimus Dorsi & Teres Major,0.55,Biceps,0.15,Lower Trapezius,0.1,Middle Trapezius,0.1,Posterior Deltoid,0.05,Brachioradialis,0.05
+1433,Smith Front Squat (Clean Grip),Legs,Quadriceps,0.6,Glutes,0.15,Adductors,0.1,Erector Spinae,0.1,Abs,0.05,,
+1434,Smith Low Bar Squat,Legs,Quadriceps,0.4,Glutes,0.3,Adductors,0.15,Erector Spinae,0.1,Hamstrings,0.05,,
+1435,Barbell Low Bar Squat,Legs,Quadriceps,0.4,Glutes,0.3,Adductors,0.15,Erector Spinae,0.1,Hamstrings,0.05,,
+1436,Barbell High Bar Squat,Legs,Quadriceps,0.45,Glutes,0.25,Adductors,0.15,Erector Spinae,0.1,Hamstrings,0.05,,
+1437,Dumbbell Finger Curls,Forearms,Forearm Flexors,0.9,Forearm Extensors,0.1,,,,,,,,
+1438,Kettlebell Seated Two Arm Military Press,Shoulders,Anterior Deltoid,0.45,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Upper Trapezius,0.1,Triceps Medial Head,0.05
+1439,Lever Gripless Shrug V2,Back,Upper Trapezius,0.9,Middle Trapezius,0.1,,,,,,,,
+1441,Dumbbell over Bench One Arm Reverse Wrist Curl,Forearms,Forearm Extensors,1,,,,,,,,,,
+1451,Lever Seated Dip,Triceps,Triceps Lateral Head,0.4,Triceps Medial Head,0.25,Triceps Long Head,0.15,Anterior Deltoid,0.15,Sternal Head,0.05,,
+1452,Lever Seated Crunch,Core,Abs,0.85,Obliques,0.15,,,,,,,,
+1456,Barbell Standing Close Grip Military Press,Shoulders,Anterior Deltoid,0.45,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Upper Trapezius,0.1,Triceps Medial Head,0.05
+1457,Barbell Standing Wide Military Press,Shoulders,Anterior Deltoid,0.45,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Upper Trapezius,0.1,Triceps Medial Head,0.05
+1458,EZ Barbell Seated Curls,Biceps,Biceps,0.75,Brachioradialis,0.15,Forearm Flexors,0.1,,,,,,
+1459,Dumbbell Romanian Deadlift,Legs,Hamstrings,0.45,Glutes,0.3,Erector Spinae,0.15,Adductors,0.05,Forearm Flexors,0.05,,
+1461,Barbell Full Squat (Back POV),Legs,Quadriceps,0.45,Glutes,0.25,Adductors,0.15,Erector Spinae,0.1,Hamstrings,0.05,,
+1462,Barbell Full Squat (Side POV),Legs,Quadriceps,0.45,Glutes,0.25,Adductors,0.15,Erector Spinae,0.1,Hamstrings,0.05,,
+1479,Lever Incline Chest Press V2,Chest,Clavicular Head,0.5,Anterior Deltoid,0.2,Sternal Head,0.15,Triceps Lateral Head,0.1,Triceps Medial Head,0.05,,
+1545,Barbell Full Zercher Squat,Legs,Quadriceps,0.6,Glutes,0.15,Adductors,0.1,Erector Spinae,0.1,Abs,0.05,,
+1614,Lever Preacher Curl V2,Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
+1615,Lever Hammer Grip Preacher Curl,Biceps,Biceps,0.5,Brachioradialis,0.4,Forearm Extensors,0.1,,,,,,
+1616,Lever Reverse Grip Preacher Curl,Forearms,Brachioradialis,0.45,Biceps,0.3,Forearm Extensors,0.25,,,,,,
+1617,Dumbbell Decline One Arm Hammer Press,Triceps,Triceps Lateral Head,0.35,Sternal Head,0.2,Triceps Medial Head,0.15,Triceps Long Head,0.15,Anterior Deltoid,0.1,Clavicular Head,0.05
+1618,Dumbbell Incline Hammer Press on Exercise Ball,Triceps,Triceps Lateral Head,0.35,Sternal Head,0.2,Triceps Medial Head,0.15,Triceps Long Head,0.15,Anterior Deltoid,0.1,Clavicular Head,0.05
+1619,Dumbbell Incline One Arm Hammer Press,Triceps,Triceps Lateral Head,0.35,Sternal Head,0.2,Triceps Medial Head,0.15,Triceps Long Head,0.15,Anterior Deltoid,0.1,Clavicular Head,0.05
+1620,Dumbbell Incline One Arm Hammer Press on Exercise Ball,Triceps,Triceps Lateral Head,0.35,Sternal Head,0.2,Triceps Medial Head,0.15,Triceps Long Head,0.15,Anterior Deltoid,0.1,Clavicular Head,0.05
+1621,Dumbbell One Arm Hammer Press on Exercise Ball,Triceps,Triceps Lateral Head,0.35,Sternal Head,0.2,Triceps Medial Head,0.15,Triceps Long Head,0.15,Anterior Deltoid,0.1,Clavicular Head,0.05
+1622,Dumbbell One Arm Reverse Grip Press,Chest,Sternal Head,0.55,Clavicular Head,0.15,Anterior Deltoid,0.15,Triceps Lateral Head,0.1,Triceps Medial Head,0.05,,
+1623,Dumbbell Palms in Incline Bench Press,Triceps,Triceps Lateral Head,0.35,Sternal Head,0.2,Triceps Medial Head,0.15,Triceps Long Head,0.15,Anterior Deltoid,0.1,Clavicular Head,0.05
+1624,Dumbbell Reverse Bench Press,Chest,Sternal Head,0.55,Clavicular Head,0.15,Anterior Deltoid,0.15,Triceps Lateral Head,0.1,Triceps Medial Head,0.05,,
+1625,Smith Machine Decline Close Grip Bench Press,Triceps,Triceps Lateral Head,0.35,Sternal Head,0.2,Triceps Medial Head,0.15,Triceps Long Head,0.15,Anterior Deltoid,0.1,Clavicular Head,0.05
+1626,Smith Machine Reverse Decline Close Grip Bench Press,Chest,Sternal Head,0.65,Triceps Lateral Head,0.15,Triceps Medial Head,0.1,Anterior Deltoid,0.1,,,,
+1627,EZ Barbell Close Grip Preacher Curl,Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
+1629,Barbell Standing Wide Grip Biceps Curl,Biceps,Biceps,0.75,Brachioradialis,0.15,Forearm Flexors,0.1,,,,,,
+1630,Cable Close Grip Curl,Biceps,Biceps,0.75,Brachioradialis,0.15,Forearm Flexors,0.1,,,,,,
+1631,Cable Concentration Curl,Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
+1632,Cable Drag Curl,Biceps,Biceps,0.8,Brachioradialis,0.1,Forearm Flexors,0.1,,,,,,
+1633,Cable One Arm Preacher Curl,Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
+1634,Cable Lying Bicep Curl,Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
+1635,Cable One Arm Reverse Preacher Curl,Forearms,Brachioradialis,0.45,Biceps,0.3,Forearm Extensors,0.25,,,,,,
+1636,Cable Overhead Curl,Biceps,Biceps,0.8,Brachioradialis,0.1,Forearm Flexors,0.1,,,,,,
+1637,Cable Overhead Curl on Exercise Ball,Biceps,Biceps,0.8,Brachioradialis,0.1,Forearm Flexors,0.1,,,,,,
+1638,Cable Pulldown Bicep Curl,Biceps,Biceps,0.75,Brachioradialis,0.15,Forearm Flexors,0.1,,,,,,
+1639,Cable Rope Hammer Preacher Curl,Biceps,Biceps,0.5,Brachioradialis,0.4,Forearm Extensors,0.1,,,,,,
+1640,Cable Rope One Arm Hammer Preacher Curl,Biceps,Biceps,0.5,Brachioradialis,0.4,Forearm Extensors,0.1,,,,,,
+1641,Cable Seated Curl,Biceps,Biceps,0.75,Brachioradialis,0.15,Forearm Flexors,0.1,,,,,,
+1642,Cable Seated One Arm Concentration Curl,Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
+1643,Cable Seated Overhead Curl,Biceps,Biceps,0.8,Brachioradialis,0.1,Forearm Flexors,0.1,,,,,,
+1644,Cable Squatting Curl,Biceps,Biceps,0.5,Quadriceps,0.2,Glutes,0.15,Brachioradialis,0.1,Hamstrings,0.05,,
+1645,Cable Two Arm Curl on Incline Bench,Biceps,Biceps,0.8,Brachioradialis,0.1,Forearm Flexors,0.1,,,,,,
+1646,Dumbbell Alternate Hammer Preacher Curl,Biceps,Biceps,0.5,Brachioradialis,0.4,Forearm Extensors,0.1,,,,,,
+1647,Dumbbell Alternate Preacher Curl,Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
+1648,Dumbbell Alternate Seated Hammer Curl,Biceps,Biceps,0.5,Brachioradialis,0.4,Forearm Extensors,0.1,,,,,,
+1649,Dumbbell Alternating Bicep Curl with Leg Raised on Exercise Ball,Biceps,Biceps,0.75,Brachioradialis,0.15,Forearm Flexors,0.1,,,,,,
+1650,Dumbbell Alternating Seated Bicep Curl on Exercise Ball,Biceps,Biceps,0.75,Brachioradialis,0.15,Forearm Flexors,0.1,,,,,,
+1651,Dumbbell Bicep Curl Lunge with Bowling Motion,Biceps,Biceps,0.5,Quadriceps,0.2,Glutes,0.15,Brachioradialis,0.1,Hamstrings,0.05,,
+1652,Dumbbell Bicep Curl on Exercise Ball with Leg Raised,Biceps,Biceps,0.75,Brachioradialis,0.15,Forearm Flexors,0.1,,,,,,
+1653,Dumbbell Bicep Curl with Stork Stance,Biceps,Biceps,0.75,Brachioradialis,0.15,Forearm Flexors,0.1,,,,,,
+1654,Dumbbell Biceps Curl Reverse,Forearms,Brachioradialis,0.45,Biceps,0.3,Forearm Extensors,0.25,,,,,,
+1655,Dumbbell Biceps Curl Squat,Biceps,Biceps,0.5,Quadriceps,0.2,Glutes,0.15,Brachioradialis,0.1,Hamstrings,0.05,,
+1656,Dumbbell Biceps Curl V Sit on Bosu Ball,Biceps,Biceps,0.75,Brachioradialis,0.15,Forearm Flexors,0.1,,,,,,
+1657,Dumbbell Cross Body Hammer Curl V2,Biceps,Biceps,0.5,Brachioradialis,0.4,Forearm Extensors,0.1,,,,,,
+1658,Dumbbell Lunge with Bicep Curl,Biceps,Biceps,0.5,Quadriceps,0.2,Glutes,0.15,Brachioradialis,0.1,Hamstrings,0.05,,
+1659,Dumbbell Hammer Curl on Exercise Ball,Biceps,Biceps,0.5,Brachioradialis,0.4,Forearm Extensors,0.1,,,,,,
+1660,Dumbbell Kneeling Bicep Curl Exercise Ball,Biceps,Biceps,0.75,Brachioradialis,0.15,Forearm Flexors,0.1,,,,,,
+1661,Dumbbell Lying Supine Biceps Curl,Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
+1662,Dumbbell Lying Wide Curl,Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
+1663,Dumbbell One Arm Hammer Preacher Curl,Biceps,Biceps,0.5,Brachioradialis,0.4,Forearm Extensors,0.1,,,,,,
+1664,Dumbbell High Curl,Biceps,Biceps,0.75,Brachioradialis,0.15,Forearm Flexors,0.1,,,,,,
+1665,Dumbbell One Arm Prone Curl,Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
+1666,Dumbbell One Arm Prone Hammer Curl,Biceps,Biceps,0.5,Brachioradialis,0.4,Forearm Extensors,0.1,,,,,,
+1667,Dumbbell One Arm Reverse Spider Curl,Forearms,Brachioradialis,0.45,Biceps,0.3,Forearm Extensors,0.25,,,,,,
+1668,Dumbbell One Arm Seated Bicep Curl on Exercise Ball,Biceps,Biceps,0.75,Brachioradialis,0.15,Forearm Flexors,0.1,,,,,,
+1669,Dumbbell One Arm Seated Hammer Curl,Biceps,Biceps,0.5,Brachioradialis,0.4,Forearm Extensors,0.1,,,,,,
+1670,Dumbbell One Arm Standing Curl,Biceps,Biceps,0.75,Brachioradialis,0.15,Forearm Flexors,0.1,,,,,,
+1671,Dumbbell One Arm Standing Hammer Curl,Biceps,Biceps,0.5,Brachioradialis,0.4,Forearm Extensors,0.1,,,,,,
+1672,Dumbbell One Arm Zottman Preacher Curl,Biceps,Biceps,0.6,Brachioradialis,0.25,Forearm Extensors,0.15,,,,,,
+1673,Dumbbell Preacher Curl over Exercise Ball,Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
+1674,Dumbbell Prone Incline Hammer Curl,Biceps,Biceps,0.5,Brachioradialis,0.4,Forearm Extensors,0.1,,,,,,
+1675,Dumbbell Reverse Spider Curl,Forearms,Brachioradialis,0.45,Biceps,0.3,Forearm Extensors,0.25,,,,,,
+1676,Dumbbell Seated Alternate Hammer Curl on Exercise Ball,Biceps,Biceps,0.5,Brachioradialis,0.4,Forearm Extensors,0.1,,,,,,
+1677,Dumbbell Seated Bicep Curl,Biceps,Biceps,0.75,Brachioradialis,0.15,Forearm Flexors,0.1,,,,,,
+1678,Dumbbell Seated Hammer Curl,Biceps,Biceps,0.5,Brachioradialis,0.4,Forearm Extensors,0.1,,,,,,
+1679,Dumbbell Seated One Arm Bicep Curl on Exercise Ball with Leg Raised,Biceps,Biceps,0.75,Brachioradialis,0.15,Forearm Flexors,0.1,,,,,,
+1682,EZ Bar Seated Close Grip Concentration Curl,Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
+1683,Smith Machine Bicep Curl,Biceps,Biceps,0.75,Brachioradialis,0.15,Forearm Flexors,0.1,,,,,,
+1684,Dumbbell Step Up Single Leg Balance with Bicep Curl,Biceps,Biceps,0.5,Quadriceps,0.2,Glutes,0.15,Brachioradialis,0.1,Hamstrings,0.05,,
+1700,Dumbbell Push Press,Shoulders,Anterior Deltoid,0.35,Quadriceps,0.2,Glutes,0.15,Triceps Lateral Head,0.1,Lateral Deltoid,0.1,Upper Trapezius,0.1
+1717,Cable Squat Row (With Rope Attachment),Back,Latissimus Dorsi & Teres Major,0.4,Middle Trapezius,0.3,Biceps,0.15,Posterior Deltoid,0.1,Erector Spinae,0.05,,
+1718,Barbell Seated Close Grip Behind Neck Triceps Extension,Triceps,Triceps Long Head,0.6,Triceps Lateral Head,0.2,Triceps Medial Head,0.2,,,,,,
+1719,Barbell Incline Close Grip Bench Press,Triceps,Triceps Lateral Head,0.35,Sternal Head,0.2,Triceps Medial Head,0.15,Triceps Long Head,0.15,Anterior Deltoid,0.1,Clavicular Head,0.05
+1720,Barbell Lying Back of the Head Tricep Extension,Triceps,Triceps Long Head,0.45,Triceps Lateral Head,0.3,Triceps Medial Head,0.25,,,,,,
+1721,Barbell Reverse Grip Skullcrusher,Triceps,Triceps Long Head,0.45,Triceps Lateral Head,0.3,Triceps Medial Head,0.25,,,,,,
+1722,Cable High Pulley Overhead Tricep Extension,Triceps,Triceps Long Head,0.6,Triceps Lateral Head,0.2,Triceps Medial Head,0.2,,,,,,
+1723,Cable One Arm Tricep Pushdown,Triceps,Triceps Lateral Head,0.5,Triceps Medial Head,0.3,Triceps Long Head,0.2,,,,,,
+1724,Cable Rope High Pulley Overhead Tricep Extension,Triceps,Triceps Long Head,0.6,Triceps Lateral Head,0.2,Triceps Medial Head,0.2,,,,,,
+1725,Cable Rope Incline Tricep Extension,Triceps,Triceps Long Head,0.45,Triceps Lateral Head,0.3,Triceps Medial Head,0.25,,,,,,
+1726,Cable Rope Lying on Floor Tricep Extension,Triceps,Triceps Long Head,0.45,Triceps Lateral Head,0.3,Triceps Medial Head,0.25,,,,,,
+1727,Cable Standing Reverse Grip One Arm Overhead Tricep Extension,Triceps,Triceps Long Head,0.6,Triceps Lateral Head,0.2,Triceps Medial Head,0.2,,,,,,
+1728,Cable Two Arm Tricep Kickback,Triceps,Triceps Lateral Head,0.45,Triceps Medial Head,0.3,Triceps Long Head,0.25,,,,,,
+1729,Dumbbell Lying Alternate Extension,Triceps,Triceps Long Head,0.45,Triceps Lateral Head,0.3,Triceps Medial Head,0.25,,,,,,
+1730,Dumbbell Seated Bent over Alternate Kickback,Triceps,Triceps Lateral Head,0.45,Triceps Medial Head,0.3,Triceps Long Head,0.25,,,,,,
+1732,Dumbbell Forward Lunge Triceps Extension,Triceps,Triceps Long Head,0.5,Triceps Lateral Head,0.15,Triceps Medial Head,0.15,Quadriceps,0.1,Glutes,0.1,,
+1733,Dumbbell Incline Two Arm Extension,Triceps,Triceps Long Head,0.45,Triceps Lateral Head,0.3,Triceps Medial Head,0.25,,,,,,
+1734,Dumbbell Kickbacks on Exercise Ball,Triceps,Triceps Lateral Head,0.45,Triceps Medial Head,0.3,Triceps Long Head,0.25,,,,,,
+1735,Dumbbell Lying Single Extension,Triceps,Triceps Long Head,0.45,Triceps Lateral Head,0.3,Triceps Medial Head,0.25,,,,,,
+1736,Dumbbell One Arm French Press on Exercise Ball,Triceps,Triceps Long Head,0.6,Triceps Lateral Head,0.2,Triceps Medial Head,0.2,,,,,,
+1737,Dumbbell Seated Bent over Triceps Extension,Triceps,Triceps Lateral Head,0.45,Triceps Medial Head,0.3,Triceps Long Head,0.25,,,,,,
+1738,Dumbbell Seated Reverse Grip One Arm Overhead Tricep Extension,Triceps,Triceps Long Head,0.6,Triceps Lateral Head,0.2,Triceps Medial Head,0.2,,,,,,
+1739,Dumbbell Standing Alternating Tricep Kickback,Triceps,Triceps Lateral Head,0.45,Triceps Medial Head,0.3,Triceps Long Head,0.25,,,,,,
+1740,Dumbbell Standing Bent over One Arm Triceps Extension,Triceps,Triceps Lateral Head,0.45,Triceps Medial Head,0.3,Triceps Long Head,0.25,,,,,,
+1741,Dumbbell Standing Bent over Two Arm Triceps Extension,Triceps,Triceps Lateral Head,0.45,Triceps Medial Head,0.3,Triceps Long Head,0.25,,,,,,
+1742,Dumbbell Tricep Kickback with Stork Stance,Triceps,Triceps Lateral Head,0.45,Triceps Medial Head,0.3,Triceps Long Head,0.25,,,,,,
+1743,Dumbbell Twisting Bench Press,Triceps,Triceps Lateral Head,0.35,Sternal Head,0.2,Triceps Medial Head,0.15,Triceps Long Head,0.15,Anterior Deltoid,0.1,Clavicular Head,0.05
+1746,Exercise Ball Supine Triceps Extension,Triceps,Triceps Long Head,0.45,Triceps Lateral Head,0.3,Triceps Medial Head,0.25,,,,,,
+1747,EZ Bar French Press on Exercise Ball,Triceps,Triceps Long Head,0.6,Triceps Lateral Head,0.2,Triceps Medial Head,0.2,,,,,,
+1748,EZ Bar Lying Close Grip Triceps Extension Behind Head,Triceps,Triceps Long Head,0.6,Triceps Lateral Head,0.2,Triceps Medial Head,0.2,,,,,,
+1749,EZ Bar Standing French Press,Triceps,Triceps Long Head,0.6,Triceps Lateral Head,0.2,Triceps Medial Head,0.2,,,,,,
+1751,Barbell Pin Presses,Triceps,Triceps Lateral Head,0.35,Sternal Head,0.2,Triceps Medial Head,0.15,Triceps Long Head,0.15,Anterior Deltoid,0.1,Clavicular Head,0.05
+1752,Smith Machine Incline Tricep Extension,Triceps,Triceps Long Head,0.45,Triceps Lateral Head,0.3,Triceps Medial Head,0.25,,,,,,
+1756,Barbell Single Leg Deadlift,Legs,Hamstrings,0.4,Glutes,0.4,Erector Spinae,0.1,Abductors,0.05,Forearm Flexors,0.05,,
+1757,Dumbbell Single Leg Deadlift,Legs,Hamstrings,0.4,Glutes,0.4,Erector Spinae,0.1,Abductors,0.05,Forearm Flexors,0.05,,
+1760,Dumbbell Goblet Squat,Legs,Quadriceps,0.55,Glutes,0.2,Adductors,0.1,Abs,0.05,Erector Spinae,0.05,Hamstrings,0.05
+1765,Dumbbell Upright Row (Back POV),Shoulders,Lateral Deltoid,0.45,Upper Trapezius,0.3,Anterior Deltoid,0.1,Biceps,0.1,Brachioradialis,0.05,,
+2133,Farmers Walk,Forearms,Forearm Flexors,0.5,Upper Trapezius,0.25,Forearm Extensors,0.1,Obliques,0.1,Abs,0.05,,
+2136,Dumbbell Cuban Press V2,Back,Infraspinatus & Teres Minor,0.4,Lateral Deltoid,0.2,Upper Trapezius,0.15,Posterior Deltoid,0.15,Middle Trapezius,0.1,,
+2137,Dumbbell Arnold Press,Shoulders,Anterior Deltoid,0.45,Lateral Deltoid,0.25,Triceps Lateral Head,0.1,Clavicular Head,0.1,Triceps Medial Head,0.05,Upper Trapezius,0.05
+2143,Dumbbell Standing Around World,Shoulders,Anterior Deltoid,0.45,Lateral Deltoid,0.25,Clavicular Head,0.2,Serratus Anterior,0.1,,,,
+2144,Cable Seated Chest Press,Chest,Sternal Head,0.55,Clavicular Head,0.15,Anterior Deltoid,0.15,Triceps Lateral Head,0.1,Triceps Medial Head,0.05,,
+2186,EZ Barbell Decline Triceps Extension,Triceps,Triceps Long Head,0.45,Triceps Lateral Head,0.3,Triceps Medial Head,0.25,,,,,,
+2187,Barbell Reverse Close-Grip Bench Press,Triceps,Triceps Lateral Head,0.35,Sternal Head,0.2,Triceps Medial Head,0.15,Triceps Long Head,0.15,Anterior Deltoid,0.1,Clavicular Head,0.05
+2188,Dumbbell Seated Triceps Extension,Triceps,Triceps Long Head,0.6,Triceps Lateral Head,0.2,Triceps Medial Head,0.2,,,,,,
+2285,Lever Pullover,Back,Latissimus Dorsi & Teres Major,0.5,Sternal Head,0.25,Triceps Long Head,0.15,Serratus Anterior,0.1,,,,
+2286,Lever Hip Extension V2,Legs,Glutes,0.85,Hamstrings,0.15,,,,,,,,
+2287,Lever Alternate Leg Press,Legs,Quadriceps,0.55,Glutes,0.25,Adductors,0.15,Hamstrings,0.05,,,,
+2288,Lever Gripper Hands,Forearms,Forearm Flexors,0.9,Forearm Extensors,0.1,,,,,,,,
+2289,Lever Calf Press,Legs,Calves,1,,,,,,,,,,
+2292,Dumbbell Rear Delt Raise,Shoulders,Posterior Deltoid,0.6,Middle Trapezius,0.2,Infraspinatus & Teres Minor,0.1,Lower Trapezius,0.1,,,,
+2293,Dumbbell Standing Zottman Preacher Curl,Biceps,Biceps,0.6,Brachioradialis,0.25,Forearm Extensors,0.15,,,,,,
+2294,Dumbbell Zottman Preacher Curl,Biceps,Biceps,0.6,Brachioradialis,0.25,Forearm Extensors,0.15,,,,,,
+2315,Lever Rotary Calf,Legs,Calves,1,,,,,,,,,,
+2317,Dumbbell Seated Bent Arm Lateral Raise,Shoulders,Posterior Deltoid,0.6,Middle Trapezius,0.2,Infraspinatus & Teres Minor,0.1,Lower Trapezius,0.1,,,,
+2318,Lever Shoulder Press V3,Shoulders,Anterior Deltoid,0.5,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Triceps Medial Head,0.05,Upper Trapezius,0.05
+2321,Dumbbell Standing Inner Biceps Curl V2,Biceps,Biceps,0.75,Brachioradialis,0.15,Forearm Flexors,0.1,,,,,,
+2327,Dumbbell Reverse Grip Row (Female),Back,Latissimus Dorsi & Teres Major,0.4,Middle Trapezius,0.25,Biceps,0.2,Posterior Deltoid,0.1,Brachioradialis,0.05,,
+2330,Cable Lat Pulldown Full Range of Motion,Back,Latissimus Dorsi & Teres Major,0.55,Biceps,0.15,Lower Trapezius,0.1,Middle Trapezius,0.1,Posterior Deltoid,0.05,Brachioradialis,0.05
+2331,Cycle Cross Trainer,Legs,Quadriceps,0.55,Glutes,0.2,Hamstrings,0.15,Calves,0.1,,,,
+2335,Lever Seated Calf Press,Legs,Calves,1,,,,,,,,,,
+2364,Assisted Wide-Grip Chest Dip (Kneeling),Chest,Sternal Head,0.5,Anterior Deltoid,0.2,Triceps Lateral Head,0.15,Triceps Medial Head,0.1,Triceps Long Head,0.05,,
+2397,Dumbbell Scott Press,Shoulders,Anterior Deltoid,0.45,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Upper Trapezius,0.1,Triceps Medial Head,0.05
+2399,Cable Seated Twist,Core,Obliques,0.65,Abs,0.35,,,,,,,,
+2401,Dumbbell Biceps Curl (With Arm Blaster),Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
+2402,Dumbbell Hammer Curls (With Arm Blaster),Biceps,Biceps,0.5,Brachioradialis,0.4,Forearm Extensors,0.1,,,,,,
+2403,Dumbbell Alternate Biceps Curl (With Arm Blaster),Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
+2404,EZ-Bar Biceps Curl (With Arm Blaster),Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
+2405,Cable Triceps Pushdown (V-Bar) (With Arm Blaster),Triceps,Triceps Lateral Head,0.5,Triceps Medial Head,0.3,Triceps Long Head,0.2,,,,,,
+2406,Cable Reverse Grip Triceps Pushdown (SZ-Bar) (With Arm Blaster),Triceps,Triceps Medial Head,0.5,Triceps Lateral Head,0.3,Triceps Long Head,0.2,,,,,,
+2407,Barbell Biceps Curl (With Arm Blaster),Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
+2414,Barbell Standing Concentration Curl,Biceps,Biceps,0.8,Brachioradialis,0.15,Forearm Flexors,0.05,,,,,,
+2432,EZ-Bar Close-Grip Bench Press,Triceps,Triceps Lateral Head,0.35,Sternal Head,0.2,Triceps Medial Head,0.15,Triceps Long Head,0.15,Anterior Deltoid,0.1,Clavicular Head,0.05
+2464,Cable Thibaudeau Kayak Row,Back,Latissimus Dorsi & Teres Major,0.4,Middle Trapezius,0.3,Biceps,0.15,Posterior Deltoid,0.1,Erector Spinae,0.05,,
+2470,Dumbbell Lying on Floor Rear Delt Raise,Shoulders,Posterior Deltoid,0.6,Middle Trapezius,0.2,Infraspinatus & Teres Minor,0.1,Lower Trapezius,0.1,,,,
+2611,Lever Horizontal One Leg Press,Legs,Quadriceps,0.55,Glutes,0.25,Adductors,0.15,Hamstrings,0.05,,,,
+2616,Cable Lateral Pulldown with V-Bar,Back,Latissimus Dorsi & Teres Major,0.6,Biceps,0.2,Lower Trapezius,0.1,Middle Trapezius,0.05,Brachioradialis,0.05,,
+2705,Dumbbell Lying Pronation on Floor,Forearms,Forearm Flexors,0.8,Brachioradialis,0.2,,,,,,,,
+2706,Dumbbell Lying Supination on Floor,Forearms,Forearm Extensors,0.6,Biceps,0.4,,,,,,,,
+2736,Lever Reverse Grip Lateral Pulldown,Back,Latissimus Dorsi & Teres Major,0.55,Biceps,0.25,Lower Trapezius,0.1,Middle Trapezius,0.05,Brachioradialis,0.05,,
+2741,EZ-Barbell Standing Wide Grip Biceps Curl,Biceps,Biceps,0.75,Brachioradialis,0.15,Forearm Flexors,0.1,,,,,,
+2796,Dumbbell Step-Up Lunge,Legs,Quadriceps,0.45,Glutes,0.35,Hamstrings,0.1,Abductors,0.05,Calves,0.05,,
+2798,Barbell Squat Jump Step Rear Lunge,Legs,Quadriceps,0.45,Glutes,0.3,Adductors,0.1,Hamstrings,0.05,Abductors,0.05,Calves,0.05
+2799,Barbell Seated Alternate Leg Raise,Core,Abs,0.75,Quadriceps,0.15,Obliques,0.1,,,,,,
+2800,Barbell Seated Alternate Leg Raise (Female),Core,Abs,0.75,Quadriceps,0.15,Obliques,0.1,,,,,,
+2803,Dumbbell Supported Squat,Legs,Quadriceps,0.45,Glutes,0.25,Adductors,0.15,Erector Spinae,0.1,Hamstrings,0.05,,
+2805,Dumbbell Single Leg Deadlift with Stepbox Support,Legs,Hamstrings,0.4,Glutes,0.4,Erector Spinae,0.1,Abductors,0.05,Forearm Flexors,0.05,,
+2808,Dumbbell Sumo Pull Through,Legs,Glutes,0.6,Hamstrings,0.3,Erector Spinae,0.1,,,,,,
+2810,Barbell Split Squat V2,Legs,Quadriceps,0.45,Glutes,0.35,Adductors,0.1,Hamstrings,0.05,Abductors,0.05,,
+2812,Dumbbell Step-Up Split Squat,Legs,Quadriceps,0.45,Glutes,0.35,Hamstrings,0.1,Abductors,0.05,Calves,0.05,,
+3010,EZ Bar Lying Bent Arms Pullover,Back,Latissimus Dorsi & Teres Major,0.5,Sternal Head,0.25,Triceps Long Head,0.15,Serratus Anterior,0.1,,,,
+3017,Barbell Pendlay Row,Back,Latissimus Dorsi & Teres Major,0.35,Middle Trapezius,0.25,Posterior Deltoid,0.15,Biceps,0.1,Erector Spinae,0.1,Brachioradialis,0.05
+3142,Smith Sumo Squat,Legs,Quadriceps,0.35,Glutes,0.3,Adductors,0.25,Erector Spinae,0.05,Hamstrings,0.05,,
+3194,Frankenstein Squat,Legs,Quadriceps,0.6,Glutes,0.15,Adductors,0.1,Erector Spinae,0.1,Abs,0.05,,
+3195,Lever Lying Two-One Leg Curl,Legs,Hamstrings,0.85,Calves,0.1,Glutes,0.05,,,,,,
+3200,Lever Bent-Over Row with V-Bar,Back,Latissimus Dorsi & Teres Major,0.35,Middle Trapezius,0.25,Posterior Deltoid,0.15,Biceps,0.1,Erector Spinae,0.1,Brachioradialis,0.05
+3234,Hyght Dumbbell Fly,Chest,Sternal Head,0.7,Clavicular Head,0.15,Anterior Deltoid,0.15,,,,,,
+3235,Cable Assisted Inverse Leg Curl,Legs,Hamstrings,0.9,Calves,0.05,Glutes,0.05,,,,,,
+3237,Landmine Lateral Raise,Shoulders,Lateral Deltoid,0.75,Anterior Deltoid,0.1,Upper Trapezius,0.1,Serratus Anterior,0.05,,,,
+3240,Exercise Ball on the Wall Calf Raise (Tennis Ball between Knees),Legs,Calves,1,,,,,,,,,,
+3241,Exercise Ball on the Wall Calf Raise (Tennis Ball between Ankles),Legs,Calves,1,,,,,,,,,,
+3281,Smith Full Squat,Legs,Quadriceps,0.45,Glutes,0.25,Adductors,0.15,Erector Spinae,0.1,Hamstrings,0.05,,
+3305,Barbell Thruster,Legs,Quadriceps,0.35,Anterior Deltoid,0.25,Glutes,0.2,Triceps Lateral Head,0.1,Lateral Deltoid,0.05,Abs,0.05
+3541,Dumbbell Incline Y-Raise,Back,Lower Trapezius,0.55,Middle Trapezius,0.15,Lateral Deltoid,0.1,Posterior Deltoid,0.1,Infraspinatus & Teres Minor,0.1,,
+3542,Dumbbell Incline T-Raise,Shoulders,Posterior Deltoid,0.6,Middle Trapezius,0.2,Infraspinatus & Teres Minor,0.1,Lower Trapezius,0.1,,,,
+3545,Dumbbell Incline Alternate Press,Chest,Clavicular Head,0.5,Anterior Deltoid,0.2,Sternal Head,0.15,Triceps Lateral Head,0.1,Triceps Medial Head,0.05,,
+3546,Dumbbell Seated Alternate Shoulder,Shoulders,Anterior Deltoid,0.45,Lateral Deltoid,0.2,Triceps Lateral Head,0.1,Clavicular Head,0.1,Upper Trapezius,0.1,Triceps Medial Head,0.05
+3547,Dumbbell Seated Biceps Curl to Shoulder Press,Biceps,Biceps,0.45,Anterior Deltoid,0.25,Lateral Deltoid,0.1,Brachioradialis,0.1,Triceps Lateral Head,0.1,,
+3548,Dumbbell Single Arm Overhead Carry,Shoulders,Anterior Deltoid,0.35,Lateral Deltoid,0.2,Upper Trapezius,0.2,Obliques,0.15,Triceps Lateral Head,0.05,Abs,0.05
+3560,Dumbbell Standing Alternate Hammer Curl and Press,Biceps,Biceps,0.45,Anterior Deltoid,0.25,Lateral Deltoid,0.1,Brachioradialis,0.1,Triceps Lateral Head,0.1,,
+3562,Barbell Glute Bridge Two Legs on Bench (Male),Legs,Glutes,0.75,Hamstrings,0.15,Quadriceps,0.05,Adductors,0.05,,,,
+3563,Cable One Arm Pulldown,Back,Latissimus Dorsi & Teres Major,0.55,Biceps,0.15,Lower Trapezius,0.1,Middle Trapezius,0.1,Posterior Deltoid,0.05,Brachioradialis,0.05
+3635,Dumbbell Contralateral Forward Lunge,Legs,Quadriceps,0.45,Glutes,0.3,Adductors,0.1,Hamstrings,0.05,Abductors,0.05,Calves,0.05
+3664,Dumbbell Side Plank with Rear Fly,Shoulders,Posterior Deltoid,0.4,Obliques,0.3,Middle Trapezius,0.15,Abs,0.15,,,,
+3666,Walking on Incline Treadmill,Legs,Quadriceps,0.35,Glutes,0.3,Calves,0.2,Hamstrings,0.15,,,,
+3697,Cable Kneeling Rear Delt Row (With Rope) (Male),Shoulders,Posterior Deltoid,0.45,Middle Trapezius,0.25,Latissimus Dorsi & Teres Major,0.1,Biceps,0.1,Infraspinatus & Teres Minor,0.05,Lower Trapezius,0.05
+3758,Lever Standing Chest Press,Chest,Sternal Head,0.55,Clavicular Head,0.15,Anterior Deltoid,0.15,Triceps Lateral Head,0.1,Triceps Medial Head,0.05,,
+3759,Lever Seated Good Morning,Back,Erector Spinae,0.6,Glutes,0.25,Hamstrings,0.15,,,,,,
+3760,Lever Seated Crunch V2,Core,Abs,0.85,Obliques,0.15,,,,,,,,
+3888,Dumbbell One Arm Snatch,Legs,Glutes,0.3,Hamstrings,0.15,Quadriceps,0.15,Upper Trapezius,0.15,Anterior Deltoid,0.15,Erector Spinae,0.1
+5201,Dumbbell Waiter Biceps Curl,Biceps,Biceps,0.75,Brachioradialis,0.15,Forearm Flexors,0.1,,,,,,
