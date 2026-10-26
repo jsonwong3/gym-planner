@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { HEAT_PALETTES, HEAT_PALETTE_IDS, heatGradientCss } from '../heat'
 import { useStore } from '../store'
 import { UNITS } from '../units'
 import type { Unit } from '../units'
@@ -15,6 +16,8 @@ export default function Settings() {
   const defaultSets = useStore((s) => s.defaultSets)
   const defaultReps = useStore((s) => s.defaultReps)
   const setDefaults = useStore((s) => s.setDefaults)
+  const heatPalette = useStore((s) => s.heatPalette)
+  const setHeatPalette = useStore((s) => s.setHeatPalette)
 
   useEffect(() => {
     if (!open) return
@@ -70,6 +73,25 @@ export default function Settings() {
             <Stepper label="Reps" value={defaultReps} onChange={(n) => setDefaults({ defaultReps: n })} />
           </div>
           <p className="muted setting-help">What the add dialog starts at. Weight always starts blank.</p>
+        </section>
+
+        <section className="setting" aria-labelledby="setting-palette">
+          <h3 id="setting-palette">Heatmap colours</h3>
+          <div className="palette-list" role="radiogroup" aria-label="Heatmap colours">
+            {HEAT_PALETTE_IDS.map((p) => (
+              <button
+                key={p}
+                role="radio"
+                aria-checked={heatPalette === p}
+                className={`palette-option ${heatPalette === p ? 'active' : ''}`}
+                onClick={() => setHeatPalette(p)}
+              >
+                <span className="palette-swatch" style={{ background: heatGradientCss(p) }} />
+                <span>{HEAT_PALETTES[p].label}</span>
+              </button>
+            ))}
+          </div>
+          <p className="muted setting-help">Light to heavy. Traffic light is the least colour-blind friendly.</p>
         </section>
       </div>
     </div>

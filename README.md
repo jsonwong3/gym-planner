@@ -12,33 +12,60 @@ npm run dev      # http://localhost:5173
 npm run build    # type-check + production build
 ```
 
+## Desktop and Android
+
+The same web app (`dist/`) is wrapped for both; nothing in `src/` knows which it's running in. The browser version works as before.
+
+**Desktop (Windows, Electron):** `electron/main.js` opens a window and serves `dist/` from a custom `app://bundle/` scheme rather than `file://`, so `fetch()` of the model works, `/models/...` paths resolve, and localStorage (the saved plan) has a stable origin.
+
+```bash
+npm run desktop:dev    # Vite + an Electron window on the dev server, with hot reload
+npm run desktop        # build, then run the built app in Electron
+npm run desktop:dist   # build installers into release/: "Muscle Explorer Setup x.y.z.exe" and a portable .exe
+```
+
+The installers aren't code-signed, so Windows SmartScreen warns on first run ("More info" -> "Run anyway"). There's no app icon yet (the Electron default is used): add `build/icon.ico` (256x256) and electron-builder picks it up. If Electron starts as plain Node ("bad option" or "does not provide an export named BrowserWindow"), the shell has `ELECTRON_RUN_AS_NODE` set (VS Code's extension host does this); unset it.
+
+**Android (Capacitor):** `capacitor.config.ts` plus the generated Android Studio project in `android/` (committed; its own `.gitignore` leaves out builds and the copied web files). Needs [Android Studio](https://developer.android.com/studio), which brings the SDK, Java and the emulator.
+
+```bash
+npm run android:sync   # build, then copy dist/ into the Android project (do this after every web change)
+npm run android:open   # open android/ in Android Studio (run, debug, build an APK/AAB from there)
+npm run android        # build, sync and run on a connected phone or a running emulator
+```
+
+Emulator: Android Studio -> Device Manager -> create a device (e.g. Pixel, recent x86_64 image), set Graphics to Hardware (the model needs WebGL). Windows needs virtualisation enabled in the BIOS plus Windows Hypervisor Platform (or the Android Emulator hypervisor driver from the SDK Manager). Quick check without Capacitor: `npm run dev -- --host`, then open `http://10.0.2.2:5173` in the emulator's Chrome (10.0.2.2 is the host PC).
+
 ## How it fits together
 
 | File | Role |
 | --- | --- |
 | `src/data/muscles.ts` | The muscles, their fixed ID map codes (`MUSCLE_CODES`), the drill-down `GROUPS`, and `muscleFromMeshName()` (mesh name -> muscle id) |
-| `muscle_list.csv` | The exercise list: target group, target part and secondary parts with their shares. See [Exercises](#exercises-muscle_listcsv) |
+| `src/data/muscle_list.csv` | The exercise list: target group, target part and secondary parts with their shares. See [Exercises](#exercises-muscle_listcsv) |
 | `src/data/exercises.ts` | Parses and validates `muscle_list.csv`; which exercises a muscle or group lists. Replace with an API call later |
 | `src/idMap.ts` | GLB muscle ID map: lookup by UV, texel position bake, fill / assign, undo, PNG load/save |
 | `src/lasso.ts` | Lasso drawing and picking the visible texels inside it |
 | `src/heat.ts` | Heatmap maths + colour scale. Pure functions, no React |
 | `src/units.ts` | kg/lb conversion and formatting. Weights are stored in kg; the unit only changes display and input |
-| `src/components/Settings.tsx` | Settings dialog (cog in the top bar): weight unit, default sets/reps for new exercises |
+| `src/components/Settings.tsx` | Settings dialog (cog in the top bar): weight unit, default sets/reps for new exercises, heatmap colour scale |
 | `src/components/Steppers.tsx` | Sets/reps stepper and weight box, shared by the plan, the add dialog and settings |
-| `src/components/DayPicker.tsx` | "+ Add" dialog: sets, reps and weight for the exercise, then which day (or a new one) |
+| `src/components/DayPicker.tsx` | "+ Add" dialog: sets, reps, weight and an optional note for the exercise, then which day (or a new one) |
+| `src/components/NoteField.tsx` | Auto-growing note box, shared by plan rows, day cards and the add dialog |
 | `src/useHeat.ts` | Hook: heat for the plan under the current scope |
-| `src/store.ts` | Zustand store: selection, hover, camera snap, tabs, heatmap scope, settings; plan, unit and default sets/reps persisted |
+| `src/store.ts` | Zustand store: selection, hover, camera snap, tabs, heatmap scope, settings; plan, notes, tracker log, unit, default sets/reps and heatmap colours persisted |
 | `src/components/BodyViewer.tsx` | Canvas, raycast click/hover, orbit controls, camera snap, heat colouring |
-| `src/components/ExercisePanel.tsx` | Search box, then search results or the selected muscle's exercises, Add button |
+| `src/components/ExercisePanel.tsx` | Search box, group/part filter chips, then search results, every exercise, or the selected muscle's exercises; Add button |
 | `src/search.ts` | Fuzzy exercise search: word prefixes, typos (1 for 4-6 letters, 2 from 7, swaps count as 1), letters in order as a last resort; muscle names and ids match too, weighted by their share of the work. Pure |
-| `src/components/PlanPanel.tsx` | Days with sets/reps/weight: click to highlight on the model, drag to reorder, Active checkbox, "Heatmap" shortcut |
+| `src/components/PlanPanel.tsx` | Days with sets/reps/weight and notes: click to highlight on the model, drag to reorder, Active checkbox, "Heatmap" shortcut |
 | `src/components/HeatmapPanel.tsx` | Scope chips, legend, ranked muscle bars, per-muscle breakdown, untrained list |
+| `src/tracking.ts` | Tracker weeks (Monday keys), set marks and tallies. Pure |
+| `src/components/TrackPanel.tsx` | Tracker tab: week picker, each active day's sets to mark hit or missed |
 | `src/components/TagPanel.tsx` | Tag-mode tools for painting the ID map |
 | `src/components/MuscleTags.tsx` | Shows every muscle an exercise works, with its share of the work |
 
 Click behaviour worth knowing:
 - Left and right meshes share a muscle id, so tapping either side highlights both.
-- Muscles split into parts start as one group: hovering any delt says "Shoulders". See [Muscles](#muscles) for the list. Right-click drills into the parts (right-click a part to merge it back); **↺ Regroup** merges everything. On touch, the exercise panel offers the same through "Parts" chips and an "← All ..." link. Exercise data always uses the parts; in the heatmap a group counts its best part.
+- Muscles split into parts start as one group: hovering any delt says "Shoulders". See [Muscles](#muscles) for the list. Right-click drills into the parts (right-click a part to merge it back); **↺ Regroup** merges everything. On touch, the exercise panel offers the same through its part chips. Exercise data always uses the parts; in the heatmap a group counts its best part.
 - Taps are told apart from orbit drags using R3F's `e.delta`.
 - The sidebar folds away with the chevron in its tab bar (to a thin rail on desktop, to just the tab bar on phones; tapping a tab reopens it). On desktop, drag its left edge to resize it (360-760px, default 560, wide enough for sets, reps and weight on one line; arrow keys work when the edge is focused, double-click resets). Neither is persisted.
 - The model is one mesh, so the raycast stops at the first surface hit: untagged areas act as skin, and you can't click through the torso to a back muscle.
@@ -60,7 +87,7 @@ WIP areas work like any single muscle (tag, select, heatmap) until they're split
 
 ## Exercises (`muscle_list.csv`)
 
-The exercise list is `muscle_list.csv` in the repo root; `src/data/exercises.ts` parses it at load. One row per exercise:
+The exercise list is `src/data/muscle_list.csv`; `src/data/exercises.ts` parses it at load. One row per exercise:
 
 | Column | Meaning |
 | --- | --- |
@@ -79,7 +106,7 @@ Barbell Bench Press, Chest, Sternal Head 0.5, Clavicular Head 0.15, Anterior Del
 
 Rows without a name or a `target_part` are skipped as unfinished. Anything else that's wrong (unknown muscle, duplicate id, weights not adding up to 1) throws when the data loads.
 
-Selecting a group lists every exercise whose `target_group` is that group. After drilling into a part, exercises from that group that target the part are primary, and ones that only work it as a secondary part are listed under "Also works this muscle". The weights are rough, relative numbers, not EMG data; tune them freely.
+With nothing selected, the Exercises tab lists every exercise, in sections by group; the chips above it filter to one group (same as tapping it on the model), and a group's parts then show as a second row of chips to drill into. Selecting a group lists every exercise whose `target_group` is that group. After drilling into a part, exercises from that group that target the part are primary, and ones that only work it as a secondary part are listed under "Also works this muscle". The weights are rough, relative numbers, not EMG data; tune them freely.
 
 ## Heatmap
 
@@ -94,9 +121,14 @@ A set counts in full for the exercise's target part; the weights only set how mu
 
 - **Scope:** all days, or a single day (chips at the top of the tab). "All days" counts only days ticked **Active** in the plan; unticked (draft) days are dashed and only show when picked on their own.
 - **From the plan:** click a day's card on the My plan tab to colour what that day works on the model (same scale, one-day scope, groups shown as groups); click it again to clear. Drag a day by its ⠿ handle (or focus it and use the arrow keys) to reorder; the card follows the pointer and the other days dim while you drag. ▾ next to the handle collapses a day to its header (remembered). Exercises within a day reorder with the ▲/▼ buttons on each row.
-- **Colour scale:** load is divided by `FULL_HEAT_SETS` (8 for one day, 16 for all days, in `src/heat.ts`) and capped at 1. All days is treated as a week: 12-20 sets per muscle per week is the usual recommendation, and one session stops adding much past about 11. Purple -> crimson -> orange -> yellow. Grey means untrained.
+- **Colour scale:** load is divided by `FULL_HEAT_SETS` (8 for one day, 12 for all days, in `src/heat.ts`) and capped at 1. All days is treated as a week: 12-20 sets per muscle per week is the usual recommendation, so 12 already counts as full, and one session stops adding much past about 11. The colours are picked in Settings (`HEAT_PALETTES` in `src/heat.ts`): Ember (purple -> crimson -> orange -> yellow, the default), Viridis, Plasma, Ocean, Mint and Traffic light. Grey means untrained.
 - **Parts, not groups:** wherever heat is showing (the heatmap, or a day highlighted on the plan tab) every group is split into its parts (on the model and in the lists), so you can see e.g. front vs. rear delts; drill-down is off there. Showing heat with a whole group selected clears the selection; leaving it with a part selected drills into that part's group so it stays selected.
 - **Breakdown:** tap a muscle (on the model or in the list) to see which exercises contribute and how much.
+
+## Notes and tracker
+
+- **Notes:** each exercise in a day has a note (**+ Note** under its sets/reps/weight, or the add dialog's note box), and each day has one (**+ Day note** under its title). Up to 500 characters, saved on blur; Esc reverts.
+- **Tracker tab:** a first-pass template, one week (Monday-Sunday) at a time, with ‹ › to change week. Every active day lists its exercises with the planned sets × reps @ weight; tap a set once for hit (did the planned reps), again for missed, again to clear. **All hit** marks a whole exercise or day. The log is kept per week (`log` in the store, keyed by Monday's date) and counted against the plan as it is now, so changing an exercise's set count changes past weeks' totals too. Deleting a day deletes its history; **Clear all** clears the log.
 
 ## Real anatomy model (GLB)
 

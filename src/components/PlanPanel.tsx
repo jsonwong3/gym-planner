@@ -6,6 +6,7 @@ import type { Target } from '../data/muscles'
 import { isTitleTaken, splitGroups, useStore } from '../store'
 import type { Day, PlanItem } from '../store'
 import MuscleTags from './MuscleTags'
+import { NoteField } from './NoteField'
 import { Stepper, WeightInput } from './Steppers'
 
 /**
@@ -43,6 +44,7 @@ function PlanRow({ dayId, item, index, count }: { dayId: string; item: PlanItem;
   const exercise = EXERCISES_BY_ID[item.exerciseId]
   const update = useStore((s) => s.updateItem)
   const remove = useStore((s) => s.removeFromDay)
+  const [noteOpen, setNoteOpen] = useState(false)
   if (!exercise) return null
   return (
     <li className="plan-row">
@@ -65,6 +67,19 @@ function PlanRow({ dayId, item, index, count }: { dayId: string; item: PlanItem;
         <Stepper label="Reps" value={item.reps} onChange={(n) => update(dayId, item.exerciseId, { reps: n })} />
         <WeightInput kg={item.weight} onChange={(kg) => update(dayId, item.exerciseId, { weight: kg })} />
       </div>
+      {item.note || noteOpen ? (
+        <NoteField
+          value={item.note}
+          onChange={(note) => update(dayId, item.exerciseId, { note })}
+          label={`Note for ${exercise.name}`}
+          autoFocus={noteOpen && !item.note}
+          onDone={() => setNoteOpen(false)}
+        />
+      ) : (
+        <button className="text-btn neutral note-add" onClick={() => setNoteOpen(true)}>
+          + Note
+        </button>
+      )}
     </li>
   )
 }
@@ -237,6 +252,8 @@ function DayCard({ day, index }: { day: Day; index: number }) {
   const setActive = useStore((s) => s.setDayActive)
   const setCollapsed = useStore((s) => s.setDayCollapsed)
   const [dragging, setDragging] = useState(false)
+  const [noteOpen, setNoteOpen] = useState(false)
+  const setNote = useStore((s) => s.setDayNote)
 
   const covered = new Set<Target>()
   let totalSets = 0
@@ -253,7 +270,7 @@ function DayCard({ day, index }: { day: Day; index: number }) {
 
   // Clicking the card (not one of its controls) highlights the day's muscles on the model.
   const onCardClick = (e: MouseEvent<HTMLElement>) => {
-    if ((e.target as HTMLElement).closest('button, input, label, a')) return
+    if ((e.target as HTMLElement).closest('button, input, textarea, label, a')) return
     focusDay(day.id)
   }
 
@@ -301,7 +318,27 @@ function DayCard({ day, index }: { day: Day; index: number }) {
       <div className="muted day-sub">
         {day.items.length} {day.items.length === 1 ? 'exercise' : 'exercises'} · {totalSets} sets
         {!day.active && ' · draft, not in the all-days heatmap'}
+        {!day.collapsed && !day.note && !noteOpen && (
+          <>
+            {' · '}
+            <button className="text-btn neutral inline" onClick={() => setNoteOpen(true)}>
+              + Day note
+            </button>
+          </>
+        )}
       </div>
+      {!day.collapsed && (day.note || noteOpen) && (
+        <div className="day-note">
+          <NoteField
+            value={day.note}
+            onChange={(note) => setNote(day.id, note)}
+            label={`Note for ${day.title}`}
+            placeholder="Note for this day (warm-up, focus, rest times...)"
+            autoFocus={noteOpen && !day.note}
+            onDone={() => setNoteOpen(false)}
+          />
+        </div>
+      )}
 
       {day.collapsed ? null : day.items.length === 0 ? (
         <p className="muted day-empty">Nothing here yet. Tap a muscle and add exercises to this day.</p>

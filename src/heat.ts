@@ -29,10 +29,10 @@ export const ALL_DAYS: HeatScope = 'all'
 /**
  * Effective sets that count as "full heat" (top of the colour scale). All days
  * is treated as a week: 12-20 sets per muscle per week is the usual
- * recommendation, so 16 is mid-range. One session stops adding much past
+ * recommendation, so a muscle is full once it reaches 12. One session stops adding much past
  * about 11 sets, so a day is full at 8. Tune to taste.
  */
-export const FULL_HEAT_SETS = { day: 8, all: 16 }
+export const FULL_HEAT_SETS = { day: 8, all: 12 }
 
 /** Anything trained shows at least this much colour, so it never looks untrained. */
 const MIN_VISIBLE = 0.08
@@ -126,35 +126,71 @@ export function untrainedMuscles(result: HeatResult, targets: Target[]): Target[
 
 export const formatSets = (n: number) => String(Math.round(n * 10) / 10)
 
-// Colour scale -------------------------------------------------------------
-// Sequential purple -> crimson -> orange -> yellow. Lightness rises with heat,
-// so it still reads for colour-blind users and on the dark background.
+// Colour scales ------------------------------------------------------------
+// All sequential, and all but `traffic` get lighter with heat, so they still
+// read for colour-blind users and on the dark background. Each starts bright
+// enough to stand out from UNTRAINED.
 
 export const UNTRAINED = '#3a4556'
 
-const STOPS: Array<[number, string]> = [
-  [0, '#6a3d9a'],
-  [0.4, '#d1345b'],
-  [0.7, '#ff8a3d'],
-  [1, '#ffe066'],
-]
+type Stops = Array<[number, string]>
 
-export const HEAT_GRADIENT_CSS = `linear-gradient(90deg, ${STOPS.map(([p, c]) => `${c} ${p * 100}%`).join(', ')})`
+/**
+ * Picked in settings. Ids are persisted, so don't rename or remove one
+ * without handling it in the store's `migrate`.
+ */
+export const HEAT_PALETTES = {
+  ember: {
+    label: 'Ember',
+    stops: [[0, '#6a3d9a'], [0.4, '#d1345b'], [0.7, '#ff8a3d'], [1, '#ffe066']],
+  },
+  viridis: {
+    label: 'Viridis',
+    stops: [[0, '#482878'], [0.3, '#31688e'], [0.55, '#26a784'], [0.8, '#7ad151'], [1, '#fde725']],
+  },
+  plasma: {
+    label: 'Plasma',
+    stops: [[0, '#5b02a3'], [0.3, '#b12a90'], [0.55, '#e16462'], [0.8, '#fca636'], [1, '#f0f921']],
+  },
+  ocean: {
+    label: 'Ocean',
+    stops: [[0, '#25407f'], [0.4, '#2a7fba'], [0.7, '#4fc3e0'], [1, '#d4f6ff']],
+  },
+  mint: {
+    label: 'Mint',
+    stops: [[0, '#1f5c52'], [0.4, '#2a9d80'], [0.7, '#5fd3a0'], [1, '#d8ffe4']],
+  },
+  traffic: {
+    label: 'Traffic light',
+    stops: [[0, '#2e9e5b'], [0.5, '#f2d544'], [1, '#e5533d']],
+  },
+} satisfies Record<string, { label: string; stops: Stops }>
+
+export type HeatPalette = keyof typeof HEAT_PALETTES
+export const HEAT_PALETTE_IDS = Object.keys(HEAT_PALETTES) as HeatPalette[]
+export const DEFAULT_HEAT_PALETTE: HeatPalette = 'ember'
+
+/** Unknown ids (e.g. a palette since removed) fall back to the default. */
+const stopsOf = (palette: HeatPalette): Stops => (HEAT_PALETTES[palette] ?? HEAT_PALETTES[DEFAULT_HEAT_PALETTE]).stops as Stops
+
+export const heatGradientCss = (palette: HeatPalette) =>
+  `linear-gradient(90deg, ${stopsOf(palette).map(([p, c]) => `${c} ${p * 100}%`).join(', ')})`
 
 const rgb = (hex: string) => [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16))
 
 /** t in 0..1 -> "#rrggbb" */
-export function heatColor(t: number): string {
+export function heatColor(t: number, palette: HeatPalette): string {
+  const stops = stopsOf(palette)
   const x = Math.min(1, Math.max(0, t))
-  for (let i = 1; i < STOPS.length; i++) {
-    const [p1, c1] = STOPS[i]
+  for (let i = 1; i < stops.length; i++) {
+    const [p1, c1] = stops[i]
     if (x <= p1) {
-      const [p0, c0] = STOPS[i - 1]
+      const [p0, c0] = stops[i - 1]
       const k = (x - p0) / (p1 - p0)
       const a = rgb(c0)
       const b = rgb(c1)
       return '#' + a.map((v, j) => Math.round(v + (b[j] - v) * k).toString(16).padStart(2, '0')).join('')
     }
   }
-  return STOPS[STOPS.length - 1][1]
+  return stops[stops.length - 1][1]
 }

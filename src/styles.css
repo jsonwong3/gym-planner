@@ -180,6 +180,39 @@ input:focus-visible {
   font-weight: 650;
 }
 
+/* Heatmap colour picker: two columns of gradient swatches, one on narrow phones. */
+.palette-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 8px;
+}
+
+.palette-option {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.palette-option.active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.palette-swatch {
+  height: 12px;
+  border-radius: 4px;
+}
+
 .setting-help {
   margin: 8px 0 0;
   font-size: 13px;
@@ -381,9 +414,8 @@ input:focus-visible {
   color: var(--accent);
 }
 
-.breakdown {
-  padding: 0 16px 8px;
-  align-items: center;
+.chips.parts {
+  padding-top: 0;
 }
 
 /* Touch has no hover; the top-left HUD label already covers taps. */
@@ -613,6 +645,18 @@ input:focus-visible {
   font-size: 14px;
   font-weight: 600;
   color: var(--muted);
+}
+
+/* Four tabs plus the fold button have to fit a phone's width */
+@media (max-width: 480px) {
+  .tabs {
+    padding: 8px 6px 0;
+    gap: 0;
+  }
+  .tabs button {
+    padding: 10px 9px;
+    font-size: 13px;
+  }
 }
 
 .tabs button.active {
@@ -1445,4 +1489,180 @@ input:focus-visible {
   display: block;
   font-size: 12px;
   color: var(--muted);
+}
+
+/* Notes (plan rows, day cards, add dialog) */
+.note-field {
+  display: block;
+  width: 100%;
+  min-height: 34px;
+  margin-top: 10px;
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--text);
+  font: inherit;
+  font-size: 13px;
+  line-height: 1.4;
+  resize: none;
+  overflow: hidden;
+}
+
+.note-field:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.note-add {
+  margin-top: 6px;
+  margin-left: -8px;
+}
+
+.text-btn.inline {
+  padding: 0 4px;
+  font-size: inherit;
+}
+
+.day-note {
+  padding: 0 16px 6px;
+}
+
+.day-note .note-field {
+  margin-top: 0;
+}
+
+.add-note {
+  margin: -4px 0 14px;
+}
+
+/* Tracker tab */
+.track-week {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 12px 4px;
+}
+
+.track-week .icon-btn {
+  font-size: 20px;
+}
+
+.track-week-label {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  text-align: center;
+}
+
+.track-summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 12px;
+  padding: 8px 16px 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.track-summary strong {
+  font-size: 20px;
+}
+
+.track-progress {
+  display: flex;
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--panel-2);
+  overflow: hidden;
+}
+
+.track-day .track-progress {
+  width: auto;
+  margin: 0 16px 8px;
+}
+
+.track-progress .hit {
+  background: #4cc38a;
+}
+
+.track-progress .miss {
+  background: var(--danger);
+}
+
+.day.track-day {
+  cursor: default;
+}
+
+.day.track-day.done {
+  border-color: #4cc38a;
+}
+
+.track-day-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 12px 12px 8px 16px;
+}
+
+.track-day-head h3 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.track-day-head .text-btn {
+  margin-left: auto;
+}
+
+.track-row {
+  padding: 10px 16px;
+  border-top: 1px solid var(--line);
+}
+
+.track-row-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2px 12px;
+}
+
+.track-note {
+  margin: 4px 0 0;
+  white-space: pre-wrap;
+  line-height: 1.4;
+}
+
+.track-sets {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+/* Big enough to tap mid-workout */
+.set-pill {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--panel-2);
+  color: var(--muted);
+  font-weight: 650;
+}
+
+.set-pill.hit {
+  border-color: #4cc38a;
+  background: rgba(76, 195, 138, 0.18);
+  color: #4cc38a;
+}
+
+.set-pill.miss {
+  border-color: var(--danger);
+  background: rgba(255, 107, 107, 0.15);
+  color: var(--danger);
 }

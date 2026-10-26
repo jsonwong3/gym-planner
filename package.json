@@ -6,9 +6,17 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "desktop:dev": "concurrently -k -n vite,electron \"vite --strictPort\" \"wait-on tcp:5173 && electron . --dev\"",
+    "desktop": "npm run build && electron .",
+    "desktop:dist": "npm run build && electron-builder --win",
+    "android:sync": "npm run build && cap sync android",
+    "android:open": "cap open android",
+    "android": "npm run build && cap sync android && cap run android"
   },
   "dependencies": {
+    "@capacitor/android": "^8.5.3",
+    "@capacitor/core": "^8.5.3",
     "@react-three/drei": "^10.7.9",
     "@react-three/fiber": "^9.8.2",
     "react": "^19.3.1",
@@ -17,11 +25,48 @@
     "zustand": "^5.0.15"
   },
   "devDependencies": {
+    "@capacitor/cli": "^8.5.3",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@types/three": "^0.186.0",
     "@vitejs/plugin-react": "^6.1.2",
+    "concurrently": "^10.0.6",
+    "electron": "^45.0.0",
+    "electron-builder": "^26.18.0",
     "typescript": "^7.0.2",
-    "vite": "^8.3.4"
+    "vite": "^8.3.4",
+    "wait-on": "^9.5.1"
+  },
+  "allowScripts": {
+    "electron-winstaller": false
+  },
+  "description": "Rotate a 3D body, tap a muscle, browse exercises, build a plan and see a heatmap.",
+  "author": "Jason Wong",
+  "main": "electron/main.js",
+  "build": {
+    "appId": "com.jasonwong.muscleexplorer",
+    "productName": "Muscle Explorer",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json",
+      "!node_modules/**/*"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "portable": {
+      "artifactName": "${productName}-${version}-portable.${ext}"
+    }
   }
 }

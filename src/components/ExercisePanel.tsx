@@ -1,8 +1,9 @@
-import { exercisesForTarget } from '../data/exercises'
+import { EXERCISES, exercisesForTarget } from '../data/exercises'
 import type { Exercise } from '../data/exercises'
-import { MUSCLES, TARGETS, groupOf, isGroup, musclesOf } from '../data/muscles'
-import type { MuscleId, Target } from '../data/muscles'
+import { MUSCLES, TARGETS, groupOf, isGroup, musclesOf, visibleTargets } from '../data/muscles'
+import type { Target } from '../data/muscles'
 import { useMemo } from 'react'
+import type { PointerEvent } from 'react'
 import { searchExercises } from '../search'
 import { useStore } from '../store'
 import MuscleTags from './MuscleTags'
@@ -52,29 +53,101 @@ function Section({ title, items, muscle }: { title: string; items: Exercise[]; m
 }
 
 /**
- * Same drill-down as right-clicking the model, for touch screens: a group
- * lists its parts, and a part links back to its whole group.
+ * Mouse hover over a chip previews that muscle on the model. Mouse only: a tap
+ * fires pointerenter but often no pointerleave, which would leave it lit.
  */
-function Breakdown({ target, onDrill }: { target: Target; onDrill: (part: MuscleId) => void }) {
-  if (isGroup(target)) {
-    return (
-      <div className="chips wrap breakdown" role="group" aria-label="Parts">
-        <span className="muted">Parts:</span>
-        {musclesOf(target).map((m) => (
-          <button key={m} className="chip small" onClick={() => onDrill(m)}>
-            {MUSCLES[m].label}
-          </button>
-        ))}
-      </div>
-    )
-  }
-  const group = groupOf(target)
-  if (!group) return null
+function useHoverPreview() {
+  const hover = useStore((s) => s.hover)
+  return (target: Target) => ({
+    onPointerEnter: (e: PointerEvent) => e.pointerType === 'mouse' && hover(target),
+    onPointerLeave: () => hover(null),
+  })
+}
+
+/** The top-level filters: every group, plus muscles that aren't in one. */
+const TOP_TARGETS = visibleTargets([])
+
+/** The group (or ungrouped muscle) a target belongs to, i.e. its top-level filter. */
+const topOf = (target: Target): Target => (isGroup(target) ? target : (groupOf(target) ?? target))
+
+/**
+ * Filter chips: "All" plus every top-level target. Picking one selects it, as
+ * tapping the model would, so the model highlights it too.
+ */
+function GroupFilter({ selected }: { selected: Target | null }) {
+  const select = useStore((s) => s.select)
+  const preview = useHoverPreview()
+  const active = selected && topOf(selected)
   return (
-    <div className="breakdown">
-      <button className="text-btn neutral" onClick={() => onDrill(target)}>
-        ← All {TARGETS[group].label.toLowerCase()}
+    <div className="chips wrap" role="group" aria-label="Filter by muscle group">
+      <button className={`chip ${!active ? 'active' : ''}`} aria-pressed={!active} onClick={() => select(null)}>
+        All
       </button>
+      {TOP_TARGETS.map((t) => (
+        <button
+          key={t}
+          className={`chip ${active === t ? 'active' : ''}`}
+          aria-pressed={active === t}
+          onClick={() => select(t)}
+          {...preview(t)}
+        >
+          {TARGETS[t].label}
+        </button>
+      ))}
+    </div>
+  )
+}
+
+/**
+ * Same drill-down as right-clicking the model, for touch screens: once a group
+ * (or one of its parts) is picked, its parts show as a second row of chips.
+ * Tapping the picked part again goes back to the whole group.
+ */
+function PartFilter({ selected }: { selected: Target }) {
+  const select = useStore((s) => s.select)
+  const drillDown = useStore((s) => s.drillDown)
+  const preview = useHoverPreview()
+  const group = topOf(selected)
+  if (!isGroup(group)) return null
+  const part = isGroup(selected) ? null : selected
+  return (
+    <div className="chips wrap parts" role="group" aria-label={`${TARGETS[group].label} parts`}>
+      <button
+        className={`chip small ${!part ? 'active' : ''}`}
+        aria-pressed={!part}
+        onClick={() => part && drillDown(part)}
+        {...preview(group)}
+      >
+        All {TARGETS[group].label}
+      </button>
+      {musclesOf(group).map((m) => (
+        <button
+          key={m}
+          className={`chip small ${part === m ? 'active' : ''}`}
+          aria-pressed={part === m}
+          // From the whole group, or back to it, is a drill-down; between parts is a plain select.
+          onClick={() => (part && part !== m ? select(m) : drillDown(m))}
+          {...preview(m)}
+        >
+          {MUSCLES[m].label}
+        </button>
+      ))}
+    </div>
+  )
+}
+
+/** Nothing selected: every exercise, in sections by the group it's listed under. */
+function BrowseAll() {
+  const sections = useMemo(
+    () => TOP_TARGETS.map((t) => ({ target: t, items: EXERCISES.filter((e) => topOf(e.group) === t) })),
+    [],
+  )
+  return (
+    <div className="scroll">
+      {sections.map(({ target, items }) => (
+        <Section key={target} title={TARGETS[target].label} items={items} muscle={target} />
+      ))}
+      <p className="muted pad">Tap a muscle on the model or pick a group above to narrow this down.</p>
     </div>
   )
 }
@@ -132,7 +205,6 @@ function SearchResults({ query }: { query: string }) {
 
 export default function ExercisePanel() {
   const selected = useStore((s) => s.selected)
-  const drillDown = useStore((s) => s.drillDown)
   const query = useStore((s) => s.exerciseQuery)
 
   if (query.trim()) {
@@ -148,10 +220,8 @@ export default function ExercisePanel() {
     return (
       <div className="panel-body">
         <SearchBox />
-        <div className="empty">
-          <div className="empty-icon">☝︎</div>
-          <p>Tap a muscle on the model to see exercises that train it, or search above.</p>
-        </div>
+        <GroupFilter selected={null} />
+        <BrowseAll />
       </div>
     )
   }
@@ -161,11 +231,12 @@ export default function ExercisePanel() {
   return (
     <div className="panel-body">
       <SearchBox />
+      <GroupFilter selected={selected} />
+      <PartFilter selected={selected} />
       <div className="panel-head">
         <h2>{TARGETS[selected].label}</h2>
         <span className="muted">{TARGETS[selected].region}</span>
       </div>
-      <Breakdown target={selected} onDrill={drillDown} />
 
       <div className="scroll">
         <Section title="Primary" items={primary} muscle={selected} />

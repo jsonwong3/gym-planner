@@ -6,6 +6,7 @@ import HeatmapPanel from './components/HeatmapPanel'
 import PlanPanel from './components/PlanPanel'
 import Settings from './components/Settings'
 import Toast from './components/Toast'
+import TrackPanel from './components/TrackPanel'
 import { SIDEBAR_DEFAULT, SIDEBAR_MAX, SIDEBAR_MIN, useStore } from './store'
 import type { Tab } from './store'
 
@@ -13,6 +14,7 @@ const TABS: Array<{ id: Tab; label: string }> = [
   { id: 'exercises', label: 'Exercises' },
   { id: 'plan', label: 'My plan' },
   { id: 'heatmap', label: 'Heatmap' },
+  { id: 'track', label: 'Tracker' },
 ]
 
 /** Arrow-key step when resizing from the keyboard (px). */
@@ -130,7 +132,16 @@ export default function App() {
               </svg>
             </button>
           </div>
-          {!collapsed && (tab === 'exercises' ? <ExercisePanel /> : tab === 'plan' ? <PlanPanel /> : <HeatmapPanel />)}
+          {!collapsed &&
+            (tab === 'exercises' ? (
+              <ExercisePanel />
+            ) : tab === 'plan' ? (
+              <PlanPanel />
+            ) : tab === 'heatmap' ? (
+              <HeatmapPanel />
+            ) : (
+              <TrackPanel />
+            ))}
         </aside>
       </main>
 

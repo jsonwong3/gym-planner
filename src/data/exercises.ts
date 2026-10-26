@@ -1,4 +1,4 @@
-import csv from '../../muscle_list.csv?raw'
+import csv from './muscle_list.csv?raw'
 import { ALL_TARGETS, MUSCLE_IDS, TARGETS, groupOf, musclesOf } from './muscles'
 import type { MuscleId, Target } from './muscles'
 

@@ -3,8 +3,10 @@ import { persist } from 'zustand/middleware'
 import { EXERCISES_BY_ID } from './data/exercises'
 import { GROUP_IDS, displayTarget, groupOf, isGroup, musclesOf } from './data/muscles'
 import type { GroupId, MuscleId, Target } from './data/muscles'
-import { ALL_DAYS } from './heat'
-import type { HeatScope } from './heat'
+import { ALL_DAYS, DEFAULT_HEAT_PALETTE, HEAT_PALETTES } from './heat'
+import type { HeatPalette, HeatScope } from './heat'
+import { weekOf } from './tracking'
+import type { SetMark, WeekLog } from './tracking'
 import { MAX_KG } from './units'
 import type { Unit } from './units'
 
@@ -14,6 +16,8 @@ export interface PlanItem {
   reps: number
   /** Weight per set in kg, shown in the user's unit; null until they set one (or for bodyweight work). */
   weight: number | null
+  /** Free-text note (cues, seat height, how it felt...); '' = none. */
+  note: string
 }
 
 /** A day is its own mini-plan, with a title and whether it counts yet. */
@@ -25,12 +29,14 @@ export interface Day {
   active: boolean
   /** Folded down to its header in the plan tab. */
   collapsed: boolean
+  /** Free-text note for the whole day; '' = none. */
+  note: string
 }
 
 /** What the add dialog sets on a new plan item. */
-export type ItemValues = Partial<Pick<PlanItem, 'sets' | 'reps' | 'weight'>>
+export type ItemValues = Partial<Pick<PlanItem, 'sets' | 'reps' | 'weight' | 'note'>>
 
-export type Tab = 'exercises' | 'plan' | 'heatmap'
+export type Tab = 'exercises' | 'plan' | 'heatmap' | 'track'
 
 /** Desktop sidebar widths (px). CSS also caps it so the model keeps some room on narrow windows. */
 export const SIDEBAR_DEFAULT = 560
@@ -76,7 +82,13 @@ interface State {
   /** Sets and reps the "add to day" dialog starts at. Persisted. */
   defaultSets: number
   defaultReps: number
+  /** Colour scale for the heatmap (`HEAT_PALETTES`). Persisted. */
+  heatPalette: HeatPalette
   settingsOpen: boolean
+  /** Tracker log by week (`weekOf`). Persisted. */
+  log: Record<string, WeekLog>
+  /** Week shown on the tracker tab. Not persisted: it opens on the current week. */
+  trackWeek: string
   /** Exercises tab search box; non-empty shows search results instead of the selected muscle's list. Not persisted. */
   exerciseQuery: string
 
@@ -115,6 +127,7 @@ interface State {
   setUnit: (unit: Unit) => void
   /** Clamped like plan items (1-99). */
   setDefaults: (patch: Partial<Pick<State, 'defaultSets' | 'defaultReps'>>) => void
+  setHeatPalette: (palette: HeatPalette) => void
   /** Opens or closes the settings dialog (the cog in the top bar). */
   setSettingsOpen: (open: boolean) => void
   setExerciseQuery: (query: string) => void
@@ -128,6 +141,7 @@ interface State {
   moveDay: (dayId: string, index: number) => void
   setDayActive: (dayId: string, active: boolean) => void
   setDayCollapsed: (dayId: string, collapsed: boolean) => void
+  setDayNote: (dayId: string, note: string) => void
   /** `values` come from the add dialog; anything missing falls back to the defaults (weight: none). */
   addToDay: (dayId: string, exerciseId: string, values?: ItemValues) => void
   addToNewDay: (exerciseId: string, title?: string, values?: ItemValues) => void
@@ -137,9 +151,15 @@ interface State {
   updateItem: (
     dayId: string,
     exerciseId: string,
-    patch: Partial<Pick<PlanItem, 'sets' | 'reps' | 'weight'>>,
+    patch: Partial<Pick<PlanItem, 'sets' | 'reps' | 'weight' | 'note'>>,
   ) => void
   clearAll: () => void
+
+  setTrackWeek: (week: string) => void
+  /** Marks one set (0-based) of an exercise on a day in the tracker week. */
+  markSet: (dayId: string, exerciseId: string, index: number, mark: SetMark) => void
+  /** Marks every planned set of these exercises on a day in the tracker week. */
+  markSets: (dayId: string, exerciseIds: string[], mark: SetMark) => void
 }
 
 // Not crypto.randomUUID: that needs a secure context, and this app is often
@@ -150,6 +170,20 @@ export const clamp = (n: number) => Math.max(1, Math.min(99, Math.round(n) || 1)
 /** Kg, kept to 0.01 kg (finer than any unit shows); blank, zero or nonsense clears it. */
 const clampWeight = (kg: number | null) =>
   kg !== null && Number.isFinite(kg) && kg > 0 ? Math.round(Math.min(MAX_KG, kg) * 100) / 100 : null
+/** Notes: trimmed, capped so a pasted wall of text can't bloat localStorage. */
+export const NOTE_MAX = 500
+const cleanNote = (note: string) => note.trim().slice(0, NOTE_MAX)
+
+/** `log` with one day's marks in one week replaced via `edit`. */
+function editLog(
+  log: Record<string, WeekLog>,
+  week: string,
+  dayId: string,
+  edit: (marks: Record<string, SetMark[]>) => Record<string, SetMark[]>,
+): Record<string, WeekLog> {
+  const weekLog = log[week] ?? {}
+  return { ...log, [week]: { ...weekLog, [dayId]: edit(weekLog[dayId] ?? {}) } }
+}
 
 /**
  * Keeps a selected target valid after the drill-down changes: a split group
@@ -236,7 +270,10 @@ export const useStore = create<State>()(
       unit: 'kg',
       defaultSets: 4,
       defaultReps: 10,
+      heatPalette: DEFAULT_HEAT_PALETTE,
       settingsOpen: false,
+      log: {},
+      trackWeek: weekOf(),
       exerciseQuery: '',
 
       // Picking a muscle shows its exercises (so it also clears any search), except while looking at
@@ -245,9 +282,14 @@ export const useStore = create<State>()(
         set((s) => {
           if (!id) return { selected: null }
           if (s.tab === 'heatmap') return { selected: id, exerciseQuery: '' }
-          // A part picked from a heat view (a highlighted plan day) needs its group drilled into on the exercises tab.
+          // A part needs its group drilled into so the model shows it (e.g. picked from a heat view or the
+          // part chips); a whole group (picked from the filter chips) needs it merged back.
           const group = isGroup(id) ? null : groupOf(id)
-          const expanded = group && !s.expanded.includes(group) ? [...s.expanded, group] : s.expanded
+          const expanded = isGroup(id)
+            ? s.expanded.filter((g) => g !== id)
+            : group && !s.expanded.includes(group)
+              ? [...s.expanded, group]
+              : s.expanded
           return { selected: id, tab: 'exercises', exerciseQuery: '', expanded }
         }),
       hover: (id) => set({ hovered: id }),
@@ -258,7 +300,7 @@ export const useStore = create<State>()(
           const expanded = s.expanded.includes(group)
             ? s.expanded.filter((g) => g !== group)
             : [...s.expanded, group]
-          return { expanded, selected: remap(s.selected, expanded, muscle), hovered: displayTarget(muscle, expanded) }
+          return { expanded, selected: remap(s.selected, expanded, muscle) }
         }),
       resetDrillDown: () => set((s) => ({ expanded: [], selected: remap(s.selected, []), hovered: null })),
       setTab: (tab) =>
@@ -300,6 +342,7 @@ export const useStore = create<State>()(
           ...(patch.defaultSets !== undefined ? { defaultSets: clamp(patch.defaultSets) } : {}),
           ...(patch.defaultReps !== undefined ? { defaultReps: clamp(patch.defaultReps) } : {}),
         }),
+      setHeatPalette: (palette) => set({ heatPalette: palette }),
       setSettingsOpen: (open) => set({ settingsOpen: open }),
       setExerciseQuery: (query) => set({ exerciseQuery: query }),
 
@@ -314,6 +357,7 @@ export const useStore = create<State>()(
               items: [],
               active: true,
               collapsed: false,
+              note: '',
             },
           ],
         }))
@@ -328,6 +372,13 @@ export const useStore = create<State>()(
       removeDay: (dayId) =>
         set((s) => ({
           days: s.days.filter((d) => d.id !== dayId),
+          // Its tracker history goes too: nothing could show it again.
+          log: Object.fromEntries(
+            Object.entries(s.log).map(([week, weekLog]) => [
+              week,
+              Object.fromEntries(Object.entries(weekLog).filter(([id]) => id !== dayId)),
+            ]),
+          ),
           heatScope: s.heatScope === dayId ? ALL_DAYS : s.heatScope,
           ...(s.planFocus === dayId ? { planFocus: null, ...keepSelection(s) } : {}),
         })),
@@ -344,6 +395,8 @@ export const useStore = create<State>()(
         set((s) => ({ days: s.days.map((d) => (d.id === dayId ? { ...d, active } : d)) })),
       setDayCollapsed: (dayId, collapsed) =>
         set((s) => ({ days: s.days.map((d) => (d.id === dayId ? { ...d, collapsed } : d)) })),
+      setDayNote: (dayId, note) =>
+        set((s) => ({ days: s.days.map((d) => (d.id === dayId ? { ...d, note: cleanNote(note) } : d)) })),
 
       addToDay: (dayId, exerciseId, values = {}) => {
         const day = get().days.find((d) => d.id === dayId)
@@ -359,6 +412,7 @@ export const useStore = create<State>()(
             sets: clamp(values.sets ?? s.defaultSets),
             reps: clamp(values.reps ?? s.defaultReps),
             weight: clampWeight(values.weight ?? null),
+            note: cleanNote(values.note ?? ''),
           }
           return {
             days: s.days.map((d) => (d.id === dayId ? { ...d, items: [...d.items, item] } : d)),
@@ -405,25 +459,66 @@ export const useStore = create<State>()(
                           ...(patch.sets !== undefined ? { sets: clamp(patch.sets) } : {}),
                           ...(patch.reps !== undefined ? { reps: clamp(patch.reps) } : {}),
                           ...(patch.weight !== undefined ? { weight: clampWeight(patch.weight) } : {}),
+                          ...(patch.note !== undefined ? { note: cleanNote(patch.note) } : {}),
                         },
                   ),
                 },
           ),
         })),
-      clearAll: () => set({ days: [], heatScope: ALL_DAYS, planFocus: null }),
+      clearAll: () => set({ days: [], log: {}, heatScope: ALL_DAYS, planFocus: null }),
+
+      setTrackWeek: (week) => set({ trackWeek: week }),
+      markSet: (dayId, exerciseId, index, mark) =>
+        set((s) => ({
+          log: editLog(s.log, s.trackWeek, dayId, (marks) => {
+            const next = [...(marks[exerciseId] ?? [])]
+            while (next.length <= index) next.push(null)
+            next[index] = mark
+            return { ...marks, [exerciseId]: next }
+          }),
+        })),
+      markSets: (dayId, exerciseIds, mark) =>
+        set((s) => {
+          const day = s.days.find((d) => d.id === dayId)
+          if (!day) return {}
+          return {
+            log: editLog(s.log, s.trackWeek, dayId, (marks) => {
+              const next = { ...marks }
+              for (const item of day.items) {
+                if (exerciseIds.includes(item.exerciseId)) next[item.exerciseId] = Array(item.sets).fill(mark)
+              }
+              return next
+            }),
+          }
+        }),
     }),
     {
       name: 'muscle-explorer-plan',
-      version: 7,
-      partialize: (s) => ({ days: s.days, unit: s.unit, defaultSets: s.defaultSets, defaultReps: s.defaultReps }),
+      version: 9,
+      partialize: (s) => ({
+        days: s.days,
+        unit: s.unit,
+        defaultSets: s.defaultSets,
+        defaultReps: s.defaultReps,
+        heatPalette: s.heatPalette,
+        log: s.log,
+      }),
       migrate: (persisted, version) => {
         const old = persisted as
-          | { plan?: PlanItem[]; days?: Day[]; unit?: Unit; defaultSets?: number; defaultReps?: number }
+          | {
+              plan?: PlanItem[]
+              days?: Day[]
+              unit?: Unit
+              defaultSets?: number
+              defaultReps?: number
+              heatPalette?: string
+              log?: Record<string, WeekLog>
+            }
           | undefined
         // v0 stored one flat `plan` array. Keep it by moving it into "Day 1".
         let days: Day[] =
           version < 1 && old?.plan?.length
-            ? [{ id: newId(), title: 'Day 1', items: old.plan, active: true, collapsed: false }]
+            ? [{ id: newId(), title: 'Day 1', items: old.plan, active: true, collapsed: false, note: '' }]
             : (old?.days ?? [])
         // v2 regrouped the muscles and dropped the exercises left without one (neck, tibialis...).
         if (version < 2) {
@@ -440,11 +535,22 @@ export const useStore = create<State>()(
         }
         // v7 added `collapsed`; existing days start open.
         if (version < 7) days = days.map((d) => ({ ...d, collapsed: d.collapsed ?? false }))
+        // v9 added notes on days and exercises, and the tracker log.
+        if (version < 9) {
+          days = days.map((d) => ({
+            ...d,
+            note: d.note ?? '',
+            items: d.items.map((i) => ({ ...i, note: i.note ?? '' })),
+          }))
+        }
         return {
           days,
           unit: old?.unit ?? 'kg',
           defaultSets: old?.defaultSets ?? 4,
           defaultReps: old?.defaultReps ?? 10,
+          // v8 added the heatmap colour scale.
+          heatPalette: old?.heatPalette && old.heatPalette in HEAT_PALETTES ? old.heatPalette : DEFAULT_HEAT_PALETTE,
+          log: old?.log ?? {},
         } as unknown as State
       },
     },

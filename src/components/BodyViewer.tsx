@@ -1,12 +1,13 @@
-import { Suspense, use, useEffect, useMemo, useRef } from 'react'
+import { Suspense, use, useEffect, useMemo, useRef, useState } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import type { ThreeEvent } from '@react-three/fiber'
 import { Bvh, OrbitControls, useCursor, useGLTF, useProgress } from '@react-three/drei'
 import { Box3, Color, MOUSE, SRGBColorSpace, TOUCH, Vector3, Vector4 } from 'three'
 import type * as THREE from 'three'
-import { MUSCLE_IDS, TARGETS, displayTarget, groupOf, isGroup, muscleFromMeshName } from '../data/muscles'
+import { MUSCLE_IDS, TARGETS, displayTarget, groupOf, isGroup, muscleFromMeshName, musclesOf } from '../data/muscles'
 import type { MuscleId, Target } from '../data/muscles'
 import { UNTRAINED, formatSets, heatColor, levelOf } from '../heat'
+import type { HeatPalette } from '../heat'
 import { MAX_CODE, codeOf, getIdMap, makeTagSource, provideTagSource, swatch } from '../idMap'
 import type { IdMap, TagSource } from '../idMap'
 import { attachLasso, texelsInLasso } from '../lasso'
@@ -37,7 +38,7 @@ const isDrag = (e: ThreeEvent<MouseEvent>) => e.delta > 6
  * Material for a muscle. `heat` is null in normal mode (selection colours),
  * otherwise 0 = untrained and 0.08-1 = how hard the plan works the muscle.
  */
-function look(heat: number | null, selected: boolean, hovered: boolean) {
+function look(heat: number | null, selected: boolean, hovered: boolean, palette: HeatPalette) {
   if (heat === null) {
     return {
       color: selected ? '#ffc857' : hovered ? '#ff7a59' : '#b8433f',
@@ -46,7 +47,7 @@ function look(heat: number | null, selected: boolean, hovered: boolean) {
     }
   }
   const lit = heat > 0
-  const base = lit ? heatColor(heat) : UNTRAINED
+  const base = lit ? heatColor(heat, palette) : UNTRAINED
   return {
     color: base,
     emissive: lit ? base : '#8aa0c0',
@@ -136,6 +137,7 @@ function GLBBody() {
   const tagMuscle = useStore((s) => s.tagMuscle)
   const lassoOn = useStore((s) => s.tagging && s.tagTool !== 'fill')
   const heat = useHeat()
+  const palette = useStore((s) => s.heatPalette)
   useCursor(!!hovered || tagging)
 
   const uniforms = useMemo<IdUniforms>(
@@ -167,18 +169,20 @@ function GLBBody() {
       const target = displayTarget(muscle, expanded)
       const level = heatmapOn ? levelOf(heat, target) : null
       const isSelected = selected === target
-      const isHovered = hovered === target
+      // Matched per muscle, not per shown target: the sidebar's chips can hover a part of a merged group or a
+      // group that's split, and that should still light up just those muscles.
+      const isHovered = !!hovered && musclesOf(hovered).includes(muscle)
       if (level === null && !isSelected && !isHovered) {
         tint.set(0, 0, 0, 0)
         glow.setRGB(0, 0, 0)
         return
       }
-      const m = look(level, isSelected, isHovered)
+      const m = look(level, isSelected, isHovered, palette)
       const c = new Color(m.color)
       tint.set(c.r, c.g, c.b, level === null ? 0.65 : 0.85)
       glow.set(m.emissive).multiplyScalar(m.emissiveIntensity)
     })
-  }, [uniforms, tagging, tagMuscle, expanded, heatmapOn, heat, selected, hovered])
+  }, [uniforms, tagging, tagMuscle, expanded, heatmapOn, heat, palette, selected, hovered])
 
   // Tag tool inputs; built on first use in tag mode, not on every load.
   const gl = useThree((s) => s.gl)
@@ -277,7 +281,12 @@ function GLBBody() {
           if (!muscle) return
           // In tag mode right-click is an eyedropper, handy for touching up a muscle.
           if (tagging) useStore.getState().setTagMuscle(muscle)
-          else drillDown(muscle)
+          else {
+            drillDown(muscle)
+            // The pointer is still on it, so hover what it shows as now (part or regrouped group).
+            // Done here, not in drillDown, which the sidebar's part chips also call.
+            hover(displayTarget(muscle, useStore.getState().expanded))
+          }
         }}
       />
     </Bvh>
@@ -370,6 +379,8 @@ function CursorLabel() {
   const label = useMuscleLabel(hovered)
   const tagging = useStore((s) => s.tagging)
   const heatOn = useStore(showsHeat)
+  // Only while the pointer is over the model: the sidebar can set `hovered` too (chips preview on the model).
+  const [inside, setInside] = useState(false)
   // No drill-down while heat is showing: it always shows parts.
   const hint = tagging ? (hovered ? 'Right-click to pick' : null) : heatOn ? null : drillHint(hovered)
 
@@ -381,12 +392,20 @@ function CursorLabel() {
       const r = viewer.getBoundingClientRect()
       el.style.transform = `translate(${e.clientX - r.left + 14}px, ${e.clientY - r.top + 18}px)`
     }
+    const enter = () => setInside(true)
+    const leave = () => setInside(false)
     viewer.addEventListener('pointermove', move)
-    return () => viewer.removeEventListener('pointermove', move)
+    viewer.addEventListener('pointerenter', enter)
+    viewer.addEventListener('pointerleave', leave)
+    return () => {
+      viewer.removeEventListener('pointermove', move)
+      viewer.removeEventListener('pointerenter', enter)
+      viewer.removeEventListener('pointerleave', leave)
+    }
   }, [])
 
   return (
-    <div ref={ref} className={`cursor-label ${label ? 'on' : ''}`} aria-hidden>
+    <div ref={ref} className={`cursor-label ${label && inside ? 'on' : ''}`} aria-hidden>
       {label}
       {hint && <small>{hint}</small>}
     </div>

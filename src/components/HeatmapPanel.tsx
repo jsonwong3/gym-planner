@@ -3,9 +3,9 @@ import { EXERCISES_BY_ID } from '../data/exercises'
 import { TARGETS, visibleTargets } from '../data/muscles'
 import {
   ALL_DAYS,
-  HEAT_GRADIENT_CSS,
   formatSets,
   heatColor,
+  heatGradientCss,
   levelOf,
   rankedMuscles,
   untrainedMuscles,
@@ -21,6 +21,7 @@ export default function HeatmapPanel() {
   const setTab = useStore((s) => s.setTab)
   const expanded = useStore(splitGroups)
   const heat = useHeat()
+  const palette = useStore((s) => s.heatPalette)
 
   // Tapping a muscle on the model should bring its row into view.
   useEffect(() => {
@@ -81,7 +82,7 @@ export default function HeatmapPanel() {
         ) : (
           <>
             <div className="heat-legend">
-              <div className="heat-gradient" style={{ background: HEAT_GRADIENT_CSS }} />
+              <div className="heat-gradient" style={{ background: heatGradientCss(palette) }} />
               <div className="heat-legend-labels">
                 <span>Light</span>
                 <span>{heat.fullAt}+ sets</span>
@@ -107,7 +108,7 @@ export default function HeatmapPanel() {
                       <span className="heat-bar">
                         <span
                           className="heat-fill"
-                          style={{ width: `${Math.max(fill, 0.04) * 100}%`, background: heatColor(levelOf(heat, m)) }}
+                          style={{ width: `${Math.max(fill, 0.04) * 100}%`, background: heatColor(levelOf(heat, m), palette) }}
                         />
                       </span>
                       <span className="heat-val">{formatSets(heat.load[m])}</span>

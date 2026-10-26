@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { EXERCISES_BY_ID } from '../data/exercises'
 import { clamp, isTitleTaken, nextDayTitle, useStore } from '../store'
+import { NoteField } from './NoteField'
 import { Stepper, WeightInput } from './Steppers'
 
 /**
@@ -19,6 +20,7 @@ export default function DayPicker() {
   const [sets, setSets] = useState(defaultSets)
   const [reps, setReps] = useState(defaultReps)
   const [weight, setWeight] = useState<number | null>(null)
+  const [note, setNote] = useState('')
 
   const open = picker !== null
 
@@ -29,6 +31,7 @@ export default function DayPicker() {
     setSets(useStore.getState().defaultSets)
     setReps(useStore.getState().defaultReps)
     setWeight(null)
+    setNote('')
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') close()
     }
@@ -58,6 +61,9 @@ export default function DayPicker() {
           <Stepper label="Reps" value={reps} onChange={(n) => setReps(clamp(n))} />
           <WeightInput kg={weight} onChange={setWeight} live />
         </div>
+        <div className="add-note">
+          <NoteField value={note} onChange={setNote} label="Note" placeholder="Note (optional): cues, setup, tempo..." live />
+        </div>
 
         {days.length > 0 && (
           <ul className="list day-options">
@@ -68,7 +74,7 @@ export default function DayPicker() {
                   <button
                     className="day-option"
                     disabled={has}
-                    onClick={() => addToDay(d.id, exercise.id, { sets, reps, weight })}
+                    onClick={() => addToDay(d.id, exercise.id, { sets, reps, weight, note })}
                   >
                     <span className="day-option-text">
                       <strong>{d.title}</strong>
@@ -88,7 +94,7 @@ export default function DayPicker() {
           className="new-day"
           onSubmit={(e) => {
             e.preventDefault()
-            if (!taken) addToNewDay(exercise.id, title, { sets, reps, weight })
+            if (!taken) addToNewDay(exercise.id, title, { sets, reps, weight, note })
           }}
         >
           <label htmlFor="new-day-title">

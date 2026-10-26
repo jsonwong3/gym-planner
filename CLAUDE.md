@@ -7,20 +7,24 @@ Frontend-only prototype: rotate a 3D body, tap a muscle, browse exercises, build
 ```bash
 npm run dev      # Vite dev server, http://localhost:5173
 npm run build    # tsc --noEmit && vite build — the only correctness check
+npm run desktop:dev / desktop / desktop:dist   # Electron (electron/main.js); installers go to release/
+npm run android:sync / android:open / android  # Capacitor (capacitor.config.ts, android/)
 ```
+
+Desktop and Android wrap the same `dist/`; keep app code platform-neutral (see README "Desktop and Android").
 
 There are no tests, linter or formatter. Verify changes with `npm run build`.
 
 ## Stack
 
-Vite + React 19 + TypeScript (strict), three.js via `@react-three/fiber` + `drei`, Zustand (`persist` to `localStorage`). Plain CSS in `src/styles.css`, no UI library. No backend; exercises come from `muscle_list.csv` (repo root), imported with `?raw` and parsed in `src/data/exercises.ts`.
+Vite + React 19 + TypeScript (strict), three.js via `@react-three/fiber` + `drei`, Zustand (`persist` to `localStorage`). Plain CSS in `src/styles.css`, no UI library. No backend; exercises come from `src/data/muscle_list.csv`, imported with `?raw` and parsed in `src/data/exercises.ts`.
 
 ## Architecture rules
 
 - **`src/heat.ts` stays pure**: no React, no store access. Components get heat through `useHeat()`.
-- **All app state lives in `src/store.ts`**. Only `days`, `unit`, `defaultSets` and `defaultReps` are persisted (`partialize`). If you change the shape of `Day` / `PlanItem` or add a persisted setting, bump `version` and extend `migrate` so existing users' plans survive.
+- **All app state lives in `src/store.ts`**. Only `days`, `unit`, `defaultSets`, `defaultReps`, `heatPalette` and the tracker `log` are persisted (`partialize`). If you change the shape of `Day` / `PlanItem` or add a persisted setting, bump `version` and extend `migrate` so existing users' plans survive.
 - **Weights are stored in kg** (`PlanItem.weight`, null = unset) and converted only for display/input via `src/units.ts`, so switching unit never changes stored values.
-- **`muscle_list.csv` is the source of truth for exercises.** Muscles and `target_group` are written as labels or ids (case, punctuation and a trailing "s" ignored). Each row's weights are shares of the work: each in (0, 1], adding up to 1. A bad row throws at load; rows with no name or no `target_part` are skipped as unfinished.
+- **`src/data/muscle_list.csv` is the source of truth for exercises.** Muscles and `target_group` are written as labels or ids (case, punctuation and a trailing "s" ignored). Each row's weights are shares of the work: each in (0, 1], adding up to 1. A bad row throws at load; rows with no name or no `target_part` are skipped as unfinished.
 - **An exercise is listed only under its `target_group`** (and, after drilling in, under the parts of that group it works), even if it works other muscles. The heatmap still counts every muscle it works.
 - **Exercise ids are the CSV's `exercise_id`.** Names can change freely; never renumber or reuse an id, or saved plans point at the wrong exercise (`computeHeat` silently skips unknown ids).
 - **Mesh name → muscle** goes only through `muscleFromMeshName()` (`<muscle_id>_L|_R|_C`). Left/right meshes share one muscle id.
